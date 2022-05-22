@@ -1,0 +1,47 @@
+% Settup Document
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\geometry{a4paper, total={170mm,257mm}, left=20mm, right=20mm, top=20mm}
+
+% Package Import
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+% Custom Commands
+\newcommand{\bk}{\vspace{0.2cm}}
+
+\title{Computer Science NEA}
+\author{Rubens Pirie}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+
+\fancyfoot[L]{Name: Rubens Pirie}
+\fancyfoot[R]{Page: \thepage}
+
+\newcounter{magicrownumbers}
+
+\begin{document}
+    % Title goes here using inbuild one atm
+    
+    \begin{titlepage}
+        \begin{center}
+            \huge \textbf{Algorithmic Map Recognition and Edge Detection with Point to Point Pathfinding}
+        \end{center}
+    \end{titlepage}
+
+    
+    \setcounter{tocdepth}{5}
+    \tableofcontents
+
+    \include{pages/analysis.tex}
+    \include{pages/design.tex}
+    \include{pages/testing.tex}
+    \include{pages/solution.tex.tex}
+    \include{pages/evaluation.tex}
+
+\end{document}
