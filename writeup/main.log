@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.19)  22 MAY 2022 20:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.19)  22 MAY 2022 21:17
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -262,13 +262,13 @@ No file pages/solution.tex.tex.
 Here is how much of TeX's memory you used:
  4626 strings out of 478614
  84282 string characters out of 2843122
- 473132 words of memory out of 3000000
+ 474132 words of memory out of 3000000
  22725 multiletter control sequences out of 15000+600000
  474160 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,11n,79p,263b,498s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 72i,11n,79p,283b,498s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0700.pk><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on main.pdf (4 pages, 1789391 bytes).
+Output written on main.pdf (4 pages, 1792152 bytes).
 PDF statistics:
  50 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
