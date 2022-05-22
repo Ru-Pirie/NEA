@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.19)  22 MAY 2022 21:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.19)  22 MAY 2022 21:23
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -141,20 +141,20 @@ Package caption Info: Standard document class detected.
  (main.aux (pages/analysis.aux) (pages/design.aux) (pages/testing.aux) (pages/solution.tex.aux) (pages/evaluation.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -248,29 +248,44 @@ Package pdftex.def Info: images/labeledMap.png  used on input line 17.
  <./images/unlabeledMap.png> <./images/labeledMap.png>]) [3]
 \openout2 = `pages/design.aux'.
 
- (pages/design.tex)
+ (pages/design.tex) [4
+
+
+
+]
 \openout2 = `pages/testing.aux'.
 
- (pages/testing.tex)
+ (pages/testing.tex) [5
+
+
+
+]
 \openout2 = `pages/solution.tex.aux'.
 
 
 No file pages/solution.tex.tex.
 \openout2 = `pages/evaluation.aux'.
 
-(pages/evaluation.tex) (main.aux (pages/analysis.aux) (pages/design.aux) (pages/testing.aux) (pages/solution.tex.aux) (pages/evaluation.aux)) ) 
+(pages/evaluation.tex) [6
+
+
+
+
+
+
+] (main.aux (pages/analysis.aux) (pages/design.aux) (pages/testing.aux) (pages/solution.tex.aux) (pages/evaluation.aux)) ) 
 Here is how much of TeX's memory you used:
  4626 strings out of 478614
  84282 string characters out of 2843122
- 474132 words of memory out of 3000000
+ 474211 words of memory out of 3000000
  22725 multiletter control sequences out of 15000+600000
  474160 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,11n,79p,283b,498s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0700.pk><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on main.pdf (4 pages, 1792152 bytes).
+Output written on main.pdf (7 pages, 1797359 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
+ 61 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
