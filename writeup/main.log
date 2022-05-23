@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.19)  22 MAY 2022 21:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.19)  23 MAY 2022 21:31
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -136,25 +136,36 @@ Package caption Info: Standard document class detected.
 \c@lotdepth=\count274
 \sf@top=\skip61
 \sf@bottom=\skip62
+) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2021/07/05 v2.14 Sectioning titles
+\ttl@box=\box51
+\beforetitleunit=\skip63
+\aftertitleunit=\skip64
+\ttl@plus=\dimen158
+\ttl@minus=\dimen159
+\ttl@toksa=\toks18
+\titlewidth=\dimen160
+\titlewidthlast=\dimen161
+\titlewidthfirst=\dimen162
 )
 \c@magicrownumbers=\count275
  (main.aux (pages/analysis.aux) (pages/design.aux) (pages/testing.aux) (pages/solution.tex.aux) (pages/evaluation.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -193,16 +204,16 @@ LaTeX Font Info:    ... okay on input line 33.
 (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count276
-\scratchdimen=\dimen158
-\scratchbox=\box51
+\scratchdimen=\dimen163
+\scratchbox=\box52
 \nofMPsegments=\count277
 \nofMParguments=\count278
-\everyMPshowfont=\toks18
+\everyMPshowfont=\toks19
 \MPscratchCnt=\count279
-\MPscratchDim=\dimen159
+\MPscratchDim=\dimen164
 \MPnumerator=\count280
 \makeMPintoPDFobject=\count281
-\everyMPtoPDFconversion=\toks19
+\everyMPtoPDFconversion=\toks20
 ) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -214,7 +225,16 @@ Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
  [1
 
-{C:/Users/ruben/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (main.toc
+{C:/Users/ruben/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 72.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 72.
+
+(main.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -223,39 +243,86 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
- [1]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.0pt}.
+
+[1]
 \openout2 = `pages/analysis.aux'.
 
  (pages/analysis.tex
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <13> not available
+(Font)              size <12> substituted on input line 3.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <13> not available
+(Font)              size <12> substituted on input line 3.
+
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 6.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 6.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 6.
-<images/unlabeledMap.png, id=11, 489.32813pt x 489.32813pt>
+<images/unlabeledMap.png, id=13, 489.32813pt x 489.32813pt>
 File: images/unlabeledMap.png Graphic file (type png)
 <use images/unlabeledMap.png>
 Package pdftex.def Info: images/unlabeledMap.png  used on input line 15.
 (pdftex.def)             Requested size: 170.71652pt x 170.71487pt.
-<images/labeledMap.png, id=13, 489.32813pt x 489.32813pt>
+<images/labeledMap.png, id=15, 489.32813pt x 489.32813pt>
 File: images/labeledMap.png Graphic file (type png)
 <use images/labeledMap.png>
 Package pdftex.def Info: images/labeledMap.png  used on input line 17.
 (pdftex.def)             Requested size: 170.71652pt x 170.71487pt.
- [2
 
- <./images/unlabeledMap.png> <./images/labeledMap.png>]) [3]
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.0pt}.
+
+[2
+
+ <./images/unlabeledMap.png> <./images/labeledMap.png>])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.0pt}.
+
+[3]
 \openout2 = `pages/design.aux'.
 
- (pages/design.tex) [4
+ (pages/design.tex)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.0pt}.
+
+[4
 
 
 
 ]
 \openout2 = `pages/testing.aux'.
 
- (pages/testing.tex) [5
+ (pages/testing.tex)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.0pt}.
+
+[5
 
 
 
@@ -266,26 +333,39 @@ Package pdftex.def Info: images/labeledMap.png  used on input line 17.
 No file pages/solution.tex.tex.
 \openout2 = `pages/evaluation.aux'.
 
-(pages/evaluation.tex) [6
+(pages/evaluation.tex)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.0pt}.
+
+[6
 
 
 
 
 
 
-] (main.aux (pages/analysis.aux) (pages/design.aux) (pages/testing.aux) (pages/solution.tex.aux) (pages/evaluation.aux)) ) 
+] (main.aux (pages/analysis.aux) (pages/design.aux) (pages/testing.aux) (pages/solution.tex.aux) (pages/evaluation.aux))
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 1.28pt have occurred.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4626 strings out of 478614
- 84282 string characters out of 2843122
- 474211 words of memory out of 3000000
- 22725 multiletter control sequences out of 15000+600000
- 474160 words of font info for 44 fonts, out of 8000000 for 9000
+ 4942 strings out of 478614
+ 88661 string characters out of 2843122
+ 480536 words of memory out of 3000000
+ 23033 multiletter control sequences out of 15000+600000
+ 475653 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,11n,79p,283b,498s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0700.pk><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on main.pdf (7 pages, 1797359 bytes).
+ 72i,12n,79p,285b,519s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0700.pk><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
+Output written on main.pdf (7 pages, 1814797 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
+ 66 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

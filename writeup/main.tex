@@ -9,6 +9,7 @@
 \usepackage{lipsum}
 \usepackage{graphicx}
 \usepackage{subfig}
+\usepackage{titlesec}
 
 % Custom Commands
 \newcommand{\bk}{\vspace{0.2cm}}
@@ -18,6 +19,7 @@
 \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
 \renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
 
+
 \title{Computer Science NEA}
 \author{Rubens Pirie}
 
@@ -25,28 +27,58 @@
 \fancyhead{}
 \fancyfoot{}
 
-\fancyfoot[L]{Name: Rubens Pirie}
-\fancyfoot[R]{Page: \thepage}
+\fancyhead[L]{Rubens Pirie - Computer Science NEA}
+\fancyhead[R]{\large \rightmark}
+
+\fancyfoot[L]{Candidate Number: \textbf{1749}\\Center Number: \textbf{58231}}
+\fancyfoot[R]{\large Page: \thepage}
+
+% Fix broken title formatting
+\titleformat{\section}{\normalfont\fontsize{16}{17}\sffamily\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\fontsize{13}{17}\sffamily\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\fontsize{11}{14}\sffamily\bfseries}{\thesubsubsection}{1em}{}
 
 \newcounter{magicrownumbers}
 
 \begin{document}
-    % Title goes here using inbuild one atm
-    
+   
     \begin{titlepage}
         \begin{center}
-            \huge \textbf{Algorithmic Map Recognition and Edge Detection with Point to Point Pathfinding}
+            \vspace*{3cm}
+            {\Huge \textbf{Algorithmic Map Recognition and Edge Detection with Point to Point Pathfinding}} \\
+            \vspace{1cm}
+            {\Large Computer Science NEA}
+            
+            \vfill
+            
+            \large
+            \textbf{Name: Rubens Pirie} \\
+
+            \bk
+            
+            \textbf{Candidate Number: 1749} \\
+            \textbf{Centre Number: 58231} \\
+
+            \bk
+            \textbf{Centre Name: Barton Peveril Sixth Form College} \\ 
+
+            \pagebreak
         \end{center}
     \end{titlepage}
 
     
     \setcounter{tocdepth}{5}
+    
     \tableofcontents
 
     \include{pages/analysis.tex}
+
     \include{pages/design.tex}
+
     \include{pages/testing.tex}
+
     \include{pages/solution.tex.tex}
+
     \include{pages/evaluation.tex}
 
 \end{document}
