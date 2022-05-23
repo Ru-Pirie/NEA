@@ -1,6 +1,9 @@
 const { google } = require("googleapis");
+const fetch = require('node-fetch');
 
 async function main() {
+    const res = await fetch('https://api.github.com/repos/ru-pirie/NEA/git/refs/heads/main')
+
     const auth = new google.auth.GoogleAuth({
         //the key file
         keyFile: "creds.json", 
@@ -34,7 +37,7 @@ async function main() {
     })
 }
 
-// https://api.github.com/repos/ru-pirie/NEA/git/refs/heads/main
+// 
 //
 
 
