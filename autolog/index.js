@@ -3,14 +3,7 @@ const fetch = require('node-fetch');
 const fs = require('fs');
 
 async function main() {
-    const res = await fetch('https://api.github.com/repos/ru-pirie/NEA/git/refs/heads/main')
-    const data = await res.json();
-    const lastCommitURL = data.object.url;
 
-    const commitRes = await fetch(`${lastCommitURL}`)
-    const commitData = await commitRes.json();
-    const lastCommitMSG = commitData.message
-    const lastCommitTime = new Date(commitData.committer.date).toLocaleString();
   
     const auth = new google.auth.GoogleAuth({
         //the key file
@@ -24,25 +17,8 @@ async function main() {
     const sheetID = '1M0x6IfIWKX9heKnwUo0QLy9aNsVWG9BsSVViUWelrtU';
     const googleSheetsInstance = google.sheets({ version: "v4", auth: authClientObject });
 
-    await googleSheetsInstance.spreadsheets.values.update({
-        auth: authClientObject,
-        spreadsheetId: sheetID,
-        range: "NEA!C4",
-        valueInputOption: "USER_ENTERED",
-        resource: {
-            values: [[lastCommitTime]]
-        },
-    })
-      await googleSheetsInstance.spreadsheets.values.update({
-        auth: authClientObject,
-        spreadsheetId: sheetID,
-        range: "NEA!C5",
-        valueInputOption: "USER_ENTERED",
-        resource: {
-            values: [[`${lastCommitMSG} (${commitData.sha.substring(0, 7)})`]]
-        },
-    })
-
+    updateTitleBit(googleSheetsInstance, authClientObject, sheetID)       
+    
     addCommit(googleSheetsInstance, authClientObject, sheetID, JSON.parse(fs.readFileSync('dummyPayload.json', 'UTF-8')), true)
   
     const express = require('express')
@@ -63,6 +39,36 @@ async function main() {
     })
 
     
+}
+
+async function updateTitleBit(googleSheetsInstance, authClientObject, sheetID) {
+    const res = await fetch('https://api.github.com/repos/ru-pirie/NEA/git/refs/heads/main')
+    const data = await res.json();
+    const lastCommitURL = data.object.url;
+
+    const commitRes = await fetch(`${lastCommitURL}`)
+    const commitData = await commitRes.json();
+    const lastCommitMSG = commitData.message
+    const lastCommitTime = new Date(commitData.committer.date).toLocaleString();
+    
+    await googleSheetsInstance.spreadsheets.values.update({
+        auth: authClientObject,
+        spreadsheetId: sheetID,
+        range: "NEA!C4",
+        valueInputOption: "USER_ENTERED",
+        resource: {
+            values: [[lastCommitTime]]
+        },
+    })
+      await googleSheetsInstance.spreadsheets.values.update({
+        auth: authClientObject,
+        spreadsheetId: sheetID,
+        range: "NEA!C5",
+        valueInputOption: "USER_ENTERED",
+        resource: {
+            values: [[`${lastCommitMSG} (${commitData.sha.substring(0, 7)})`]]
+        },
+    })
 }
 
 async function addCommit(instance, auth, id, payload, val) {
