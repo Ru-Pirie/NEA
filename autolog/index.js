@@ -3,8 +3,6 @@ const fetch = require('node-fetch');
 const fs = require('fs');
 
 async function main() {
-
-  
     const auth = new google.auth.GoogleAuth({
         //the key file
         keyFile: "creds.json", 
@@ -18,7 +16,6 @@ async function main() {
     const googleSheetsInstance = google.sheets({ version: "v4", auth: authClientObject });
 
     updateTitleBit(googleSheetsInstance, authClientObject, sheetID)       
-    
     addCommit(googleSheetsInstance, authClientObject, sheetID, JSON.parse(fs.readFileSync('dummyPayload.json', 'UTF-8')), true)
   
     const express = require('express')
@@ -26,11 +23,10 @@ async function main() {
     const port = 80
 
     const bodyParser = require('body-parser')
-
     app.use(bodyParser.json())
 
-  
     app.post('/2f6c30ed-b48d-4f87-a263-8864fea42289', (req, res) => {
+      updateTitleBit(googleSheetsInstance, authClientObject, sheetID)    
       addCommit(googleSheetsInstance, authClientObject, sheetID, req.body)
     })
     
@@ -85,7 +81,7 @@ async function addCommit(instance, auth, id, payload, val) {
               val ? new Date().toLocaleString() : new Date(commit.timestamp).toLocaleString(),
               `${commit.committer.name} (${commit.committer.email})`,
               val ? `https://github.com/Ru-Pirie/NEA` : `https://github.com/Ru-Pirie/NEA/commit/${commit.id.substring(0, 7)}`,
-              commit.message,
+              val ? "" : commit.message,
               commit.added.length !== 0 ? commit.added.join('\n') : "None",
               commit.removed.length !== 0 ? commit.removed.join('\n') : "None",
               commit.modified.length !== 0 ? commit.modified.join('\n') : "None",
