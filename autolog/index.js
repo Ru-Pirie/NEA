@@ -25,9 +25,10 @@ async function main() {
     const bodyParser = require('body-parser')
     app.use(bodyParser.json())
 
-    app.post('/REDACTED', (req, res) => {
+    app.post(CHANGEME, (req, res) => {
       updateTitleBit(googleSheetsInstance, authClientObject, sheetID)    
       addCommit(googleSheetsInstance, authClientObject, sheetID, req.body)
+      console.log("RECIEVED")
     })
     
     app.listen(port, () => {
