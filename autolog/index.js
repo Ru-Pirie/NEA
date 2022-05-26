@@ -29,6 +29,8 @@ async function main() {
       updateTitleBit(googleSheetsInstance, authClientObject, sheetID)    
       addCommit(googleSheetsInstance, authClientObject, sheetID, req.body)
       console.log("RECIEVED")
+
+      res.status(202).end()
     })
     
     app.get('/', async (req, res) => {
