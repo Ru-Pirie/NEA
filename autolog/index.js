@@ -21,7 +21,6 @@ async function main() {
   
     const express = require('express')
     const app = express()
-    const port = 80
 
     const bodyParser = require('body-parser')
     app.use(bodyParser.json())
@@ -72,8 +71,8 @@ async function main() {
 
     app.all('*', (req, res) => { res.redirect("https://github.com/ru-pirie/NEA") })
 
-    app.listen(port, () => {
-      console.log(`READY: ${port}`)
+    app.listen(process.env.PORT, () => {
+      console.log(`READY: ${process.env.PORT}`)
     })
 
     
