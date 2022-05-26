@@ -1,6 +1,7 @@
 const { google } = require("googleapis");
 const fetch = require('node-fetch');
 const fs = require('fs');
+require('dotenv').config();
 
 async function main() {
     const auth = new google.auth.GoogleAuth({
@@ -25,12 +26,52 @@ async function main() {
     const bodyParser = require('body-parser')
     app.use(bodyParser.json())
 
-    app.post(CHANGEME, (req, res) => {
+    app.post(`/${process.env.SPECIAL_URL}`, (req, res) => {
       updateTitleBit(googleSheetsInstance, authClientObject, sheetID)    
       addCommit(googleSheetsInstance, authClientObject, sheetID, req.body)
       console.log("RECIEVED")
     })
     
+    app.get('/', async (req, res) => {
+        const rawText = fs.readFileSync('./page.html', 'utf-8')
+        const commitRes=  await fetch('https://api.github.com/repos/Ru-Pirie/NEA/commits', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`
+            }
+        })
+        let data = await commitRes.json()
+        data = data.slice(0, 5);
+
+        const progress = await fetch('https://raw.githubusercontent.com/Ru-Pirie/NEA/main/progress.json', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`
+            }
+        })
+        let progressData = await progress.json()
+        
+        console.log(progressData)
+
+        let text = rawText.replace('{{PERCENTAGE_WRITEUP}}', progressData.writeup).replace('{{PERCENTAGE_WRITEUP}}', progressData.writeup)
+        text = text.replace('{{PERCENTAGE_PROTOTYPE}}', progressData.prototype).replace('{{PERCENTAGE_PROTOTYPE}}', progressData.prototype)
+        text = text.replace('{{PERCENTAGE_FINAL}}', progressData.final).replace('{{PERCENTAGE_FINAL}}', progressData.final)
+
+        const total = (parseFloat(progressData.writeup) + parseFloat(progressData.prototype) + parseFloat(progressData.final)) / 3
+
+        text = text.replace('{{PERCENTAGE_OVERALL}}', `${total}%` ).replace('{{PERCENTAGE_OVERALL}}', `${Math.round(total)}%` )
+
+        text = text.replace('{{COMMIT_DATE_A}}',  new Date(data[0].commit.committer.date).toLocaleString()).replace('{{COMMIT_ID_A}}', data[0].sha.substring(0, 7)).replace('{{COMMIT_TEXT_A}}', `${data[0].commit.message}<br><br><a href="${data[0].html_url}">${data[0].html_url}</a>`)
+        text = text.replace('{{COMMIT_DATE_B}}', new Date(data[1].commit.committer.date).toLocaleString()).replace('{{COMMIT_ID_B}}', data[1].sha.substring(0, 7)).replace('{{COMMIT_TEXT_B}}', `${data[1].commit.message}<br><br><a href="${data[1].html_url}">${data[1].html_url}</a>`)
+        text = text.replace('{{COMMIT_DATE_C}}', new Date(data[2].commit.committer.date).toLocaleString()).replace('{{COMMIT_ID_C}}', data[2].sha.substring(0, 7)).replace('{{COMMIT_TEXT_C}}', `${data[2].commit.message}<br><br><a href="${data[2].html_url}">${data[2].html_url}</a>`)
+        text = text.replace('{{COMMIT_DATE_D}}', new Date(data[3].commit.committer.date).toLocaleString()).replace('{{COMMIT_ID_D}}', data[3].sha.substring(0, 7)).replace('{{COMMIT_TEXT_D}}', `${data[3].commit.message}<br><br><a href="${data[3].html_url}">${data[3].html_url}</a>`)
+        text = text.replace('{{COMMIT_DATE_E}}', new Date(data[4].commit.committer.date).toLocaleString()).replace('{{COMMIT_ID_E}}', data[4].sha.substring(0, 7)).replace('{{COMMIT_TEXT_E}}', `${data[4].commit.message}<br><br><a href="${data[4].html_url}">${data[4].html_url}</a>`)
+
+        res.end(text);
+    })
+
+    app.all('*', (req, res) => { res.redirect("https://github.com/ru-pirie/NEA") })
+
     app.listen(port, () => {
       console.log(`READY: ${port}`)
     })
@@ -39,11 +80,23 @@ async function main() {
 }
 
 async function updateTitleBit(googleSheetsInstance, authClientObject, sheetID) {
-    const res = await fetch('https://api.github.com/repos/ru-pirie/NEA/git/refs/heads/main')
+    const res = await fetch('https://api.github.com/repos/ru-pirie/NEA/git/refs/heads/main', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`
+        }
+    })
     const data = await res.json();
+
+    if (data.message) return console.log('rate limited');
     const lastCommitURL = data.object.url;
 
-    const commitRes = await fetch(`${lastCommitURL}`)
+    const commitRes = await fetch(`${lastCommitURL}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`
+        }
+    })
     const commitData = await commitRes.json();
     const lastCommitMSG = commitData.message
     const lastCommitTime = new Date(commitData.committer.date).toLocaleString();

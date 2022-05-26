@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rubens Pirie NEA Tracker</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+a:link, a:visited,a:hover, a:active {
+  text-decoration: none;
+}
+
+a:hover {
+	font-weight: bold;
+}
+</style>
+</head>
+<body class="w3-dark-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+      <div class="w3-black w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <img src="https://www.news247.gr/img/2317/9471271/789000/o/0/0/istock-629391430.jpg" style="width:100%" alt="Avatar">
+          <div class="w3-display-bottomleft w3-container w3-large w3-text-white">
+            <h2>Computer Science NEA</h2>
+          </div>
+        </div>
+        <div class="w3-container">
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i><a class="w3-text-white" href="https://nea.ru-pirie.com">Home Page</a></p>
+          <p><i class="fab fa-github fa-fw w3-margin-right w3-large w3-text-teal"></i><a href="https://github.com/Ru-Pirie/NEA" class="w3-text-white">Github Link</a></p>
+          <p><i class="fa fa-book fa-fw w3-margin-right w3-large w3-text-teal"></i><a href="https://github.com/Ru-Pirie/NEA/blob/main/writeup/main.pdf" class="w3-text-white">Writeup PDF</a></p>
+	      <!-- <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>1224435534</p> -->
+          <hr>
+
+          <p class="w3-large w3-text-white"><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Progress</p>
+          <p class="w3-text-white">Overall</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-red w3-text-black" style="width:{{PERCENTAGE_OVERALL}}"><b>{{PERCENTAGE_OVERALL}}</b></div>
+          </div>
+          <p class="w3-text-white">Writeup</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-green" style="width:{{PERCENTAGE_WRITEUP}}">
+              <div class="w3-center w3-text-black"><b>{{PERCENTAGE_WRITEUP}}</b></div>
+            </div>
+          </div>
+          <p class="w3-text-white">Prototype</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-blue w3-text-black" style="width:{{PERCENTAGE_PROTOTYPE}}"><b>{{PERCENTAGE_PROTOTYPE}}</b></div>
+          </div>
+          <p class="w3-text-white">Final Code</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-yellow w3-text-black" style="width:{{PERCENTAGE_FINAL}}"><b>{{PERCENTAGE_FINAL}}</b></div>
+          </div>
+          <br>
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+    
+      <div class="w3-container w3-card w3-black w3-margin-bottom">
+        <h2 class="w3-text-white w3-padding-16"><i class="fas fa-poll fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Commit History</h2>
+        <div class="w3-container ">
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{COMMIT_DATE_A}} - <span class="w3-tag w3-teal w3-round">{{COMMIT_ID_A}}</span></h6>
+          <p>{{COMMIT_TEXT_A}}</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{COMMIT_DATE_B}} - <span class="w3-tag w3-teal w3-round">{{COMMIT_ID_B}}</span></h6>
+          <p>{{COMMIT_TEXT_B}}</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{COMMIT_DATE_C}} - <span class="w3-tag w3-teal w3-round">{{COMMIT_ID_C}}</span></h6>
+          <p>{{COMMIT_TEXT_C}}</p>
+          <hr>
+        </div>
+                <div class="w3-container">
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{COMMIT_DATE_D}} - <span class="w3-tag w3-teal w3-round">{{COMMIT_ID_D}}</span></h6>
+          <p>{{COMMIT_TEXT_D}}</p>
+          <hr>
+        </div>
+                <div class="w3-container">
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{COMMIT_DATE_E}} - <span class="w3-tag w3-teal w3-round">{{COMMIT_ID_E}}</span></h6>
+          <p>{{COMMIT_TEXT_E}}</p>
+        </div>
+      </div>
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+
+<footer class="w3-container w3-teal w3-center w3-margin-top w3-black">
+  <p>I 100% stole this template from w3 schools. I'm not the best at making stuff pretty. This is just a quick page to track stuff. Enjoy.</p>
+  <p>Main Website: <a style="text-decoration: underline"href="https://www.ru-pirie.com.com/" target="_blank">ru-pirie.com</a></p>
+  <p>Powered by <a style="text-decoration: underline" href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+</body>
+</html>
