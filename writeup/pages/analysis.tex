@@ -84,35 +84,55 @@
             \end{enumerate}
             
             \subsubsection{Evaluation of First Interview}
-            \lipsum[2]
 
         \bk
 
         \subsection{Initial Research} 
             \subsubsection{Existing Solutions}
-            \lipsum[2]
 
             \subsubsection{Possible Algorithmic Solutions}
-            \lipsum[2]
 
             \subsubsection{Key Components Required}
-            \lipsum[2]
 
         \subsection{Further Research}
             \subsubsection{Algorithmic Deep Dive}
-            \lipsum[2]
 
+            \paragraph{Black and White Filter}
+            \mbox{} \\
+            
+            \bk
+            \begin{math}
+                {\beta = 0.299 * \alpha_{b} + 0.587 * \alpha_{g} + 0.114 * \alpha_{b}} \\
+
+                \:
+                
+                \beta = \begin{cases}
+                    255 & \beta > 255 \\
+                    0 & \beta < 0 \\
+                    \beta & \beta \in [0, 255]
+                \end{cases}
+            
+            \end{math}
+            \bk
+
+            \bk
+            \paragraph{Guassian Filter}
+            \mbox{} \\
+            
+            \bk
+            \begin{math}
+                H_{ij} = \frac{1}{2\pi\sigma^{2}} \exp (-\frac{(i - (k + 1))^{2} + (j - (k + 1))^{2}}{2\sigma^{2}});1\leq i, j \leq(2k+1)
+            \end{math}
+            \bk
+            
+            \bk
             \subsubsection{Second Interview}
-            \lipsum[2]
 
             \subsubsection{Evaluation of Second Interview}
-            \lipsum[2]
 
         \subsection{Objectives}
-            \lipsum[2]
 
         \subsection{Modeling}
-            \lipsum[2]
 
         \bk
 

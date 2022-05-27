@@ -3,17 +3,19 @@
 \contentsline {subsection}{\numberline {1.2}Background}{2}{}%
 \contentsline {subsection}{\numberline {1.3}End User}{3}{}%
 \contentsline {subsubsection}{\numberline {1.3.1}First Interview}{3}{}%
-\contentsline {subsubsection}{\numberline {1.3.2}Evaluation of First Interview}{3}{}%
+\contentsline {subsubsection}{\numberline {1.3.2}Evaluation of First Interview}{4}{}%
 \contentsline {subsection}{\numberline {1.4}Initial Research}{4}{}%
 \contentsline {subsubsection}{\numberline {1.4.1}Existing Solutions}{4}{}%
 \contentsline {subsubsection}{\numberline {1.4.2}Possible Algorithmic Solutions}{4}{}%
 \contentsline {subsubsection}{\numberline {1.4.3}Key Components Required}{4}{}%
 \contentsline {subsection}{\numberline {1.5}Further Research}{4}{}%
 \contentsline {subsubsection}{\numberline {1.5.1}Algorithmic Deep Dive}{4}{}%
+\contentsline {paragraph}{Black and White Filter}{4}{}%
+\contentsline {paragraph}{Guassian Filter}{4}{}%
 \contentsline {subsubsection}{\numberline {1.5.2}Second Interview}{4}{}%
 \contentsline {subsubsection}{\numberline {1.5.3}Evaluation of Second Interview}{4}{}%
-\contentsline {subsection}{\numberline {1.6}Objectives}{5}{}%
-\contentsline {subsection}{\numberline {1.7}Modeling}{5}{}%
-\contentsline {section}{\numberline {2}Technical Design}{6}{}%
-\contentsline {section}{\numberline {3}Program Testing}{7}{}%
-\contentsline {section}{\numberline {4}Evaluation}{8}{}%
+\contentsline {subsection}{\numberline {1.6}Objectives}{4}{}%
+\contentsline {subsection}{\numberline {1.7}Modeling}{4}{}%
+\contentsline {section}{\numberline {2}Technical Design}{5}{}%
+\contentsline {section}{\numberline {3}Program Testing}{6}{}%
+\contentsline {section}{\numberline {4}Evaluation}{7}{}%
