@@ -14,9 +14,8 @@ namespace SimpleEdgeDetection
             Bitmap output = BWFilter(input);
             output.Save("images/bw.png");
 
-            
+            Math.Exp(1);
         }
-
 
         static Bitmap BWFilter(Bitmap image)
         {
