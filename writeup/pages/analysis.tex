@@ -1,10 +1,10 @@
 \begin{flushleft}
     \section{Analysis} 
-        \subsection{Statment Of Problem}
+        \subsection{Statement Of Problem}
         \large
         \bk
-        Maps, as you would think of them today, have been arround since 6\textsuperscript{th} century BC and since then have been in constant use by people in their day to day lives. 
-        The more modern version of maps, for example Google maps or Bing maps have only been around since the late 1990's. The problem that I am going to be solving is map pathfinding.
+        Maps, as you would think of them today, have been around since 6\textsuperscript{th} century BC and since then have been in constant use by people in their day to day lives. 
+        The more modern version of maps, for example Google maps or Bing maps have only been around since the late 1990's. The problem that I am going to be solving is map path finding.
         Currently not all roads and paths are logged and entered into a searchable format. The only way some people have to navigate terrain is through the use of old style paper maps.
         The problem with paper maps is that they are not easily, at a glance, used to find a path from point to point. As well as this sometimes are not easy to comprehend just by looking 
         at them with various terrain features. \\
@@ -12,20 +12,20 @@
         \bk
         \begin{figure}[h]
             \centering
-            \subfloat[\centering Map without labeles on roads]{{\includegraphics[width=6cm]{images/unlabeledMap.png}}}
+            \subfloat[\centering Map without labels on roads]{{\includegraphics[width=6cm]{images/unlabeledMap.png}}}
             \qquad
-            \subfloat[\centering Map with labeles on roads]{{\includegraphics[width=6cm]{images/labeledMap.png}}}
-            \caption*{Examples of maps with and without lables taken from Google Maps\textsuperscript{\textcopyright}}
+            \subfloat[\centering Map with labels on roads]{{\includegraphics[width=6cm]{images/labeledMap.png}}}
+            \caption*{Examples of maps with and without labels taken from Google Maps\textsuperscript{\textcopyright}}
         \end{figure}
         \bk
 
         This can cause issues for people who live out in areas which have not been mapped. This is because they cannot create easy to follow routes with the click of a button. Therefor, 
         causing people who live in rural areas to waste time getting used to the routes they have to take to go anywhere. Overall, the problem I am going to be creating a solution for is 
-        how people are unable to easily go from point to point at the click of a button and be easily able to, at a glance, interpret the map without prior expeirence. \\
+        how people are unable to easily go from point to point at the click of a button and be easily able to, at a glance, interpret the map without prior experience. \\
 
         \subsection{Background}
         \bk
-        When people ussualy want to go about planning a journy they will use a service, for example Google Maps to get from one location to another. This usually takes the form of clicking 
+        When people usually want to go about planning a journey they will use a service, for example Google Maps to get from one location to another. This usually takes the form of clicking 
         a location and then selecting an origin. This isn't always possible however, this can be for a multitude of reasons it seems however I will briefly go over some below:\\
         
         \begin{enumerate}
@@ -36,7 +36,7 @@
         \end{enumerate}
 
         \bk
-        Some of these I beleive are out of the scope of this project however once the interview has been conducted with the end user I will have a better idea of the needs that my program needs to forfill.\\
+        Some of these I believe are out of the scope of this project however once the interview has been conducted with the end user I will have a better idea of the needs that my program needs to for-fill.\\
 
         \bk
         Finally, 
@@ -46,26 +46,26 @@
         \subsection{End User}
             \subsubsection{First Interview}
             \large
-            In order to get a better feel for the objectives and functions that my program should complete I inderviewed with an end user, Mrs Mandy T. I believed that she was an apporpriate candidate for this
+            In order to get a better feel for the objectives and functions that my program should complete I interviewed with an end user, Mrs Mandy T. I believed that she was an appropriate candidate for this
             project due to the fact that she has to drive into work every morning. Along her route she has to deal with Google Maps which do not cover all of the roads in her area. Therefor in the following questions
-            I asked her some questions guage her priorities when it comes to web mapping.
+            I asked her some questions gauge her priorities when it comes to web mapping.
             \bk
             \begin{enumerate}
-                \item {\bf{When using web maps (e.g. Google Maps\textsuperscript{\small \textcopyright}) what are the key features you look for?}} \\
+                \item {\bf{When using web maps (e.g. Google Maps\textsuperscript{\tiny\textcopyright}) what are the key features you look for?}} \\
                 \bk
                 "A scale! WHY is it lost so often when Google Maps is embedded?! 
                 Then it depends what type of map I'm looking at... if it's a road map then....roads! Size/type of road is important and things like one-way restrictions. 
                 If it's for e.g. walking...footpaths/bridleways and parking are important. 
                 "
-                \item {\bf{Have you ever expeirenced a faulty or misslabled part of an web map or has said map ever been innacurate?}} \\
+                \item {\bf{Have you ever experienced a faulty or mislabeled part of an web map or has said map ever been inaccurate?}} \\
                 \bk
                 "Yes"
-                \item {\bf{Do you often use web maps in your day to day life?}} \\
+                \item {\bf{Do you often use web maps in your day to day life, if so how?}} \\
                 \bk
-                "Yes"
+                "Yes, \textbf{NEEDS TO BE ADDED TO}"
                 \item {\bf{In your opinion do you feel that web maps are vital to every day life if so why or why not? }} \\
                 \bk
-                "No.  I passed my driving test before we had sat nav or internet, so clearly they're not vital - we survived without them!  
+                "No.  I passed my driving test before we had sat-nav or internet, so clearly they're not vital - we survived without them! \\ 
                 They are quite helpful though as we used to have to buy a new road map every year, whereas web maps can be updated as things change, instead of only annually!"
                 \item {\bf{What makes a good user interface for a web map?}} \\
                 \bk 
@@ -75,29 +75,45 @@
                 "Route functionality on long or unfamiliar journeys. 
                 Using them a lot at the moment as am planning a holiday overseas.  The maps are useful to see whether accommodation and restaurants will be walking distance, 
                 and what options there are in each location etc."
-                \item {\bf{Do you feel a tutorial would be beneficial to aid in the use of the map or should the focus more be spent on intuative ease of use?}} \\
+                \item {\bf{Do you feel a tutorial would be beneficial to aid in the use of the map or should the focus more be spent on intuitive ease of use?}} \\
                 \bk
                 "If they're easy to use, a tutorial would be surplus to requirements, so ease of use is more important. "
                 \item {\bf{Would it be beneficial to store old routes?}} \\
                 \bk
-                "Not really (is this a routing question?). I don't know what purpose that would give, unless I was being accused of something and needed to use the route as evidence of being in a certain location!"
+                "Not really (is this a routing question?). I don't know what purpose that would give, unless I was being accused of something and needed to use the route as evidence of being in a certain location! It could be use full in the context of frequently traveled routes however if this was the case I would know the route by heart anyway."
                 \item {\bf{What forms of transport should the map include?}} \\
                 \bk
                 "(I think this is a routing question not a map question)
                 Walking, bike/horse, car, bus, plane, ferry. 
-                If just a map question, then the map should include footpaths, bridlepaths, roads, ferry routes"
-                \item {\bf{If there was one feature you could have implimented in an existing solution what would it be?}} \\
+                If just a map question, then the map should include footpaths, bridle paths, roads, ferry routes"
+                \item {\bf{If there was one feature you could have implemented in an existing solution what would it be?}} \\
                 \bk
-                "To be able to ask people in that location a question."
+                "To be able to post a question about a specific area and have a person who is local to that area answer it."
             \end{enumerate}
             
             \subsubsection{Evaluation of First Interview}
-
+            Overall I feel that this interview gave me valuable insight into the requirements of my end user. As well as this my end user made it clear to me that there are two overriding parts of this solution. The map recognition aspect of it and the path finding aspect.
         \bk
 
         \subsection{Initial Research} 
             \subsubsection{Existing Solutions}
-
+            \paragraph{Google Maps} \mbox{} \\
+            \bk
+            As aforementioned this is one of the most used forms of interactive web mapping in use at the moment. It has been in use since 8\textsuperscript{th} February 2005. As it exists now it is an interactive world map with routing features built in. It provides detailed information about geographical places and regions around the world. Unlike some of its competitors it also offers aerial and satellite images of places around the world aiding in navigation of terrain. \\
+            \bk
+            As well as its map viewing capabilities it also offers partial route planning and live route tracking for cars, bikes, walkers and public transport. It provides instantaneous and real time feedback while you are moving however the one big caveat to this is the fact that it will require an internet connection to run, something that is not always available. \\
+            \bk
+            
+            
+            \bk 
+            
+            \paragraph{Bing Maps} \mbox{} \\
+            \bk
+            
+            \paragraph{OS Maps} \mbox{} \\
+            \bk
+            
+            
             \subsubsection{Possible Algorithmic Solutions}
 
             \subsubsection{Key Components Required}
@@ -110,7 +126,8 @@
             
             \bk
             \begin{math}
-                {\beta = 0.299 * \alpha_{b} + 0.587 * \alpha_{g} + 0.114 * \alpha_{b}} \\
+            
+                {\beta = 0.299 * \alpha_{b} + 0.587 * \alpha_{g} + 0.114 * \alpha_{b}}
 
                 \:
                 
@@ -124,7 +141,7 @@
             \bk
 
             \bk
-            \paragraph{Guassian Filter}
+            \paragraph{Gaussian Filter}
             \mbox{} \\
             
             \bk
@@ -139,7 +156,56 @@
             \subsubsection{Evaluation of Second Interview}
 
         \subsection{Objectives}
-
+        \large]
+        
+        % Tips for objectives
+        
+        % 1. Use numbered objectives to allow them to be refer ed back to
+        % 2. Don't mention programming techniques
+        % 3. Objectives for the program not the programmer
+        
+        After conducting the initial and second interviews and reflecting upon the results of my research I have formed a list of objectives that the program must meet to be considered complete. As well as the base objectives I have also, with help from my end user, come up with extensions which will increase the effectiveness of my solution overall. \\
+        \bk
+        
+        \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+        \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+        \renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
+        
+        \begin{enumerate}
+            \item The Program must have Map Input in some form
+            \begin{enumerate}
+                \item thing
+            \end{enumerate}
+            
+            \item The Program must allow Map Traversal
+            \begin{enumerate}
+                \item There should be Multiple Traversal Algorithms Available to be chosen from.
+                    \begin{enumerate}
+                        \item The Program should implement Routing Algorithms
+                        \begin{enumerate}
+                            \item This should include
+                            \item This should include
+                        \end{enumerate}
+                        \item The Program should Implement Searching Algorithms
+                        \begin{enumerate}
+                            \item This should include
+                            \item This should include
+                            \item This should include
+                            \item This should include
+                        \end{enumerate}
+                    \end{enumerate}
+            \end{enumerate}
+            
+            \item The Program must have a Clear and Simplistic GUI
+            \begin{enumerate}
+                \item thing
+            \end{enumerate}
+            \bk
+            
+            \\ \textbf{Extension Objectives}
+            
+            
+        \end{enumerate}
         \subsection{Modeling}
 
         \bk
