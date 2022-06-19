@@ -165,33 +165,36 @@
             
             \paragraph{Existing Solutions Conclusion} \mbox{} \\
             In conclusion, I have found that the existing solutions that are available are all very well designed and well implemented. I have found that they are easy to use and rather intuitive
-            however, for the average user who just needs to get from A to B in the most economic way possible they are overly complicated. \\ A good example of this is with bing maps
-
+            however, for the average user who just needs to get from A to B in the most economic way possible they are overly complicated. As well as this I have found that with the exception of OS maps
+            both of the other solutions require an internet connection to get the best use out of their maps, this is something which I believe I should avoid. This will mean that all calcualtions will 
+            have to occure self contained within the program, not allowing the use of external API's
 
             \subsubsection{Possible Algorithmic Solutions}
 
             \subsubsection{Key Components Required}
 
         \subsection{Further Research}
-            \subsubsection{Algorithmic Deep Dive}
+            \subsubsection{Dive into Specific Algorithms}
 
             \paragraph{Black and White Filter}
             \mbox{} \\
             
             \bk
-            \begin{math}
-            
-                {\beta = 0.299 * \alpha_{b} + 0.587 * \alpha_{g} + 0.114 * \alpha_{b}}
-
-                \:
-                
+            $
+                \mathlarger {
+                    \beta = 0.299 * \alpha_{b} + 0.587 * \alpha_{g} + 0.114 * \alpha_{b}
+                }
+            $
+            \bk
+            \\
+            \bk
+            $
                 \beta = \begin{cases}
                     255 & \beta > 255 \\
                     0 & \beta < 0 \\
                     \beta & \beta \in [0, 255]
                 \end{cases}
-            
-            \end{math}
+            $
             \bk
 
             \bk
@@ -199,18 +202,18 @@
             \mbox{} \\
             
             \bk
-            \begin{math}
-                H_{ij} = \frac{1}{2\pi\sigma^{2}} \exp (-\frac{(i - (k + 1))^{2} + (j - (k + 1))^{2}}{2\sigma^{2}});1\leq i, j \leq(2k+1)
-            \end{math}
+            $
+                H_{ij} = \frac{1}{2\pi\sigma^{2}} \exp \bigg(-\frac{(i - (k + 1))^{2} + (j - (k + 1))^{2}}{2\sigma^{2}}\bigg);1\leq i, j \leq(2k+1)
+            $
             \bk
-            
+            \\
             \bk
             \subsubsection{Second Interview}
 
             \subsubsection{Evaluation of Second Interview}
 
         \subsection{Objectives}
-        \large]
+        \large
         
         % Tips for objectives
         
@@ -218,7 +221,8 @@
         % 2. Don't mention programming techniques
         % 3. Objectives for the program not the programmer
         
-        After conducting the initial and second interviews and reflecting upon the results of my research I have formed a list of objectives that the program must meet to be considered complete. As well as the base objectives I have also, with help from my end user, come up with extensions which will increase the effectiveness of my solution overall. \\
+        After conducting the initial and second interviews and reflecting upon the results of my research I have formed a list of objectives that the program must meet to be considered 
+        complete. As well as the base objectives I have also, with help from my end user, come up with extensions which will increase the effectiveness of my solution overall. \\
         \bk
         
         \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
@@ -226,9 +230,12 @@
         \renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
         
         \begin{enumerate}
-            \item The Program must have Map Input in some form
+            \item The Program must have way to input a Map
             \begin{enumerate}
-                \item thing
+                \item The Program should be able to parse a map from a file
+                \begin{enumerate}
+                    \item 
+                \end{enumerate}
             \end{enumerate}
             
             \item The Program must allow Map Traversal
