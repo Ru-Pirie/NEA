@@ -187,6 +187,22 @@
 
         \subsection{Further Research}
             \subsubsection{Dive into Specific Algorithms}
+            After doing some reaserch it seems that there needs to be a set of definitions before I go any further to avoid confussion. This is becasue during my time on wikipedia there are sections
+            where several terms are used interchangable where I feel they are not the same. Each of these definitions are as defined by me and are not neccisarily the official definitions since they 
+            do not explicitly exist. They are as follows: \\ \bk
+            \begin{enumerate}
+                \item Graph Traversal: The act of routing or searching through a graph from one node to another, either using an algorithm or by another means.
+                \item Graph Routing: Graph traversal in a \emph{weighted undirected} graph.
+                \item Graph Searching: Graph traversal in a \emph{unweighted undirected} graph.
+                \item Graph MST: The minimum spanning tree of a graph which must be weighted.
+            \end{enumerate}
+
+            \bk
+
+            The diffence is slight however the key takaway from this is that when I am refering to a Routing algorithm I am referring to one which works on a weighted graph. And vice versa if I am
+            talking about a searching algorithm this is refering to graph traversal on an unweighted graph.
+
+            \bk
 
             \paragraph{Black and White Filter}
             \mbox{} \\
@@ -288,7 +304,8 @@
                     \item How they would like the result of the map
                     \item How harsh they would like the edge detection to be
                     \item The resolution of which to parse the map too
-                    \item \large\bf{EXPAND UPON THIS}
+                    \item Whether they would like to pathfind through the map or form a Graph MST
+                    \item \emph{These are some examples of prompts}
                 \end{enumerate}
                 \item The inputed map should be converted into a graph
                 \item The map (in graph form) should be able to be traversed
@@ -299,9 +316,9 @@
             \begin{enumerate}
                 \item There should be Multiple Traversal Algorithms Available to be chosen from.
                     \begin{enumerate}
-                        \item The Program should implement Routing Algorithms
+                        \item The Program should implement Routing Algorithms 
                         \begin{enumerate}
-                            \item This should include
+                            \item The program should implement dijkstra;s algorithm
                             \item This should include
                         \end{enumerate}
                         \item The Program should Implement Searching Algorithms
