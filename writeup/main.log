@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.19)  19 JUN 2022 20:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.19)  19 JUN 2022 21:08
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -212,8 +212,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 Package: relsize 2013/03/29 ver 4.1
 )
 \c@magicrownumbers=\count288
-
-No file main.aux.
+ (main.aux (pages/analysis.aux) (pages/design.aux) (pages/testing.aux) (pages/solution.tex.aux) (pages/evaluation.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
@@ -230,6 +229,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
 LaTeX Font Info:    ... okay on input line 46.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
 LaTeX Font Info:    ... okay on input line 46.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -298,9 +298,10 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <16> not available
 LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <16> not available
 (Font)              size <17.28> substituted on input line 75.
 
-No file main.toc.
+(main.toc)
 \tf@toc=\write3
 \openout3 = `main.toc'.
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -392,19 +393,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [6 <./images/osMapExample.png>]
 
-pages/analysis.tex:266: LaTeX Error: There's no line here to end.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.0pt}.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.266             \\
-                     \textbf{Extension Objectives}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-)
+[7])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.0pt, for example:
@@ -412,7 +407,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.0pt}.
 
-[7]
+[8]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.0pt}.
+
+[9]
 \openout2 = `pages/design.aux'.
 
  (pages/design.tex)
@@ -423,7 +426,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.0pt}.
 
-[8
+[10
 
 
 
@@ -438,7 +441,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.0pt}.
 
-[9
+[11
 
 
 
@@ -457,7 +460,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.0pt}.
 
-[10
+[12
 
 
 
@@ -471,17 +474,17 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 5786 strings out of 478614
- 100836 string characters out of 2843122
- 493301 words of memory out of 3000000
- 23858 multiletter control sequences out of 15000+600000
+ 5806 strings out of 478614
+ 101263 string characters out of 2843122
+ 498554 words of memory out of 3000000
+ 23864 multiletter control sequences out of 15000+600000
  478919 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,12n,79p,287b,562s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0500.pk> <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx0500.pk> <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0700.pk><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (11 pages, 4181361 bytes).
+Output written on main.pdf (13 pages, 4193291 bytes).
 PDF statistics:
- 124 PDF objects out of 1000 (max. 8388607)
+ 131 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
