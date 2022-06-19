@@ -80,7 +80,8 @@
                 "If they're easy to use, a tutorial would be surplus to requirements, so ease of use is more important. "
                 \item {\bf{Would it be beneficial to store old routes?}} \\
                 \bk
-                "Not really (is this a routing question?). I don't know what purpose that would give, unless I was being accused of something and needed to use the route as evidence of being in a certain location! It could be use full in the context of frequently traveled routes however if this was the case I would know the route by heart anyway."
+                "Not really (is this a routing question?). I don't know what purpose that would give, unless I was being accused of something and needed to use the route as evidence of 
+                being in a certain location! It could be use full in the context of frequently traveled routes however if this was the case I would know the route by heart anyway."
                 \item {\bf{What forms of transport should the map include?}} \\
                 \bk
                 "(I think this is a routing question not a map question)
@@ -92,28 +93,81 @@
             \end{enumerate}
             
             \subsubsection{Evaluation of First Interview}
-            Overall I feel that this interview gave me valuable insight into the requirements of my end user. As well as this my end user made it clear to me that there are two overriding parts of this solution. The map recognition aspect of it and the path finding aspect.
+            Overall I feel that this interview gave me valuable insight into the requirements of my end user. As well as this my end user made it clear to me that there are two overriding 
+            parts of this solution. The map recognition aspect of it and the path finding aspect. Going deeper into the pathfinding part of this project I will need to do reaserch on the 
+            different methods that will be used to achive this and some of the possible data structures I could use. \\
         \bk
 
         \subsection{Initial Research} 
             \subsubsection{Existing Solutions}
+            Below each overview passage I have included an image of each map for comparison of their GUI's. These will be used as inspiration as to how my final solution will look as well 
+            as serving as examples of how the GUI can sometimes become overly complicated. This is especialy the case with Bing Maps as when you innicialy access it you are flooded with 
+            popups and extra options. \\
             \paragraph{Google Maps} \mbox{} \\
             \bk
-            As aforementioned this is one of the most used forms of interactive web mapping in use at the moment. It has been in use since 8\textsuperscript{th} February 2005. As it exists now it is an interactive world map with routing features built in. It provides detailed information about geographical places and regions around the world. Unlike some of its competitors it also offers aerial and satellite images of places around the world aiding in navigation of terrain. \\
-            \bk
-            As well as its map viewing capabilities it also offers partial route planning and live route tracking for cars, bikes, walkers and public transport. It provides instantaneous and real time feedback while you are moving however the one big caveat to this is the fact that it will require an internet connection to run, something that is not always available. \\
+            
+            As aforementioned this is one of the most used forms of interactive web mapping in use at the moment. It has been in use since 8\textsuperscript{th} February 2005. As it exists
+            now it is an interactive world map with routing features built in. It provides detailed information about geographical places and regions around the world. Unlike some of its
+            competitors it also offers aerial and satellite images of places around the world aiding in navigation of terrain. \\
+            
             \bk
             
+            As well as its map viewing capabilities it also offers partial route planning and live route tracking for cars, bikes, walkers and public transport. It provides instantaneous and
+            real time feedback while you are moving however the one big caveat to this is the fact that it will require an internet connection to run, something that is not always available. \\
+            \bk
             
+            \begin{figure}[H]
+                \centering
+                \subfloat[\centering Example of Google Maps' GUI]{{\includegraphics[width=10cm]{images/googleMapExample.png}}}
+                \caption*{Sourced from Google Maps\textsuperscript{\tiny\textcopyright}}
+            \end{figure}
+
             \bk 
             
             \paragraph{Bing Maps} \mbox{} \\
+            This is another form of interactive web mapping. This is a more plain version of Google Maps at first glace. This is due to the fact that it does not have as many features as Google Maps.
+            This does have its advantages due to the UI seeming less cluttered and more accessible. Similar to the Google Maps it also offers route planning and map traversal as well as live traffic updating.
+            Bing maps unlike Gooogle Maps boasts a more open API and easier programatic interface for developers to be able to interface with their program. \\
+ 
             \bk
-            
+ 
+            Bing maps also still includes the feature which allows users to create their own maps based on their own data. Unlike google which did have this feature untill they discontinued it.
+            I believe that this could be something that would be beneficial to my program, allowing people to take a photo of their own map and have my solution compute it into a routable map. \\
+ 
+            \bk
+ 
+            \begin{figure}[H]
+                \centering
+                \subfloat[\centering Example of Bing Maps' GUI]{{\includegraphics[width=10cm]{images/bingMapExample.png}}}
+                \caption*{Sourced from Bing Maps\textsuperscript{\tiny\textcopyright}}
+            \end{figure}
+
+            \bk
+
             \paragraph{OS Maps} \mbox{} \\
+            This is a different take in web mapping compared to Bing and Google Maps. With Ordnance Survey their focus was on the accuracy of their maps hence they do not have as an extensive routing system.
+            If you wanted to go from point to point on an OS map you would have to plot it by hand. However if you wanted to go on an excersise trail on the other hand they are very well suited
+            for this and as such have an extensive list of preplanned routes. \\
+            \bk
+            Similar to Google Maps, and in a limited capacity, Bing maps; OS Maps allow you to view their maps in different forms such as 3D and topographic however in order to access these you will
+            have to access their premium plan therefor for the average user this is not a viable option and a hinderence. It is good to note however that the other variations on the map of the UK,
+            and this holds true for all of the aforementioned maps, that the satellite view and other views are not necessary and could infact be a hinderence. \\
+            
             \bk
             
+            \begin{figure}[H]
+                \centering
+                \subfloat[\centering Example of Ordnance Survay's Map GUI]{{\includegraphics[width=10cm]{images/osMapExample.png}}}
+                \caption*{Sourced from Bing Maps\textsuperscript{\tiny\textcopyright}}
+            \end{figure}
+
+            \bk
             
+            \paragraph{Existing Solutions Conclusion} \mbox{} \\
+            In conclusion, I have found that the existing solutions that are available are all very well designed and well implemented. I have found that they are easy to use and rather intuitive
+            however, for the average user who just needs to get from A to B in the most economic way possible they are overly complicated. \\ A good example of this is with bing maps
+
+
             \subsubsection{Possible Algorithmic Solutions}
 
             \subsubsection{Key Components Required}
