@@ -158,7 +158,7 @@
             \begin{figure}[H]
                 \centering
                 \subfloat[\centering Example of Ordnance Survay's Map GUI]{{\includegraphics[width=10cm]{images/osMapExample.png}}}
-                \caption*{Sourced from Bing Maps\textsuperscript{\tiny\textcopyright}}
+                \caption*{Sourced from OSMaps.com\textsuperscript{\tiny\textcopyright}}
             \end{figure}
 
             \bk
@@ -171,17 +171,37 @@
             \bk
 
             \subsubsection{Possible Algorithmic Solutions}
-            There are\dots
+            There are, as afformentioned many existing solutions which work in various ways, in order to make my solution unique and functioning I am going to have to incoperate many different algorithms
+            and theories. \\ \bk
+
+            \paragraph{Edge Detection} \mbox{} \\
+            First of all I will need some way of recognising a map and parseing it in some way. The way that first springs to mind is edge detection. This is a way of taking an image and computing where there
+            are changes in contrast or brightness which could be considered an edge. There are many forms of edge detection out there all of which work in various ways, the main things they look for however
+            are discontinuities in depth, discontinuities in surface orientation, changes in material properties and variations in scene illumination. All of these factors combine and allow a program to decide
+            if there is an edge in an image. \\ \bk
+
+            A simple edge detection model can be extreemly effected by natural blur or artifacts in an image. In order to mittigate this there are smoothing algorithms that can be used to blur and smooth edges
+            causing the impact of artifacts to be avoided. The common term when refering to artifacts and erronious data in an image is \emph{noise}. I believe it will be beneficial to include some of these
+            in my solution, this will be something to look into in the \textbf{Further Reaserch} section. \\ \bk
+
+            Taking a quick look at one form of edge detection, Canny Edge detection, it is reletavly simple in its implementation. It has only 5 steps, first removing noise with a guassian filter then applying
+            bounding to the image and finaly performing hysteresis thresholding. This is the most common form of edge detection that I have come accross in my reaserch however there are others. A rather
+            different example of edge detection is Kovalevsky edge detection. Unlike canny edge detection this does not care about the luminosity of the image and goes based of the colour intensity in each
+            of the channels. \\ \bk
+
+            \paragraph{Graph Traversal}
+
             \bk
 
             \subsubsection{Key Components Required}
-            \paragraph{Graphical User Interface} \mbox{} \\
+            After doing my initial reaserch and a brief look at the existing solutions I have come up with, what I feel, is the main 4 Components that I will need to build my solution. \\ \bk
+            \paragraph{The Graphical User Interface} \mbox{} \\
             \bk
-            \paragraph{Image Manipulation} \mbox{} \\
+            \paragraph{Image Manipulation and Edge Detection} \mbox{} \\
             \bk
-            \paragraph{Graph Creation / Theory} \mbox{} \\
+            \paragraph{Graph Creation and Representation} \mbox{} \\
             \bk
-            \paragraph{Various Traversal Algorithms} \mbox{} \\
+            \paragraph{Graph Traversal and Output} \mbox{} \\
             \bk
 
 
@@ -231,7 +251,16 @@
             
             \bk
             $
-                H_{ij} = \frac{1}{2\pi\sigma^{2}} \exp \bigg(-\frac{(i - (k + 1))^{2} + (j - (k + 1))^{2}}{2\sigma^{2}}\bigg);1\leq i, j \leq(2k+1)
+                H_{ij} = \frac{1}{
+                    2\pi\sigma^{2}
+                } \exp \bigg(
+                    -\frac{
+                        (i - (k + 1))^{2} + (j - (k + 1))^{2}
+                    }
+                    {
+                        2\sigma^{2}
+                    }
+                \bigg);1\leq i, j \leq(2k+1)
             $
             \bk
             \\
@@ -272,7 +301,7 @@
             \subsubsection{Evaluation of Second Interview}
             After conducting this second interview I feel I now have a firm understanding of what I need to achieve with this program. I will also take this opportunity to create a prototype of the 
             the different parts of the program to gauge the difficulty of the program and any problems I may encounter before moving onto the final solution. \\ \bk
-            Apart from that however I feel the interview went\dots
+            Apart from that however I feel the interview went\dots % add to this
 
         \subsection{Objectives}
         \large
@@ -323,7 +352,7 @@
                         \begin{enumerate}
                             \item This includes Dijkstra's algorithm
                             \item This includes A*
-                            \item This includes
+                            \item This includes Shortest Path Faster Algorithm (SPFA)
                         \end{enumerate}
                         % https://en.wikipedia.org/wiki/Category:Search_algorithms
                         \item The Program should Implement Searching Algorithms
@@ -348,7 +377,7 @@
             
             \item The Program must have a Clear and Simplistic GUI
             \begin{enumerate}
-                \item At a glance the user should be able to accertain which step they are at.
+                \item At a glance the user should be able to accertain which step they are at in the process.
             \end{enumerate}
 
             \item The Program must have image processing capabilities
@@ -363,7 +392,12 @@
         \vspace{1cm}
 
         \begin{enumerate}[resume]
-            \item The program should be able to be output
+            \item The program should be able to output
+            \begin{enumerate}
+                \item The map in a binary file format 
+                \item The routed map with path drawn once
+                \item Various stages of image Manipulation
+            \end{enumerate}
         \end{enumerate}
 
         \bk
