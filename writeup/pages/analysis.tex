@@ -170,50 +170,69 @@
             have to occur self contained within the program, not allowing the use of external API's. \\
             \bk
 
-            \subsubsection{Possible Algorithmic / Framework Solutions}
-            There are, as afformentioned many existing solutions which work in various ways, in order to make my solution unique and functioning I am going to have to incoperate many different algorithms
+            \subsubsection{Possible Algorithmic Solutions}
+            There are, as aforementioned many existing solutions which work in various ways, in order to make my solution unique and functioning I am going to have to incorporate many different algorithms
             and theories. \\ \bk
 
             \paragraph{Edge Detection} \mbox{} \\
-            First of all I will need some way of recognising a map and parseing it in some way. The way that first springs to mind is edge detection. This is a way of taking an image and computing where there
+            First of all I will need some way of recognising a map and parsing it in some way. The way that first springs to mind is edge detection. This is a way of taking an image and computing where there
             are changes in contrast or brightness which could be considered an edge. There are many forms of edge detection out there all of which work in various ways, the main things they look for however
             are discontinuities in depth, discontinuities in surface orientation, changes in material properties and variations in scene illumination. All of these factors combine and allow a program to decide
             if there is an edge in an image. \\ \bk
 
-            A simple edge detection model can be extreemly effected by natural blur or artifacts in an image. In order to mittigate this there are smoothing algorithms that can be used to blur and smooth edges
-            causing the impact of artifacts to be avoided. The common term when refering to artifacts and erronious data in an image is \emph{noise}. I believe it will be beneficial to include some of these
-            in my solution, this will be something to look into in the \textbf{Further Reaserch} section. \\ \bk
+            A simple edge detection model can be extremely effected by natural blur or artifacts in an image. In order to mitigate this there are smoothing algorithms that can be used to blur and smooth edges
+            causing the impact of artifacts to be avoided. The common term when referring to artifacts and erroneous data in an image is \emph{noise}. I believe it will be beneficial to include some of these
+            in my solution, this will be something to look into in the \textbf{Further Research} section. \\ \bk
 
-            Taking a quick look at one form of edge detection, Canny Edge detection, it is reletavly simple in its implementation. It has only 5 steps, first removing noise with a guassian filter then applying
-            bounding to the image and finaly performing hysteresis thresholding. This is the most common form of edge detection that I have come accross in my reaserch however there are others. A rather
+            Taking a quick look at one form of edge detection, Canny Edge detection, it is relatively simple in its implementation. It has only 5 steps, first removing noise with a Gaussian filter then applying
+            bounding to the image and finally performing hysteresis threshold. This is the most common form of edge detection that I have come across in my research however there are others. A rather
             different example of edge detection is Kovalevsky edge detection. Unlike canny edge detection this does not care about the luminosity of the image and goes based of the colour intensity in each
             of the channels. \\ \bk
 
-            Overall there seem to be many different ideas on how to do edge detection which I will have to look into to pick a specific version in the \textbf{Further Reaserch} section. \\ \bk
-
-            \paragraph{Graph Searching} \mbox{} \\
-            \bk
-
-            \paragraph{Graph Routing} \mbox{} \\
-            \bk
-
-            \paragraph{Creation of a MST} \mbox{} \\
-            \bk
-
-            \paragraph{GUI} \mbox{} \\
-            \bk
-
-
+            \paragraph{Graph Forming} \mbox{} \\
+            This is not so much a possible algorithmic solution but more of something that my solution will have to achieve. Once the image of the map has been altered and the edge detection has been 
+            performed, I will be left with an image which has white lines where there "edges". From this I will need to create a weighted graph as well as an unweighted graph. \\ \bk
+            
+            During my research I have failed to come across an existing solution to this problem. As well as this looking through some examples that people have uploaded it seems that sometimes the edge 
+            detection does not yield a fully connected image. This could prove to be an issue as it would add the possibility of isolating certain roads. \\ \bk
+            
+            I feel that I need to look more into this and come up with my own solution during the prototyping stage, and come up with my own algorithmic way of generating it. \\ \bk
+            
             \bk
 
             \subsubsection{Key Components Required}
-            After doing my initial reaserch and a brief look at the existing solutions I have come up with, what I feel, is the main 4 Components that I will need to build my solution. \\ \bk
+            After doing my initial research and a brief look at the existing solutions I have come up with, what I feel, is the main 4 Components that I will need to build my solution. \\ \bk
+            
             \paragraph{The Graphical User Interface} \mbox{} \\
-            \bk
+            Talking to my end user made it clear to me that in order for the program to be usable by the wider population it would need to be clean and uncluttered. This leaves me in a difficult position 
+            due to there being a limited amount of frameworks that are available to me. I have two sets of possibilities: \\
+            \begin{enumerate}
+                \item A Local App Run on Device
+                \item A Web Based Application
+            \end{enumerate}
+            Each of these have their advantages, if I where to go with a locally run app I could make it in the console keeping it simplistic and easy to use. However if I do use the console it would limit
+             this solution to a computer which could be seen as going against the idea of this problem. On the other hand, if I where to go with a web server based application this would yield much better 
+             compatibility with all devices since all you would need is access to a web browser. This, by its very nature, means that you would need an internet connection which is also a problem which I
+              was hoping to fix. \\ \bk
+            
+            The solution then I believe is to make it both a locally based program with the option for it to run a web server. However I will need to specify one over the other to begin with to make sure
+             that the program is working either way. \\ \bk
+            
+            Regardless of which one I choose I will conduct some form of testing where I will allow, through a survey, people to specify what makes an easy to use and intuitive. \\ \bk
+            
             \paragraph{Image Manipulation and Edge Detection} \mbox{} \\
+            This is perhaps the most important part of the project since without this I would not be able to continue to path find the image of the map. Looking at my research I feel that there will be
+             a combination of 
             \bk
+            
             \paragraph{Graph Creation and Representation} \mbox{} \\
+            From lessons which we have had in class I have been shown that there are 2 reasonable ways of representing a graph in code, this includes an adjacency matrix and an adjacency list. Both have 
+            their advantages and disadvantages. An adjacency matrix is good when you have a reasonably connected graph which has weights, this is due to it being easy to access and traverse. As soon as you
+             have a sparse graph however it becomes very memory intensive which is unnecessary considering that there will be very few of the cells with actual data in them. This is when the adjacency list
+              comes into play, the reason that I am reluctant to use this form of representing a graph is that when performing some of the various graph traversal algorithms it can incredibly difficult and
+               pointless to adapt them when by adapting them you effectively generate the adjacency matrix.
             \bk
+            
             \paragraph{Graph Traversal and Output} \mbox{} \\
             \bk
 
@@ -232,16 +251,13 @@
 
             \bk
 
-            The difference is slight however the key takeaway from this is that when I am referring to a Routing algorithm I am referring to one which works on a weighted graph. And vice versa if I am
-            talking about a searching algorithm this is referring to graph traversal on an unweighted graph.\\ \bk
-
-            Moving onto the specific algorithms, in the next section I will be looking into algorithm that I could be implementing in detail.
+            The difference is slight however the key takeaway from this is that when I am referring to a Routing algorithm I am referring to one which works on a weighted graph. And vice versa if I am 
+            talking about a searching algorithm this is referring to graph traversal on an unweighted graph.
 
             \bk
 
-            \paragraph{Black and White Filter}
-            \mbox{} \\
-            
+            \paragraph{Black and White Filter}\mbox{} \\
+            In order to allow the program to function, assuming that the canny edge detection was chosen we do not need the colour data of the image. In order to remove this a filter is used 
             \bk
             $
                 \mathlarger {
@@ -293,21 +309,21 @@
                 \item {\bf{Bobbert?}} \\
                 \bk
                 bobbert.
-                \item {\bf{Bobbert?}} \\
+                \item {\bf{Cobbert?}} \\
                 \bk
-                bobbert.
-                \item {\bf{Bobbert?}} \\
+                cobbert.
+                \item {\bf{Dobbert?}} \\
                 \bk
-                bobbert.
-                \item {\bf{Bobbert?}} \\
+                dobbert.
+                \item {\bf{Fobbert?}} \\
                 \bk
-                bobbert.
-                \item {\bf{Bobbert?}} \\
+                Fobbert.
+                \item {\bf{Norbert?}} \\
                 \bk
-                bobbert.
-                \item {\bf{Bobbert?}} \\
+                norbert
+                \item {\bf{Dilbert?}} \\
                 \bk
-                bobbert.
+                dilbert.
                 \item {\bf{Bobbert?}} \\
                 \bk
                 bobbert.
@@ -317,6 +333,10 @@
             After conducting this second interview I feel I now have a firm understanding of what I need to achieve with this program. I will also take this opportunity to create a prototype of the 
             the different parts of the program to gauge the difficulty of the program and any problems I may encounter before moving onto the final solution. \\ \bk
             Apart from that however I feel the interview went\dots % add to this
+
+        \subsection{Prototyping}
+        
+
 
         \subsection{Objectives}
         \large
@@ -350,8 +370,8 @@
                     \item How they would like the result of the map
                     \item How harsh they would like the edge detection to be
                     \item The resolution of which to parse the map too
-                    \item Whether they would like to path find through the map or form a Graph MST
-                    \item \emph{These are some examples of prompts}
+                    \item Whether they would like to path find through the map or form a Graph MST \\
+                    \emph{These are just some examples of prompts}
                 \end{enumerate}
                 \item The inputted map should be converted into a graph
                 \item The map (in graph form) should be able to be traversed
@@ -373,7 +393,7 @@
                         \item The Program should Implement Searching Algorithms
                         \begin{enumerate}
                             \item This includes BFS (Breadth-first search)
-                            \item This includes DFS (Deapth-first search)
+                            \item This includes DFS (Depth-first search)
                             \item This includes Greedy Best-First Search
                         \end{enumerate}
                         \item The program should implement a Minimum spanning tree
@@ -392,7 +412,7 @@
             
             \item The Program must have a Clear and Simplistic GUI
             \begin{enumerate}
-                \item At a glance the user should be able to accertain which step they are at in the process.
+                \item At a glance the user should be able to ascertain which step they are at in the process.
             \end{enumerate}
 
             \item The Program must have image processing capabilities
@@ -413,6 +433,14 @@
                 \item The routed map with path drawn once
                 \item Various stages of image Manipulation
             \end{enumerate}
+            \item If the user chooses the program should be able to run a web server
+            \begin{enumerate}
+                \item The web version should have a similar speed to the local version
+                \item The web version should have a similar feature set to the local version \\
+                \emph{This only applies to features that are possible to work in the web, they may be displayed differently that the local application due to different frameworks}
+                \item The web interface should be easy to use and intuitive
+                % \item Have it scale to device sizes (very very hard)
+            \end{enumerate} 
         \end{enumerate}
 
         \bk
