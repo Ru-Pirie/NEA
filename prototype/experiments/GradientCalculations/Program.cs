@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace GradientCalculations
@@ -38,12 +39,15 @@ namespace GradientCalculations
                     Matrix kernel = BuildKernel(j, i, imageGrid);
                     double xConvolution = Matrix.Convolution(gradXMatrix, kernel);
                     double yConvolution = Matrix.Convolution(gradYMatrix, kernel);
-                    xConvolution = xConvolution > 0 ? (xConvolution > 255 ? 255 : xConvolution) : 0;
-                    yConvolution = yConvolution > 0 ? (yConvolution > 255 ? 255 : yConvolution) : 0;
 
                     gradXArray[i, j] = xConvolution;
                     gradYArray[i, j] = yConvolution;
 
+
+                    // only needed for image
+                    xConvolution = xConvolution > 0 ? (xConvolution > 255 ? 255 : xConvolution) : 0;
+                    yConvolution = yConvolution > 0 ? (yConvolution > 255 ? 255 : yConvolution) : 0;
+                    
                     gradX.SetPixel(j, i, Color.FromArgb(255, (int)xConvolution, (int)xConvolution, (int)xConvolution));
                     gradY.SetPixel(j, i, Color.FromArgb(255, (int)yConvolution, (int)yConvolution, (int)yConvolution));
                 }
@@ -64,9 +68,12 @@ namespace GradientCalculations
                 for (int j = 0; j < image.Width; j++)
                 {
                     double G = Math.Sqrt(Math.Pow(gradXArray[i, j], 2) + Math.Pow(gradYArray[i, j], 2));
+                    bigGArray[i, j] = G;
+
+                    // only for the image
                     G = G > 0 ? (G > 255 ? 255 : G) : 0;
                     bigGImage.SetPixel(j, i, Color.FromArgb(255, (int)G, (int)G, (int)G));
-                    bigGArray[i, j] = G;
+                    
 
                     double theta = Math.Atan2(gradYArray[i, j], gradXArray[i, j]);
                     thetaArray[i, j] = theta;
@@ -74,6 +81,21 @@ namespace GradientCalculations
             }
 
             bigGImage.Save("bigG.jpg");
+            double max = thetaArray.Cast<double>().Max();
+            double min = thetaArray.Cast<double>().Min();
+            // begin edge thining
+            for (int i = 0; i < image.Height; i++)
+            {
+                for (int j = 0; j < image.Width; j++)
+                {
+                    Matrix kernelMatrix = BuildKernel(j, i, bigGArray);
+
+                    if (thetaArray[i, j] > 0 && thetaArray[i, j] < 45)
+                    {
+
+                    }
+                }
+            }
         }
 
         public static Matrix BuildKernel(int x, int y, double[,] image)
