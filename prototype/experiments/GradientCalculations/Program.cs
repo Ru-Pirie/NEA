@@ -13,7 +13,7 @@ namespace GradientCalculations
         // https://en.wikipedia.org/wiki/Canny_edge_detector#Finding_the_intensity_gradient_of_the_image
         static void Main(string[] args)
         {
-            Bitmap image = new Bitmap("image.jpg");
+            Bitmap image = new Bitmap("image_blur.jpg");
             double[,] imageGrid = new double[image.Height, image.Width];
 
             for (int i = 0; i < image.Height; i++)
@@ -54,8 +54,8 @@ namespace GradientCalculations
                 }
             }
 
-            gradY.Save("gradY.jpg");
-            gradX.Save("gradX.jpg");
+            gradY.Save("image_gradY.jpg");
+            gradX.Save("image_gradX.jpg");
             gradY.Dispose();
             gradX.Dispose();
 
@@ -83,7 +83,7 @@ namespace GradientCalculations
                 }
             }
 
-            bigGImage.Save("bigG.jpg");
+            bigGImage.Save("image_combinedGradients.jpg");
 
             double[,] magnitudeThresholding = bigGArray;
 
@@ -137,12 +137,12 @@ namespace GradientCalculations
                 }
             }
 
-            magnitudeThresholdImage.Save("thresholdImage.jpg");
+            magnitudeThresholdImage.Save("image_magnitudeThreasholding.jpg");
             magnitudeThresholdImage.Dispose();
 
             // max min grad trimming
-            double high = 17.1887;
-            double low = 5.7296;
+            double high = 100;
+            double low = 50;
 
             Bitmap doubleMaxMinImage = new Bitmap(image.Width, image.Height);
             (double, bool)[,] finalBeforeHysteresis = new (double, bool)[image.Height, image.Width];
@@ -169,9 +169,40 @@ namespace GradientCalculations
                 }   
             }
 
-            doubleMaxMinImage.Save("maxMinThreshold.jpg");
+            doubleMaxMinImage.Save("iamge_maxMinThresholding.jpg");
 
             // hysteresis time baby
+            Bitmap finalImage = new Bitmap(image.Width, image.Height);
+
+            for (int i = 0; i < image.Height; i++)
+            {
+                for (int j = 0; j < image.Width; j++)
+                {
+                    if (finalBeforeHysteresis[i, j].Item2 == false)
+                    {
+                        (double, bool)[,] blob = BuildKernel(j, i, finalBeforeHysteresis);
+
+                        bool keeper = false;
+
+                        // begin search for the last true blob
+                        for (int k = 0; k < blob.GetLength(1); k++)
+                        {
+                            for (int l = 0; l < blob.GetLength(0); l++)
+                            {
+                                if (blob[k, l].Item2) keeper = true;
+                            }
+                        }
+
+                        if (keeper) finalImage.SetPixel(j, i, Color.White);
+                    }
+                    else
+                    {
+                        finalImage.SetPixel(j, i, Color.White);
+                    }
+                }
+            }
+
+            finalImage.Save("iamge_final.jpg");
         }
 
         public static Matrix BuildKernel(int x, int y, double[,] image)
@@ -197,6 +228,31 @@ namespace GradientCalculations
             }
 
             return new Matrix(kernel);
+        }
+
+        public static (double, bool)[,] BuildKernel(int x, int y, (double, bool)[,] image)
+        {
+            (double, bool)[,] kernel = new (double, bool)[3, 3];
+
+            // prefill incase of edge
+            for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++) kernel[i, j] = image[y, x];
+
+            int cntY = 0;
+            for (int j = y - 1; j <= y + 1; j++)
+            {
+                int cntX = 0;
+                for (int i = x - 1; i <= x + 1; i++)
+                {
+                    if (j >= 0 && i >= 0 && j < image.GetLength(0) && i < image.GetLength(1))
+                    {
+                        kernel[cntY, cntX] = image[j, i];
+                    }
+                    cntX++;
+                }
+                cntY++;
+            }
+
+            return kernel;
         }
     }
 

@@ -9,7 +9,7 @@ namespace GuassianFilter
     {
         static void Main(string[] args)
         {
-            Bitmap image = new Bitmap("flower.jpg");
+            Bitmap image = new Bitmap("image.jpg");
 
             double[,] bwImage = new double[image.Height, image.Width];
             for (int y = 0; y < image.Height; y++) for (int x = 0; x < image.Width; x++)
@@ -27,11 +27,11 @@ namespace GuassianFilter
             {
                 blackWhite.SetPixel(x, y, Color.FromArgb(255, (int)bwImage[y, x], (int)bwImage[y, x], (int)bwImage[y, x]));
             }
-            blackWhite.Save("flower_bw.jpg");
+            blackWhite.Save("image_bw.jpg");
             blackWhite.Dispose();
 
 
-            double sigma = 4;
+            double sigma = 10;
             int k = 5;
             double kSum = 0;
 
@@ -77,7 +77,7 @@ namespace GuassianFilter
                 }
             }
             
-            bluredImage.Save("flower_blur.jpg");
+            bluredImage.Save("image_blur.jpg");
         }
 
         public static double[,] BuildKernel(int x, int y, double[,] image)
