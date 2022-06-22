@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Design;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -73,29 +74,70 @@ namespace GradientCalculations
                     // only for the image
                     G = G > 0 ? (G > 255 ? 255 : G) : 0;
                     bigGImage.SetPixel(j, i, Color.FromArgb(255, (int)G, (int)G, (int)G));
-                    
 
-                    double theta = Math.Atan2(gradYArray[i, j], gradXArray[i, j]);
+
+                    // note to self: direciton doesnt matter so we can take the modulo of the theta value
+                    // Note that the sign of the direction is irrelevant, i.e. north–south is the same as south–north and so on.
+                    double theta = Math.Abs(180 * Math.Atan2(gradYArray[i, j], gradXArray[i, j]) / Math.PI);
                     thetaArray[i, j] = theta;
                 }
             }
 
             bigGImage.Save("bigG.jpg");
-            double max = thetaArray.Cast<double>().Max();
-            double min = thetaArray.Cast<double>().Min();
+
+            double[,] magnitudeThresholding = bigGArray;
+
             // begin edge thining
             for (int i = 0; i < image.Height; i++)
             {
                 for (int j = 0; j < image.Width; j++)
                 {
-                    Matrix kernelMatrix = BuildKernel(j, i, bigGArray);
+                    double[,] kernelMatrix = BuildKernel(j, i, bigGArray)._matrix;
 
-                    if (thetaArray[i, j] > 0 && thetaArray[i, j] < 45)
+                    if (thetaArray[i, j] < 22.5 || thetaArray[i, j] >= 157.5)
                     {
-
+                        if (bigGArray[i, j] < kernelMatrix[1, 2] || bigGArray[i, j] < kernelMatrix[1, 0])
+                        {
+                            magnitudeThresholding[i, j] = 0;
+                        }
                     }
+                    else if (thetaArray[i, j] >= 22.5 && thetaArray[i, j] < 67.5)
+                    {
+                        if (bigGArray[i, j] < kernelMatrix[0, 2] || bigGArray[i, j] < kernelMatrix[2, 0])
+                        {
+                            magnitudeThresholding[i, j] = 0;
+                        }
+                    }
+                    else if (thetaArray[i, j] >= 67.5 && thetaArray[i, j] < 112.5)
+                    {
+                        if (bigGArray[i, j] < kernelMatrix[0, 1] || bigGArray[i, j] < kernelMatrix[2, 1])
+                        {
+                            magnitudeThresholding[i, j] = 0;
+                        }
+                    }
+                    else if (thetaArray[i, j] >= 112.5 && thetaArray[i, j] < 157.5)
+                    {
+                        if (bigGArray[i, j] < kernelMatrix[0, 0] || bigGArray[i, j] < kernelMatrix[2, 2])
+                        {
+                            magnitudeThresholding[i, j] = 0;
+                        }
+                    }
+                    else throw new Exception("This shouldn't happen but i want to know if it does");
                 }
             }
+
+            Bitmap magnitudeThresholdImage = new Bitmap(image.Width, image.Height);
+
+            for (int i = 0; i < image.Height; i++)
+            {
+                for (int j = 0; j < image.Width; j++)
+                {
+                    int value = (int)(magnitudeThresholding[i,j] > 0 ? (magnitudeThresholding[i,j] > 255 ? 255 : magnitudeThresholding[i, j]) : 0);
+                    magnitudeThresholdImage.SetPixel(j, i, Color.FromArgb(255, value, value, value));
+                }
+            }
+
+            magnitudeThresholdImage.Save("thresholdImage.jpg");
         }
 
         public static Matrix BuildKernel(int x, int y, double[,] image)
