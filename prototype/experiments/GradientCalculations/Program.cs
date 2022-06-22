@@ -138,6 +138,40 @@ namespace GradientCalculations
             }
 
             magnitudeThresholdImage.Save("thresholdImage.jpg");
+            magnitudeThresholdImage.Dispose();
+
+            // max min grad trimming
+            double high = 17.1887;
+            double low = 5.7296;
+
+            Bitmap doubleMaxMinImage = new Bitmap(image.Width, image.Height);
+            (double, bool)[,] finalBeforeHysteresis = new (double, bool)[image.Height, image.Width];
+            for (int i = 0; i < image.Height; i++)
+            {
+                for (int j = 0; j < image.Width; j++)
+                {
+                    if (thetaArray[i, j] < low)
+                    {
+                        finalBeforeHysteresis[i, j] = (0, false);
+                        doubleMaxMinImage.SetPixel(j, i, Color.Black);
+                    } else if (thetaArray[i, j] >= low && thetaArray[i, j] < high)
+                    {
+                        finalBeforeHysteresis[i, j] = (magnitudeThresholding[i, j], false);
+                        int value = (int)(magnitudeThresholding[i, j] > 0 ? (magnitudeThresholding[i, j] > 255 ? 255 : magnitudeThresholding[i, j]) : 0);
+                        doubleMaxMinImage.SetPixel(j, i, Color.FromArgb(255, value, value, value));
+                    } else if (thetaArray[i, j] >= high)
+                    {
+                        finalBeforeHysteresis[i, j] = (magnitudeThresholding[i, j], true);
+                        int value = (int)(magnitudeThresholding[i, j] > 0 ? (magnitudeThresholding[i, j] > 255 ? 255 : magnitudeThresholding[i, j]) : 0);
+                        doubleMaxMinImage.SetPixel(j, i, Color.FromArgb(255, value, value, value));
+                    }
+                    else throw new Exception("This shouldn't happen but i want to know if it does");
+                }   
+            }
+
+            doubleMaxMinImage.Save("maxMinThreshold.jpg");
+
+            // hysteresis time baby
         }
 
         public static Matrix BuildKernel(int x, int y, double[,] image)
