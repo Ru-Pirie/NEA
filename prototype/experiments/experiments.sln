@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "experiments", "experiments\experiments.csproj", "{2BFEC180-1CA7-4C1F-B7A1-B4727F739087}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColourConversion", "ColourConversion\ColourConversion.csproj", "{5F56DDE7-AA5E-43BC-8DA1-9CD6A2C9EDCB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleEdgeDetection", "SimpleEdgeDetection\SimpleEdgeDetection.csproj", "{E71212F8-69C7-4204-8465-12F8E52F771C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuassianFilter", "GuassianFilter\GuassianFilter.csproj", "{D00EE75F-C6B2-4D02-ACCD-E48E34577734}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntensityGradient", "IntensityGradient\IntensityGradient.csproj", "{F35EBB73-B3EC-462C-A860-9231ABCE32F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradientCalculations", "GradientCalculations\GradientCalculations.csproj", "{46B7F431-E717-4F41-A0F8-125C4A25CCC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2BFEC180-1CA7-4C1F-B7A1-B4727F739087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2BFEC180-1CA7-4C1F-B7A1-B4727F739087}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2BFEC180-1CA7-4C1F-B7A1-B4727F739087}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2BFEC180-1CA7-4C1F-B7A1-B4727F739087}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F56DDE7-AA5E-43BC-8DA1-9CD6A2C9EDCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5F56DDE7-AA5E-43BC-8DA1-9CD6A2C9EDCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F56DDE7-AA5E-43BC-8DA1-9CD6A2C9EDCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,10 +29,10 @@ Global
 		{D00EE75F-C6B2-4D02-ACCD-E48E34577734}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D00EE75F-C6B2-4D02-ACCD-E48E34577734}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D00EE75F-C6B2-4D02-ACCD-E48E34577734}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F35EBB73-B3EC-462C-A860-9231ABCE32F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F35EBB73-B3EC-462C-A860-9231ABCE32F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F35EBB73-B3EC-462C-A860-9231ABCE32F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F35EBB73-B3EC-462C-A860-9231ABCE32F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46B7F431-E717-4F41-A0F8-125C4A25CCC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46B7F431-E717-4F41-A0F8-125C4A25CCC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46B7F431-E717-4F41-A0F8-125C4A25CCC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46B7F431-E717-4F41-A0F8-125C4A25CCC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
