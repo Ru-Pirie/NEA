@@ -250,49 +250,37 @@
             \end{enumerate}
 
             \bk
-
             The difference is slight however the key takeaway from this is that when I am referring to a Routing algorithm I am referring to one which works on a weighted graph. And vice versa if I am 
-            talking about a searching algorithm this is referring to graph traversal on an unweighted graph.
-
-            \bk
+            talking about a searching algorithm this is referring to graph traversal on an unweighted graph. \\ \bk
 
             \paragraph{Black and White Filter}\mbox{} \\
             In order to allow the program to function, assuming that the canny edge detection was chosen we do not need the colour data of the image. In order to remove this a filter is used, this one is the
-            industry standared since it takes into account how prevelent red, green and blue are rather than taking an average which could become non representing of the real case. \\ \bk
-            \bk
-            $
-                \mathlarger {
-                    \beta = 0.299 * \alpha_{b} + 0.587 * \alpha_{g} + 0.114 * \alpha_{b}
-                }
-            $
-            \bk
-            \\
-            \bk
-            $
-                \beta = \begin{cases}
+            industry standard since it takes into account how prevalent red, green and blue are rather than taking an average which could become non representing of the real case. \\ \bk
+            
+            \begin{gather*}
+                \beta = 0.299 * \alpha_{b} + 0.587 * \alpha_{g} + 0.114 * \alpha_{b}
+                \text{ }
+                \begin{cases}
                     255 & \beta > 255 \\
                     0 & \beta < 0 \\
                     \beta & \beta \in [0, 255]
                 \end{cases}
-            $
+            \end{gather*}
             
             \BK
 
             If an averaging was used it would just be, this is also known colloquially as the "quick and dirty" method. \\ \bk
-            $
-                \mathlarger {
+            \begin{gather*}
                     \beta = \frac {(\alpha_{b} + \alpha_{g} + \alpha_{b})}{3}
-                }
-            $
-
+            \end{gather*}
 
             \bk
             \paragraph{Gaussian Filter} \mbox{} \\
-            This is the first step of 5 in terms of performing Canny Edge Detection. Applying the gaussian filter to the image will smooth out the image and remove any noise. It does this by taking a section
-            of the image, sometimes refered to as a kernel and performing an equation on it. Once it has computed the equation it sets all of the pixels inside the kernel to this value. The following is true 
-            for a kernel size of $(2k + 1) * (2k + 1)$. It takes two changable parameters $\sigma$ which denotes the amount of blur to apply and $k$ is the kernel size. \\ \bk
-            \bk
-            $
+            This is the first step of 5 in terms of performing Canny Edge Detection. Applying the Gaussian filter to the image will smooth out the image and remove any noise. It does this by taking a section
+            of the image, sometimes referred to as a kernel and performing an equation on it. Once it has computed the equation it sets all of the pixels inside the kernel to this value. The following is true 
+            for a kernel size of $(2k + 1) * (2k + 1)$. It takes two changeable parameters $\sigma$ which denotes the amount of blur to apply and $k$ is the kernel size. As well as being one of the key steps in canny edge detection it is also a vital component to most edge detection programs since noise can caise errors in the final image.\\ \bk
+            
+            \begin{gather*}
                 H_{ij} = \frac{1}{
                     2\pi\sigma^{2}
                 } \exp \bigg(
@@ -303,43 +291,30 @@
                         2\sigma^{2}
                     }
                 \bigg);1\leq i, j \leq(2k+1)
-            $
+            \end{gather*}
 
-
-%using System;
-					
-% public class Program
-% {
-%         public static void Main(string[] args)
-%         {
-%             double sigma = 1;
-% 			int W = 5;
-% 			double[,] kernel = new double[W, W];
-% 			double mean = W/2;
-% 			double sum = 0.0; // For accumulating the kernel values
-% 			for (int x = 0; x < W; ++x) 
-% 				for (int y = 0; y < W; ++y) {
-% 					kernel[x,y] = Math.Exp( -0.5 * (Math.Pow((x-mean)/sigma, 2.0) + Math.Pow((y-mean)/sigma,2.0)) )
-% 									 / (2 * Math.PI * sigma * sigma);
-
-% 					// Accumulate the kernel values
-% 					sum += kernel[x,y];
-% 				}
-
-% 			// Normalize the kernel
-% 			for (int x = 0; x < W; ++x) 
-% 				for (int y = 0; y < W; ++y)
-% 					kernel[x,y] /= sum;
-		
-% 			Console.ReadLine();
-%         }
-% }
-%
-
-
+            \BK
+            Since the Gaussian kernel I would be using would always be centered around the origin $(0, 0)$ I can use a simplified version of the Gaussian distribution equation. This is as follows: \\ \bk
+            
+            \begin{gather*}
+                H_{ij} = \frac{1}{2\pi\sigma^2} \exp \frac{-(x^2 + y^2)}{\sigma^2}
+            \end{gather*}
+            
+            \BK
+            I can afford to remove the $(i - (k + 1))$ section due to the fact that I am not having to calculate the Gaussian distribution at a non-centered location. One notable thing to mention is that in many cases it is not necessary to calculate the Gaussian kernel by hand and an approximation can be used. The example below is the approximation when $\sigma$ has a value of 1. \\ \bk
+            
+            \begin{gather*}
+                B = \frac{1}{159} \begin{bmatrix} 
+                2 & 4 & 5 & 4 & 2\\
+                4 & 9 & 12 & 9 & 4\\
+                5 & 12 & 15 & 12 & 5\\
+                4 & 9 & 12 & 9 & 4\\
+                2 & 4 & 5 & 4 & 2
+                \end{bmatrix} * A
+            \end{gather*}
             \bk
-            \\
-            \bk
+            
+            \paragraph{}
 
             \subsubsection{Second Interview}
             \large
@@ -379,7 +354,16 @@
             Apart from that however I feel the interview went\dots % add to this
 
         \subsection{Prototyping}
-        
+        \subsubsection{Prototype Objectives} 
+        Before I begin the creation of my prototypes I will create a list of sections I wish to complete by the end. This will allow me to keep perspective and make sure that the prototype remains on track. I have decided that the parts of my final solution are:
+        \begin{itemize}
+            \item A version of edge detection
+            \item A graph class with basic traversal
+            \item A forms interface for showing images
+        \end{itemize} \\ \bk
+
+        \subsubsection{Edge Detection}
+        For the example of edge detection which I am going to prototype I have chosen Canny Edge Detection, this is the most common of the types of edge detection and is relitivly simple. 
 
 
         \subsection{Objectives}

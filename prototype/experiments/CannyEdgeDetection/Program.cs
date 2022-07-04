@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Drawing;
-using System.Runtime.InteropServices.ComTypes;
+using System.Threading.Tasks;
 
 namespace CannyEdgeDetection
 {
@@ -19,29 +19,35 @@ namespace CannyEdgeDetection
             bwImage.Dispose();
 
             Console.WriteLine("2. Beginning Gaussian Filter");
-            double[,] gaussianArray = GaussianFilter(1.4, 5, bwArray);
+            double[,] gaussianArray = GaussianFilter(1.4, 7, bwArray);
             Bitmap gaussianImage = DoubleArrayToBitmap(gaussianArray);
             gaussianImage.Save("./out/c.jpg");
             gaussianImage.Dispose();
 
             Console.WriteLine("3. Beginning Gradient Calculations");
-            double[,] gradientXArray = CalculateGradientX(gaussianArray);
-            double[,] gradientYArray = CalculateGradientY(gaussianArray);
-            Bitmap gradientXImage = DoubleArrayToBitmap(gradientXArray);
-            Bitmap gradientYImage = DoubleArrayToBitmap(gradientYArray);
+
+            Task<double[,]>[] tasks = new Task<double[,]>[2];
+            tasks[0] = new Task<double[,]>(() => CalculateGradientX(gaussianArray));
+            tasks[1] = new Task<double[,]>(() => CalculateGradientY(gaussianArray));
+
+            foreach (var task in tasks) task.Start();
+            Task.WaitAll(tasks);
+
+            Bitmap gradientXImage = DoubleArrayToBitmap(tasks[0].Result);
+            Bitmap gradientYImage = DoubleArrayToBitmap(tasks[1].Result);
             gradientXImage.Save("./out/d.jpg");
             gradientYImage.Save("./out/e.jpg");
             gradientXImage.Dispose();
             gradientYImage.Dispose();
 
             Console.WriteLine("4. Beginning Total Gradient Calculations");
-            double[,] gradientCombined = CalculateGradientCombined(gradientXArray, gradientYArray);
+            double[,] gradientCombined = CalculateGradientCombined(tasks[0].Result, tasks[1].Result);
             Bitmap gradientCombinedImage = DoubleArrayToBitmap(gradientCombined);
             gradientCombinedImage.Save("./out/f.jpg");
             gradientCombinedImage.Dispose();
 
             Console.WriteLine("5. Calculating Gradient Angles Calculations");
-            double[,] thetaArray = CalculateTheta(gradientXArray, gradientYArray);
+            double[,] thetaArray = CalculateTheta(tasks[0].Result, tasks[1].Result);
             Bitmap thetaImage = ConvertThetaToBitmap(thetaArray);
             thetaImage.Save("./out/g.jpg");
             thetaImage.Dispose();
@@ -67,9 +73,37 @@ namespace CannyEdgeDetection
             finalImage.Save("./out/j.jpg");
             finalImage.Dispose();
 
+            Console.WriteLine("9. Fill out image");
+            double[,] filledImage = EmbosImage(EmbosImage(edgeTrackingHystersis));
+            Bitmap filledImageBitmap = DoubleArrayToBitmap(filledImage);
+            filledImageBitmap.Save("./out/k.jpg");
+            filledImageBitmap.Dispose();
+
             Console.WriteLine("Done");
             Console.ReadLine();
-        } 
+        }
+
+        public static double[,] EmbosImage(double[,] imageArray)
+        {
+            double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
+
+            Matrix embosMatrix = new Matrix(new double[,] {
+                { -2, -1, 0 },
+                { -1,  1, 1 },
+                {  0,  1, 2 },
+            });
+
+            for (int i = 0; i < imageArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < imageArray.GetLength(1); j++)
+                {
+                    Matrix imageKernel = BuildKernel(j, i, 3, imageArray);
+                    result[i, j] = Math.Abs(Matrix.Convolution(imageKernel, embosMatrix));
+                }
+            }
+
+            return result;
+        }
 
         public static Bitmap ConvertThetaToBitmap(double[,] angles)
         {
@@ -79,18 +113,6 @@ namespace CannyEdgeDetection
             {
                 for (int j = 0; j < angles.GetLength(1); j++)
                 {
-                    //int r = (int)(
-                    //    ((-72 / (2 * Math.PI)) * angles[i, j]) + 219
-                    //);
-                    
-                    //int g = (int)(
-                    //    ((82 / (2 * Math.PI)) * angles[i, j]) + 162
-                    //);
-
-                    //int b = (int)(
-                    //    ((255 / (2 * Math.PI)) * angles[i, j]) + 127.5
-                    //);
-                    
                     int x = (int)(
                         ((128 / (2 * Math.PI)) * angles[i, j]) + 128
                     );
@@ -98,7 +120,7 @@ namespace CannyEdgeDetection
                     image.SetPixel(j, i, Color.FromArgb(x, x, x));
                 }
             }
-            
+
             return image;
 
         }
