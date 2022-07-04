@@ -19,7 +19,7 @@ namespace CannyEdgeDetection
             bwImage.Dispose();
 
             Console.WriteLine("2. Beginning Gaussian Filter");
-            double[,] gaussianArray = GaussianFilter(1.4, 7, bwArray);
+            double[,] gaussianArray = GaussianFilter(1.4, 5, bwArray);
             Bitmap gaussianImage = DoubleArrayToBitmap(gaussianArray);
             gaussianImage.Save("./out/c.jpg");
             gaussianImage.Dispose();
