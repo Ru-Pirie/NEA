@@ -8,6 +8,7 @@ namespace CannyEdgeDetection
     {
         static void Main(string[] args)
         {
+            var thing = System.Diagnostics.Stopwatch.StartNew();
             Console.WriteLine("Beginning Edge Detection...");
             Bitmap input = new Bitmap("image.jpg");
             input.Save("./out/a.jpg");
@@ -73,14 +74,43 @@ namespace CannyEdgeDetection
             finalImage.Save("./out/j.jpg");
             finalImage.Dispose();
 
-            Console.WriteLine("9. Fill out image");
-            double[,] filledImage = EmbosImage(EmbosImage(edgeTrackingHystersis));
-            Bitmap filledImageBitmap = DoubleArrayToBitmap(filledImage);
-            filledImageBitmap.Save("./out/k.jpg");
-            filledImageBitmap.Dispose();
+            Console.WriteLine("9. Embossing out image");
+            double[,] embosArray = EmbosImage(edgeTrackingHystersis);
+            Bitmap embosImage = DoubleArrayToBitmap(embosArray);
+            embosImage.Save("./out/k.jpg");
+            embosImage.Dispose();
 
-            Console.WriteLine("Done");
+            Console.WriteLine("10. Filling in the blanks");
+            double[,] filledArray = FillImage(embosArray);
+            Bitmap filledImage = DoubleArrayToBitmap(filledArray);
+            filledImage.Save("./out/l.jpg");
+            filledImage.Dispose();
+
+            thing.Stop();
+            Console.WriteLine($"Done, took {thing.ElapsedMilliseconds}ms");
             Console.ReadLine();
+        }
+
+        public static double[,] FillImage(double[,] imageArray)
+        {
+            double[,] result = imageArray;
+
+            for (int i = 0; i < imageArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < imageArray.GetLength(1); j++)
+                {
+                    Matrix imageKernel = BuildKernel(j, i, 3, imageArray);
+                    int count = 0;
+                    foreach (double value in imageKernel.matrix)
+                    {
+                        if (value >= 255) count++;
+                    }
+
+                    if (count > 4) result[i, j] = 255;
+                }
+            }
+
+            return result;
         }
 
         public static double[,] EmbosImage(double[,] imageArray)

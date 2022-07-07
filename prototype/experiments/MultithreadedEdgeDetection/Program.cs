@@ -1,16 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Runtime.ExceptionServices;
-using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace MultithreadedEdgeDetection
 {
-    public class Program {
+    public class Program
+    {
         public static void Main(string[] args)
         {
+            Directory.CreateDirectory("./out");
+            var thing = System.Diagnostics.Stopwatch.StartNew();
             Bitmap image = new Bitmap("./image.jpg");
             if (image.Width < 400 || image.Width < 400) throw new Exception("Too small must be at least 400 x 400");
             if (image.Width % 2 == 1 || image.Height % 2 == 1)
@@ -24,12 +24,59 @@ namespace MultithreadedEdgeDetection
             {
                 // capture condition some weird fuckery going on in here
                 int copyI = i;
-                Console.WriteLine(copyI);
-                images[i].Save($"image{i}.jpg");
-                CannyDetection item = new CannyDetection(images[copyI], copyI);
-                item.DoDetect();
+                CannyDetection item = new CannyDetection();
+                Task<double[,]> task = new Task<double[,]>(() => item.DoDetect(images[copyI], copyI + 1));
+                task.Start();
+                tasks[i] = task;
             }
 
+            Task.WaitAll(tasks);
+            thing.Stop();
+
+            double[,] partA = new double[image.Height / 2, image.Width];
+            double[,] partB = new double[image.Height / 2, image.Width];
+            for (int i = 0; i < tasks[0].Result.GetLength(0); i++)
+            {
+                for (int j = 0; j < tasks[0].Result.GetLength(1); j++)
+                    partA[i, j] = tasks[0].Result[i, j];
+
+                for (int y = 0; y < tasks[1].Result.GetLength(1); y++)
+                    partA[i, y + tasks[0].Result.GetLength(1)] = tasks[1].Result[i, y];
+            }
+
+            for (int i = 0; i < tasks[2].Result.GetLength(0); i++)
+            {
+                for (int j = 0; j < tasks[2].Result.GetLength(1); j++)
+                    partB[i, j] = tasks[2].Result[i, j];
+
+                for (int y = 0; y < tasks[3].Result.GetLength(1); y++)
+                    partB[i, y + tasks[2].Result.GetLength(1)] = tasks[3].Result[i, y];
+            }
+
+            double[,] final = new double[image.Height, image.Width];
+            for (int i = 0; i < image.Height; i++)
+            {
+                if (i < image.Height / 2)
+                {
+                    for (int j = 0; j < image.Width; j++)
+                    {
+                        final[i, j] = partA[i, j];
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < image.Width; j++)
+                    {
+                        final[i, j] = partB[i - image.Height / 2, j];
+                    }
+                }
+            }
+
+            Bitmap finalImage = CannyDetection.DoubleArrayToBitmap(final);
+            finalImage.Save("./final.jpg");
+
+            Console.WriteLine($"Done, took {thing.ElapsedMilliseconds}ms");
+            Console.ReadLine();
         }
 
         public static Bitmap[] SplitImage(Bitmap image)
@@ -67,29 +114,18 @@ namespace MultithreadedEdgeDetection
             {
                 for (int j = image.Height / 2; j < image.Height; j++)
                 {
-                    four.SetPixel(i - (image.Width / 2), j - (image.Height / 2), image.GetPixel(i , j));
+                    four.SetPixel(i - (image.Width / 2), j - (image.Height / 2), image.GetPixel(i, j));
                 }
             }
 
             return new[] { one, two, three, four };
-            
+
         }
     }
 
-
-    
     public class CannyDetection
     {
-        private Bitmap masterImage;
-        private int id;
-
-        public CannyDetection(Bitmap masterImage, int id)
-        {
-            this.masterImage = masterImage;
-            this.id = id;
-        }
-
-        public double[,] DoDetect()
+        public double[,] DoDetect(Bitmap masterImage, int id)
         {
             Console.WriteLine("Beginning Edge Detection...");
             Bitmap input = new Bitmap(masterImage);
@@ -156,17 +192,45 @@ namespace MultithreadedEdgeDetection
             finalImage.Save($"./out/j{id}.jpg");
             finalImage.Dispose();
 
-            Console.WriteLine($"9. Fill out image ({id})");
-            double[,] filledImage = EmbosImage(EmbosImage(edgeTrackingHystersis));
-            Bitmap filledImageBitmap = DoubleArrayToBitmap(filledImage);
-            filledImageBitmap.Save($"./out/k{id}.jpg");
-            filledImageBitmap.Dispose();
+            Console.WriteLine("9. Embossing out image");
+            double[,] embosArray = EmbosImage(edgeTrackingHystersis);
+            Bitmap embosImage = DoubleArrayToBitmap(embosArray);
+            embosImage.Save("./out/k.jpg");
+            embosImage.Dispose();
+
+            Console.WriteLine("10. Filling in the blanks");
+            double[,] filledArray = FillImage(embosArray);
+            Bitmap filledImage = DoubleArrayToBitmap(filledArray);
+            filledImage.Save("./out/l.jpg");
+            filledImage.Dispose();
 
             Console.WriteLine($"Done {id}");
-            
+
             return edgeTrackingHystersis;
         }
+        
+        public double[,] FillImage(double[,] imageArray)
+        {
+            double[,] result = imageArray;
 
+            for (int i = 0; i < imageArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < imageArray.GetLength(1); j++)
+                {
+                    Matrix imageKernel = BuildKernel(j, i, 3, imageArray);
+                    int count = 0;
+                    foreach (double value in imageKernel.matrix)
+                    {
+                        if (value >= 255) count++;
+                    }
+
+                    if (count > 4) result[i, j] = 255;
+                }
+            }
+
+            return result;
+        }
+        
         public double[,] EmbosImage(double[,] imageArray)
         {
             double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
@@ -189,7 +253,7 @@ namespace MultithreadedEdgeDetection
             return result;
         }
 
-        public Bitmap ConvertThetaToBitmap(double[,] angles)
+        public static Bitmap ConvertThetaToBitmap(double[,] angles)
         {
             Bitmap image = new Bitmap(angles.GetLength(1), angles.GetLength(0));
 
@@ -318,14 +382,14 @@ namespace MultithreadedEdgeDetection
             return result;
         }
 
-        public  double[,] CalculateGradientCombined(double[,] gradX, double[,] gradY)
+        public double[,] CalculateGradientCombined(double[,] gradX, double[,] gradY)
         {
             double[,] result = new double[gradX.GetLength(0), gradX.GetLength(1)];
             for (int i = 0; i < gradX.GetLength(0); i++) for (int j = 0; j < gradX.GetLength(1); j++) result[i, j] = Math.Sqrt(Math.Pow(gradX[i, j], 2) + Math.Pow(gradY[i, j], 2));
             return result;
         }
 
-        public  double[,] CalculateGradientX(double[,] imageArray)
+        public double[,] CalculateGradientX(double[,] imageArray)
         {
             double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
 
@@ -348,7 +412,7 @@ namespace MultithreadedEdgeDetection
             return result;
         }
 
-        public  double[,] CalculateGradientY(double[,] imageArray)
+        public double[,] CalculateGradientY(double[,] imageArray)
         {
             double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
 
@@ -370,7 +434,7 @@ namespace MultithreadedEdgeDetection
             return result;
         }
 
-        public  double[,] GaussianFilter(double sigma, int kernelSize, double[,] imageArray)
+        public double[,] GaussianFilter(double sigma, int kernelSize, double[,] imageArray)
         {
             double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
 
@@ -389,7 +453,7 @@ namespace MultithreadedEdgeDetection
             return result;
         }
 
-        public  Matrix GetGaussianKernel(int k, double sigma)
+        public Matrix GetGaussianKernel(int k, double sigma)
         {
             double[,] result = new double[k, k];
             int halfK = k / 2;
@@ -414,7 +478,7 @@ namespace MultithreadedEdgeDetection
         }
 
 
-        public  Matrix BuildKernel(int x, int y, int k, double[,] grid)
+        public Matrix BuildKernel(int x, int y, int k, double[,] grid)
         {
             double[,] kernel = new double[k, k];
 
@@ -440,7 +504,7 @@ namespace MultithreadedEdgeDetection
             return new Matrix(kernel);
         }
 
-        public  (double, bool)[,] BuildKernel(int x, int y, int k, (double, bool)[,] grid)
+        public (double, bool)[,] BuildKernel(int x, int y, int k, (double, bool)[,] grid)
         {
             (double, bool)[,] kernel = new (double, bool)[k, k];
 
@@ -466,7 +530,7 @@ namespace MultithreadedEdgeDetection
             return kernel;
         }
 
-        public  double[,] BWFilter(Bitmap image)
+        public double[,] BWFilter(Bitmap image)
         {
             double[,] result = new double[image.Height, image.Width];
 
@@ -484,13 +548,13 @@ namespace MultithreadedEdgeDetection
             return result;
         }
 
-        public  int Bound(int l, int h, double v) => v > h ? h : (v < l ? l : (int)v);
+        public static int Bound(int l, int h, double v) => v > h ? h : (v < l ? l : (int)v);
 
-        public  double GetGaussianDistribution(int x, int y, double sigma) =>
+        public double GetGaussianDistribution(int x, int y, double sigma) =>
             1 / (2 * Math.PI * sigma * sigma) * Math.Exp(-((Math.Pow(x, 2) + Math.Pow(y, 2)) / (2 * sigma * sigma)));
 
 
-        public  Bitmap DoubleArrayToBitmap(double[,] input)
+        public static Bitmap DoubleArrayToBitmap(double[,] input)
         {
             Bitmap image = new Bitmap(input.GetLength(1), input.GetLength(0));
             for (int i = 0; i < image.Height; i++)
@@ -545,6 +609,4 @@ namespace MultithreadedEdgeDetection
             return sum;
         }
     }
-
-
 }
