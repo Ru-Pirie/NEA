@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphStuff", "GraphStuff\Gr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrameworkInterface", "FrameworkInterface\FrameworkInterface.csproj", "{4933B609-CF89-4DF8-975C-610BFAD897B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageFiller", "ImageFiller\ImageFiller.csproj", "{864FBF7B-3D2B-45A3-BBC2-07E95E4CF787}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{4933B609-CF89-4DF8-975C-610BFAD897B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4933B609-CF89-4DF8-975C-610BFAD897B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4933B609-CF89-4DF8-975C-610BFAD897B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{864FBF7B-3D2B-45A3-BBC2-07E95E4CF787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{864FBF7B-3D2B-45A3-BBC2-07E95E4CF787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{864FBF7B-3D2B-45A3-BBC2-07E95E4CF787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{864FBF7B-3D2B-45A3-BBC2-07E95E4CF787}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

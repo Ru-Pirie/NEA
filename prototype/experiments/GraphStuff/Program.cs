@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphStuff
 {
@@ -63,7 +60,7 @@ namespace GraphStuff
 
             while (!stack.IsEmpty())
             {
-                
+
                 string node = stack.Pop();
                 path.Add(node);
                 visited[node] = true;

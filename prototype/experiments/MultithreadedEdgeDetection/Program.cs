@@ -195,18 +195,18 @@ namespace MultithreadedEdgeDetection
             Console.WriteLine("9. Embossing out image");
             double[,] embosArray = EmbosImage(edgeTrackingHystersis);
             Bitmap embosImage = DoubleArrayToBitmap(embosArray);
-            embosImage.Save("./out/k.jpg");
+            embosImage.Save($"./out/k{id}.jpg");
             embosImage.Dispose();
 
             Console.WriteLine("10. Filling in the blanks");
             double[,] filledArray = FillImage(embosArray);
             Bitmap filledImage = DoubleArrayToBitmap(filledArray);
-            filledImage.Save("./out/l.jpg");
+            filledImage.Save($"./out/l{id}.jpg");
             filledImage.Dispose();
 
             Console.WriteLine($"Done {id}");
 
-            return edgeTrackingHystersis;
+            return filledArray;
         }
         
         public double[,] FillImage(double[,] imageArray)

@@ -21,7 +21,8 @@ namespace Overlay
             {
                 for (int j = 0; j < mask.Height; j++)
                 {
-                    if (mask.GetPixel(i, j).R >= 128) output.SetPixel(i, j, Color.FromArgb(255, 0, 0));
+                    Color pixel = mask.GetPixel(i, j);
+                    if (pixel.R >= 10 && pixel.G >= 10 && pixel.B >= 10) output.SetPixel(i, j, Color.FromArgb(0, 0, 255));
                 }
             }
 

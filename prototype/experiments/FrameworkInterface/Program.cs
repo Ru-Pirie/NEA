@@ -10,6 +10,8 @@ namespace FrameworkInterface
     {
         static void Main(string[] args)
         {
+            ImageInterface thing = new ImageInterface();
+            thing.ShowDialog();
         }
     }
 }
