@@ -26,7 +26,8 @@ namespace Master
         {
             Bitmap original = new Bitmap("./image.jpg");
             Bitmap mask = new Bitmap("./out/cleaned.jpg");
-            if (original.Width != mask.Width || mask.Height != original.Height) throw new Exception("Images are not the same size");
+            if (original.Width != mask.Width || mask.Height != original.Height)
+                throw new Exception("Images are not the same size");
 
             Bitmap output = new Bitmap(original);
 
@@ -35,7 +36,8 @@ namespace Master
                 for (int j = 0; j < mask.Height; j++)
                 {
                     Color pixel = mask.GetPixel(i, j);
-                    if (pixel.R >= 10 && pixel.G >= 10 && pixel.B >= 10) output.SetPixel(i, j, Color.FromArgb(0, 0, 255));
+                    if (pixel.R >= 10 && pixel.G >= 10 && pixel.B >= 10)
+                        output.SetPixel(i, j, Color.FromArgb(0, 0, 255));
                 }
             }
 
@@ -48,7 +50,9 @@ namespace Master
             Bitmap input = new Bitmap("./out/final.jpg");
             Color[,] image = new Color[input.Height, input.Width];
 
-            for (int i = 0; i < input.Height; i++) for (int j = 0; j < input.Width; j++) image[i, j] = input.GetPixel(j, i);
+            for (int i = 0; i < input.Height; i++)
+            for (int j = 0; j < input.Width; j++)
+                image[i, j] = input.GetPixel(j, i);
 
             List<Color> toReplaceColors = new List<Color>();
             List<Color> usedColors = new List<Color>();
@@ -61,7 +65,8 @@ namespace Master
                     double filled = 0;
 
                     Color randCol = Color.FromArgb(gen.Next(56, 256), gen.Next(56, 256), gen.Next(56, 256));
-                    while (usedColors.Contains(randCol)) randCol = Color.FromArgb(gen.Next(56, 256), gen.Next(56, 256), gen.Next(56, 256));
+                    while (usedColors.Contains(randCol))
+                        randCol = Color.FromArgb(gen.Next(56, 256), gen.Next(56, 256), gen.Next(56, 256));
 
                     Queue<(int, int)> queue = new Queue<(int, int)>();
                     queue.Enqueue((i, j));
@@ -102,7 +107,10 @@ namespace Master
 
             input.Save("./out/filled.jpg");
 
-            for (int i = 0; i < input.Height; i++) for (int j = 0; j < input.Width; j++) if (toReplaceColors.Contains(image[i, j])) input.SetPixel(j, i, Color.FromArgb(1, 1, 1));
+            for (int i = 0; i < input.Height; i++)
+            for (int j = 0; j < input.Width; j++)
+                if (toReplaceColors.Contains(image[i, j]))
+                    input.SetPixel(j, i, Color.FromArgb(1, 1, 1));
 
             input.Save("./out/cleaned.jpg");
         }
@@ -225,10 +233,16 @@ namespace Master
 
     public class CannyDetection
     {
+        private Bitmap _image;
+        
+        private int _kernelSize = 5;
+        private double _redRatio = 0.299, _greenRatio = 0.587, _blueRatio = 0.114, _sigma = 1.4, _lowerThreshold = 0.1, _upperThreshold = 0.3;
+
         public double[,] DoDetect(Bitmap masterImage, int id)
         {
             Console.WriteLine("Beginning Edge Detection...");
             Bitmap input = new Bitmap(masterImage);
+            _image = input;
             input.Save($"./out/a{id}.jpg");
 
             Console.WriteLine($"1. Converting to Black and White ({id})");
@@ -238,7 +252,7 @@ namespace Master
             bwImage.Dispose();
 
             Console.WriteLine($"2. Beginning Gaussian Filter ({id})");
-            double[,] gaussianArray = GaussianFilter(1.4, 7, bwArray);
+            double[,] gaussianArray = GaussianFilter(bwArray);
             Bitmap gaussianImage = DoubleArrayToBitmap(gaussianArray);
             gaussianImage.Save($"./out/c{id}.jpg");
             gaussianImage.Dispose();
@@ -278,10 +292,12 @@ namespace Master
             gradientMagnitudeThresholdImage.Dispose();
 
             Console.WriteLine($"7. Beginning Secondary Min Max Thresholding ({id})");
-            (double, bool)[,] doubleThresholdArray = ApplyDoubleThreshold(0.1, 0.3, gradientMagnitudeThreshold);
+            (double, bool)[,] doubleThresholdArray = ApplyDoubleThreshold(gradientMagnitudeThreshold);
 
             double[,] doubleThresholdImageArray = new double[input.Height, input.Width];
-            for (int i = 0; i < input.Height; i++) for (int j = 0; j < input.Width; j++) doubleThresholdImageArray[i, j] = doubleThresholdArray[i, j].Item1;
+            for (int i = 0; i < input.Height; i++)
+            for (int j = 0; j < input.Width; j++)
+                doubleThresholdImageArray[i, j] = doubleThresholdArray[i, j].Item1;
             Bitmap doubleThresholdImage = DoubleArrayToBitmap(doubleThresholdImageArray);
             doubleThresholdImage.Save($"./out/i{id}.jpg");
             doubleThresholdImage.Dispose();
@@ -335,10 +351,11 @@ namespace Master
         {
             double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
 
-            Matrix embosMatrix = new Matrix(new double[,] {
+            Matrix embosMatrix = new Matrix(new double[,]
+            {
                 { -2, -1, 0 },
-                { -1,  1, 1 },
-                {  0,  1, 2 },
+                { -1, 1, 1 },
+                { 0, 1, 2 },
             });
 
             for (int i = 0; i < imageArray.GetLength(0); i++)
@@ -370,7 +387,6 @@ namespace Master
             }
 
             return image;
-
         }
 
         public double[,] ApplyEdgeTrackingHystersis((double, bool)[,] arrayOfValues)
@@ -400,57 +416,10 @@ namespace Master
             return result;
         }
 
-        public double[,] ApplyGradientMagnitudeThreshold(double[,] angles, double[,] magnitudes)
+        public (double, bool)[,] ApplyDoubleThreshold(double[,] gradients)
         {
-            double[,] result = magnitudes;
-            double[,] anglesInDegrees = ConvertThetaToDegrees(angles);
-
-            for (int i = 0; i < anglesInDegrees.GetLength(0); i++)
-            {
-                for (int j = 0; j < anglesInDegrees.GetLength(1); j++)
-                {
-                    double[,] magnitudeKernel = BuildKernel(j, i, 3, magnitudes).matrix;
-
-                    if (anglesInDegrees[i, j] < 22.5 || anglesInDegrees[i, j] >= 157.5)
-                    {
-                        if (magnitudes[i, j] < magnitudeKernel[1, 2] || magnitudes[i, j] < magnitudeKernel[1, 0])
-                        {
-                            result[i, j] = 0;
-                        }
-                    }
-                    else if (anglesInDegrees[i, j] >= 22.5 && anglesInDegrees[i, j] < 67.5)
-                    {
-                        if (magnitudes[i, j] < magnitudeKernel[0, 2] || magnitudes[i, j] < magnitudeKernel[2, 0])
-                        {
-                            result[i, j] = 0;
-                        }
-                    }
-                    else if (anglesInDegrees[i, j] >= 67.5 && anglesInDegrees[i, j] < 112.5)
-                    {
-                        if (magnitudes[i, j] < magnitudeKernel[0, 1] || magnitudes[i, j] < magnitudeKernel[2, 1])
-                        {
-                            result[i, j] = 0;
-                        }
-                    }
-                    else if (anglesInDegrees[i, j] >= 112.5 && anglesInDegrees[i, j] < 157.5)
-                    {
-                        if (magnitudes[i, j] < magnitudeKernel[0, 0] || magnitudes[i, j] < magnitudeKernel[2, 2])
-                        {
-                            result[i, j] = 0;
-                        }
-                    }
-                    else throw new Exception();
-                }
-            }
-
-            return result;
-        }
-
-
-        public (double, bool)[,] ApplyDoubleThreshold(double l, double h, double[,] gradients)
-        {
-            double min = l * 255;
-            double max = h * 255;
+            double min = _lowerThreshold * 255;
+            double max = _upperThreshold * 255;
 
             (double, bool)[,] result = new (double, bool)[gradients.GetLength(0), gradients.GetLength(1)];
 
@@ -468,24 +437,69 @@ namespace Master
             return result;
         }
 
-        public double[,] ConvertThetaToDegrees(double[,] thetaArray)
+        public double[,] ApplyGradientMagnitudeThreshold(double[,] angles, double[,] magnitudes)
         {
-            double[,] result = new double[thetaArray.GetLength(0), thetaArray.GetLength(1)];
-            for (int i = 0; i < thetaArray.GetLength(0); i++) for (int j = 0; j < thetaArray.GetLength(1); j++) result[i, j] = 180 * Math.Abs(thetaArray[i, j]) / Math.PI;
+            double[,] result = magnitudes;
+            double[,] anglesInDegrees = ConvertThetaToDegrees(angles);
+
+            for (int i = 0; i < anglesInDegrees.GetLength(0); i++)
+            {
+                for (int j = 0; j < anglesInDegrees.GetLength(1); j++)
+                {
+                    double[,] magnitudeKernel = BuildKernel(j, i, 3, magnitudes).matrix;
+
+                    if (anglesInDegrees[i, j] < 22.5 || anglesInDegrees[i, j] >= 157.5)
+                    {
+                        if (magnitudes[i, j] < magnitudeKernel[1, 2] || magnitudes[i, j] < magnitudeKernel[1, 0])
+                            result[i, j] = 0;
+                    }
+                    else if (anglesInDegrees[i, j] >= 22.5 && anglesInDegrees[i, j] < 67.5)
+                    {
+                        if (magnitudes[i, j] < magnitudeKernel[0, 2] || magnitudes[i, j] < magnitudeKernel[2, 0])
+                            result[i, j] = 0;
+                    }
+                    else if (anglesInDegrees[i, j] >= 67.5 && anglesInDegrees[i, j] < 112.5)
+                    {
+                        if (magnitudes[i, j] < magnitudeKernel[0, 1] || magnitudes[i, j] < magnitudeKernel[2, 1])
+                            result[i, j] = 0;
+                    }
+                    else if (anglesInDegrees[i, j] >= 112.5 && anglesInDegrees[i, j] < 157.5)
+                    {
+                        if (magnitudes[i, j] < magnitudeKernel[0, 0] || magnitudes[i, j] < magnitudeKernel[2, 2])
+                            result[i, j] = 0;
+                    }
+                    else throw new Exception();
+                }
+            }
+
             return result;
         }
 
+        public double[,] ConvertThetaToDegrees(double[,] thetaArray)
+        {
+            double[,] result = new double[thetaArray.GetLength(0), thetaArray.GetLength(1)];
+            for (int i = 0; i < thetaArray.GetLength(0); i++)
+            for (int j = 0; j < thetaArray.GetLength(1); j++)
+                result[i, j] = 180 * Math.Abs(thetaArray[i, j]) / Math.PI;
+            return result;
+        }
+
+        // Implement Atan2 myself?
         public double[,] CalculateTheta(double[,] gradX, double[,] gradY)
         {
             double[,] result = new double[gradX.GetLength(0), gradX.GetLength(1)];
-            for (int i = 0; i < gradX.GetLength(0); i++) for (int j = 0; j < gradX.GetLength(1); j++) result[i, j] = Math.Atan2(gradY[i, j], gradX[i, j]);
+            for (int i = 0; i < gradX.GetLength(0); i++)
+            for (int j = 0; j < gradX.GetLength(1); j++)
+                result[i, j] = Math.Atan2(gradY[i, j], gradX[i, j]);
             return result;
         }
 
         public double[,] CalculateGradientCombined(double[,] gradX, double[,] gradY)
         {
             double[,] result = new double[gradX.GetLength(0), gradX.GetLength(1)];
-            for (int i = 0; i < gradX.GetLength(0); i++) for (int j = 0; j < gradX.GetLength(1); j++) result[i, j] = Math.Sqrt(Math.Pow(gradX[i, j], 2) + Math.Pow(gradY[i, j], 2));
+            for (int i = 0; i < gradX.GetLength(0); i++)
+            for (int j = 0; j < gradX.GetLength(1); j++)
+                result[i, j] = Math.Sqrt(Math.Pow(gradX[i, j], 2) + Math.Pow(gradY[i, j], 2));
             return result;
         }
 
@@ -493,12 +507,12 @@ namespace Master
         {
             double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
 
-            Matrix sobelX = new Matrix(new double[,] {
+            Matrix sobelX = new Matrix(new double[,]
+            {
                 { 1, 0, -1 },
                 { 2, 0, -2 },
                 { 1, 0, -1 },
             });
-
 
             for (int i = 0; i < imageArray.GetLength(0); i++)
             {
@@ -516,9 +530,10 @@ namespace Master
         {
             double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
 
-            Matrix sobelY = new Matrix(new double[,] {
-                {  1,  2,  1 },
-                {  0,  0,  0 },
+            Matrix sobelY = new Matrix(new double[,]
+            {
+                { 1, 2, 1 },
+                { 0, 0, 0 },
                 { -1, -2, -1 },
             });
             for (int i = 0; i < imageArray.GetLength(0); i++)
@@ -534,17 +549,17 @@ namespace Master
             return result;
         }
 
-        public double[,] GaussianFilter(double sigma, int kernelSize, double[,] imageArray)
+        private double[,] GaussianFilter(double[,] imageArray)
         {
             double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
 
-            Matrix gaussianKernel = GetGaussianKernel(kernelSize, sigma);
+            Matrix gaussianKernel = GetGaussianKernel();
 
             for (int i = 0; i < result.GetLength(0); i++)
             {
                 for (int j = 0; j < result.GetLength(1); j++)
                 {
-                    Matrix imageKernel = BuildKernel(j, i, kernelSize, imageArray);
+                    Matrix imageKernel = BuildKernel(j, i, _kernelSize, imageArray);
                     double sum = Matrix.Convolution(imageKernel, gaussianKernel);
                     result[i, j] = sum;
                 }
@@ -553,84 +568,34 @@ namespace Master
             return result;
         }
 
-        public Matrix GetGaussianKernel(int k, double sigma)
+        public Matrix GetGaussianKernel()
         {
-            double[,] result = new double[k, k];
-            int halfK = k / 2;
+            double[,] result = new double[_kernelSize, _kernelSize];
+            int halfK = _kernelSize / 2;
 
             double sum = 0;
 
             int cntY = -halfK;
-            for (int i = 0; i < k; i++)
+            for (int i = 0; i < _kernelSize; i++)
             {
                 int cntX = -halfK;
-                for (int j = 0; j < k; j++)
+                for (int j = 0; j < _kernelSize; j++)
                 {
-                    result[halfK + cntY, halfK + cntX] = GetGaussianDistribution(cntX, cntY, sigma);
+                    result[halfK + cntY, halfK + cntX] = GetGaussianDistribution(cntX, cntY, _sigma);
                     sum += result[halfK + cntY, halfK + cntX];
                     cntX++;
                 }
+
                 cntY++;
             }
 
-            for (int i = 0; i < k; i++) for (int j = 0; j < k; j++) result[i, j] /= sum;
+            for (int i = 0; i < _kernelSize; i++)
+            for (int j = 0; j < _kernelSize; j++)
+                result[i, j] /= sum;
             return new Matrix(result);
         }
 
-
-        public Matrix BuildKernel(int x, int y, int k, double[,] grid)
-        {
-            double[,] kernel = new double[k, k];
-
-            int halfK = k / 2;
-
-            for (int i = 0; i < k; i++) for (int j = 0; j < k; j++) kernel[i, j] = grid[y, x];
-
-            int cntY = 0;
-            for (int j = y - halfK; j <= y + halfK; j++)
-            {
-                int cntX = 0;
-                for (int i = x - halfK; i <= x + halfK; i++)
-                {
-                    if (j >= 0 && i >= 0 && j < grid.GetLength(0) && i < grid.GetLength(1))
-                    {
-                        kernel[cntY, cntX] = grid[j, i];
-                    }
-                    cntX++;
-                }
-                cntY++;
-            }
-
-            return new Matrix(kernel);
-        }
-
-        public (double, bool)[,] BuildKernel(int x, int y, int k, (double, bool)[,] grid)
-        {
-            (double, bool)[,] kernel = new (double, bool)[k, k];
-
-            int halfK = k / 2;
-
-            for (int i = 0; i < k; i++) for (int j = 0; j < k; j++) kernel[i, j] = grid[y, x];
-
-            int cntY = 0;
-            for (int j = y - halfK; j <= y + halfK; j++)
-            {
-                int cntX = 0;
-                for (int i = x - halfK; i <= x + halfK; i++)
-                {
-                    if (j >= 0 && i >= 0 && j < grid.GetLength(0) && i < grid.GetLength(1))
-                    {
-                        kernel[cntY, cntX] = grid[j, i];
-                    }
-                    cntX++;
-                }
-                cntY++;
-            }
-
-            return kernel;
-        }
-
-        public double[,] BWFilter(Bitmap image)
+        private double[,] BWFilter(Bitmap image)
         {
             double[,] result = new double[image.Height, image.Width];
 
@@ -639,7 +604,7 @@ namespace Master
                 for (int j = 0; j < image.Width; j++)
                 {
                     Color c = image.GetPixel(j, i);
-                    double value = c.R * 0.299 + c.G * 0.587 + c.B * 0.114;
+                    double value = c.R * _redRatio + c.G * _greenRatio + c.B * _blueRatio;
 
                     result[i, j] = Bound(0, 255, value);
                 }
@@ -648,11 +613,49 @@ namespace Master
             return result;
         }
 
-        public static int Bound(int l, int h, double v) => v > h ? h : (v < l ? l : (int)v);
+        public double[,] CombineQuadrants(double[,] a, double[,] b, double[,] c, double[,] d)
+        {
+            double[,] partA = new double[_image.Height / 2, _image.Width];
+            double[,] partB = new double[_image.Height / 2, _image.Width];
+            for (int i = 0; i < a.GetLength(0); i++)
+            {
+                for (int j = 0; j < a.GetLength(1); j++)
+                    partA[i, j] = a[i, j];
 
-        public double GetGaussianDistribution(int x, int y, double sigma) =>
-            1 / (2 * Math.PI * sigma * sigma) * Math.Exp(-((Math.Pow(x, 2) + Math.Pow(y, 2)) / (2 * sigma * sigma)));
+                for (int y = 0; y < b.GetLength(1); y++)
+                    partA[i, y + a.GetLength(1)] = b[i, y];
+            }
 
+            for (int i = 0; i < c.GetLength(0); i++)
+            {
+                for (int j = 0; j < c.GetLength(1); j++)
+                    partB[i, j] = c[i, j];
+
+                for (int y = 0; y < d.GetLength(1); y++)
+                    partB[i, y + c.GetLength(1)] = d[i, y];
+            }
+
+            double[,] final = new double[_image.Height, _image.Width];
+            for (int i = 0; i < _image.Height; i++)
+            {
+                if (i < _image.Height / 2)
+                {
+                    for (int j = 0; j < _image.Width; j++)
+                    {
+                        final[i, j] = partA[i, j];
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < _image.Width; j++)
+                    {
+                        final[i, j] = partB[i - _image.Height / 2, j];
+                    }
+                }
+            }
+
+            return final;
+        }
 
         public static Bitmap DoubleArrayToBitmap(double[,] input)
         {
@@ -665,9 +668,76 @@ namespace Master
                     image.SetPixel(j, i, Color.FromArgb(val, val, val));
                 }
             }
+
             return image;
         }
+
+        public double GetGaussianDistribution(int x, int y, double sigma) =>
+            1 / (2 * Math.PI * sigma * sigma) * Math.Exp(-((Math.Pow(x, 2) + Math.Pow(y, 2)) / (2 * sigma * sigma)));
+
+        public static int Bound(int l, int h, double v) => v > h ? h : v < l ? l : (int)v;
+
+        public Matrix BuildKernel(int x, int y, int k, double[,] grid)
+        {
+            double[,] kernel = new double[k, k];
+
+            int halfK = k / 2;
+
+            for (int i = 0; i < k; i++)
+            for (int j = 0; j < k; j++)
+                kernel[i, j] = grid[y, x];
+
+            int cntY = 0;
+            for (int j = y - halfK; j <= y + halfK; j++)
+            {
+                int cntX = 0;
+                for (int i = x - halfK; i <= x + halfK; i++)
+                {
+                    if (j >= 0 && i >= 0 && j < grid.GetLength(0) && i < grid.GetLength(1))
+                    {
+                        kernel[cntY, cntX] = grid[j, i];
+                    }
+
+                    cntX++;
+                }
+
+                cntY++;
+            }
+
+            return new Matrix(kernel);
+        }
+
+        private (double, bool)[,] BuildKernel(int x, int y, int k, (double, bool)[,] grid)
+        {
+            (double, bool)[,] kernel = new (double, bool)[k, k];
+
+            int halfK = k / 2;
+
+            for (int i = 0; i < k; i++)
+            for (int j = 0; j < k; j++)
+                kernel[i, j] = grid[y, x];
+
+            int cntY = 0;
+            for (int j = y - halfK; j <= y + halfK; j++)
+            {
+                int cntX = 0;
+                for (int i = x - halfK; i <= x + halfK; i++)
+                {
+                    if (j >= 0 && i >= 0 && j < grid.GetLength(0) && i < grid.GetLength(1))
+                    {
+                        kernel[cntY, cntX] = grid[j, i];
+                    }
+
+                    cntX++;
+                }
+
+                cntY++;
+            }
+
+            return kernel;
+        }
     }
+
 
     public class Matrix
     {
