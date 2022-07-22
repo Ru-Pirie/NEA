@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -22,6 +21,11 @@ namespace FinalSolution.src.utility
 
         // Check if window is as big as it can be
         public static bool IsWindowMax() => Console.WindowHeight >= Console.LargestWindowHeight && Console.WindowWidth >= Console.LargestWindowWidth - 3;
+
+        private static double _progressBar;
+        private static double _progressInterval;
+        private static string _progressOutline;
+        private static string _progressLine;
 
         // Draw the outline of the info box at the bottom of the console
         private static void LoadInfoBox()
@@ -94,7 +98,7 @@ namespace FinalSolution.src.utility
             }
         }
 
-         // Subroutine for updating the dynamic components of the info box
+        // Subroutine for updating the dynamic components of the info box
         public static void InfoBoxLoop(System.Diagnostics.Stopwatch sw)
         {
             while (true)
@@ -179,6 +183,73 @@ namespace FinalSolution.src.utility
 
                     Console.SetCursorPosition(1, CurrentLine++);
                     Console.Write(message);
+                }
+            }
+        }
+
+        private static void ClearProgressBar()
+        {
+            _progressBar = 0;
+            _progressInterval = 0;
+            _progressLine = "";
+            ClearUserSection();
+        }
+
+        public static void UpdateProgressBar()
+        {
+            lock (ScreenLock)
+            {
+                _progressBar = _progressBar + _progressInterval > 1 ? 1 : _progressBar + _progressInterval;
+
+                int middle = Console.WindowHeight * 5 / 12;
+                double possibleLength = (Console.WindowWidth * 3 / 4) - 4;
+                possibleLength *= _progressBar;
+
+                if (_progressLine.Length != (int)possibleLength)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < possibleLength; i++) sb.Append('|');
+                    _progressLine = sb.ToString();
+
+                    Console.SetCursorPosition(2, middle);
+                    Console.Write($"\x1b[38;5;4m{_progressLine}\x1b[0m");
+                }
+            }
+        }
+
+        public static void SetupProgressBar(string title, int segments)
+        {
+            ClearProgressBar();
+            _progressInterval = (double)1 / segments;
+
+            StringBuilder bar = new StringBuilder();
+            bar.Append('+');
+            for (int i = 0; i < (Console.WindowWidth * 3 / 4) - 4; i++) bar.Append('-');
+            bar.Append('+');
+
+            _progressOutline = bar.ToString();
+            DisplayProgressBar(title);
+        }
+
+        private static void DisplayProgressBar(string title)
+        {
+            lock (ScreenLock)
+            {
+                int middle = Console.WindowHeight * 5 / 12;
+
+                lock (ScreenLock)
+                {
+                    Console.SetCursorPosition((Console.WindowWidth * 3 / 8) - (title.Length / 2), middle - 3);
+                    Console.Write(title);
+
+                    Console.SetCursorPosition(1, middle - 1);
+                    Console.Write(_progressOutline);
+                    Console.SetCursorPosition(1, middle);
+                    Console.Write('|');
+                    Console.SetCursorPosition(Console.WindowWidth * 3 / 4 - 2, middle);
+                    Console.Write('|');
+                    Console.SetCursorPosition(1, middle + 1);
+                    Console.Write(_progressOutline);
                 }
             }
         }

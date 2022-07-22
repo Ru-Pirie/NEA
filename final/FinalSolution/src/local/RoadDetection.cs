@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using FinalSolution.src.utility.datatypes;
 
 namespace FinalSolution.src.utility
 {
@@ -19,6 +18,8 @@ namespace FinalSolution.src.utility
 
         public void Start(double threshold)
         {
+            Menu.SetupProgressBar("Filling Image", (_image.Height * _image.Width) / 100);
+
             List<Color> toReplaceColors = FillImage(threshold);
             RemoveColour(toReplaceColors);
         }
@@ -40,6 +41,8 @@ namespace FinalSolution.src.utility
             {
                 for (int j = 0; j < _image.Width; j++)
                 {
+                    if ((((i + 1) * (j + 1)) / 100) % 100 == 0) Menu.UpdateProgressBar();
+
                     int minX = _image.Width, maxX = 0, minY = _image.Height, maxY = 0;
                     double filled = 0;
 
@@ -91,15 +94,32 @@ namespace FinalSolution.src.utility
 
         private void RemoveColour(List<Color> toRemove)
         {
-            for (int i = 0; i < _image.Height; i++)
-                for (int j = 0; j < _image.Width; j++)
-                    if (toRemove.Contains(_image.GetPixel(j, i)))
-                        _image.SetPixel(j, i, Color.FromArgb(1, 1, 1));
+            Menu.SetupProgressBar("Removing colours which have to much area", (_image.Height * _image.Width) / 100);
 
             for (int i = 0; i < _image.Height; i++)
+            {
                 for (int j = 0; j < _image.Width; j++)
+                {
+                    if ((((i + 1) * (j + 1)) / 100) % 100 == 0) Menu.UpdateProgressBar();
+                    if (toRemove.Contains(_image.GetPixel(j, i)))
+                    {
+                        _image.SetPixel(j, i, Color.FromArgb(1, 1, 1));
+                    }
+                }
+            }
+
+            Menu.SetupProgressBar("Setting non black pixels back to black", (_image.Height * _image.Width) / 100);
+
+            for (int i = 0; i < _image.Height; i++)
+            {
+                for (int j = 0; j < _image.Width; j++)
+                {
+                    if ((((i + 1) * (j + 1)) / 100) % 100 == 0) Menu.UpdateProgressBar();
+
                     if (_image.GetPixel(j, i) == Color.FromArgb(1, 1, 1))
                         _image.SetPixel(j, i, Color.FromArgb(0, 0, 0));
+                }
+            }
         }
 
 

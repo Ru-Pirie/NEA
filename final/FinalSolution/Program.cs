@@ -18,14 +18,13 @@ namespace FinalSolution
                 case 0:
                     Console.Title = "Rubens Pirie Compsci NEA | Local";
                     Console.WriteLine("Before you begin please full screen the console.\nPress enter to continue...");
-                    Console.ReadLine();
                     while (!Menu.IsWindowMax())
                     {
+                        Console.ReadLine();
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Maximise window! " +
                             $"(Current: {Console.WindowWidth} x {Console.WindowHeight} | Max: {Console.LargestWindowWidth} x {Console.LargestWindowWidth})");
                         Console.ResetColor();
-                        Console.ReadLine();
                     }
                     StartLocal();
                     break;

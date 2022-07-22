@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\utility\exceptions\ExitException.cs" />
     <Compile Include="src\local\RoadDetection.cs" />
     <Compile Include="src\local\CannyEdgeDetection.cs" />
     <Compile Include="src\local\forms\PreviewImage.cs">

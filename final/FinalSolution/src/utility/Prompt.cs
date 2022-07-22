@@ -92,6 +92,8 @@ namespace FinalSolution.src.utility
 
         public static string GetInput(string prompt)
         {
+            // Clear buffer
+            while (Console.KeyAvailable) Console.ReadKey(true);
             Menu.WriteLine(prompt);
 
             bool complete = false;

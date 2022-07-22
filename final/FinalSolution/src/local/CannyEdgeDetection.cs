@@ -51,6 +51,7 @@ namespace FinalSolution.src.local
                     Menu.WriteLine();
                     Log.Event("Image has been split into quadrants");
                     Directory.CreateDirectory("cannyEdgeDetectionOut/raw");
+
                     RunMultiThread();
                     break;
             }
@@ -160,9 +161,11 @@ namespace FinalSolution.src.local
             Menu.WriteLine();
 
             string proceed = Prompt.GetInput($"Would you like to proceed to edge detection (y/n)?");
-            if (proceed.ToLower() != "y") return;
+            if (proceed.ToLower() != "y") throw new Exception("AAAAAAAAAAAAAA NOOOOOOOOOOOOOOOOO");
 
             CreateMultithreadSaveDirectories();
+
+            Menu.SetupProgressBar("Performing Canny Edge Detection", 40);
 
             Log.Event("Beginning multithreaded edge detection.");
             Task<double[,]>[] tasks = new Task<double[,]>[4];
@@ -216,13 +219,16 @@ namespace FinalSolution.src.local
 
         private double[,] MultithreadedEdgeDetection(Bitmap input, int i)
         {
+            Menu.UpdateProgressBar();
             Log.Event($"Saving quadrant {i} as {i}.png in {_masterDir}/raw");
             input.Save($"{_masterDir}/raw/{i}.png");
+            
 
             Log.Event($"Converting quadrant {i} to Black and White");
             double[,] bwArray = BWFilter(input);
             Log.Event($"Saving quadrant as {i}.png in {_masterDir}/BWFilter");
             DoubleArrayToBitmap(bwArray).Save($"{_masterDir}/BWFilter/{i}.png");
+
 
             Log.Event($"Applying Gaussian Filter to quadrant {i}");
             double[,] gaussianArray = GaussianFilter(bwArray);
@@ -247,16 +253,18 @@ namespace FinalSolution.src.local
             double[,] gradientThetaArray = CalculateGradientDirection(gradientX, gradientY);
             Log.Event($"Saving quadrant as {i}.png in {_masterDir}/GradientCalculation/Theta/{i}.png");
             ConvertThetaToBitmap(gradientThetaArray).Save($"{_masterDir}/GradientCalculations/Theta/{i}.jpg");
+            
 
             Log.Event($"Applying Magnitude Thresholding on quadrant {i}");
             double[,] gradientMagnitudeThresholdArray = ApplyGradientMagnitudeThreshold(gradientThetaArray, gradientCombinedArray);
             Log.Event($"Saving quadrant as {i}.png in {_masterDir}/MagnitudeThresholding/{i}.png");
             DoubleArrayToBitmap(gradientMagnitudeThresholdArray).Save($"{_masterDir}/MagnitudeThresholding/{i}.jpg");
+            
 
             Log.Event($"Applying Secondary Min Max Thresholding on quadrant {i}");
             (double, bool)[,] doubleThresholdArray = ApplyDoubleThreshold(gradientMagnitudeThresholdArray);
             Log.Event($"Saving quadrant as {i}.png in {_masterDir}/MinMaxDoubleThresholding/{i}.png");
-
+            
             double[,] doubleThresholdImageArray = new double[input.Height, input.Width];
             for (int y = 0; y < input.Height; y++) for (int x = 0; x < input.Width; x++) doubleThresholdImageArray[y, x] = doubleThresholdArray[y, x].Item1;
             DoubleArrayToBitmap(doubleThresholdImageArray).Save($"{_masterDir}/MinMaxDoubleThresholding/{i}.jpg");
@@ -265,6 +273,7 @@ namespace FinalSolution.src.local
             double[,] hysteresisArray = ApplyEdgeTrackingHysteresis(doubleThresholdArray);
             Log.Event($"Saving quadrant as {i}.png in {_masterDir}/Hysteresis/{i}.png");
             DoubleArrayToBitmap(hysteresisArray).Save($"{_masterDir}/Hysteresis/{i}.jpg");
+            
 
             return hysteresisArray;
         }
@@ -312,6 +321,7 @@ namespace FinalSolution.src.local
                 }
             }
 
+            Menu.UpdateProgressBar();
             return result;
         }
 
@@ -333,6 +343,7 @@ namespace FinalSolution.src.local
                 }
             }
 
+            Menu.UpdateProgressBar();
             return result;
         }
 
@@ -367,6 +378,7 @@ namespace FinalSolution.src.local
                 }
             }
 
+            Menu.UpdateProgressBar();
             return result;
         }
 
@@ -382,6 +394,8 @@ namespace FinalSolution.src.local
         {
             double[,] result = new double[gradX.GetLength(0), gradX.GetLength(1)];
             for (int i = 0; i < gradX.GetLength(0); i++) for (int j = 0; j < gradX.GetLength(1); j++) result[i, j] = Math.Atan2(gradY[i, j], gradX[i, j]);
+
+            Menu.UpdateProgressBar();
             return result;
         }
 
@@ -389,6 +403,8 @@ namespace FinalSolution.src.local
         {
             double[,] result = new double[gradX.GetLength(0), gradX.GetLength(1)];
             for (int i = 0; i < gradX.GetLength(0); i++) for (int j = 0; j < gradX.GetLength(1); j++) result[i, j] = Math.Sqrt(Math.Pow(gradX[i, j], 2) + Math.Pow(gradY[i, j], 2));
+
+            Menu.UpdateProgressBar();
             return result;
         }
 
@@ -411,6 +427,7 @@ namespace FinalSolution.src.local
                 }
             }
 
+            Menu.UpdateProgressBar();
             return result;
         }
 
@@ -432,7 +449,7 @@ namespace FinalSolution.src.local
                 }
             }
 
-
+            Menu.UpdateProgressBar();
             return result;
         }
 
@@ -472,6 +489,7 @@ namespace FinalSolution.src.local
                 }
             }
 
+            Menu.UpdateProgressBar();
             return result;
         }
 
@@ -514,6 +532,7 @@ namespace FinalSolution.src.local
                 }
             }
 
+            Menu.UpdateProgressBar();
             return result;
         }
 

@@ -90,9 +90,6 @@ namespace FinalSolution.src.local
             string savePromptInput = Prompt.GetInput("Would you like to save the processed image in a binary file (y/n)?");
             Menu.WriteLine();
 
-            bool save;
-            if (savePromptInput.ToLower() == "y") save = true;
-
             string deletePromptInput = Prompt.GetInput("Would you like to delete the original image after processing (y/n)?");
             Menu.WriteLine();
 
@@ -174,10 +171,15 @@ namespace FinalSolution.src.local
                 Log.End("+-----------------------------+");
                 return;
             }
-            
 
 
+            if (savePromptInput.ToLower() == "y")
+            {
+                Log.Warn("Do save stuff here");
+            }
             if (deletePromptInput.ToLower() == "y") File.Delete(filePath);
+
+
 
             Log.End("+-----------------------------+");
             Log.End("|      Process Completed      |");
@@ -223,6 +225,8 @@ namespace FinalSolution.src.local
 
             string roadDetectionPrompr = Prompt.GetInput("Would you like to proceed to the Road Detection (y/n)?");
             if (roadDetectionPrompr.ToLower() != "y") throw new Exception("Map Processing Stopped after Fortification Stage before Filing Stage.");
+            
+            Menu.ClearUserSection();
 
             return toFill;
         }
@@ -264,7 +268,22 @@ namespace FinalSolution.src.local
             RoadDetection roadDetection = new RoadDetection(toProcess);
 
             Log.Event("Starting Road Detection");
-            roadDetection.Start(0.2);
+
+            double threshold = 0.2;
+
+            if (double.TryParse(
+                    Prompt.GetInput(
+                        $"Enter a threshold value past which large blobs will be removed from the filled image (Default: 0.2, Range 0 < x < 1)"),
+                    out double newRatio) && newRatio < 1 && newRatio > 0 &&
+                newRatio != threshold)
+            {
+                Menu.WriteLine($"\x1b[38;5;2mChanged: {threshold} -> {newRatio}\x1b[0m");
+                threshold = newRatio;
+            }
+            else Menu.WriteLine($"\x1b[38;5;3mKept Default: {threshold}\x1b[0m");
+            Menu.WriteLine();
+
+            roadDetection.Start(threshold);
             Log.End("Road Detection Finished");
         }
 
