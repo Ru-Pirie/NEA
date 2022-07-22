@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FinalSolution.src.utility
+namespace FinalSolution.src.utility.datatypes
 {
     public class Stack<T>
     {

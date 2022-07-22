@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.IO;
+using System.Text;
 using System.Threading;
 using FinalSolution.src.local.forms;
 
@@ -95,7 +96,86 @@ namespace FinalSolution.src.local
             string deletePromptInput = Prompt.GetInput("Would you like to delete the original image after processing (y/n)?");
             Menu.WriteLine();
 
-            ReadAndProcessImage(filePath);
+
+            bool canceled = false;
+
+            // Read in image
+            Bitmap image = new Bitmap(1, 1);
+            try
+            {
+                image = ReadAndProcessImage(filePath);
+            }
+            catch (Exception ex)
+            {
+                canceled = true;
+                Log.Warn(ex.Message);
+            }
+            if (canceled)
+            {
+                Log.End("+-----------------------------+");
+                Log.End("|      Process Terminated     |");
+                Log.End("+-----------------------------+");
+                return;
+            }
+
+            // Do edge detection
+            Menu.SetPage("Start Of Canny Edge Detection");
+            double[,] edgeArray = new double[1, 1];
+            try
+            {
+                edgeArray = PerformCannyDetection(image);
+            }
+            catch (Exception ex)
+            {
+                canceled = true;
+                Log.Error($"While performing edge detection: {ex.Message}");
+            }
+            if (canceled)
+            {
+                Log.End("+-----------------------------+");
+                Log.End("|      Process Terminated     |");
+                Log.End("+-----------------------------+");
+                return;
+            }
+
+            // Do misc steps
+            double[,] toFillArray = new double[1, 1];
+            try
+            {
+                toFillArray = AlterEdgeImage(edgeArray);
+            }
+            catch (Exception ex)
+            {
+                canceled = true;
+                Log.Error($"While performing image alterations: {ex.Message}");
+            }
+            if (canceled)
+            {
+                Log.End("+-----------------------------+");
+                Log.End("|      Process Terminated     |");
+                Log.End("+-----------------------------+");
+                return;
+            }
+
+            // Do road detection
+            try
+            {
+                PerformRoadDetection(toFillArray);
+            }
+            catch (Exception ex)
+            {
+                canceled = true;
+                Log.Error($"While performing Road Detection: {ex.Message}");
+            }
+            if (canceled)
+            {
+                Log.End("+-----------------------------+");
+                Log.End("|      Process Terminated     |");
+                Log.End("+-----------------------------+");
+                return;
+            }
+            
+
 
             if (deletePromptInput.ToLower() == "y") File.Delete(filePath);
 
@@ -104,7 +184,50 @@ namespace FinalSolution.src.local
             Log.End("+-----------------------------+");
         }
 
-        private void ReadAndProcessImage(string path)
+        private double[,] AlterEdgeImage(double[,] image)
+        {
+            int times;
+            bool success = int.TryParse(Prompt.GetInput($"How many times would you like the image to be fortified, this will make the edges boulder clearer (Default: 1, Range: x >= 0, must be a whole number)?"), out times);
+
+            if (!success) times = 1;
+
+            double[,] toFill;
+            if (times >= 0)
+            {
+                Menu.WriteLine($"\x1b[38;5;3mRunning Fortification {times} Time(s)\x1b[0m");
+                toFill = ProcessImage.FortifyImage(image, times);
+            }
+            else
+            {
+                Menu.WriteLine($"\x1b[38;5;3mRunning Fortification 1 Time\x1b[0m");
+                toFill = ProcessImage.FortifyImage(image);
+            }
+
+            Bitmap fortifiedImage = CannyEdgeDetection.DoubleArrayToBitmap(toFill);
+            fortifiedImage.Save("./out/fortifiedImage.png");
+            
+            ShowImage fortifiedImagePrompt = new ShowImage(fortifiedImage,
+                "Please take a moment to look at the image and decide whether you wish to invert it. If there are not two lines either side of the road then the filling algorithm will not be able to pick them out. If this is the case then at the next prompt please enter y at the next prompt.");
+            fortifiedImagePrompt.ShowDialog();
+            Menu.WriteLine();
+
+            string invertPrompt = Prompt.GetInput("Would you like to invert this image (y/n)?");
+            if (invertPrompt.ToLower() == "y")
+            {
+                Log.Event("Inverting Image");
+                Menu.WriteLine("\x1b[38;5;2mPerforming Image Inversion\x1b[0m");
+                ProcessImage.InvertImage(ref toFill);
+            }
+            else Menu.WriteLine("\x1b[38;5;3mSkipping Image Inversion\x1b[0m");
+            Menu.WriteLine();
+
+            string roadDetectionPrompr = Prompt.GetInput("Would you like to proceed to the Road Detection (y/n)?");
+            if (roadDetectionPrompr.ToLower() != "y") throw new Exception("Map Processing Stopped after Fortification Stage before Filing Stage.");
+
+            return toFill;
+        }
+
+        private Bitmap ReadAndProcessImage(string path)
         {
             Menu.SetPage("Parsing Image from Path");
             Log.Event("Created new instance of image processing.");
@@ -117,26 +240,13 @@ namespace FinalSolution.src.local
             Menu.SetPage("Confirm Edge Detection");
             Menu.WriteLine("The file path you supplied was an image and has been processed.");
 
-            string proceed = Prompt.GetInput("Proceed to road detection (y/n)?");
-            if (proceed.ToLower() != "y")
-            {
-                Log.Warn("Image detection terminated at user request.");
-                return;
-            }
-
-            Menu.SetPage("Start Of Canny Edge Detection");
-            Log.Event("Created new instance of canny edge detection");
-            try
-            {
-                PerformCannyDetection(image);
-            }
-            catch (Exception ex)
-            {
-                Log.Error($"While performing edge detection: {ex.Message}");
-            }
+            string proceed = Prompt.GetInput("Proceed to Canny Edge Detection (y/n)?");
+            if (proceed.ToLower() != "y") throw new Exception("Image detection terminated at user request.");
+            
+            return image;
         }
 
-        private void PerformCannyDetection(Bitmap image)
+        private double[,] PerformCannyDetection(Bitmap image)
         {
             CannyEdgeDetection detector = new CannyEdgeDetection(image);
 
@@ -145,39 +255,17 @@ namespace FinalSolution.src.local
             double[,] result = detector.Result();
             Menu.ClearUserSection();
 
-            int times;
-            int.TryParse(Prompt.GetInput($"How many times would you like the image to be fortified, this will make the edges boulder clearer (Default: 1, Range: x >= 0, must be a whole number)?"), out times);
+            return result;
+        }
 
-            double[,] toFill;
-            if (times >= 0)
-            {
-                Menu.WriteLine($"\x1b[38;5;3mRunning Fortification {times} Time(s)\x1b[0m");
-                toFill = ProcessImage.FortifyImage(result, times);
-            }
-            else
-            {
-                Menu.WriteLine($"\x1b[38;5;3mRunning Fortification 1 Time\x1b[0m");
-                toFill = ProcessImage.FortifyImage(result);
-            }
+        private void PerformRoadDetection(double[,] image)
+        {
+            Bitmap toProcess = CannyEdgeDetection.DoubleArrayToBitmap(image);
+            RoadDetection roadDetection = new RoadDetection(toProcess);
 
-            Bitmap fortifiedImage = CannyEdgeDetection.DoubleArrayToBitmap(toFill);
-            fortifiedImage.Save("./out/fortifiedImage.png");
-            
-
-            ShowImage fortifiedImagePrompt = new ShowImage(fortifiedImage,
-                "Please take a moment to look at the image and decide whether you wish to invert it. If there are not two lines either side of the road then the filling algorithm will not be able to pick them out. If this is the case then at the next prompt please enter y at the next prompt.");
-            fortifiedImagePrompt.ShowDialog();
-            Menu.WriteLine();
-
-            string invertPrompt = Prompt.GetInput("Would you like to invert this image (y/n)?");
-            if (invertPrompt.ToLower() == "y") ProcessImage.InvertImage(ref toFill);
-
-
-            ShowImage aImage = new ShowImage(CannyEdgeDetection.DoubleArrayToBitmap(toFill),
-                "a");
-            aImage.ShowDialog();
-
-
+            Log.Event("Starting Road Detection");
+            roadDetection.Start(0.2);
+            Log.End("Road Detection Finished");
         }
 
         private void RecallMapFromFile()

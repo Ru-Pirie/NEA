@@ -150,13 +150,13 @@ namespace FinalSolution.src.local
             Menu.ClearUserSection();
 
             Menu.WriteLine("For reference the variables which will be used are:");
-            Menu.WriteLine($"    Red Ratio: {_redRatio}");
-            Menu.WriteLine($"    Green Ratio: {_greenRatio}");
-            Menu.WriteLine($"    Blue Ratio: {_blueRatio}");
-            Menu.WriteLine($"    Gaussian Sigma Value: {_sigma}");
-            Menu.WriteLine($"    Gaussian Kernel Size: {_kernelSize}");
-            Menu.WriteLine($"    Double Threshold Lower: {_lowerThreshold}");
-            Menu.WriteLine($"    Double Threshold Upper: {_upperThreshold}");
+            Menu.WriteLine($"    Red Ratio: \x1b[38;5;2m{_redRatio}\x1b[0m");
+            Menu.WriteLine($"    Green Ratio: \x1b[38;5;2m{_greenRatio}\x1b[0m");
+            Menu.WriteLine($"    Blue Ratio: \x1b[38;5;2m{_blueRatio}\x1b[0m");
+            Menu.WriteLine($"    Gaussian Sigma Value: \x1b[38;5;2m{_sigma}\x1b[0m");
+            Menu.WriteLine($"    Gaussian Kernel Size: \x1b[38;5;2m{_kernelSize}\x1b[0m");
+            Menu.WriteLine($"    Double Threshold Lower: \x1b[38;5;2m{_lowerThreshold}\x1b[0m");
+            Menu.WriteLine($"    Double Threshold Upper: \x1b[38;5;2m{_upperThreshold}\x1b[0m");
             Menu.WriteLine();
 
             string proceed = Prompt.GetInput($"Would you like to proceed to edge detection (y/n)?");

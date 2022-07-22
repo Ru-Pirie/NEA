@@ -45,7 +45,6 @@ namespace Master
         }
 
         public static void GetPaths()
-
         {
             Bitmap input = new Bitmap("./out/final.jpg");
             Color[,] image = new Color[input.Height, input.Width];
