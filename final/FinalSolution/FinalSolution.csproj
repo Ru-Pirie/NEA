@@ -47,6 +47,12 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\local\forms\PathfindImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\local\forms\PathfindImage.Designer.cs">
+      <DependentUpon>PathfindImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\utility\exceptions\ExitException.cs" />
     <Compile Include="src\local\RoadDetection.cs" />
     <Compile Include="src\local\CannyEdgeDetection.cs" />
@@ -80,6 +86,9 @@
     <Folder Include="src\balzor\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="src\local\forms\PathfindImage.resx">
+      <DependentUpon>PathfindImage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\local\forms\PreviewImage.resx">
       <DependentUpon>PreviewImage.cs</DependentUpon>
     </EmbeddedResource>

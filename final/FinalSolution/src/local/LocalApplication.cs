@@ -83,7 +83,7 @@ namespace FinalSolution.src.local
             Menu.WriteLine();
             if (correct.ToLower() != "y")
             {
-                Log.Warn("Image detection terminated at user request.");
+                Log.Warn("Program terminated at user request.");
                 return;
             }
 
@@ -102,10 +102,15 @@ namespace FinalSolution.src.local
             {
                 image = ReadAndProcessImage(filePath);
             }
-            catch (Exception ex)
+            catch (ExitException ex)
             {
                 canceled = true;
                 Log.Warn(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                canceled = true;
+                Log.Error($"While reading in image: {ex.Message}");
             }
             if (canceled)
             {
@@ -121,6 +126,11 @@ namespace FinalSolution.src.local
             try
             {
                 edgeArray = PerformCannyDetection(image);
+            }
+            catch (ExitException ex)
+            {
+                canceled = true;
+                Log.Warn(ex.Message);
             }
             catch (Exception ex)
             {
@@ -141,6 +151,11 @@ namespace FinalSolution.src.local
             {
                 toFillArray = AlterEdgeImage(edgeArray);
             }
+            catch (ExitException ex)
+            {
+                canceled = true;
+                Log.Warn(ex.Message);
+            }
             catch (Exception ex)
             {
                 canceled = true;
@@ -155,9 +170,15 @@ namespace FinalSolution.src.local
             }
 
             // Do road detection
+            Bitmap roadImage = new Bitmap(1, 1);
             try
             {
-                PerformRoadDetection(toFillArray);
+                roadImage = PerformRoadDetection(toFillArray);
+            }
+            catch (ExitException ex)
+            {
+                canceled = true;
+                Log.Warn(ex.Message);
             }
             catch (Exception ex)
             {
@@ -172,18 +193,55 @@ namespace FinalSolution.src.local
                 return;
             }
 
-
-            if (savePromptInput.ToLower() == "y")
+            // Do image combination detection
+            Bitmap finalProcessed = new Bitmap(1, 1);
+            try
             {
-                Log.Warn("Do save stuff here");
+                finalProcessed = CombineOriginalAndRoad(image, roadImage);
             }
-            if (deletePromptInput.ToLower() == "y") File.Delete(filePath);
+            catch (ExitException ex)
+            {
+                canceled = true;
+                Log.Warn(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                canceled = true;
+                Log.Error($"While combining original and road images: {ex.Message}");
+            }
+            if (canceled)
+            {
+                Log.End("+-----------------------------+");
+                Log.End("|      Process Terminated     |");
+                Log.End("+-----------------------------+");
+                return;
+            }
 
+
+            if (savePromptInput.ToLower() == "y") Log.Warn("Do save stuff here");
+            if (deletePromptInput.ToLower() == "y") File.Delete(filePath);
 
 
             Log.End("+-----------------------------+");
             Log.End("|      Process Completed      |");
             Log.End("+-----------------------------+");
+        }
+
+        private Bitmap CombineOriginalAndRoad(Bitmap original, Bitmap roads)
+        {
+            if (original.Width != roads.Width || original.Height != roads.Height)
+                throw new Exception("Images are not of identical dimensions");
+            for (int i = 0; i < original.Height; i++)
+            {
+                for (int j = 0; j < original.Width; j++)
+                {
+                    if (roads.GetPixel(j, i) != Color.FromArgb(0, 0, 0)) original.SetPixel(j, i, Color.FromArgb(106, 255, 0));
+                }
+            }
+
+            original.Save("./out/final.png");
+
+            return original;
         }
 
         private double[,] AlterEdgeImage(double[,] image)
@@ -193,18 +251,9 @@ namespace FinalSolution.src.local
 
             if (!success) times = 1;
 
-            double[,] toFill;
-            if (times >= 0)
-            {
-                Menu.WriteLine($"\x1b[38;5;3mRunning Fortification {times} Time(s)\x1b[0m");
-                toFill = ProcessImage.FortifyImage(image, times);
-            }
-            else
-            {
-                Menu.WriteLine($"\x1b[38;5;3mRunning Fortification 1 Time\x1b[0m");
-                toFill = ProcessImage.FortifyImage(image);
-            }
-
+            Menu.WriteLine($"\x1b[38;5;3mRunning Fortification {times} Time(s)\x1b[0m");
+            double[,] toFill = ProcessImage.FortifyImage(image, times);
+            
             Bitmap fortifiedImage = CannyEdgeDetection.DoubleArrayToBitmap(toFill);
             fortifiedImage.Save("./out/fortifiedImage.png");
             
@@ -224,7 +273,7 @@ namespace FinalSolution.src.local
             Menu.WriteLine();
 
             string roadDetectionPrompr = Prompt.GetInput("Would you like to proceed to the Road Detection (y/n)?");
-            if (roadDetectionPrompr.ToLower() != "y") throw new Exception("Map Processing Stopped after Fortification Stage before Filing Stage.");
+            if (roadDetectionPrompr.ToLower() != "y") throw new ExitException("Program terminated at Road Detection stage at user request.");
             
             Menu.ClearUserSection();
 
@@ -245,8 +294,9 @@ namespace FinalSolution.src.local
             Menu.WriteLine("The file path you supplied was an image and has been processed.");
 
             string proceed = Prompt.GetInput("Proceed to Canny Edge Detection (y/n)?");
-            if (proceed.ToLower() != "y") throw new Exception("Image detection terminated at user request.");
-            
+            if (proceed.ToLower() != "y") throw new ExitException("Program terminated at Edge Detection stage at user request.");
+
+
             return image;
         }
 
@@ -262,7 +312,7 @@ namespace FinalSolution.src.local
             return result;
         }
 
-        private void PerformRoadDetection(double[,] image)
+        private Bitmap PerformRoadDetection(double[,] image)
         {
             Bitmap toProcess = CannyEdgeDetection.DoubleArrayToBitmap(image);
             RoadDetection roadDetection = new RoadDetection(toProcess);
@@ -284,7 +334,15 @@ namespace FinalSolution.src.local
             Menu.WriteLine();
 
             roadDetection.Start(threshold);
+
+            Bitmap[] res = roadDetection.Result();
+
+            res[1].Save("./out/filledImage.png");
+            res[0].Save("./out/roadsImage.png");
+
             Log.End("Road Detection Finished");
+
+            return res[0];
         }
 
         private void RecallMapFromFile()

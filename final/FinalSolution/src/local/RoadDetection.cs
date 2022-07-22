@@ -87,7 +87,7 @@ namespace FinalSolution.src.utility
                 }
             }
 
-            _filledImage = _image;
+            _filledImage = new Bitmap(_image);
 
             return toReplaceColors;
         }

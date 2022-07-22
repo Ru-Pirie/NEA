@@ -41,7 +41,8 @@ namespace FinalSolution.src.local
             {
                 case 0:
                     Log.Warn("Single threaded mode has been selected, this could take a few minutes.");
-                    Directory.CreateDirectory("cannyEdgeDetectionOut/singleThread");
+                    
+                    CreateSinglethreadSaveDirectories();
                     RunSingleThread();
                     break;
                 case 1:
@@ -61,7 +62,16 @@ namespace FinalSolution.src.local
 
         private void RunSingleThread()
         {
+            
+            _image.Save("./out/original.png");
 
+
+            bool loopStage = true;
+
+            do
+            {
+
+            } while (loopStage);
         }
 
         private void RunMultiThread()
@@ -161,11 +171,11 @@ namespace FinalSolution.src.local
             Menu.WriteLine();
 
             string proceed = Prompt.GetInput($"Would you like to proceed to edge detection (y/n)?");
-            if (proceed.ToLower() != "y") throw new Exception("AAAAAAAAAAAAAA NOOOOOOOOOOOOOOOOO");
+            if (proceed.ToLower() != "y") throw new ExitException("Program terminated at just before Edge Detection at user request.");
 
             CreateMultithreadSaveDirectories();
 
-            Menu.SetupProgressBar("Performing Canny Edge Detection", 40);
+            Menu.SetupProgressBar("Performing Canny Edge Detection", 41);
 
             Log.Event("Beginning multithreaded edge detection.");
             Task<double[,]>[] tasks = new Task<double[,]>[4];
@@ -189,6 +199,8 @@ namespace FinalSolution.src.local
                 tasks[2].Result,
                 tasks[3].Result
             );
+
+            Menu.UpdateProgressBar();
 
             Bitmap edgeImage = DoubleArrayToBitmap(edgeDetectionOutput);
             edgeImage.Save($"./out/edgeDetected.png");
@@ -216,6 +228,9 @@ namespace FinalSolution.src.local
             Directory.CreateDirectory($"{_masterDir}/MinMaxDoubleThresholding");
             Directory.CreateDirectory($"{_masterDir}/Hysteresis");
         }
+
+        private void CreateSinglethreadSaveDirectories() => Directory.CreateDirectory("cannyEdgeDetectionOut/singleThread");
+
 
         private double[,] MultithreadedEdgeDetection(Bitmap input, int i)
         {
