@@ -235,7 +235,7 @@ namespace FinalSolution.src.local
             {
                 for (int j = 0; j < original.Width; j++)
                 {
-                    if (roads.GetPixel(j, i) != Color.FromArgb(0, 0, 0)) original.SetPixel(j, i, Color.FromArgb(106, 255, 0));
+                    if (roads.GetPixel(j, i) != Color.FromArgb(0, 0, 0)) original.SetPixel(j, i, Color.FromArgb(255, 0, 170));
                 }
             }
 

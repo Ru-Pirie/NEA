@@ -16,5 +16,25 @@ namespace FinalSolution.src.local.forms
         {
             InitializeComponent();
         }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pathfindButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void imageBox_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
