@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BackendLib.Datatypes;
+﻿using BackendLib.Datatypes;
 
 namespace BackendLib.Processing
 {
-    internal class CannyEdgeDetection
+    public class CannyEdgeDetection
     {
-        public int _kernelSize = 5;
-        public double _redRatio = 0.299, _greenRatio = 0.587, _blueRatio = 0.114, _sigma = 1.4, _lowerThreshold = 0.1, _upperThreshold = 0.3;
+        public int KernelSize { get; set; } = 5;
+        public double RedRatio { get; set; } = 0.299;
+        public double GreenRatio { get; set; } = 0.587;
+        public double BlueRatio { get; set; } = 0.114;
+        public double Sigma { get; set; } = 1.4;
+        public double LowerThreshold { get; set; } = 0.1;
+        public double UpperThreshold { get; set; } = 0.3;
 
         /// <summary>
         /// Convert a given image in the form of a RGB double array will convert it to a single double array of black and white pixels.
@@ -26,7 +25,7 @@ namespace BackendLib.Processing
             {
                 for (int x = 0; x < input.GetLength(1); x++)
                 {
-                    output[y, x] = (input[y, x].R * _redRatio) + (input[y, x].G * _greenRatio) + (input[y, x].B * _blueRatio);
+                    output[y, x] = (input[y, x].R * RedRatio) + (input[y, x].G * GreenRatio) + (input[y, x].B * BlueRatio);
                 }
             }
 
@@ -37,14 +36,14 @@ namespace BackendLib.Processing
         {
             double[,] output = new double[input.GetLength(0), input.GetLength(1)];
 
-            Matrix gaussianKernel = new Matrix(Kernel<double>.Gaussian(_sigma, _kernelSize));
+            Matrix gaussianKernel = new Matrix(Kernel<double>.Gaussian(Sigma, KernelSize));
             Kernel<double> masterKernel = new Kernel<double>(input);
 
             for (int y = 0; y < input.GetLength(0); y++)
             {
                 for (int x = 0; x < input.GetLength(1); x++)
                 {
-                    Matrix subKernel = new Matrix(masterKernel.Duplication(x, y, _kernelSize));
+                    Matrix subKernel = new Matrix(masterKernel.Duplication(x, y, KernelSize));
                     double sum = Matrix.Convolution(subKernel, gaussianKernel);
                     output[y, x] = sum;
                 }
@@ -79,7 +78,7 @@ namespace BackendLib.Processing
             {
                 for (int x = 0; x < input.GetLength(1); x++)
                 {
-                    Matrix imageKernel = new Matrix(masterKernel.Duplication(x, y, _kernelSize));
+                    Matrix imageKernel = new Matrix(masterKernel.Duplication(x, y, KernelSize));
                     output[y, x] = Matrix.Convolution(imageKernel, sobelMatrixX);
                 }
             }
@@ -99,7 +98,7 @@ namespace BackendLib.Processing
             {
                 for (int x = 0; x < input.GetLength(1); x++)
                 {
-                    Matrix imageKernel = new Matrix(masterKernel.Duplication(x, y, _kernelSize));
+                    Matrix imageKernel = new Matrix(masterKernel.Duplication(x, y, KernelSize));
                     output[y, x] = Matrix.Convolution(imageKernel, sobelMatrixY);
                 }
             }
@@ -197,8 +196,8 @@ namespace BackendLib.Processing
 
         public Structures.ThresholdPixel[,] DoubleThreshold(double[,] input)
         {
-            double min = _lowerThreshold * 255;
-            double max = _upperThreshold * 255;
+            double min = LowerThreshold * 255;
+            double max = UpperThreshold * 255;
 
             Structures.ThresholdPixel[,] output = new Structures.ThresholdPixel[input.GetLength(0), input.GetLength(1)];
 

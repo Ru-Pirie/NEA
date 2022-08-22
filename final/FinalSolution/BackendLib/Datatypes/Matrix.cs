@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BackendLib.Exceptions;
+﻿using BackendLib.Exceptions;
 
 namespace BackendLib.Datatypes
 {
-    internal class Matrix
+    public class Matrix
     {
         private readonly double[,] _matrix;
         public int X { get; }

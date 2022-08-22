@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace BackendLib
 {
-    internal class Structures
+    public class Structures
     {
         public struct ThresholdPixel
         {
@@ -25,6 +21,14 @@ namespace BackendLib
         {
             public double[,] GradientX;
             public double[,] GradientY;
+        }
+
+        public struct RawImage
+        {
+            public Bitmap Original;
+            public RGB[,] Pixels;
+            public int Width;
+            public int Height;
         }
     }
 }

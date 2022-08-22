@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BackendLib.Datatypes
+﻿namespace BackendLib.Datatypes
 {
-    internal class Queue<T>
+    public class Queue<T>
     {
         private List<T> _queue = new();
         public int Size => _queue.Count;

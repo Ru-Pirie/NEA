@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BackendLib
+﻿namespace BackendLib
 {
-    internal static class Utility
+    public static class Utility
     {
         public static double GaussianDistribution(int x, int y, double sigma) =>
             1 / (2 * Math.PI * sigma * sigma) * Math.Exp(-((Math.Pow(x, 2) + Math.Pow(y, 2)) / (2 * sigma * sigma)));

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BackendLib.Datatypes;
-using BackendLib.Exceptions;
+﻿using BackendLib.Exceptions;
 
 namespace BackendLib
 {
-    internal class Kernel<T>
+    public class Kernel<T>
     {
         private readonly T[,] _image;
         int _width, _height;
