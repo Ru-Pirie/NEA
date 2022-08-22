@@ -10,7 +10,7 @@ namespace LocalApp
     {
         static void Main(string[] args)
         {
-            Logger
+
         }
     }
 }

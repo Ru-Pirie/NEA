@@ -5,7 +5,8 @@ namespace BackendLib
     public class Kernel<T>
     {
         private readonly T[,] _image;
-        int _width, _height;
+        private readonly int _width;
+        private readonly int _height;
 
         public Kernel(T[,] image)
         {
@@ -34,7 +35,7 @@ namespace BackendLib
                 int cntX = 0;
                 for (int i = x - halfK; i <= x + halfK; i++)
                 {
-                    if (j >= 0 && i >= 0 && j < _image.GetLength(0) && i < _image.GetLength(1))
+                    if (j >= 0 && i >= 0 && j < _height && i < _image.GetLength(1))
                     {
                         kernel[cntY, cntX] = _image[j, i];
                     }
@@ -64,7 +65,7 @@ namespace BackendLib
                 int cntX = 0;
                 for (int i = x - halfK; i <= x + halfK; i++)
                 {
-                    if (j >= 0 && i >= 0 && j < _image.GetLength(0) && i < _image.GetLength(1))
+                    if (j >= 0 && i >= 0 && j < _height && i < _image.GetLength(1))
                     {
                         kernel[cntY, cntX] = _image[j, i];
                     }
