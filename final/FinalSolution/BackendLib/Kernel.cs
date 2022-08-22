@@ -10,11 +10,22 @@ namespace BackendLib
 {
     internal class Kernel<T>
     {
-        private T[,] _image;
+        private readonly T[,] _image;
+        int _width, _height;
 
-        public T[,] Constant(int x, int y, int size, double constant = 128)
+        public Kernel(T[,] image)
+        {
+            _image = image;
+            _height = image.GetLength(0);
+            _width = image.GetLength(1);
+        }
+
+        public T[,] Constant(int x, int y, int size, T constant = default)
         {
             if (size % 2 != 0) throw new KernelException("Kernel size must be of an odd size.");
+            if (x <= _width || _width < 0 || y <= _height || _height < 0)
+                throw new KernelException("Kernel must be based of ordinates inside of the image.");
+
             T[,] kernel = new T[size, size];
 
             int halfK = size / 2;
@@ -41,9 +52,12 @@ namespace BackendLib
             return kernel;
         }
 
-        public Matrix Duplication(int x, int y, int size, double constant = 128)
+        public T[,] Duplication(int x, int y, int size)
         {
             if (size % 2 != 0) throw new KernelException("Kernel size must be of an odd size.");
+            if (x <= _width || _width < 0 || y <= _height || _height < 0)
+                throw new KernelException("Kernel must be based of ordinates inside of the image.");
+
             T[,] kernel = new T[size, size];
 
             int halfK = size / 2;
@@ -68,7 +82,7 @@ namespace BackendLib
             return kernel;
         }
 
-        public static Matrix Gaussian(double sigma, int size)
+        public static double[,] Gaussian(double sigma, int size)
         {
             double[,] result = new double[size, size];
             int halfK = size / 2;
@@ -89,7 +103,7 @@ namespace BackendLib
             }
 
             for (int i = 0; i < size; i++) for (int j = 0; j < size; j++) result[i, j] /= sum;
-            return new Matrix(result);
+            return result;
         }
 
     }

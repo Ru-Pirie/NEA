@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BackendLib.Exceptions
 {
-    internal class MatrixException : Exception
+    internal class KernelException : Exception
     {
-        public MatrixException(string? message) : base(message)
+        public KernelException(string? message) : base(message)
         {
         }
     }

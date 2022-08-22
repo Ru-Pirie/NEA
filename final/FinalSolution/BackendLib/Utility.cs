@@ -20,5 +20,7 @@ namespace BackendLib
             return v < h && v > l;
         }
 
+        public static double RadianToDegree(double input) => input * 180 / Math.PI;
+        public static double DegreeToRadian(double input) => input * Math.PI / 180;
     }
 }

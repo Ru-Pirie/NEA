@@ -20,5 +20,11 @@ namespace BackendLib
             public double G;
             public double B;
         }
+
+        public struct Gradients
+        {
+            public double[,] GradientX;
+            public double[,] GradientY;
+        }
     }
 }
