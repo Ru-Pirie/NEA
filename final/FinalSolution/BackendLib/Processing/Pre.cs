@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
+using System.IO;
+using BackendLib.Exceptions;
 
 namespace BackendLib.Processing
 {
     internal class Pre
     {
-        private string _imagePath;
+        private readonly string _imagePath;
         private Bitmap _imageBitmap;
-        private Structures.RGB[,] _imageRGB;
+        private Structures.Rgb[,] _imageRgb;
+
+        private readonly string _fileExtentionRegex = @"^(\d|\w|(\\)|:){1,}.(jpg|bmp|exif|png|tiff)$";
 
         public Pre(string imagePath)
         {
@@ -22,6 +21,14 @@ namespace BackendLib.Processing
         {
 
         }
+
+        private void ValidatePath()
+        {
+            if (!File.Exists(_imagePath)) throw PreprocessingException("Supplied Image Does Not Exist");
+        }
+
+
+        public Structures.Rgb[,] Result() => _imageRgb;
 
     }
 }
