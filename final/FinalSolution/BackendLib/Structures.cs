@@ -10,8 +10,8 @@ namespace BackendLib
     {
         public struct ThresholdPixel
         {
-            public bool strong;
-            public double value;
+            public bool Strong;
+            public double Value;
         }
 
         public struct RGB

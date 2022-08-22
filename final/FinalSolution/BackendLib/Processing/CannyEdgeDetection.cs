@@ -32,8 +32,7 @@ namespace BackendLib.Processing
 
             return output;
         }
-
-
+        
         public double[,] GaussianFilter(double[,] input)
         {
             double[,] output = new double[input.GetLength(0), input.GetLength(1)];
