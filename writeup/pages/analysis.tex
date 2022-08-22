@@ -118,7 +118,7 @@
             
             \begin{figure}[H]
                 \centering
-                \subfloat[\centering Example of Google Maps' GUI]{{\includegraphics[width=10cm]{images/googleMapExample.png}}}
+                \subfloat[\centering Example of Google Maps' GUI]{{\includegraphics[width=7.5cm]{images/googleMapExample.png}}}
                 \caption*{Sourced from Google Maps\textsuperscript{\tiny\textcopyright}}
             \end{figure}
 
@@ -138,7 +138,7 @@
  
             \begin{figure}[H]
                 \centering
-                \subfloat[\centering Example of Bing Maps' GUI]{{\includegraphics[width=10cm]{images/bingMapExample.png}}}
+                \subfloat[\centering Example of Bing Maps' GUI]{{\includegraphics[width=7.5cm]{images/bingMapExample.png}}}
                 \caption*{Sourced from Bing Maps\textsuperscript{\tiny\textcopyright}}
             \end{figure}
 
@@ -157,7 +157,7 @@
             
             \begin{figure}[H]
                 \centering
-                \subfloat[\centering Example of Ordnance Survay's Map GUI]{{\includegraphics[width=10cm]{images/osMapExample.png}}}
+                \subfloat[\centering Example of Ordnance Survey's Map GUI]{{\includegraphics[width=7.5cm]{images/osMapExample.png}}}
                 \caption*{Sourced from OSMaps.com\textsuperscript{\tiny\textcopyright}}
             \end{figure}
 
@@ -221,16 +221,11 @@
             Regardless of which one I choose I will conduct some form of testing where I will allow, through a survey, people to specify what makes an easy to use and intuitive. \\ \bk
             
             \paragraph{Image Manipulation and Edge Detection} \mbox{} \\
-            This is perhaps the most important part of the project since without this I would not be able to continue to path find the image of the map. Looking at my research I feel that there will be
-             a combination of 
+            This is perhaps the most important part of the project since without this I would not be able to continue to path find the image of the map. Looking at my research I feel that there will be a combination of 
             \bk
             
             \paragraph{Graph Creation and Representation} \mbox{} \\
-            From lessons which we have had in class I have been shown that there are 2 reasonable ways of representing a graph in code, this includes an adjacency matrix and an adjacency list. Both have 
-            their advantages and disadvantages. An adjacency matrix is good when you have a reasonably connected graph which has weights, this is due to it being easy to access and traverse. As soon as you
-            have a sparse graph however it becomes very memory intensive which is unnecessary considering that there will be very few of the cells with actual data in them. This is when the adjacency list
-            comes into play, the reason that I am reluctant to use this form of representing a graph is that when performing some of the various graph traversal algorithms it can incredibly difficult and
-            pointless to adapt them when by adapting them you effectively generate the adjacency matrix.
+            From lessons which we have had in class I have been shown that there are 2 reasonable ways of representing a graph in code, this includes an adjacency matrix and an adjacency list. Both have their advantages and disadvantages. An adjacency matrix is good when you have a reasonably connected graph which has weights, this is due to it being easy to access and traverse. As soon as you have a sparse graph however it becomes very memory intensive which is unnecessary considering that there will be very few of the cells with actual data in them. This is when the adjacency list comes into play, the reason that I am reluctant to use this form of representing a graph is that when performing some of the various graph traversal algorithms it can incredibly difficult and pointless to adapt them when by adapting them you effectively generate the adjacency matrix.
             \bk
             
             \paragraph{Graph Traversal and Output} \mbox{} \\
@@ -259,7 +254,7 @@
             
             \begin{gather*}
                 \beta = 0.299 * \alpha_{b} + 0.587 * \alpha_{g} + 0.114 * \alpha_{b}
-                \text{ }
+                \text{; }
                 \begin{cases}
                     255 & \beta > 255 \\
                     0 & \beta < 0 \\
@@ -314,7 +309,22 @@
             \end{gather*}
             \bk
             
-            \paragraph{}
+            \paragraph{Convolution Operation} \mbox{} \\
+            Convolution is the method at which most image manipulation is achieved. It evolves taking a altering kernel and a kernel of the original image and then combines the two through convolution. The generalised equation for this is as follows. \\ \bk
+            
+            \begin{gather*}
+            {\displaystyle {\begin{bmatrix}x_{11}&x_{12}&\cdots &x_{1n}\\x_{21}&x_{22}&\cdots &x_{2n}\\\vdots &\vdots &\ddots &\vdots \\x_{m1}&x_{m2}&\cdots &x_{mn}\\\end{bmatrix}}*{\begin{bmatrix}y_{11}&y_{12}&\cdots &y_{1n}\\y_{21}&y_{22}&\cdots &y_{2n}\\\vdots &\vdots &\ddots &\vdots \\y_{m1}&y_{m2}&\cdots &y_{mn}\\\end{bmatrix}}=\sum _{i=0}^{m-1}\sum _{j=0}^{n-1}x_{(m-i)(n-j)}y_{(1+i)(1+j)}}
+            \end{gather*} \bk
+
+            To give a more comprehensive example this can be simplified down to:
+
+            \begin{gather*}
+                \displaystyle \left({\begin{bmatrix}a&b&c\\d&e&f\\g&h&i\end{bmatrix}}*{\begin{bmatrix}1&2&3\\4&5&6\\7&8&9\end{bmatrix}}\right)\\  \\
+                \rightarrow{} (i\cdot 1)+(h\cdot 2)+(g\cdot 3)+(f\cdot 4)+(e\cdot 5)+(d\cdot 6)+(c\cdot 7)+(b\cdot 8)+(a\cdot 9)
+            \end{gather*}
+
+            \bk
+            The simplest way of thinking of this is that you are performing matrix multiplication on a two matrices except one of them has been flipped both vertically and horizontally. Mapping the point [2, 2] to [0, 0].
 
             \subsubsection{Second Interview}
             \large
@@ -356,14 +366,228 @@
         \subsection{Prototyping}
         \subsubsection{Prototype Objectives} 
         Before I begin the creation of my prototypes I will create a list of sections I wish to complete by the end. This will allow me to keep perspective and make sure that the prototype remains on track. I have decided that the parts of my final solution are:
+        
         \begin{itemize}
             \item A version of edge detection
             \item A graph class with basic traversal
             \item A forms interface for showing images
-        \end{itemize} \\ \bk
+        \end{itemize} \bk
+        
 
         \subsubsection{Edge Detection}
-        For the example of edge detection which I am going to prototype I have chosen Canny Edge Detection, this is the most common of the types of edge detection and is relitivly simple. 
+        For the example of edge detection which I am going to prototype I have chosen Canny Edge Detection, this is the most common of the types of edge detection and is relatively simple. It is also widely documented which allows me to focus more on the application and less on the finding of resources. \\ \bk
+
+        Before I begin, there are a couple of key features that need to be mentioned. The first is how I handle building the image kernel. For example when the center pixel is on the edge of the image, you will have some non existent pixels as part of the image kernel. To combat this there are several methods:
+        
+        \begin{enumerate}
+            \item Extension - The nearest border pixels to the chosen pixel are extended in order to fill the gaps. The corner pixels are extended at 90 deg. Others are extended in straight lines.
+            \item Wrapping - The pixels for the unknown ones are taken from the opposite side of the image. For example it it was 1 off the top the first pixel from the bottom would be used.
+            \item Mirroring - The image is mirrored at the edges doubling up the total image.
+            \item Constants - Any pixels in the kernel which are not contained in the image are given a default value, this is usually grey or black depending on the application.
+            \item Duplication - Similar to above any pixels which are not contained are set to the value of the center pixel in the kernel.
+        \end{enumerate} \bk
+        
+        \begin{figure}[H]
+            \centering
+            \subfloat[\centering Wrapping]{{\includegraphics[width=4.5cm]{images/kernelExamples/wrap.png}}}
+            \qquad
+            \subfloat[\centering Mirroring]{{\includegraphics[width=4.5cm]{images/kernelExamples/mirror.png}}}
+            \\ \BK
+            \qquad
+            \subfloat[\centering Extension]{{\includegraphics[width=2.5cm]{images/kernelExamples/extend.png}}} \space
+            \qquad
+            \subfloat[\centering Constants]{{\includegraphics[width=2.5cm]{images/kernelExamples/constant.png}}}
+            \qquad
+            \subfloat[\centering Duplication]{{\includegraphics[width=2.5cm]{images/kernelExamples/clone.png}}}
+        \end{figure}
+        
+
+        For this part of the prototype I have decide to go with the duplication option, this is due to the fact that it is one of the easier and quicker methods to implement as well as being suitable for the edge detection use case. \\ \bk
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=5cm]{images/edgeDetectionPrototype/in.jpg}
+            \caption{Original Image}
+            \label{fig:proto_original}
+        \end{figure}
+        
+        \paragraph{1. Converting to Black and White} \mbox{} \\
+        The first part of the edge detection is to convert the image to black and white. This is because if the image is in colour then you would have to either perform edge detection on each of the colour sections and then somehow combine them, or take a single colour value to base the conversion off of. As previously mentioned this can be accomplished through many means, the most common as explained in \textit{1.5.1 Black and White Filter}. The version which I have decided to use for this prototype is the industry standard Y\textsuperscript{'}UV conversion. \\ \bk
+        
+        The implementation in code of this is as below:
+        \begin{cscode}
+public double[,] BWFilter(Bitmap image)
+{
+    double[,] result = new double[image.Height, image.Width];
+
+    for (int i = 0; i < image.Height; i++)
+    {
+        for (int j = 0; j < image.Width; j++)
+        {
+            Color c = image.GetPixel(j, i);
+            double value = c.R * 0.299 + c.G * 0.587 + c.B * 0.114;
+
+            result[i, j] = Bound(0, 255, value);
+        }
+    }
+
+    return result;
+}
+        \end{cscode}
+        
+        This takes the original image in Bitmap form and then instantiates an array with the dimensions of the input image, this will serve going forward as the array as to which all changes will be based from. I learnt from this prototype early on that when calculating the values is is better to use the exact ones from the previous stage. This is because if all the values where compressed to within image specifications ($0 \leq x \leq 25$) you would loose definition and precision causing later calculation so be incorrect. Once this section has run through every pixel in the image and converted it to a black and white value the subroutine returns the double array with the black and white values. The result of this on the input \textit{figure \ref{fig:proto_original}} is: \\ \bk
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=5cm]{images/edgeDetectionPrototype/a.jpg}
+            \caption{Black and White Filter}
+            \label{fig:proto_bwfilter}
+        \end{figure} \bk
+        
+        \paragraph{2. Gaussian Filter} \mbox{} \\
+        The next step of canny edge detection is applying the Gaussian filter. This is to ensure that any noise that is contained within the image is removed. This is because if there are stray pixels in the center of the image this can cause an edge to form when in fact there isn't one. This is the first operation in edge detection which requires convolution as explained in \textit{1.5.1 Gaussian Filter}. To accomplish this the following code was used: \\ \bk
+        
+        \begin{cscode}
+public double[,] GaussianFilter(double sigma, int kernelSize, double[,] imageArray)
+{
+    double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
+
+    Matrix gaussianKernel = GetGaussianKernel(kernelSize, sigma);
+
+    for (int i = 0; i < result.GetLength(0); i++)
+    {
+        for (int j = 0; j < result.GetLength(1); j++)
+        {
+            Matrix imageKernel = BuildKernel(j, i, kernelSize, imageArray);
+            double sum = Matrix.Convolution(imageKernel, gaussianKernel);
+            result[i, j] = sum;
+        }
+    }
+
+    return result;
+}
+        
+public Matrix GetGaussianKernel(int k, double sigma)
+{
+    double[,] result = new double[k, k];
+    int halfK = k / 2;
+
+    double sum = 0;
+
+    int cntY = -halfK;
+    for (int i = 0; i < k; i++)
+    {
+        int cntX = -halfK;
+        for (int j = 0; j < k; j++)
+        {
+            result[halfK + cntY, halfK + cntX] = GetGaussianDistribution(cntX, cntY, sigma);
+            sum += result[halfK + cntY, halfK + cntX];
+            cntX++;
+        }
+        cntY++;
+    }
+
+    for (int i = 0; i < k; i++) for (int j = 0; j < k; j++) result[i, j] /= sum;
+    return new Matrix(result);
+}
+        \end{cscode}
+        
+        Again this subroutine follows a similar layout to the rest in this prototype, it iterates though each pixel in the image and apply some equation. In this case as stated above it is performing convolution of a matrix which is a sub section of the original image. It is convoluting this with the Gaussian kernel though the means described in \textit{1.5.1 Convolution Operation}. The code for the convolution operation can be seen at \textit{5.1.1 Lines 586 through 612} and the Gaussian distribution lambda function can be found \textit{5.1.1 Line 554}. Another learning experience here was how if the image is sufficiently large then the kernel does not have as much of an effect at blurring the image and removing noise. It may be beneficial in the final program to reduce the image to a smaller size or perhaps change the sigma and kernel size. The output of this subroutine is: \\ \bk
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=5cm]{images/edgeDetectionPrototype/b.jpg}
+            \caption{Gaussian Filter}
+            \label{fig:proto_guaussian}
+        \end{figure} \bk
+        
+        \paragraph{3. Calculation of XY Gradients} \mbox{} \\
+        The first edge picking stage of canny edge detection is the calculation of the gradients of the image in both the X axis and the Y axis. In order to achieve this two more kernels are used. They are known as the Sobel operators. \\
+        \begin{gather*}
+            {\displaystyle M_{y}={\begin{bmatrix}+1&0&-1\\+2&0&-2\\+1&0&-1\end{bmatrix}}\quad {\text{and}}\quad M_{x}={\begin{bmatrix}+1&+2&+1\\0&0&0\\-1&-2&-1\end{bmatrix}}}
+        \end{gather*} \bk
+        
+        The code which is used to perform this section of the canny edge detection is as follows, note that for the gradient in Y the matrix is replaced with the Y matrix and its code can be seen at \textit{5.1.1 Lines 416 through 432}. \\ \bk
+        
+        \begin{cscode}
+public double[,] CalculateGradientX(double[,] imageArray)
+{
+    double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
+
+    Matrix sobelX = new Matrix(new double[,] {
+        { 1, 2, 1 },
+        { 0, 0, 0 },
+        { -1, -2, -1 },
+    });
+
+    for (int i = 0; i < imageArray.GetLength(0); i++)
+    {
+        for (int j = 0; j < imageArray.GetLength(1); j++)
+        {
+            Matrix imageKernel = BuildKernel(j, i, 3, imageArray);
+            result[i, j] = Matrix.Convolution(imageKernel, sobelX);
+        }
+    }
+
+    return result;
+}
+        \end{cscode}
+        
+        Same as the Gaussian filter the convolution operation is applied to both of these matrices. The kernels that are used are build from the image with the center $(i,j)$ same as the previous step. This is when it becomes beneficial to use the duplication method for the kernel building. Since the gradient is dependent on the surrounding pixels using the pixel itself prevents false edges from appearing. The two separate gradient kernels produce the following images:
+        
+        \begin{figure}[H]
+            \centering
+            \subfloat[Gradient in X]{\includegraphics[width=5cm]{images/edgeDetectionPrototype/c.jpg}}
+            \label{fig:proto_gradX}
+            \qquad
+            \subfloat[Gradient in Y]{\includegraphics[width=5cm]{images/edgeDetectionPrototype/d.jpg}}
+            \label{fig:proto_gradY}
+        \end{figure} \bk
+        
+        These two images represent the cases where in the image there is a change in the value of the pixels. The brighter the white the more different two given pixels are. We can combine these two to give a total image of all gradient changes. Find image below, while this is useful to look at from a human perspective it is not the most useful in edge detection and in fact we will need both the raw 2D double arrays from each gradient calculation to move onto the next step.
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=5cm]{images/edgeDetectionPrototype/e.jpg}
+            \caption{Gaussian Filter}
+            \label{fig:proto_gradTot}
+        \end{figure} \bk
+        
+        \paragraph{4. Gradient Direction} \mbox{} \\
+        Now that the gradient values have been calculated we can move onto working out which direction the gradient is traveling. This is done via the use of the $2^{nd}$ argument arc-tangent. The definition of the $2^{nd}$ argument arc-tangent is defined as the angle in the Euclidean plane, given in radians, between the positive $x$ axis and the ray from the origin to the point $(x,y)$. Once this is calculated this will allow the program to see in which direction the gradient is traveling in the image. As well as this is also allows us to see how sharp the change is from one to the other, this is how we can decide if there is an edge there. The code to calculate the $2^{nd}$ argument arc-tangent is simple since all is needed is to iterate over the entire image. The code for this can be seen at \textit{5.1.1 Lines 379 through 384.}
+        
+        \begin{cscode} 
+public double[,] CalculateTheta(double[,] gradX, double[,] gradY)
+{
+    double[,] result = new double[gradX.GetLength(0), gradX.GetLength(1)];
+    for (int i = 0; i < gradX.GetLength(0); i++) for (int j = 0; j < gradX.GetLength(1); j++) result[i, j] = Math.Atan2(gradY[i, j], gradX[i, j]);
+    return result;
+}
+        \end{cscode}
+        
+        This however will return an array with values which are in the range of -$\pi$ to $\pi$ therefor in order to create an image to visualise the result a linear transformation must be used which can be calculated as the equation of a line. The derived equation is $\frac{128}{2\pi}x + 128$ where x is the value of theta. Once converted the output of this stage is as follows.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=5cm]{images/edgeDetectionPrototype/f.jpg}
+            \caption{Gaussian Filter}
+            \label{fig:proto_gradDir}
+        \end{figure} \bk
+
+        \paragraph{5. Gradient Magnitude Threshold} \mbox{} \\
+        Once both the combined gradient and gradient directions have been calculate the next step in the process is working out which parts of the edge detected image are noise and which are not. In order to do this the combined gradients and the direction are taken into account and similar to before we build a kernel of the surrounding pixels of the image. The first part of this however is to convert the values in radians to values in degrees, to do this we run all through all values and convert them first. This can be seen \textit{Lines 372 through 377}.
+        
+        \begin{cscode}
+public double[,] ConvertThetaToDegrees(double[,] thetaArray)
+{
+    double[,] result = new double[thetaArray.GetLength(0), thetaArray.GetLength(1)];
+    for (int i = 0; i < thetaArray.GetLength(0); i++) for (int j = 0; j < thetaArray.GetLength(1); j++) result[i, j] = 180 * Math.Abs(thetaArray[i, j]) / Math.PI;
+    return result;
+}
+        \end{cscode}
+        
+        Once all values are in degrees this becomes easier to deal with since there is less data lost to floating point arithmetic. Now that the angles are in degrees they are compared to predefined values as shown in the code. Depending which if the categories the pixel in question falls into the kernel is then used to decide whether that pixel will be set to black or not. Since this is the first filtering pass it is rather blunt and will not remove all of the noise in the image, this will come at a later stage through the use of min max threshold. \\ \bk
+
+        The main part of the edge detection that this portion of the code completes is removing parts of the image which have random lines in the image. This is due to us having a "made up" direciton of where the line is  
 
 
         \subsection{Objectives}
@@ -395,15 +619,54 @@
                 \item When the user inputs a map, the program will ask them
                 \begin{enumerate}
                     \item What type of map they are inputting
-                    \item How they would like the result of the map
-                    \item How harsh they would like the edge detection to be
-                    \item The resolution of which to parse the map too
-                    \item Whether they would like to path find through the map or form a Graph MST \\
+                    \item Whether this is the correct image
+                    \item Whether they want the image deleted after edge detection
+                    \item Whether they would like the image to be stored in a binary file \\
                     \emph{These are just some examples of prompts}
                 \end{enumerate}
                 \item The inputted map should be converted into a graph
-                \item The map (in graph form) should be able to be traversed
+                \begin{enumerate}
+                    \item The map (in graph form) should be able to be traversed
+                    \item The map (in graph form) should be able to be formed into a MST
+                \end{enumerate}
+                
                 \item If any error occurs during the map input process an appropriate error should be displayed and the program should continue to run
+            \end{enumerate}
+
+            \item The Program must perform canny edge detection   
+            \begin{enumerate}
+                \item At each stage of the edge detection an image should be produced
+                \item Between each stage the user should be able to repeat the last step in order to change parameters.\\
+                \emph{The user should be able to change (at various stages):} 
+                \begin{enumerate}
+                    \item The sigma value of the Gaussian elimination
+                    \item The lower threshold value
+                    \item The higher threshold value
+                    \item The Gaussian kernel size
+                    \item The black and white filter ratios
+                    \item The amount of times embossing is performed
+                    \item The times de-blocking should be performed
+                \end{enumerate}
+                \item The edge detection must have the option to be multi threaded.
+                \item The edge detection must have the option to be single threaded
+            \end{enumerate}
+            
+            \item The Program must overlay the detected roads onto the original image
+            \begin{enumerate}
+                \item The result of the edge detection will be shown to the user before road detection
+                \item The program will perform road detection
+                \begin{enumerate}
+                    \item The image should have the option to be inverted
+                    \item A filling algorithm should be applied to the image
+                    \begin{enumerate}
+                        \item There should be the option of using a stack
+                        \item There should be the option of using a queue
+                    \end{enumerate}
+                    \item The percentage threshold for non roads much be changeable by the user
+                    \item The total filled image must be displayed to the user
+                    \item The singled out roads and paths must be shown to the user
+                \end{enumerate}
+                
             \end{enumerate}
             
             \item The Program must allow Map Traversal
@@ -435,21 +698,40 @@
                     \item Decide a specific algorithm to use
                     \item Have the program compute all and use the most efficient one
                     \item Have the program compute all and let the user select one
+                    \begin{enumerate}
+                        \item The time for each should be displayed
+                        \item The length of each should be displayed
+                        \item The node count of each should be displayed
+                    \end{enumerate}
                 \end{enumerate}
             \end{enumerate}
             
             \item The Program must have a Clear and Simplistic GUI
             \begin{enumerate}
                 \item At a glance the user should be able to ascertain which step they are at in the process.
-            \end{enumerate}
+                \item Whenever a forms is displayed it should not serve more than one purpose
+            \end{enumerate}          
 
-            \item The Program must have image processing capabilities
+            \item The program must implement abstract data types
             \begin{enumerate}
-                \item The program should be able to perform edge Detection
+                \item The program must implement a matrix class
+                \begin{enumerate}
+                    \item The program must be able to perform basic operations
+                    \begin{enumerate}
+                        \item Perform matrix multiplication
+                        \item Perform matrix addition
+                        \item Perform matrix subtraction
+                        \item Perform scalar multiplication
+                        \item Perform matrix minimisation
+                \end{enumerate}
+                \item The program must be able to find the determinant of a matrix
+                \item The program must be able to find the inverse of a matrix
+                \item The program must be able to apply the convolution operation
+                \end{enumerate}
+                
             \end{enumerate}
-            \bk          
+            \bk
         \end{enumerate}  
-        
         \vspace{1cm}
         \centerline{\large\textbf{Extension Objectives}}
         \vspace{1cm}
@@ -457,11 +739,14 @@
         \begin{enumerate}[resume]
             \item The program should be able to output
             \begin{enumerate}
-                \item The map in a binary file format 
-                \item The routed map with path drawn once
-                \item Various stages of image Manipulation
+                \item The map in a binary file format
+                \begin{enumerate}
+                    \item This file can be saved
+                    \item This file can be re-read and re-routed
+                \end{enumerate}
+                \item The routed map with path drawn on it
             \end{enumerate}
-            \item If the user chooses the program should be able to run a web server
+            \item If the user chooses, the program should be able to run a web server
             \begin{enumerate}
                 \item The web version should have a similar speed to the local version
                 \item The web version should have a similar feature set to the local version \\
@@ -473,6 +758,11 @@
 
         \bk
 
+        % sufficiently well modelled ti be of use in subsequent stages
+        % Outline the structure of the program
+        % not all modeling needs to go in this section
+        % class diagram and equations to be used
+        % mockup of the interface (less vital)
         \subsection{Modeling}
         \bk
 

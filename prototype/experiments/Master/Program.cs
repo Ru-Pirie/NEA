@@ -399,14 +399,16 @@ namespace Master
                     if (arrayOfValues[i, j].Item2 == false)
                     {
                         (double, bool)[,] imageKernel = BuildKernel(j, i, 3, arrayOfValues);
-                        for (int k = 0; k < 3; k++)
+                        bool strong = false;
+                        for (int k = 0; k < 3 && !strong; k++)
                         {
-                            for (int l = 0; l < 3; l++)
+                            for (int l = 0; l < 3 && !strong; l++)
                             {
-                                if (imageKernel[k, l].Item2 == false) result[i, j] = 0;
-                                else result[i, j] = 255;
+                                if (imageKernel[k, l].Item2 == true) strong = true;
                             }
                         }
+
+                        result[i, j] = strong ? 255 : 0;
                     }
                     else result[i, j] = 255;
                 }
