@@ -1,8 +1,10 @@
-﻿namespace BackendLib.Exceptions
+﻿using System;
+
+namespace BackendLib.Exceptions
 {
     public class KernelException : Exception
     {
-        public KernelException(string? message) : base(message)
+        public KernelException(string message) : base(message)
         {
         }
     }

@@ -1,8 +1,10 @@
-﻿namespace BackendLib.Datatypes
+﻿using System.Collections.Generic;
+
+namespace BackendLib.Datatypes
 {
     public class Stack<T>
     {
-        private List<T> _stack = new();
+        private List<T> _stack = new List<T>();
         public int Size => _stack.Count;
 
         public Stack(IEnumerable<T> input)

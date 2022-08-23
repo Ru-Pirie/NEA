@@ -1,8 +1,11 @@
-﻿namespace BackendLib.Exceptions
+﻿using System;
+
+
+namespace BackendLib.Exceptions
 {
-    public class PreprocessingException : Exception
+    public class MatrixException : Exception
     {
-        public PreprocessingException(string? message) : base(message)
+        public MatrixException(string message) : base(message)
         {
         }
     }

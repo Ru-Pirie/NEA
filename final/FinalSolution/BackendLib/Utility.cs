@@ -1,4 +1,6 @@
-﻿namespace BackendLib
+﻿using System;
+
+namespace BackendLib
 {
     public static class Utility
     {

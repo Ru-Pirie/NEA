@@ -1,4 +1,6 @@
-﻿using BackendLib.Datatypes;
+﻿using System;
+using System.Threading.Tasks;
+using BackendLib.Datatypes;
 
 namespace BackendLib.Processing
 {
@@ -11,6 +13,24 @@ namespace BackendLib.Processing
         public double Sigma { get; set; } = 1.4;
         public double LowerThreshold { get; set; } = 0.1;
         public double UpperThreshold { get; set; } = 0.3;
+
+        public CannyEdgeDetection()
+        {
+        }
+
+        public CannyEdgeDetection(int kernelSize, double redRatio, double greenRatio, double blueRatio, double sigma, double lowerThreshold, double upperThreshold)
+        {
+            KernelSize = kernelSize;
+            RedRatio = redRatio;
+            GreenRatio = greenRatio;
+            BlueRatio = blueRatio;
+            Sigma = sigma;
+            LowerThreshold = lowerThreshold;
+            UpperThreshold = upperThreshold;
+        }
+
+
+
 
         /// <summary>
         /// Convert a given image in the form of a RGB double array will convert it to a single double array of black and white pixels.

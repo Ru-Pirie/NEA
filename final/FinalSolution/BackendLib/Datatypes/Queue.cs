@@ -1,8 +1,10 @@
-﻿namespace BackendLib.Datatypes
+﻿using System.Collections.Generic;
+
+namespace BackendLib.Datatypes
 {
     public class Queue<T>
     {
-        private List<T> _queue = new();
+        private List<T> _queue = new List<T>();
         public int Size => _queue.Count;
 
         public Queue(IEnumerable<T> input)
