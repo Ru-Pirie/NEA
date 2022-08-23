@@ -10,8 +10,8 @@ namespace LocalApp.CLI
 {
     internal class Menu
     {
-        public static object ScreenLock { get; } = new object();
-        public static int CurrentLine { get; private set; } = 1;
+        public object ScreenLock { get; } = new object();
+        public int CurrentLine { get; private set; } = 1;
 
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern bool SetConsoleMode(IntPtr hConsoleHandle, int mode);
@@ -20,7 +20,7 @@ namespace LocalApp.CLI
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern IntPtr GetStdHandle(int handle);
 
-        public static bool IsWindowMax() => Console.WindowHeight >= Console.LargestWindowHeight && Console.WindowWidth >= Console.LargestWindowWidth - 3;
+        public bool IsWindowMax() => Console.WindowHeight >= Console.LargestWindowHeight && Console.WindowWidth >= Console.LargestWindowWidth - 3;
 
         private readonly string _permLineA;
         private readonly string _permLineB;

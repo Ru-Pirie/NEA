@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using BackendLib;
 using LocalApp.CLI;
@@ -18,6 +19,16 @@ namespace LocalApp
 
             menu.Setup();
             logger.Event("Program has started and menu has been created successfully.");
+
+            ProgressBar testingBar = new ProgressBar("This is a testing bar", 10, menu);
+            testingBar.DisplayProgress();
+            Action updateAction = testingBar.GetIncrementAction();
+
+            for (int i = 0; i < 10; i++)
+            {
+                updateAction();
+                Thread.Sleep(500);
+            }
 
         }
     }

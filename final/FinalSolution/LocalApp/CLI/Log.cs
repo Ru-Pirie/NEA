@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using BackendLib;
@@ -12,10 +13,10 @@ namespace LocalApp.CLI
         private int _logLineCount = 6;
         private Menu _menuInstance;
 
-        public void Error(string message) => Logger.WriteLineToMaster($"[ERROR] {message}");
-        public void Warn(string message) => Logger.WriteLineToMaster($"[WARNING] {message}");
-        public void Event(string message) => Logger.WriteLineToMaster($"[EVENT] {message}");
-        public void End(string message) => Logger.WriteLineToMaster($"[END] {message}");
+        public void Error(string message) => Logger.WriteLineToMaster($"ERROR {message}");
+        public void Warn(string message) => Logger.WriteLineToMaster($"WARNING {message}");
+        public void Event(string message) => Logger.WriteLineToMaster($"EVENT {message}");
+        public void End(string message) => Logger.WriteLineToMaster($"END {message}");
 
         public void Error(Guid runGuid, string message) => LogParent(runGuid, message, 0);
         public void Warn(Guid runGuid, string message) => LogParent(runGuid, message, 1);
@@ -25,6 +26,7 @@ namespace LocalApp.CLI
         public Log(Menu menuInstance)
         {
             _menuInstance = menuInstance;
+            _ = new Logger(true);
         }
 
         /// <summary>
@@ -38,7 +40,7 @@ namespace LocalApp.CLI
             string[] prefix = { "\x1b[38;5;9mERROR\x1b[0m", "\x1b[38;5;3m WARN\x1b[0m", "\x1b[38;5;10mEVENT\x1b[0m", "\x1b[38;5;5m  END\x1b[0m" };
             string[] filePrefix = { "[ERROR] ", "[WARN] ", "[EVENT] ", "[END] " };
 
-            lock (Menu.ScreenLock)
+            lock (_menuInstance.ScreenLock)
             {
                 CheckLogLineCount();
 

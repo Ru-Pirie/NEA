@@ -29,7 +29,7 @@ namespace LocalApp.CLI
 
             int j = 3;
 
-            lock (Menu.ScreenLock)
+            lock (_menuInstance.ScreenLock)
             {
                 foreach (var option in options)
                 {
@@ -41,7 +41,7 @@ namespace LocalApp.CLI
             bool selected = false;
             int currentTop;
 
-            lock (Menu.ScreenLock)
+            lock (_menuInstance.ScreenLock)
             {
                 Console.SetCursorPosition(1, 3);
                 Console.Write('>');
@@ -56,7 +56,7 @@ namespace LocalApp.CLI
                 ConsoleKeyInfo key = Console.ReadKey(true);
                 if (key.Key == ConsoleKey.DownArrow && currentTop < options.Count() + 2)
                 {
-                    lock (Menu.ScreenLock)
+                    lock (_menuInstance.ScreenLock)
                     {
                         Console.CursorLeft = 1;
                         Console.CursorTop = currentTop;
@@ -68,7 +68,7 @@ namespace LocalApp.CLI
                 }
                 else if (key.Key == ConsoleKey.UpArrow && currentTop > 3)
                 {
-                    lock (Menu.ScreenLock)
+                    lock (_menuInstance.ScreenLock)
                     {
                         Console.CursorLeft = 1;
                         Console.CursorTop = currentTop;
@@ -97,7 +97,7 @@ namespace LocalApp.CLI
 
             bool complete = false;
             StringBuilder input = new StringBuilder();
-            int line = Menu.CurrentLine;
+            int line = _menuInstance.CurrentLine;
 
             while (!complete)
             {
@@ -114,7 +114,7 @@ namespace LocalApp.CLI
                         {
                             if (input.Length > 0)
                             {
-                                lock (Menu.ScreenLock)
+                                lock (_menuInstance.ScreenLock)
                                 {
                                     Console.SetCursorPosition((input.Length % (Console.WindowWidth * 3 / 4 - 1)), line);
                                     Console.Write(' ');
@@ -129,7 +129,7 @@ namespace LocalApp.CLI
                         {
                             if (input.Length / (line - 1) > Console.WindowWidth * 3 / 4 - 2) line++;
 
-                            lock (Menu.ScreenLock)
+                            lock (_menuInstance.ScreenLock)
                             {
                                 Console.SetCursorPosition((input.Length % (Console.WindowWidth * 3 / 4 - 1)) + 1, line);
                                 Console.Write(key.KeyChar);
