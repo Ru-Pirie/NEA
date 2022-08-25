@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Threading.Tasks;
 using BackendLib.Datatypes;
 
@@ -14,9 +15,7 @@ namespace BackendLib.Processing
         public double LowerThreshold { get; set; } = 0.1;
         public double UpperThreshold { get; set; } = 0.3;
 
-        public CannyEdgeDetection()
-        {
-        }
+        public CannyEdgeDetection() { }
 
         public CannyEdgeDetection(int kernelSize, double redRatio, double greenRatio, double blueRatio, double sigma, double lowerThreshold, double upperThreshold)
         {
@@ -84,14 +83,18 @@ namespace BackendLib.Processing
             
             Task.WaitAll(tasks);
 
-            return new Structures.Gradients();
+            return new Structures.Gradients
+            {
+                GradientX = tasks[0].Result, 
+                GradientY = tasks[1].Result
+            };
         }
 
         private double[,] CalculateGradientX(double[,] input, Action updateMenu)
         {
             double[,] output = new double[input.GetLength(0), input.GetLength(1)];
 
-            Matrix sobelMatrixX = new Matrix(new double[,] { { 1, 0, 1 }, { 2, 0, -2 }, { 1, 0, -1 } });
+            Matrix sobelMatrixY = new Matrix(new double[,] { { 1, 0, -1 }, { 2, 0, -2 }, { 1, 0, -1 } });
             Kernel<double> masterKernel = new Kernel<double>(input);
 
             for (int y = 0; y < input.GetLength(0); y++)
@@ -99,7 +102,7 @@ namespace BackendLib.Processing
                 for (int x = 0; x < input.GetLength(1); x++)
                 {
                     Matrix imageKernel = new Matrix(masterKernel.Duplication(x, y, KernelSize));
-                    output[y, x] = Matrix.Convolution(imageKernel, sobelMatrixX);
+                    output[y, x] = Matrix.Convolution(imageKernel, sobelMatrixY);
                 }
             }
 
@@ -134,11 +137,11 @@ namespace BackendLib.Processing
 
             double[,] output = new double[grads.GradientX.GetLength(0), grads.GradientX.GetLength(1)];
 
-            for (int i = 0; i < grads.GradientX.GetLength(0); i++)
+            for (int y = 0; y < grads.GradientX.GetLength(0); y++)
             {
-                for (int j = 0; j < grads.GradientX.GetLength(1); j++)
+                for (int x = 0; x < grads.GradientX.GetLength(1); x++)
                 {
-                    output[i, j] = Math.Sqrt(Math.Pow(grads.GradientX[i, j], 2) + Math.Pow(grads.GradientY[i, j], 2));
+                    output[y, x] = Math.Sqrt(Math.Pow(grads.GradientX[y, x], 2) + Math.Pow(grads.GradientY[y, x], 2));
                 }
             }
             
@@ -152,11 +155,11 @@ namespace BackendLib.Processing
 
             double[,] output = new double[grads.GradientX.GetLength(0), grads.GradientX.GetLength(1)];
 
-            for (int i = 0; i < grads.GradientX.GetLength(0); i++)
+            for (int y = 0; y < grads.GradientX.GetLength(0); y++)
             {
-                for (int j = 0; j < grads.GradientX.GetLength(1); j++)
+                for (int x = 0; x < grads.GradientX.GetLength(1); x++)
                 {
-                    output[i, j] = Math.Atan2(grads.GradientY[i, j], grads.GradientX[i, j]);
+                    output[y, x] = Math.Atan2(grads.GradientY[y, x], grads.GradientX[y, x]);
                 }
             }
 
@@ -168,14 +171,14 @@ namespace BackendLib.Processing
             if (gradCombined.GetLength(0) != gradAngle.GetLength(0) || gradCombined.GetLength(1) != gradAngle.GetLength(1)) 
                 throw new ArgumentException("Supplied arrays where not of same dimensions");
 
-            double[,] output = new double[gradCombined.GetLength(0), gradCombined.GetLength(1)];
+            double[,] output = gradCombined;
             double[,] anglesInDegrees = new double[gradCombined.GetLength(0), gradCombined.GetLength(1)];
 
             for (int y = 0; y < anglesInDegrees.GetLength(0); y++)
             {
                 for (int x = 0; x < anglesInDegrees.GetLength(1); x++)
                 {
-                    anglesInDegrees[y, x] = Utility.RadianToDegree(gradAngle[x, y]);
+                    anglesInDegrees[y, x] = Utility.RadianToDegree(gradAngle[y, x]);
                 }
             }
 
@@ -221,13 +224,13 @@ namespace BackendLib.Processing
 
             Structures.ThresholdPixel[,] output = new Structures.ThresholdPixel[input.GetLength(0), input.GetLength(1)];
 
-            for (int i = 0; i < input.GetLength(0); i++)
+            for (int y = 0; y < input.GetLength(0); y++)
             {
-                for (int j = 0; j < input.GetLength(1); j++)
+                for (int x = 0; x < input.GetLength(1); x++)
                 {
-                    if (input[i, j] < min) output[i, j] = new Structures.ThresholdPixel{Strong =  false, Value = 0};
-                    else if (input[i, j] > min && input[i, j] < max) output[i, j] = new Structures.ThresholdPixel { Strong = false, Value = input[i, j] };
-                    else if (input[i, j] > max) output[i, j] = new Structures.ThresholdPixel { Strong = true, Value = input[i, j] };
+                    if (input[y, x] < min) output[y, x] = new Structures.ThresholdPixel{Strong =  false, Value = 0};
+                    else if (input[y, x] > min && input[y, x] < max) output[y, x] = new Structures.ThresholdPixel { Strong = false, Value = input[y, x] };
+                    else if (input[y, x] > max) output[y, x] = new Structures.ThresholdPixel { Strong = true, Value = input[y, x] };
                     else throw new Exception();
                 }
             }

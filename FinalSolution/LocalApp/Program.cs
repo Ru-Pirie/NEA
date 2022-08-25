@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using BackendLib;
 using BackendLib.Data;
+using BackendLib.Processing;
 using LocalApp.CLI;
 
 namespace LocalApp
@@ -22,26 +23,37 @@ namespace LocalApp
             menu.Setup();
             logger.Event("Program has started and menu has been created successfully.");
 
-            Map testMap = new Map(@"P:\NEA\FinalSolution\LocalApp\bin\Debug\saves\0c7ee29e-66d1-44cb-9572-9a06fc455641.vmap");
-            testMap.Initialize();
+            Pre preImage = new Pre("image.jpg");
+            preImage.Start();
+            CannyEdgeDetection detector = new CannyEdgeDetection();
 
-            testMap.OriginalImage.Save("a.png");
-            testMap.PathImage.Save("b.png");
-            testMap.CombinedImage.Save("c.png");
+            detector.KernelSize = 3;
 
-            //Map testMap = new Map();
-            //testMap.Name = "Test";
-            //testMap.Description = "This is a test description which hopefully works";
-            //testMap.Type = "development";
-            //testMap.TimeCreated = DateTimeOffset.Now;
-            //testMap.OriginalImage = new Bitmap(@"P:\NEA\writeup\images\edgeDetectionExperiment\a.jpg");
-            //testMap.PathImage = new Bitmap(@"P:\NEA\writeup\images\edgeDetectionExperiment\f.jpg");
-            //testMap.CombinedImage = new Bitmap(@"P:\NEA\writeup\images\edgeDetectionExperiment\k.jpg");
+            double[,] a = detector.BlackWhiteFilter(preImage.Result().Pixels);
+            double[,] b = detector.GaussianFilter(a);
+            Structures.Gradients c = detector.CalculateGradients(b, thing);
 
-            //testMap.Save(Logger.CreateRun());
+            double[,] d = detector.CombineGradients(c);
+            double[,] e = detector.GradientAngle(c);
+
+            double[,] f =  detector.MagnitudeThreshold(d, e);
+            Structures.ThresholdPixel[,] g = detector.DoubleThreshold(f);
+            double[,] q = detector.EdgeTrackingHysteresis(g);
+
+            Post postImage = new Post(q);
+            postImage.Start(0);
+
+            postImage.Result().ToBitmap().Save("out.png");
+            RoadDetection roadDetector = new RoadDetection(postImage.Result(), 0.25);
+            roadDetector.Start(thing);
+            roadDetector.Result().PathBitmap.Save("path.png");
+
+            Utility.CombineBitmap(preImage.Result().Original, roadDetector.Result().PathBitmap).Save("combinedFinal.png");
 
             Run(menu, inputs, logger);
         }
+
+        private static void thing() => Console.Title = "thing";
 
         private static void Run(Menu m, Input i, Log l)
         {
@@ -50,14 +62,22 @@ namespace LocalApp
             while (running)
             {
                 int opt = i.GetOption("Please select an option to continue:",
-                    new[] { "Process New Image Into Map Data File", "Recall Map From Data File" });
+                    new[] { "Process New Image Into Map Data File", "Recall Map From Data File", "Exit Program" });
 
                 switch (opt)
                 {
                     case 0: 
-                        m.SetPage(DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString());
+
+
+
                         break;
                     case 1:
+
+
+
+                        break;
+                    case 2:
+                        running = false;
                         break;
                 }
             }

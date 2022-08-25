@@ -165,6 +165,8 @@ namespace LocalApp.CLI
                 Console.SetCursorPosition(15, Console.WindowHeight * 5 / 6 + 2);
                 Console.Write(message.PadRight(Console.WindowWidth * 3 / 4 - 15));
             }
+
+            Console.Title = $"Comp Sci NEA | Rubens Pirie | {message}";
         }
 
         public void WriteLine()

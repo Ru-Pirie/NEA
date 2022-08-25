@@ -30,5 +30,17 @@ namespace BackendLib
             public int Width;
             public int Height;
         }
+
+        public struct RoadResult
+        {
+            public Bitmap FilledBitmap;
+            public Bitmap PathBitmap;
+        }
+
+        public struct Cord
+        {
+            public int X;
+            public int Y;
+        }
     }
 }

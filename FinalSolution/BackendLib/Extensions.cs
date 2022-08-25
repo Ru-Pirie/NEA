@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BackendLib
 {
-    internal static class Extensions
+    public static class Extensions
     {
         public static Bitmap ToBitmap(this double[,] array)
         {

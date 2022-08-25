@@ -1,8 +1,9 @@
-﻿using BackendLib.Exceptions;
+﻿using System.Collections;
+using BackendLib.Exceptions;
 
 namespace BackendLib.Datatypes
 {
-    public class Matrix
+    public class Matrix : IEnumerable
     {
         private readonly double[,] _matrix;
         public int X { get; }
@@ -88,5 +89,8 @@ namespace BackendLib.Datatypes
             for (int i = 0; i < a.Y; i++) for (int j = 0; j < a.X; j++) sum += a[i, j] * flippedB[i, j];
             return sum;
         }
+
+        public IEnumerator GetEnumerator() => _matrix.GetEnumerator();
+        
     }
 }

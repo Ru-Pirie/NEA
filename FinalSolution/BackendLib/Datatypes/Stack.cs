@@ -7,6 +7,8 @@ namespace BackendLib.Datatypes
         private List<T> _stack = new List<T>();
         public int Size => _stack.Count;
 
+        public Stack() { }
+
         public Stack(IEnumerable<T> input)
         {
             foreach (var item in input) _stack.Add(item);
