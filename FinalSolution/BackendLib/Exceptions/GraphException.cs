@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace BackendLib.Exceptions
 {
-    internal class GraphException
+    public class GraphException : Exception
     {
+        public GraphException(string message) : base(message)
+        {
+        }
     }
 }

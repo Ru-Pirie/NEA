@@ -2,7 +2,7 @@
 
 namespace BackendLib.Datatypes
 {
-    public class Stack<T>
+    public class Stack<T> 
     {
         private List<T> _stack = new List<T>();
         public int Size => _stack.Count;
@@ -25,5 +25,7 @@ namespace BackendLib.Datatypes
         }
 
         public bool IsEmpty() => _stack.Count == 0;
+
+        public bool Contains(T item) => _stack.Contains(item);
     }
 }

@@ -49,7 +49,7 @@ namespace BackendLib.Processing
                     if ((((y + 1) * (x + 1)) / 100) % 100 == 0) updateAction();
 
                     int minX = _imageDoubles.GetLength(1), maxX = 0, minY = _imageDoubles.GetLength(0), maxY = 0;
-                    double filled = 0;
+                    int filled = 0;
 
                     Color randCol = Color.FromArgb(_gen.Next(56, 256), _gen.Next(56, 256), _gen.Next(56, 256));
                     while (usedColors.Contains(randCol))
@@ -88,7 +88,7 @@ namespace BackendLib.Processing
                     }
 
                     double totalSquares = (maxX - minX) * (maxY - minY);
-                    if (filled / totalSquares > _threshold) toReplaceColors.Add(randCol);
+                    if (filled / totalSquares > _threshold || filled == 1) toReplaceColors.Add(randCol);
                 }
             }
 

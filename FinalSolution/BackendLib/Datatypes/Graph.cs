@@ -7,41 +7,43 @@ using BackendLib.Exceptions;
 
 namespace BackendLib.Datatypes
 {
-    public class Graph<TKey, TValue>
+    public class Graph<T>
     {
-        public Dictionary<TKey, List<TValue>> _data = new Dictionary<TKey, List<TValue>>();
+        public Dictionary<T, List<T>> _data = new Dictionary<T, List<T>>();
 
-        public Graph(Dictionary<TKey, List<TValue>> graph)
+        public Graph() {}
+
+        public Graph(Dictionary<T, List<T>> graph)
         {
             _data = graph;
         }
 
-        public void AddNode(TKey key)
+        public void AddNode(T key)
         {
             if (_data.ContainsKey(key)) throw new GraphException($"Cannot add {key}, node already exists.");
-            _data.Add(key, new List<TValue>());
+            _data.Add(key, new List<T>());
         }
 
-        public void RemoveNode(TKey key)
+        public void RemoveNode(T key)
         {
             if (!_data.ContainsKey(key)) throw new GraphException($"Cannot remove {key}, node does not exist.");
             _data.Remove(key);
         }
 
-        public void AddConnection(TKey key, TValue value)
+        public void AddConnection(T key, T value)
         {
             if (!_data.ContainsKey(key)) throw new GraphException($"Cannot add connection {value} to {key} original node does not exist.");
             if (_data[key].Contains(value)) throw new GraphException($"Cannot add connection {value} to {key} connection already exists.");
             _data[key].Add(value);
         }
 
-        public List<TValue> GetNode(TKey key)
+        public List<T> GetNode(T key)
         {
             if (!_data.ContainsKey(key)) throw new GraphException($"Node {key} does not exist.");
             return _data[key];
         }
 
-        public TValue[] GetAllNodes() => _data.Keys.ToArray();
+        public T[] GetAllNodes() => _data.Keys.ToArray();
 
         public void Clear() => _data.Clear();
     }

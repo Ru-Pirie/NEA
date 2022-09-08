@@ -24,5 +24,7 @@ namespace BackendLib.Datatypes
         }
 
         public bool IsEmpty() => _queue.Count == 0;
+
+        public bool Contains(T item) => _queue.Contains(item);
     }
 }

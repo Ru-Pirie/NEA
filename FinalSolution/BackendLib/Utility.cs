@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using BackendLib.Datatypes;
 
 namespace BackendLib
 {
@@ -21,7 +22,7 @@ namespace BackendLib
 
         public static double DegreeToRadian(double input) => input * Math.PI / 180;
 
-        public static double MapRadiansToPixel(double input) => (int)(((128 / (2 * Math.PI)) * input) + 128);
+        public static double MapRadiansToPixel(double input) => (int)(128 / (2 * Math.PI) * input + 128);
 
         public static Bitmap CombineBitmap(Bitmap a, Bitmap b)
         {

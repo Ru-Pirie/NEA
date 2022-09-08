@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BackendLib.Datatypes;
 
 namespace BackendLib
 {
@@ -24,5 +25,33 @@ namespace BackendLib
 
             return output;
         }
+
+        public static Graph<Structures.Cord> ToGraph(this double[,] doubles)
+        {
+            Graph<Structures.Cord> output = new Graph<Structures.Cord>();
+            Kernel<double> masterKernel = new Kernel<double>(doubles);
+
+            for (int y = 0; y < doubles.GetLength(0); y++)
+            {
+                for (int x = 0; x < doubles.GetLength(1); x++)
+                {
+                    Structures.Cord tempCord = new Structures.Cord { X = x, Y = y };  
+                    output.AddNode(tempCord);
+
+                    double[,] surroundingDoubles = masterKernel.Constant(x, y, 3, 0);
+                    if (doubles[y, x] == 255)
+                    {
+                        for (int i = 0; i < 9; i++)
+                        {
+                            if (surroundingDoubles[i / 3, i % 3] != 0 && i != 4)
+                                output.AddConnection(tempCord, new Structures.Cord { X = (x + (i % 3))-1, Y = (y + (i / 3))-1 });
+                        }
+                    }
+                }
+            }
+
+            return output;
+        }
+
     }
 }

@@ -101,7 +101,7 @@ namespace BackendLib.Processing
             {
                 for (int x = 0; x < input.GetLength(1); x++)
                 {
-                    Matrix imageKernel = new Matrix(masterKernel.Duplication(x, y, KernelSize));
+                    Matrix imageKernel = new Matrix(masterKernel.Duplication(x, y, 3));
                     output[y, x] = Matrix.Convolution(imageKernel, sobelMatrixY);
                 }
             }
@@ -121,7 +121,7 @@ namespace BackendLib.Processing
             {
                 for (int x = 0; x < input.GetLength(1); x++)
                 {
-                    Matrix imageKernel = new Matrix(masterKernel.Duplication(x, y, KernelSize));
+                    Matrix imageKernel = new Matrix(masterKernel.Duplication(x, y, 3));
                     output[y, x] = Matrix.Convolution(imageKernel, sobelMatrixY);
                 }
             }
