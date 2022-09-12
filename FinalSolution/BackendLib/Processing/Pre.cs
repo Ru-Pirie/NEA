@@ -19,6 +19,9 @@ namespace BackendLib.Processing
             _imagePath = imagePath;
         }
 
+
+        /// <exception cref="PreprocessingException"></exception>
+        /// <exception cref="Exception"></exception>
         public void Start()
         {
             ValidatePath();
