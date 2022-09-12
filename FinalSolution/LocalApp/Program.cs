@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Globalization;
+using System.IO;
+using BackendLib;
 using LocalApp.CLI;
 
 namespace LocalApp
@@ -24,12 +27,15 @@ namespace LocalApp
             while (running)
             {
                 int opt = i.GetOption("Please select an option to continue:",
-                    new[] { "Process New Image Into Map Data File", "Recall Map From Data File", "Exit Program" });
+                    new[] { "Process New Image Into Map Data File", "Recall Map From Data File", "Exit Program", "Dev Test" });
 
                 switch (opt)
                 {
                     // New
-                    case 0: 
+                    case 0:
+                        Guid newRun = Logger.CreateRun();
+                        l.Event(newRun, $"Begin processing of new image (Run Id: {newRun}).");
+
 
 
 
@@ -43,7 +49,52 @@ namespace LocalApp
                     case 2:
                         running = false;
                         break;
+                    case 3:
+                        DevTest(m, i, l);
+                        break;
                 }
+            }
+        }
+
+        private static void DevTest(Menu m, Input i, Log l)
+        {
+            int opt = i.GetOption("Dev Test Options",
+                new[] { "Wipe logs and run files including all saves", "Run automated demo", "N/A", "N/A" });
+
+            switch (opt)
+            {
+                // wipe logs
+                case 0:
+                    Directory.Delete("./logs", true);
+                    Directory.Delete("./runs", true);
+                    Directory.Delete("./saves", true);
+                    _ = new Logger(true);
+                    
+                    break;
+
+
+                // run auto demo
+                case 1:
+
+
+
+                    break;
+                case 2:
+
+
+
+
+                    break;
+
+
+
+
+                case 3:
+
+
+
+
+                    break;
             }
         }
 
