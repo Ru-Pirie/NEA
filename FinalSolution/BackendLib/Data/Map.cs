@@ -10,7 +10,7 @@ namespace BackendLib.Data
     public class Map
     {
         private readonly string _filePath;
-        private readonly string _fileExtensionRegex = @"^(\d|\w|(\\)|:|-){1,}.(vmap)$";
+        private const string FileExtensionRegex = @"^(\d|\w|(\\)|:|-){1,}.(vmap)$";
 
         public string Name { get; set; }
         public string Description { get; set; }
@@ -35,7 +35,7 @@ namespace BackendLib.Data
 
         private void ValidateImage()
         {
-            Regex fileRegex = new Regex(_fileExtensionRegex, RegexOptions.IgnoreCase);
+            Regex fileRegex = new Regex(FileExtensionRegex, RegexOptions.IgnoreCase);
 
             if (!File.Exists(_filePath)) throw new MapException("Supplied Virtual Map File Does Not Exist");
             if (!fileRegex.IsMatch(_filePath)) throw new MapException("Supplied Virtual Map File Is Not Of Valid Type. (vmap)");

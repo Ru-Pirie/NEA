@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.IO;
 using BackendLib;
+using BackendLib.Processing;
 using LocalApp.CLI;
 
 namespace LocalApp
@@ -36,13 +37,17 @@ namespace LocalApp
                         Guid newRun = Logger.CreateRun();
                         l.Event(newRun, $"Begin processing of new image (Run Id: {newRun}).");
 
+                        NewImage newImage = new NewImage(m, i, l, newRun);
+
+                        Structures.RawImage rawImage = newImage.Read();
+
 
 
 
                         break;
                     // Recall
                     case 1:
-
+                        
 
 
                         break;

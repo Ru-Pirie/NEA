@@ -12,7 +12,7 @@ namespace BackendLib.Processing
         private Bitmap _imageBitmap;
         private Structures.RGB[,] _imageRgb;
 
-        private readonly string _fileExtensionRegex = @"^(\d|\w|(\\)|:|-){1,}.(jpg|bmp|exif|png|tiff)$";
+        private const string FileExtensionRegex = @"^(\d|\w|(\\)|:|-){1,}.(jpg|bmp|exif|png|tiff)$";
 
         public Pre(string imagePath)
         {
@@ -28,7 +28,7 @@ namespace BackendLib.Processing
 
         private void ValidatePath()
         {
-            Regex fileRegex = new Regex(_fileExtensionRegex, RegexOptions.IgnoreCase);
+            Regex fileRegex = new Regex(FileExtensionRegex, RegexOptions.IgnoreCase);
 
             if (!File.Exists(_imagePath)) throw new PreprocessingException("Supplied Image Does Not Exist");
             if (!fileRegex.IsMatch(_imagePath)) throw new PreprocessingException("Supplied Image File Is Not Of Valid Type. (jpg, bmp, exif, png, tiff)");
