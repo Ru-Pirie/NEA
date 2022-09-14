@@ -23,6 +23,22 @@ namespace LocalApp.CLI
         public void Event(Guid runGuid, string message) => LogParent(runGuid, message, 2);
         public void End(Guid runGuid, string message) => LogParent(runGuid, message, 3);
 
+        public void EndErrorRun(Guid runGuid, Exception ex)
+        {
+            Error($"Run ({runGuid}) terminated due to an error.");
+            Error($"Exception: {ex.Message}");
+            if (ex.InnerException != null) Error($"Inner Exception: {ex.InnerException.Message}");
+            Error(runGuid, ex.Message);
+            End(runGuid, $"Run ({runGuid}) terminated.");
+        }
+
+        public void EndSuccessRun(Guid runGuid)
+        {
+            End(runGuid, "Successfully completed processing and pathfinding of new image!");
+            Warn(runGuid, $"Run Guid {runGuid} Deleted. See {Environment.CurrentDirectory}\\saves\\ for output(s) and {Environment.CurrentDirectory}\\runs\\{runGuid.ToString("N").ToUpper()} for temp images.");
+            End($"Completed run {runGuid} successfully.");
+        }
+
         public Log(Menu menuInstance)
         {
             _menuInstance = menuInstance;

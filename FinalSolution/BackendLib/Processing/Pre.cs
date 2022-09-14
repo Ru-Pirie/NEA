@@ -22,11 +22,15 @@ namespace BackendLib.Processing
 
         /// <exception cref="PreprocessingException"></exception>
         /// <exception cref="Exception"></exception>
-        public void Start()
+        public void Start(Action updateProgressAction)
         {
+            updateProgressAction();
             ValidatePath();
+            updateProgressAction();
             ReadImage();
+            updateProgressAction();
             CheckDimensions();
+            updateProgressAction();
         }
 
         private void ValidatePath()

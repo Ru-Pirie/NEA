@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using BackendLib;
 using BackendLib.Exceptions;
@@ -20,17 +21,26 @@ namespace LocalApp
         public NewImage(Menu m, Input i, Log l, Guid runGuid)
         {
             _runGuid = runGuid;
+            _m = m;
+            _i = i;
+            _l = l;
         }
 
         public Structures.RawImage Read()
         {
             string path = _i.GetInput("Please enter the path of the image you wish to process into a map:");
+            _l.Event(_runGuid, $"Looking for image at {path}");
+
+
+            ProgressBar progressBar = new ProgressBar("Pre Processing Image", 4, _m);
+            progressBar.DisplayProgress();
 
             Pre preProcess = new Pre(path);
 
             try
             {
-                preProcess.Start();
+                preProcess.Start(progressBar.GetIncrementAction());
+                _l.Event(_runGuid, "Completed pre processing of image.");
             }
             catch (PreprocessingException ex)
             {
@@ -43,6 +53,7 @@ namespace LocalApp
                 throw new Exception("An unexpected occurred while pre processing your image.", ex);
             }
 
+            _m.ClearUserSection();
             return preProcess.Result();
         }
     }

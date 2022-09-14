@@ -34,15 +34,7 @@ namespace LocalApp
                 {
                     // New
                     case 0:
-                        Guid newRun = Logger.CreateRun();
-                        l.Event(newRun, $"Begin processing of new image (Run Id: {newRun}).");
-
-                        NewImage newImage = new NewImage(m, i, l, newRun);
-
-                        Structures.RawImage rawImage = newImage.Read();
-
-
-
+                        RunNewImage(m, i, l);
 
                         break;
                     // Recall
@@ -59,6 +51,47 @@ namespace LocalApp
                         break;
                 }
             }
+        }
+
+        private static void RunNewImage(Menu m, Input i, Log l)
+        {
+            Guid runGuid = Logger.CreateRun();
+            l.Event(runGuid, $"Begin processing of new image (Run Id: {runGuid}).");
+
+            NewImage newImage = new NewImage(m, i, l, runGuid);
+
+            try
+            {
+                Structures.RawImage rawImage = newImage.Read();
+
+                int opt = i.GetOption("Select a version of edge detection to run:",
+                    new[]
+                    {
+                        "Multithreaded - Fast, all options decided at the start",
+                        "Synchronous - Slow, options can be changed after each step and steps can be repeated"
+                    });
+
+                double[,] cannyImage;
+
+                if (opt == 0) cannyImage = AsyncEdgeDetection();
+                else cannyImage = SyncEdgeDetection();
+
+                l.EndSuccessRun(runGuid);
+            }
+            catch (Exception ex)
+            {
+                l.EndErrorRun(runGuid, ex);
+            }
+        }
+
+        private static double[,] AsyncEdgeDetection(Menu m, Input i, Log l)
+        {
+            return new double[0, 0];
+        }
+
+        private static double[,] SyncEdgeDetection(Menu m, Input i, Log l)
+        {
+            return new double[0, 0];
         }
 
         private static void DevTest(Menu m, Input i, Log l)
