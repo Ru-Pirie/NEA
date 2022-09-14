@@ -2,7 +2,7 @@
 
 namespace BackendLib.Datatypes
 {
-    public class Stack<T> 
+    public class Stack<T>
     {
         private List<T> _stack = new List<T>();
         public int Size => _stack.Count;

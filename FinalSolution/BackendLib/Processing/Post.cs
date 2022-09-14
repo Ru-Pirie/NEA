@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using BackendLib.Datatypes;
+using System;
 using System.Linq;
-using BackendLib.Datatypes;
 
 namespace BackendLib.Processing
 {

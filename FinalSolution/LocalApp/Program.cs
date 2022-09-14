@@ -28,7 +28,10 @@ namespace LocalApp
             while (running)
             {
                 int opt = i.GetOption("Please select an option to continue:",
-                    new[] { "Process New Image Into Map Data File", "Recall Map From Data File", "Exit Program", "Dev Test" });
+                    new[]
+                    {
+                        "Process New Image Into Map Data File", "Recall Map From Data File", "Exit Program", "Dev Test"
+                    });
 
                 switch (opt)
                 {
@@ -39,7 +42,6 @@ namespace LocalApp
                         break;
                     // Recall
                     case 1:
-                        
 
 
                         break;
@@ -107,7 +109,7 @@ namespace LocalApp
                     Directory.Delete("./runs", true);
                     Directory.Delete("./saves", true);
                     _ = new Logger(true);
-                    
+
                     break;
 
 
@@ -115,26 +117,18 @@ namespace LocalApp
                 case 1:
 
 
-
                     break;
                 case 2:
 
 
-
-
                     break;
-
-
 
 
                 case 3:
 
 
-
-
                     break;
             }
         }
-
     }
 }

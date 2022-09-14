@@ -1,9 +1,8 @@
-﻿using System;
+﻿using BackendLib.Exceptions;
+using System;
 using System.Drawing;
 using System.IO;
-using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
-using BackendLib.Exceptions;
 
 namespace BackendLib.Data
 {
@@ -20,7 +19,7 @@ namespace BackendLib.Data
         public Bitmap OriginalImage { get; set; }
         public Bitmap CombinedImage { get; set; }
 
-        public Map() {}
+        public Map() { }
 
         public Map(string filePath)
         {
@@ -39,7 +38,7 @@ namespace BackendLib.Data
 
             if (!File.Exists(_filePath)) throw new MapException("Supplied Virtual Map File Does Not Exist");
             if (!fileRegex.IsMatch(_filePath)) throw new MapException("Supplied Virtual Map File Is Not Of Valid Type. (vmap)");
-        } 
+        }
 
         private void ReadMapFile()
         {
@@ -58,7 +57,7 @@ namespace BackendLib.Data
 
                 for (int i = 0; i < 3; i++)
                 {
-                    double[,] tempDoubles = new double[height, width]; 
+                    double[,] tempDoubles = new double[height, width];
 
                     for (int y = 0; y < height; y++)
                     {
@@ -94,9 +93,9 @@ namespace BackendLib.Data
                     {
                         for (int x = 0; x < OriginalImage.Width; x++)
                         {
-                           if (i == 0) bw.Write((double)OriginalImage.GetPixel(x, y).R);
-                           else if (i == 1) bw.Write((double)PathImage.GetPixel(x, y).R);
-                           else if (i == 2) bw.Write((double)CombinedImage.GetPixel(x, y).R);
+                            if (i == 0) bw.Write((double)OriginalImage.GetPixel(x, y).R);
+                            else if (i == 1) bw.Write((double)PathImage.GetPixel(x, y).R);
+                            else if (i == 2) bw.Write((double)CombinedImage.GetPixel(x, y).R);
                         }
                     }
                 }

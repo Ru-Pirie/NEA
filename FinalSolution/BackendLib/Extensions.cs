@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BackendLib.Datatypes;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BackendLib.Datatypes;
 
 namespace BackendLib
 {
@@ -35,7 +30,7 @@ namespace BackendLib
             {
                 for (int x = 0; x < doubles.GetLength(1); x++)
                 {
-                    Structures.Cord tempCord = new Structures.Cord { X = x, Y = y };  
+                    Structures.Cord tempCord = new Structures.Cord { X = x, Y = y };
                     output.AddNode(tempCord);
 
                     double[,] surroundingDoubles = masterKernel.Constant(x, y, 3, 0);
@@ -44,7 +39,7 @@ namespace BackendLib
                         for (int i = 0; i < 9; i++)
                         {
                             if (surroundingDoubles[i / 3, i % 3] != 0 && i != 4)
-                                output.AddConnection(tempCord, new Structures.Cord { X = (x + (i % 3))-1, Y = (y + (i / 3))-1 });
+                                output.AddConnection(tempCord, new Structures.Cord { X = (x + (i % 3)) - 1, Y = (y + (i / 3)) - 1 });
                         }
                     }
                 }

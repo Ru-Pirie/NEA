@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BackendLib.Processing
 {
@@ -34,8 +29,8 @@ namespace BackendLib.Processing
             Color[,] tempImage = new Color[_imageDoubles.GetLength(0), _imageDoubles.GetLength(1)];
 
             for (int y = 0; y < _imageDoubles.GetLength(0); y++)
-            for (int x = 0; x < _imageDoubles.GetLength(1); x++)
-                tempImage[y, x] = Color.FromArgb((int)_imageDoubles[y, x], (int)_imageDoubles[y, x], (int)_imageDoubles[y, x]);
+                for (int x = 0; x < _imageDoubles.GetLength(1); x++)
+                    tempImage[y, x] = Color.FromArgb((int)_imageDoubles[y, x], (int)_imageDoubles[y, x], (int)_imageDoubles[y, x]);
 
             List<Color> toReplaceColors = new List<Color>();
             List<Color> usedColors = new List<Color>();
@@ -123,7 +118,7 @@ namespace BackendLib.Processing
         }
 
         public Structures.RoadResult Result() => new Structures.RoadResult
-        { 
+        {
             FilledBitmap = _filledBitmap,
             PathBitmap = _pathBitmap
         };

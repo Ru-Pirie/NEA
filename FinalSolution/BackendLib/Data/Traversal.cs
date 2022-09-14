@@ -1,13 +1,9 @@
-﻿using System;
+﻿using BackendLib.Datatypes;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BackendLib.Datatypes;
 
 namespace BackendLib.Data
 {
-    public class Traversal<T> 
+    public class Traversal<T>
     {
         private Graph<T> _graph;
 
@@ -84,7 +80,7 @@ namespace BackendLib.Data
 
         public T[] AStar(T start, T goal)
         {
-            Datatypes.Queue<T> openSet = new Datatypes.Queue<T>(new []{ start });
+            Datatypes.Queue<T> openSet = new Datatypes.Queue<T>(new[] { start });
             Datatypes.Queue<T> cameFrom = new Datatypes.Queue<T>();
 
             int gScore = 0;

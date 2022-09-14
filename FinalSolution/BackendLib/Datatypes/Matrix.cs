@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using BackendLib.Exceptions;
+﻿using BackendLib.Exceptions;
+using System.Collections;
 
 namespace BackendLib.Datatypes
 {
@@ -91,6 +91,6 @@ namespace BackendLib.Datatypes
         }
 
         public IEnumerator GetEnumerator() => _matrix.GetEnumerator();
-        
+
     }
 }

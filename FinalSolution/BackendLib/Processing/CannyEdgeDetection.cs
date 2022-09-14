@@ -1,7 +1,7 @@
 ﻿
+using BackendLib.Datatypes;
 using System;
 using System.Threading.Tasks;
-using BackendLib.Datatypes;
 
 namespace BackendLib.Processing
 {
@@ -50,7 +50,7 @@ namespace BackendLib.Processing
 
             return output;
         }
-        
+
         public double[,] GaussianFilter(double[,] input)
         {
             double[,] output = new double[input.GetLength(0), input.GetLength(1)];
@@ -80,12 +80,12 @@ namespace BackendLib.Processing
             };
 
             foreach (var task in tasks) task.Start();
-            
+
             Task.WaitAll(tasks);
 
             return new Structures.Gradients
             {
-                GradientX = tasks[0].Result, 
+                GradientX = tasks[0].Result,
                 GradientY = tasks[1].Result
             };
         }
@@ -144,7 +144,7 @@ namespace BackendLib.Processing
                     output[y, x] = Math.Sqrt(Math.Pow(grads.GradientX[y, x], 2) + Math.Pow(grads.GradientY[y, x], 2));
                 }
             }
-            
+
             return output;
         }
 
@@ -168,7 +168,7 @@ namespace BackendLib.Processing
 
         public double[,] MagnitudeThreshold(double[,] gradCombined, double[,] gradAngle)
         {
-            if (gradCombined.GetLength(0) != gradAngle.GetLength(0) || gradCombined.GetLength(1) != gradAngle.GetLength(1)) 
+            if (gradCombined.GetLength(0) != gradAngle.GetLength(0) || gradCombined.GetLength(1) != gradAngle.GetLength(1))
                 throw new ArgumentException("Supplied arrays where not of same dimensions");
 
             double[,] output = gradCombined;
@@ -184,7 +184,7 @@ namespace BackendLib.Processing
 
             Kernel<double> masterKernel = new Kernel<double>(gradCombined);
 
-            for(int y = 0; y < anglesInDegrees.GetLength(0); y++)
+            for (int y = 0; y < anglesInDegrees.GetLength(0); y++)
             {
                 for (int x = 0; x < anglesInDegrees.GetLength(1); x++)
                 {
@@ -228,7 +228,7 @@ namespace BackendLib.Processing
             {
                 for (int x = 0; x < input.GetLength(1); x++)
                 {
-                    if (input[y, x] < min) output[y, x] = new Structures.ThresholdPixel{Strong =  false, Value = 0};
+                    if (input[y, x] < min) output[y, x] = new Structures.ThresholdPixel { Strong = false, Value = 0 };
                     else if (input[y, x] > min && input[y, x] < max) output[y, x] = new Structures.ThresholdPixel { Strong = false, Value = input[y, x] };
                     else if (input[y, x] > max) output[y, x] = new Structures.ThresholdPixel { Strong = true, Value = input[y, x] };
                     else throw new Exception();

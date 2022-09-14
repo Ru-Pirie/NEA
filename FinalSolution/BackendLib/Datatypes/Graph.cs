@@ -1,9 +1,6 @@
-﻿using System;
+﻿using BackendLib.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BackendLib.Exceptions;
 
 namespace BackendLib.Datatypes
 {
@@ -11,7 +8,7 @@ namespace BackendLib.Datatypes
     {
         public Dictionary<T, List<T>> _data = new Dictionary<T, List<T>>();
 
-        public Graph() {}
+        public Graph() { }
 
         public Graph(Dictionary<T, List<T>> graph)
         {

@@ -7,7 +7,7 @@ namespace BackendLib.Datatypes
         private List<T> _queue = new List<T>();
         public int Size => _queue.Count;
 
-        public Queue() {}
+        public Queue() { }
 
         public Queue(IEnumerable<T> input)
         {

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using BackendLib.Exceptions;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
-using BackendLib.Exceptions;
 
 namespace BackendLib.Processing
 {
@@ -76,18 +76,18 @@ namespace BackendLib.Processing
                     for (int x = 0; x < _imageRgb.GetLength(1) / 2 * 2; x++)
                     {
                         resizedRgb[y, x] = _imageRgb[y, x];
-                    }    
+                    }
                 }
 
                 _imageRgb = resizedRgb;
             }
         }
-        
+
         public Structures.RawImage Result() => new Structures.RawImage
         {
-            Original = _imageBitmap, 
-            Pixels = _imageRgb, 
-            Height = _imageBitmap.Height, 
+            Original = _imageBitmap,
+            Pixels = _imageRgb,
+            Height = _imageBitmap.Height,
             Width = _imageBitmap.Width
         };
 

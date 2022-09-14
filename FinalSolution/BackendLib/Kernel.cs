@@ -26,8 +26,8 @@ namespace BackendLib
             int halfK = size / 2;
 
             for (int i = 0; i < size; i++)
-            for (int j = 0; j < size; j++)
-                kernel[i, j] = constant;
+                for (int j = 0; j < size; j++)
+                    kernel[i, j] = constant;
 
             int cntY = 0;
             for (int j = y - halfK; j <= y + halfK; j++)
