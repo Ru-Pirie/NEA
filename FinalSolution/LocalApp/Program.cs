@@ -75,8 +75,8 @@ namespace LocalApp
 
                 double[,] cannyImage;
 
-                if (opt == 0) cannyImage = AsyncEdgeDetection();
-                else cannyImage = SyncEdgeDetection();
+                if (opt == 0) cannyImage = AsyncEdgeDetection(m, i, l);
+                else cannyImage = SyncEdgeDetection(m, i, l);
 
                 l.EndSuccessRun(runGuid);
             }
