@@ -147,5 +147,8 @@ namespace LocalApp.CLI
             return input.ToString();
         }
 
+
+        // TODO Make get double input option and tryget option?
+
     }
 }

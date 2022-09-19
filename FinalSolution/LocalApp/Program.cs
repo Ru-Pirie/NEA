@@ -70,14 +70,11 @@ namespace LocalApp
                 int opt = i.GetOption("Select a version of edge detection to run:",
                     new[]
                     {
-                        "Multithreaded - Fast, all options decided at the start",
+                        "Multi-threaded - Fast, all options decided at the start",
                         "Synchronous - Slow, options can be changed after each step and steps can be repeated"
                     });
 
-                double[,] cannyImage;
-
-                if (opt == 0) cannyImage = AsyncEdgeDetection(m, i, l);
-                else cannyImage = SyncEdgeDetection(m, i, l);
+                double[,] cannyImage = opt == 0 ? AsyncEdgeDetection(m, i, l) : SyncEdgeDetection(m, i, l);
 
                 // TODO Next section move onto graph stuff
 
@@ -89,9 +86,16 @@ namespace LocalApp
             }
         }
 
+        // TODO: Need to somehow split some of the following into sep classes
+
+        private static CannyEdgeDetection GetAsyncOptions(Input i)
+        {
+            new CannyEdgeDetection();
+        }
+
         private static double[,] AsyncEdgeDetection(Menu m, Input i, Log l)
         {
-            return new double[0, 0];
+            return new double[0, 0];  
         }
 
         private static double[,] SyncEdgeDetection(Menu m, Input i, Log l)
