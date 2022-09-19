@@ -53,7 +53,7 @@ namespace BackendLib
             if (x >= _width || x < 0 || y >= _height || y < 0)
                 throw new KernelException("Kernel must be based of ordinates inside of the image.");
 
-            T[,] kernel = new T[size, size];
+            T[,] kernel = new T[size, size];    
 
             int halfK = size / 2;
 

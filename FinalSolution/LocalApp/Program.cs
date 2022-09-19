@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.IO;
 using BackendLib;
+using BackendLib.Data;
 using BackendLib.Processing;
 using LocalApp.CLI;
 
@@ -42,7 +43,7 @@ namespace LocalApp
                         break;
                     // Recall
                     case 1:
-
+                        Map recalledMap = new Map();
 
                         break;
                     case 2:
@@ -77,6 +78,8 @@ namespace LocalApp
 
                 if (opt == 0) cannyImage = AsyncEdgeDetection(m, i, l);
                 else cannyImage = SyncEdgeDetection(m, i, l);
+
+                // TODO Next section move onto graph stuff
 
                 l.EndSuccessRun(runGuid);
             }
