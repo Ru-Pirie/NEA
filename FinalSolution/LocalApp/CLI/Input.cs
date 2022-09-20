@@ -149,6 +149,84 @@ namespace LocalApp.CLI
 
 
         // TODO Make get double input option and tryget option?
+        public double GetDouble(string prompt)
+        {
+            while (Console.KeyAvailable) Console.ReadKey(true);
+            _menuInstance.WriteLine(prompt);
 
+            bool complete = false;
+            StringBuilder input = new StringBuilder();
+            int line = _menuInstance.CurrentLine;
+
+            while (!complete)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey(true);
+                    switch (key.Key)
+                    {
+                        case ConsoleKey.Enter:
+                            complete = true;
+                            break;
+                        case ConsoleKey.Backspace:
+                        case ConsoleKey.Delete:
+                            {
+                                if (input.Length > 0)
+                                {
+                                    lock (_menuInstance.ScreenLock)
+                                    {
+                                        Console.SetCursorPosition((input.Length % (Console.WindowWidth * 3 / 4 - 1)), line);
+                                        Console.Write(' ');
+                                    }
+
+                                    input.Remove(input.Length - 1, 1);
+                                }
+
+                                break;
+                            }
+                        default:
+                            {
+                                if (input.Length / (line - 1) > Console.WindowWidth * 3 / 4 - 2) line++;
+
+                                lock (_menuInstance.ScreenLock)
+                                {
+                                    Console.SetCursorPosition((input.Length % (Console.WindowWidth * 3 / 4 - 1)) + 1, line);
+                                    Console.Write(key.KeyChar);
+                                }
+
+                                input.Append(key.KeyChar);
+                                break;
+                            }
+                    }
+                }
+            }
+
+            _menuInstance.WriteLine();
+
+            return double.Parse(input.ToString());
+        }
+
+        public bool TryGetDouble(string prompt, out double result)
+        {
+            try
+            {
+                result = GetDouble(prompt);
+                return true;
+            }
+            catch
+            {
+                result = default(double);
+                return false;
+            }
+        }
+
+        public int GetInt(string prompt) => (int)GetDouble(prompt);
+
+        public bool TryGetInt(string prompt, out int result)
+        {
+            bool success = TryGetDouble(prompt, out double x);
+            result = (int)x;
+            return success;
+        }
     }
 }
