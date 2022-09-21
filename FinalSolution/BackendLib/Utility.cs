@@ -45,6 +45,50 @@ namespace BackendLib
             return result;
         }
 
+        // TODO: Compress to one for loop, tried before ended badly
+        public static Bitmap[] SplitImage(Structures.RGB[,] image)
+        {
+            Structures.RGB[,] one = new Structures.RGB[,](image.GetLength(1) / 2, image.GetLength(0) / 2);
+            Structures.RGB[,] two = new Structures.RGB[,](image.GetLength(1) / 2, image.GetLength(0) / 2);
+            Structures.RGB[,] three = new Structures.RGB[,](image.GetLength(1) / 2, image.GetLength(0) / 2);
+            Structures.RGB[,] four = new Structures.RGB[,](image.GetLength(1) / 2, image.GetLength(0) / 2);
+
+            for (int i = 0; i < image.GetLength(1) / 2; i++)
+            {
+                for (int j = 0; j < image.GetLength(0) / 2; j++)
+                {
+                    one.SetPixel(i, j, image.GetPixel(i, j));
+                }
+            }
+
+            for (int i = image.GetLength(1) / 2; i < image.GetLength(1); i++)
+            {
+                for (int j = 0; j < image.GetLength(0) / 2; j++)
+                {
+                    two.SetPixel(i - (image.GetLength(1) / 2), j, image.GetPixel(i, j));
+                }
+            }
+
+            for (int i = 0; i < image.GetLength(1) / 2; i++)
+            {
+                for (int j = image.GetLength(0) / 2; j < image.GetLength(0); j++)
+                {
+                    three.SetPixel(i, j - (image.GetLength(0) / 2), image.GetPixel(i, j));
+                }
+            }
+
+            for (int i = image.GetLength(1) / 2; i < image.GetLength(1); i++)
+            {
+                for (int j = image.GetLength(0) / 2; j < image.GetLength(0); j++)
+                {
+                    four.SetPixel(i - (image.GetLength(1) / 2), j - (image.GetLength(0) / 2), image.GetPixel(i, j));
+                }
+            }
+
+            return new[] { one, two, three, four };
+
+        }
+
         public static bool VerifyCannyEdgeDetectionOptions(CannyEdgeDetection classObject)
         {
             // TODO: Add checks for class

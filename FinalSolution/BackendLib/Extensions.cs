@@ -48,5 +48,10 @@ namespace BackendLib
             return output;
         }
 
+        // To ensure compatibility with BITMAP
+        public static void SetPixel(this Structures.RGB[,] pixels, int x, int y, Structures.RGB toSetPixel) => pixels[x, y] = toSetPixel;
+
+        public static Structures.RGB GetPixel(this Structures.RGB[,] pixels, int x, int y) => pixels[y, x];
+
     }
 }
