@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using BackendLib.Processing;
 
 namespace BackendLib
 {
@@ -42,6 +43,18 @@ namespace BackendLib
             }
 
             return result;
+        }
+
+        public static bool VerifyCannyEdgeDetectionOptions(CannyEdgeDetection classObject)
+        {
+            // TODO: Add checks for class
+            // if (opts.KernelSize % 2 != 1) return false;
+            // if (opts.UpperThreshold < opts.LowerThreshold) return false;
+            // if (opts.UpperThreshold <= 0) return false;
+            // if (opts.LowerThreshold >= 1) return false;
+            // if (opts.BlueRatio + opts.RedRatio + opts.GreenRatio > 1) return false;
+
+            return true;
         }
     }
 }
