@@ -1,6 +1,6 @@
-﻿using System;
+﻿using BackendLib.Processing;
+using System;
 using System.Drawing;
-using BackendLib.Processing;
 
 namespace BackendLib
 {
@@ -46,12 +46,12 @@ namespace BackendLib
         }
 
         // TODO: Compress to one for loop, tried before ended badly
-        public static Bitmap[] SplitImage(Structures.RGB[,] image)
+        public static Structures.RGB[][,] SplitImage(Structures.RGB[,] image)
         {
-            Structures.RGB[,] one = new Structures.RGB[,](image.GetLength(1) / 2, image.GetLength(0) / 2);
-            Structures.RGB[,] two = new Structures.RGB[,](image.GetLength(1) / 2, image.GetLength(0) / 2);
-            Structures.RGB[,] three = new Structures.RGB[,](image.GetLength(1) / 2, image.GetLength(0) / 2);
-            Structures.RGB[,] four = new Structures.RGB[,](image.GetLength(1) / 2, image.GetLength(0) / 2);
+            Structures.RGB[,] one = new Structures.RGB[image.GetLength(0) / 2, image.GetLength(1) / 2];
+            Structures.RGB[,] beta = new Structures.RGB[image.GetLength(0) / 2, image.GetLength(1) / 2];
+            Structures.RGB[,] gamma = new Structures.RGB[image.GetLength(0) / 2, image.GetLength(1) / 2];
+            Structures.RGB[,] delta = new Structures.RGB[image.GetLength(0) / 2, image.GetLength(1) / 2];
 
             for (int i = 0; i < image.GetLength(1) / 2; i++)
             {
@@ -65,7 +65,7 @@ namespace BackendLib
             {
                 for (int j = 0; j < image.GetLength(0) / 2; j++)
                 {
-                    two.SetPixel(i - (image.GetLength(1) / 2), j, image.GetPixel(i, j));
+                    beta.SetPixel(i - (image.GetLength(1) / 2), j, image.GetPixel(i, j));
                 }
             }
 
@@ -73,7 +73,7 @@ namespace BackendLib
             {
                 for (int j = image.GetLength(0) / 2; j < image.GetLength(0); j++)
                 {
-                    three.SetPixel(i, j - (image.GetLength(0) / 2), image.GetPixel(i, j));
+                    gamma.SetPixel(i, j - (image.GetLength(0) / 2), image.GetPixel(i, j));
                 }
             }
 
@@ -81,13 +81,57 @@ namespace BackendLib
             {
                 for (int j = image.GetLength(0) / 2; j < image.GetLength(0); j++)
                 {
-                    four.SetPixel(i - (image.GetLength(1) / 2), j - (image.GetLength(0) / 2), image.GetPixel(i, j));
+                    delta.SetPixel(i - (image.GetLength(1) / 2), j - (image.GetLength(0) / 2), image.GetPixel(i, j));
                 }
             }
 
-            return new[] { one, two, three, four };
-
+            return new[] { one, beta, gamma, delta };
         }
+
+        public static double[,] CombineQuadrants(double[,] alpha, double[,] beta, double[,] gamma, double[,] delta)
+        {
+            double[,] partA = new double[alpha.GetLength(0), alpha.GetLength(1) * 2];
+            double[,] partB = new double[alpha.GetLength(0), alpha.GetLength(1) * 2];
+            for (int i = 0; i < alpha.GetLength(0); i++)
+            {
+                for (int j = 0; j < alpha.GetLength(1); j++)
+                    partA[i, j] = alpha[i, j];
+
+                for (int y = 0; y < beta.GetLength(1); y++)
+                    partA[i, y + alpha.GetLength(1)] = beta[i, y];
+            }
+
+            for (int i = 0; i < gamma.GetLength(0); i++)
+            {
+                for (int j = 0; j < gamma.GetLength(1); j++)
+                    partB[i, j] = gamma[i, j];
+
+                for (int y = 0; y < delta.GetLength(1); y++)
+                    partB[i, y + gamma.GetLength(1)] = delta[i, y];
+            }
+
+            double[,] final = new double[alpha.GetLength(0) * 2, alpha.GetLength(1) * 2];
+            for (int i = 0; i < alpha.GetLength(0) * 2; i++)
+            {
+                if (i < alpha.GetLength(0) * 2 / 2)
+                {
+                    for (int j = 0; j < alpha.GetLength(1) * 2; j++)
+                    {
+                        final[i, j] = partA[i, j];
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < alpha.GetLength(1) * 2; j++)
+                    {
+                        final[i, j] = partB[i - alpha.GetLength(0) * 2 / 2, j];
+                    }
+                }
+            }
+
+            return final;
+        }
+
 
         public static bool VerifyCannyEdgeDetectionOptions(CannyEdgeDetection classObject)
         {

@@ -3,6 +3,7 @@ using BackendLib.Data;
 using BackendLib.Processing;
 using LocalApp.CLI;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace LocalApp
@@ -191,7 +192,24 @@ namespace LocalApp
                 if (opt == 0) confirmOptions = true;
             } while (!confirmOptions);
 
-            detector.BlackWhiteFilter(image.Pixels);
+
+            List<double[,]> things = new List<double[,]>();
+
+            foreach (var quad in Utility.SplitImage(image.Pixels))
+            {
+                Structures.Gradients grads = detector.CalculateGradients(detector.GaussianFilter(detector.BlackWhiteFilter(quad)), () => { });
+
+                things.Add(detector.EdgeTrackingHysteresis(
+                    detector.DoubleThreshold(
+                        detector.MagnitudeThreshold(
+                            detector.CombineGradients(grads),
+                            detector.GradientAngle(grads)
+                        )
+                    )
+                ));
+            }
+
+            Utility.CombineQuadrants(things[0], things[1], things[2], things[3]).ToBitmap().Save("final.png");
 
             return new double[0, 0];
         }
@@ -199,7 +217,6 @@ namespace LocalApp
         private static double[,] SyncEdgeDetection(Menu m, Input i, Log l, Structures.RawImage image)
         {
             throw new NotImplementedException();
-            return new double[0, 0];
         }
 
         private static void DevTest(Menu m, Input i, Log l)

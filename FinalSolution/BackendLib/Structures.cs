@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Security.Policy;
 
 namespace BackendLib
 {
@@ -15,6 +16,11 @@ namespace BackendLib
             public double R;
             public double G;
             public double B;
+
+            public void SetPixel()
+            {
+
+            }
         }
 
         public struct Gradients
