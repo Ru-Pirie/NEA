@@ -16,11 +16,6 @@ namespace BackendLib
             public double R;
             public double G;
             public double B;
-
-            public void SetPixel()
-            {
-
-            }
         }
 
         public struct Gradients
@@ -41,6 +36,12 @@ namespace BackendLib
         {
             public Bitmap FilledBitmap;
             public Bitmap PathBitmap;
+        }
+
+        public struct CannyResult
+        {
+            public Bitmap BitmapImage;
+            public double[,] DoubleImage;
         }
 
         public struct Cord
