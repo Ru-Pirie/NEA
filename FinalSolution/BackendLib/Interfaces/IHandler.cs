@@ -4,6 +4,5 @@
     {
         void Start();
         double[,] Result();
-
     }
 }

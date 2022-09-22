@@ -1,5 +1,6 @@
 ﻿using BackendLib;
 using BackendLib.Data;
+using BackendLib.Interfaces;
 using BackendLib.Processing;
 using LocalApp.CLI;
 using System;
@@ -74,20 +75,9 @@ namespace LocalApp
                         "Synchronous - Slow, options can be changed after each step and steps can be repeated"
                     });
 
-                double[,] resultOfEdgeDetection;
-
-                if (opt == 0)
-                {
-                    AsyncEdgeDetection handler = new AsyncEdgeDetection(m, i, l, rawImage);
-                    handler.Start();
-                    resultOfEdgeDetection = handler.Result();
-
-                } else
-                {
-                    SyncEdgeDetection handler = new SyncEdgeDetection(m, i, l, rawImage);
-                    handler.Start();
-                    resultOfEdgeDetection = handler.Result();
-                }
+                IHandler handler = opt == 0 ? new AsyncEdgeDetection(m, i, l, rawImage) : (IHandler)new SyncEdgeDetection(m, i, l, rawImage);
+                handler.Start();
+                double[,] resultOfEdgeDetection = handler.Result();
 
                 // TODO Next section move onto graph stuff
 
@@ -97,11 +87,6 @@ namespace LocalApp
             {
                 l.EndErrorRun(runGuid, ex);
             }
-        }
-
-        private static double[,] SyncEdgeDetection(Menu m, Input i, Log l, Structures.RawImage image)
-        {
-            throw new NotImplementedException();
         }
 
         private static void DevTest(ref Menu m, ref Input i, ref Log l)
