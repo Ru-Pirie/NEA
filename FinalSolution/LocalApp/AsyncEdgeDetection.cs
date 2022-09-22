@@ -10,7 +10,7 @@ using BackendLib.Interfaces;
 
 namespace LocalApp
 {
-    public class AsyncEdgeDetection : IHandler
+    internal class AsyncEdgeDetection : IHandler
     {
         private Menu m;
         private Input i;
@@ -40,23 +40,25 @@ namespace LocalApp
             } while (!confirmOptions);
 
 
-            List<double[,]> things = new List<double[,]>();
+            Structures.RGB[][,] quads = Utility.SplitImage(image.Pixels);
+            Task<double[,]>[] threads = new Task<double[,]>[quads.Length];
 
-            foreach (var quad in Utility.SplitImage(image.Pixels))
+            // TODO: Add option to log indervidual steps?
+
+            for (int i = 0; i < quads.Length; i++)
             {
-                Structures.Gradients grads = detector.CalculateGradients(detector.GaussianFilter(detector.BlackWhiteFilter(quad)), () => { });
+                // Overcome Capture Condition
+                int copyI = i;
+                Task<double[,]> task = new Task<double[,]>(() => RunDetectionOnQuadrant(quads[i], i + 1));
+                task.Start();
+                threads[i] = task;
+            }            
+        }
 
-                things.Add(detector.EdgeTrackingHysteresis(
-                    detector.DoubleThreshold(
-                        detector.MagnitudeThreshold(
-                            detector.CombineGradients(grads),
-                            detector.GradientAngle(grads)
-                        )
-                    )
-                ));
-            }
-
-            Utility.CombineQuadrants(things[0], things[1], things[2], things[3]).ToBitmap().Save("final.png");
+        // TODO
+        private double[,] RunDetectionOnQuadrant(Structures.RGB[,] image, int id)
+        {
+            throw new NotImplementedException();
         }
 
         private static CannyEdgeDetection GetDetector(Menu m, Input i)

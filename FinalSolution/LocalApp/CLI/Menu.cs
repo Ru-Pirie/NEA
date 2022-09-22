@@ -25,6 +25,9 @@ namespace LocalApp.CLI
         private readonly string _permLineA;
         private readonly string _permLineB;
 
+        private const char _verticalChar = '│';
+        private const char _horizontalChar = '─';
+
         public Menu(string permLineA, string permLineB)
         {
             IntPtr handle = GetStdHandle(-11);
@@ -66,7 +69,7 @@ namespace LocalApp.CLI
             for (int i = 0; i < Console.WindowWidth * 3 / 4; i++)
             {
                 Console.SetCursorPosition(i, Console.WindowHeight * 5 / 6);
-                Console.Write('-');
+                Console.Write(_horizontalChar);
             }
 
             Console.SetCursorPosition(1, Console.WindowHeight * 5 / 6 + 2);
@@ -94,13 +97,13 @@ namespace LocalApp.CLI
                 }
 
                 Console.SetCursorPosition(Console.WindowWidth * 3 / 4, i);
-                Console.Write('|');
+                Console.Write(_verticalChar);
             }
 
             for (int i = Console.WindowWidth * 3 / 4 + 1; i < Console.WindowWidth; i++)
             {
                 Console.SetCursorPosition(i, 5);
-                Console.Write('-');
+                Console.Write(_horizontalChar);
             }
 
             Console.SetCursorPosition(Console.WindowWidth * 3 / 4 + 5, 1);
