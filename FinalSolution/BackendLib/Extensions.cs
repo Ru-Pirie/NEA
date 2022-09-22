@@ -1,5 +1,4 @@
-﻿using System;
-using BackendLib.Datatypes;
+﻿using BackendLib.Datatypes;
 using System.Drawing;
 
 namespace BackendLib
@@ -48,10 +47,10 @@ namespace BackendLib
 
             return output;
         }
-        
+
         // To ensure compatibility with BITMAP
         public static void SetPixel(this Structures.RGB[,] pixels, int x, int y, Structures.RGB toSetPixel) => pixels[y, x] = toSetPixel;
-        
+
         public static Structures.RGB GetPixel(this Structures.RGB[,] pixels, int x, int y) => pixels[y, x];
     }
 }

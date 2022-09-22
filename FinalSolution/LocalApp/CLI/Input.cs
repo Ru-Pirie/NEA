@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LocalApp.CLI
 {
@@ -111,33 +110,33 @@ namespace LocalApp.CLI
                             break;
                         case ConsoleKey.Backspace:
                         case ConsoleKey.Delete:
-                        {
-                            if (input.Length > 0)
                             {
-                                lock (_menuInstance.ScreenLock)
+                                if (input.Length > 0)
                                 {
-                                    Console.SetCursorPosition((input.Length % (Console.WindowWidth * 3 / 4 - 1)), line);
-                                    Console.Write(' ');
+                                    lock (_menuInstance.ScreenLock)
+                                    {
+                                        Console.SetCursorPosition((input.Length % (Console.WindowWidth * 3 / 4 - 1)), line);
+                                        Console.Write(' ');
+                                    }
+
+                                    input.Remove(input.Length - 1, 1);
                                 }
 
-                                input.Remove(input.Length - 1, 1);
+                                break;
                             }
-
-                            break;
-                        }
                         default:
-                        {
-                            if (input.Length / (line - 1) > Console.WindowWidth * 3 / 4 - 2) line++;
-
-                            lock (_menuInstance.ScreenLock)
                             {
-                                Console.SetCursorPosition((input.Length % (Console.WindowWidth * 3 / 4 - 1)) + 1, line);
-                                Console.Write(key.KeyChar);
-                            }
+                                if (input.Length / (line - 1) > Console.WindowWidth * 3 / 4 - 2) line++;
 
-                            input.Append(key.KeyChar);
-                            break;
-                        }
+                                lock (_menuInstance.ScreenLock)
+                                {
+                                    Console.SetCursorPosition((input.Length % (Console.WindowWidth * 3 / 4 - 1)) + 1, line);
+                                    Console.Write(key.KeyChar);
+                                }
+
+                                input.Append(key.KeyChar);
+                                break;
+                            }
                     }
                 }
             }

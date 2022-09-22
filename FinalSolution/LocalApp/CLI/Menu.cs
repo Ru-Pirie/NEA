@@ -50,7 +50,7 @@ namespace LocalApp.CLI
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine("\x1b[48;5;9mMaximize Window To Continue\x1b[0m");
                 System.Threading.Thread.Sleep(250);
-                
+
             }
 
             Console.Clear();

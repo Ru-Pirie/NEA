@@ -8,7 +8,7 @@ namespace BackendLib
     public class Logger
     {
         private readonly bool _localApplication;
-
+        private static readonly object Lock = new object();
         public Logger(bool local)
         {
             _localApplication = local;
@@ -22,11 +22,15 @@ namespace BackendLib
             Directory.CreateDirectory("./saves");
 
             string mode = _localApplication ? "Local Application" : "Web Application";
-            using (StreamWriter sr = File.AppendText("./logs/master.txt"))
+
+            lock (Lock)
             {
-                sr.WriteLine("<====================== New Instance ======================>");
-                sr.WriteLine($"Datetime: {DateTime.UtcNow:dd-MM-yyyy} {DateTime.UtcNow:HH:mm:ss}");
-                sr.WriteLine($"Mode: {mode}");
+                using (StreamWriter sr = File.AppendText("./logs/master.txt"))
+                {
+                    sr.WriteLine("<====================== New Instance ======================>");
+                    sr.WriteLine($"Datetime: {DateTime.UtcNow:dd-MM-yyyy} {DateTime.UtcNow:HH:mm:ss}");
+                    sr.WriteLine($"Mode: {mode}");
+                }
             }
         }
 
@@ -47,16 +51,24 @@ namespace BackendLib
 
         public static void WriteLineToRunFile(Guid currentGuid, string message)
         {
-            using (StreamWriter sr = File.AppendText($"./logs/{currentGuid}.txt"))
-                sr.WriteLine($"{message}");
+            lock (Lock)
+            {
+                using (StreamWriter sr = File.AppendText($"./logs/{currentGuid}.txt"))
+                    sr.WriteLine($"{message}");
+            }
         }
 
         public static void WriteLineToMaster(string message)
         {
-            using (StreamWriter sr = File.AppendText("./logs/master.txt"))
-                sr.WriteLine($"{DateTime.UtcNow:HH:mm:ss} || {message}");
+            lock (Lock)
+            {
+                using (StreamWriter sr = File.AppendText("./logs/master.txt"))
+                    sr.WriteLine($"{DateTime.UtcNow:HH:mm:ss} || {message}");
+            }
+
         }
 
+        // TODO a bit missleading with the name there
         public static void SaveBitmap(Guid currentGuid, double[,] image, string name)
         {
             Bitmap toSaveBitmap = image.ToBitmap();

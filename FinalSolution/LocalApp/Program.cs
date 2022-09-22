@@ -1,10 +1,8 @@
 ﻿using BackendLib;
 using BackendLib.Data;
 using BackendLib.Interfaces;
-using BackendLib.Processing;
 using LocalApp.CLI;
 using System;
-using System.Collections.Generic;
 using System.IO;
 
 namespace LocalApp
@@ -40,7 +38,6 @@ namespace LocalApp
                     // New
                     case 0:
                         RunNewImage(m, i, l);
-
                         break;
                     // Recall
                     case 1:
@@ -75,7 +72,7 @@ namespace LocalApp
                         "Synchronous - Slow, options can be changed after each step and steps can be repeated"
                     });
 
-                IHandler handler = opt == 0 ? new AsyncEdgeDetection(m, i, l, rawImage) : (IHandler)new SyncEdgeDetection(m, i, l, rawImage);
+                IHandler handler = opt == 0 ? new AsyncEdgeDetection(m, i, l, rawImage, runGuid) : (IHandler)new SyncEdgeDetection(m, i, l, rawImage, runGuid);
                 handler.Start();
                 double[,] resultOfEdgeDetection = handler.Result();
 

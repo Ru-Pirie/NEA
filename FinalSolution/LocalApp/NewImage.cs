@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using BackendLib;
+﻿using BackendLib;
 using BackendLib.Exceptions;
 using BackendLib.Processing;
 using LocalApp.CLI;
+using System;
 
 namespace LocalApp
 {
@@ -17,7 +12,7 @@ namespace LocalApp
         private readonly Menu _m;
         private readonly Input _i;
         private readonly Log _l;
-        
+
         public NewImage(Menu m, Input i, Log l, Guid runGuid)
         {
             _runGuid = runGuid;
