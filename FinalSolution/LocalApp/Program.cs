@@ -102,7 +102,20 @@ namespace LocalApp
                 m.ClearUserSection();
                 m.WriteLine("In order for the road detection to function properly there must be a single white line joining roads together, not two either side. If there where two either side then the image must be inverted.");
                 m.WriteLine();
+                
+                
                 bool invert = i.GetInput("Invert image (y/n)? ").ToLower() == "y";
+                if (invert)
+                {
+                    resultOfEdgeDetection = Utility.InverseImage(resultOfEdgeDetection);
+
+
+                    ViewImageForm invertImageForm = new ViewImageForm(resultOfEdgeDetection.ToBitmap());
+                    m.WriteLine("Click and Press Enter");
+                    invertImageForm.ShowDialog();
+                }
+                
+
 
                 // TODO prompt to move onto road detection add user input for threshold
                 RoadDetection roadDetector = new RoadDetection(resultOfEdgeDetection, 0.3);
