@@ -132,6 +132,16 @@ namespace BackendLib
             return final;
         }
 
+        public static void InverseImage(double[,] image)
+        {
+            for (int y = 0; y < image.GetLength(0); y++)
+            {
+                for (int x = 0; x < image.GetLength(1); x++)
+                {
+                    image[y, x] = image[y, x] == 255 ? 0 : 255;
+                }
+            }
+        }
 
         public static bool VerifyCannyEdgeDetectionOptions(CannyEdgeDetection classObject)
         {

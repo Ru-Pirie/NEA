@@ -78,6 +78,14 @@ namespace BackendLib
             toSaveBitmap.Save($"./runs/{currentGuid.ToString("N").ToUpper()}/{name}.png");
         }
 
+        public static void SaveBitmap(Guid currentGuid, Bitmap image, string name)
+        {
+            if (!Directory.Exists($"./runs/{currentGuid.ToString("N").ToUpper()}"))
+                throw new LoggerException("Run Directory Not Found, Logger Not Initialized Correctly");
+
+            image.Save($"./runs/{currentGuid.ToString("N").ToUpper()}/{name}.png");
+        }
+
         public static Guid Uuid() => Guid.NewGuid();
     }
 }

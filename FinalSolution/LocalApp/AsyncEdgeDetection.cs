@@ -3,6 +3,7 @@ using BackendLib.Interfaces;
 using BackendLib.Processing;
 using LocalApp.CLI;
 using System;
+using System.Drawing;
 using System.Threading.Tasks;
 using Menu = LocalApp.CLI.Menu;
 using ProgressBar = LocalApp.CLI.ProgressBar;
@@ -66,8 +67,32 @@ namespace LocalApp
             }
 
             Task.WaitAll(threads);
-            _resultArray = Utility.CombineQuadrants(threads[0].Result, threads[1].Result, threads[2].Result,
+            double[,] cannyImage = Utility.CombineQuadrants(threads[0].Result, threads[1].Result, threads[2].Result,
                 threads[3].Result);
+
+            PostProcessImage(cannyImage);
+        }
+
+        private void PostProcessImage(double[,] image)
+        {
+            Post postProcessor = new Post(image);
+
+            m.ClearUserSection();
+            if (i.TryGetInt("How many times would you like to emboss the image (can be 0): ", out int loopCount) &&
+                loopCount > 0)
+            {
+                m.WriteLine();
+                m.WriteLine($"Running image embossing this will take approximately \x1b[38;5;196m{10*loopCount}\x1b[0m seconds!");
+                postProcessor.Start(loopCount);
+            }
+            else
+            {
+                m.WriteLine();
+                m.WriteLine("Running image embossing this will take approximately \x1b[38;5;196m10\x1b[0m seconds!");
+                postProcessor.Start(0);
+            }
+
+            _resultArray = postProcessor.Result();
         }
 
         private double[,] RunDetectionOnQuadrant(CannyEdgeDetection detector, Structures.RGB[,] image, int id, Action increment, bool saveTemp)
@@ -77,25 +102,25 @@ namespace LocalApp
             l.Event(runGuid, $"Starting processing of quadrant {letter} ({id % 2}, {id / 2})");
 
             _workingArray = detector.BlackWhiteFilter(image);
-            if (saveTemp) Logger.SaveBitmap(runGuid, _workingArray, $"BlackWhiteFilterQuad{letter}.png");
+            if (saveTemp) Logger.SaveBitmap(runGuid, _workingArray, $"BlackWhiteFilterQuad{letter}");
             increment();
             l.Event(runGuid, $"Completed Black and White Filter on Quadrant {letter}");
 
             _workingArray = detector.GaussianFilter(_workingArray);
-            if (saveTemp) Logger.SaveBitmap(runGuid, _workingArray, $"GaussianFilterQuad{letter}.png");
+            if (saveTemp) Logger.SaveBitmap(runGuid, _workingArray, $"GaussianFilterQuad{letter}");
             increment();
             l.Event(runGuid, $"Applied Gaussian Filter on Quadrant {letter}");
 
             Structures.Gradients grads = detector.CalculateGradients(_workingArray, increment);
             if (saveTemp)
             {
-                Logger.SaveBitmap(runGuid, grads.GradientX, $"GradientXQuad{letter}.png");
-                Logger.SaveBitmap(runGuid, grads.GradientY, $"GradientYQuad{letter}.png");
+                Logger.SaveBitmap(runGuid, grads.GradientX, $"GradientXQuad{letter}");
+                Logger.SaveBitmap(runGuid, grads.GradientY, $"GradientYQuad{letter}");
             }
             l.Event(runGuid, $"Calculated Gradients for Quadrant {letter}");
 
             double[,] _combinedGrads = detector.CombineGradients(grads);
-            if (saveTemp) Logger.SaveBitmap(runGuid, _workingArray, $"CombinedGradientsQuad{letter}.png");
+            if (saveTemp) Logger.SaveBitmap(runGuid, _combinedGrads, $"CombinedGradientsQuad{letter}");
             increment();
             l.Event(runGuid, $"Calculated Combined Gradients for Quadrant {letter}");
 
@@ -108,22 +133,36 @@ namespace LocalApp
                 for (int x = 0; x < _angleGrads.GetLength(1); x++)
                     _workingArray[y, x] = Utility.MapRadiansToPixel(_angleGrads[y, x]);
 
-                Logger.SaveBitmap(runGuid, _workingArray, $"AngleGradientsQuad{letter}.png");
+                Logger.SaveBitmap(runGuid, _workingArray, $"AngleGradientsQuad{letter}");
             }
             l.Event(runGuid, $"Calculated Gradient Angles for Quadrant {letter}");
 
             _workingArray = detector.MagnitudeThreshold(_combinedGrads, _angleGrads);
-            if (saveTemp) Logger.SaveBitmap(runGuid, _workingArray, $"MagnitudeThresholdQuad{letter}.png");
+            if (saveTemp) Logger.SaveBitmap(runGuid, _workingArray, $"MagnitudeThresholdQuad{letter}");
             increment();
             l.Event(runGuid, $"Applied Magnitude Threshold on Quadrant {letter}");
 
             Structures.ThresholdPixel[,] _thresholdArray = detector.DoubleThreshold(_workingArray);
             increment();
-            // just be same think about that colour strong weak etc...?
+            if (saveTemp)
+            {
+                Bitmap toSave = new Bitmap(_thresholdArray.GetLength(1), _thresholdArray.GetLength(0));
+                for (int y = 0; y < _thresholdArray.GetLength(0); y++)
+                {
+                    for (int x = 0; x < _thresholdArray.GetLength(1); x++)
+                    {
+                        if (_thresholdArray[y,x].Strong) toSave.SetPixel(x,y, Color.Green);
+                        else if (!_thresholdArray[y,x].Strong && _thresholdArray[y,x].Value != 0) toSave.SetPixel(x,y, Color.Red);
+                        else toSave.SetPixel(x,y, Color.Black);
+                    }
+                }
+                Logger.SaveBitmap(runGuid, toSave, $"ThresholdPixelsQuad{letter}");
+            };
+            // TODO just be same think about that colour strong weak etc...?
             l.Event(runGuid, $"Calculated Threshold Pixels for Quadrant {letter}");
 
             _workingArray = detector.EdgeTrackingHysteresis(_thresholdArray);
-            if (saveTemp) Logger.SaveBitmap(runGuid, _workingArray, $"EdgeTrackingHysteresisQuad{letter}.png");
+            if (saveTemp) Logger.SaveBitmap(runGuid, _workingArray, $"EdgeTrackingHysteresisQuad{letter}");
             increment();
             l.Event(runGuid, $"Applied Edge Tracking by Hysteresis on Quadrant {letter}");
 
