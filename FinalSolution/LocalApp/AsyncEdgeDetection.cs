@@ -48,12 +48,12 @@ namespace LocalApp
             Structures.RGB[][,] quads = Utility.SplitImage(image.Pixels);
             Task<double[,]>[] threads = new Task<double[,]>[quads.Length];
 
-            int continueOption = i.GetOption("Continue to Canny Edge Detection:", new[] { "Yes: Continue", "No: Return to main menu" });
+            int continueOption = i.GetOption("Continue to Canny Edge Detection:", new[] { "Yes - Continue", "No - Return to main menu" });
             if (continueOption != 0) throw new Exception("Map Processing Ended At User Request");
 
             bool saveTempOption = i.GetOption("Would you like to save images at each step of the edge detection?", new[] { "Yes", "No" }) == 0;
 
-            ProgressBar pb = new ProgressBar("Canny Edge Detection", 40, m);
+            ProgressBar pb = new ProgressBar("Canny Edge Detection", 36, m);
             pb.DisplayProgress();
             
             for (int i = 0; i < quads.Length; i++)
@@ -66,12 +66,10 @@ namespace LocalApp
             }
 
             Task.WaitAll(threads);
-            Utility.CombineQuadrants(threads[0].Result, threads[1].Result, threads[2].Result, threads[3].Result).ToBitmap().Save("testOut.png");
-
-            
+            _resultArray = Utility.CombineQuadrants(threads[0].Result, threads[1].Result, threads[2].Result,
+                threads[3].Result);
         }
 
-        // TODO
         private double[,] RunDetectionOnQuadrant(CannyEdgeDetection detector, Structures.RGB[,] image, int id, Action increment, bool saveTemp)
         {
             char letter = (char)('A' + id);
@@ -230,9 +228,6 @@ namespace LocalApp
             return cannyDetection;
         }
 
-
         public double[,] Result() => _resultArray;
-
-
     }
 }

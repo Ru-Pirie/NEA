@@ -34,6 +34,11 @@ namespace LocalApp.CLI
             GetConsoleMode(handle, out var mode);
             SetConsoleMode(handle, mode | 0x4);
 
+            int width = Console.WindowWidth / 2;
+            int height = Console.WindowHeight / 4;
+            Console.SetWindowSize(width, height);
+            Console.SetBufferSize(width, height);
+
             _permLineA = permLineA;
             _permLineB = permLineB;
 

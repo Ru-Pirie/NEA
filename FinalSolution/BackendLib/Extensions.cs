@@ -21,6 +21,21 @@ namespace BackendLib
             return output;
         }
 
+        public static Bitmap ToBitmap(this Structures.RGB[,] array)
+        {
+            Bitmap output = new Bitmap(array.GetLength(1), array.GetLength(0));
+
+            for (int y = 0; y < array.GetLength(0); y++)
+            {
+                for (int x = 0; x < array.GetLength(1); x++)
+                {
+                    output.SetPixel(x, y, Color.FromArgb((int)array[y,x].R, (int)array[y, x].G, (int)array[y, x].B));
+                }
+            }
+
+            return output;
+        }
+
         public static Graph<Structures.Cord> ToGraph(this double[,] doubles)
         {
             Graph<Structures.Cord> output = new Graph<Structures.Cord>();

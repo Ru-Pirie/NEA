@@ -4,6 +4,7 @@ using BackendLib.Interfaces;
 using LocalApp.CLI;
 using System;
 using System.IO;
+using LocalApp.WindowsForms;
 
 namespace LocalApp
 {
@@ -17,6 +18,7 @@ namespace LocalApp
 
             menu.Setup();
             logger.Event("Program has started and menu has been created successfully.");
+            menu.SetPage("Welcome");
 
             Run(menu, inputs, logger);
         }
@@ -65,6 +67,11 @@ namespace LocalApp
             {
                 Structures.RawImage rawImage = newImage.Read();
 
+                // Show Before
+                ViewImageForm beforeForm = new ViewImageForm(rawImage.Pixels.ToBitmap());
+                m.WriteLine("Click and Press Enter");
+                beforeForm.ShowDialog();
+
                 int opt = i.GetOption("Select a version of edge detection to run:",
                     new[]
                     {
@@ -73,8 +80,15 @@ namespace LocalApp
                     });
 
                 IHandler handler = opt == 0 ? new AsyncEdgeDetection(m, i, l, rawImage, runGuid) : (IHandler)new SyncEdgeDetection(m, i, l, rawImage, runGuid);
-                handler.Start();
+                handler.Start();  
                 double[,] resultOfEdgeDetection = handler.Result();
+
+                //Show After to User
+                ViewImageForm edgeImageForm = new ViewImageForm(resultOfEdgeDetection.ToBitmap());
+                m.WriteLine("Click and Press Enter");
+                edgeImageForm.ShowDialog();
+
+
 
                 // TODO Next section move onto graph stuff
 
@@ -89,7 +103,7 @@ namespace LocalApp
         private static void DevTest(ref Menu m, ref Input i, ref Log l)
         {
             int opt = i.GetOption("Dev Test Options",
-                new[] { "Wipe logs and run files including all saves", "Run automated demo", "Resize window", "N/A" });
+                new[] { "Wipe logs and run files including all saves", "Run automated demo", "Resize window", "TEst Special Stuff" });
 
             switch (opt)
             {
@@ -120,7 +134,12 @@ namespace LocalApp
 
 
                 case 3:
+                    m.WriteLine($"Width - User: {Console.WindowWidth * 3 / 4 * 8}");
+                    m.WriteLine($"Width - Total: {Console.WindowWidth * 8}");
+                    m.WriteLine($"Height - User:{Console.WindowHeight * 5 / 6 * 16}");
+                    m.WriteLine($"Height - Total:{Console.WindowHeight * 16}");
 
+                    i.GetInput("");
 
                     break;
             }
