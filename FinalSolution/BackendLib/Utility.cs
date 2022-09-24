@@ -27,7 +27,7 @@ namespace BackendLib
         public static Bitmap CombineBitmap(Bitmap a, Bitmap b)
         {
             if (a.Width != b.Width || a.Height != b.Height)
-                throw new ArgumentException("Supplied Bitmaps Where Not Of Same Dimensions");
+                throw new ArgumentException($"Supplied Bitmaps Where Not Of Same Dimensions ({a.Width}x{a.Height} vs {b.Width}x{b.Height})");
 
             Bitmap result = a;
             for (int y = 0; y < a.Height; y++)

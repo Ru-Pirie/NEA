@@ -12,49 +12,49 @@ namespace LocalApp
 {
     internal class AsyncEdgeDetection : IHandler
     {
-        private readonly Menu m;
-        private readonly Input i;
-        private readonly Log l;
-        private readonly Guid runGuid;
-        private readonly Structures.RawImage image;
+        private readonly Menu _m;
+        private readonly Input _i;
+        private readonly Log _l;
+        private readonly Guid _runGuid;
+        private readonly Structures.RawImage _image;
         private double[,] _resultArray;
 
         public AsyncEdgeDetection(Menu m, Input i, Log l, Structures.RawImage image, Guid currentGuid)
         {
-            this.m = m;
-            this.i = i;
-            this.l = l;
-            this.image = image;
-            this.runGuid = currentGuid;
+            this._m = m;
+            this._i = i;
+            this._l = l;
+            this._image = image;
+            this._runGuid = currentGuid;
         }
 
         public void Start()
         {
-            l.Event(runGuid, "Started Multi Threaded Canny Edge Detection");
+            _l.Event(_runGuid, "Started Multi Threaded Canny Edge Detection");
             bool confirmOptions = false;
             CannyEdgeDetection detector;
 
-            l.Event(runGuid, "Getting Multi Thread Options");
+            _l.Event(_runGuid, "Getting Multi Thread Options");
 
             do
             {
-                detector = GetDetector(m, i, l);
+                detector = GetDetector(_m, _i, _l);
 
-                string opt = i.GetInput("Are you happy with those edge detection variables (y/n): ");
+                string opt = _i.GetInput("Are you happy with those edge detection variables (y/n): ");
                 if (opt.ToLower() == "y") confirmOptions = true;
-                else m.ClearUserSection();
+                else _m.ClearUserSection();
             } while (!confirmOptions);
 
 
-            Structures.RGB[][,] quads = Utility.SplitImage(image.Pixels);
+            Structures.RGB[][,] quads = Utility.SplitImage(_image.Pixels);
             Task<double[,]>[] threads = new Task<double[,]>[quads.Length];
 
-            int continueOption = i.GetOption("Continue to Canny Edge Detection:", new[] { "Yes - Continue", "No - Return to main menu" });
+            int continueOption = _i.GetOption("Continue to Canny Edge Detection:", new[] { "Yes - Continue", "No - Return to main menu" });
             if (continueOption != 0) throw new Exception("Map Processing Ended At User Request");
 
-            bool saveTempOption = i.GetOption("Would you like to save images at each step of the edge detection?", new[] { "Yes", "No" }) == 0;
+            bool saveTempOption = _i.GetOption("Would you like to save images at each step of the edge detection?", new[] { "Yes", "No" }) == 0;
 
-            ProgressBar pb = new ProgressBar("Canny Edge Detection", 36, m);
+            ProgressBar pb = new ProgressBar("Canny Edge Detection", 36, _m);
             pb.DisplayProgress();
             
             for (int i = 0; i < quads.Length; i++)
@@ -77,18 +77,18 @@ namespace LocalApp
         {
             Post postProcessor = new Post(image);
 
-            m.ClearUserSection();
-            if (i.TryGetInt("How many times would you like to emboss the image (can be 0): ", out int loopCount) &&
+            _m.ClearUserSection();
+            if (_i.TryGetInt("How many times would you like to emboss the image (can be 0): ", out int loopCount) &&
                 loopCount > 0)
             {
-                m.WriteLine();
-                m.WriteLine($"Running image embossing this will take approximately \x1b[38;5;196m{10*loopCount}\x1b[0m seconds!");
+                _m.WriteLine();
+                _m.WriteLine($"Running image embossing this will take approximately {Log.Red}{10*loopCount}\x1b[0m seconds!");
                 postProcessor.Start(loopCount);
             }
             else
             {
-                m.WriteLine();
-                m.WriteLine("Running image embossing this will take approximately \x1b[38;5;196m10\x1b[0m seconds!");
+                _m.WriteLine();
+                _m.WriteLine($"Running image embossing this will take approximately {Log.Red}10\x1b[0m seconds!");
                 postProcessor.Start(0);
             }
 
@@ -98,75 +98,75 @@ namespace LocalApp
         private double[,] RunDetectionOnQuadrant(CannyEdgeDetection detector, Structures.RGB[,] image, int id, Action increment, bool saveTemp)
         {
             char letter = (char)('A' + id);
-            double[,] _workingArray;
-            l.Event(runGuid, $"Starting processing of quadrant {letter} ({id % 2}, {id / 2})");
+            double[,] workingArray;
+            _l.Event(_runGuid, $"Starting processing of quadrant {letter} ({id % 2}, {id / 2})");
 
-            _workingArray = detector.BlackWhiteFilter(image);
-            if (saveTemp) Logger.SaveBitmap(runGuid, _workingArray, $"BlackWhiteFilterQuad{letter}");
+            workingArray = detector.BlackWhiteFilter(image);
+            if (saveTemp) Logger.SaveBitmap(_runGuid, workingArray, $"BlackWhiteFilterQuad{letter}");
             increment();
-            l.Event(runGuid, $"Completed Black and White Filter on Quadrant {letter}");
+            _l.Event(_runGuid, $"Completed Black and White Filter on Quadrant {letter}");
 
-            _workingArray = detector.GaussianFilter(_workingArray);
-            if (saveTemp) Logger.SaveBitmap(runGuid, _workingArray, $"GaussianFilterQuad{letter}");
+            workingArray = detector.GaussianFilter(workingArray);
+            if (saveTemp) Logger.SaveBitmap(_runGuid, workingArray, $"GaussianFilterQuad{letter}");
             increment();
-            l.Event(runGuid, $"Applied Gaussian Filter on Quadrant {letter}");
+            _l.Event(_runGuid, $"Applied Gaussian Filter on Quadrant {letter}");
 
-            Structures.Gradients grads = detector.CalculateGradients(_workingArray, increment);
+            Structures.Gradients grads = detector.CalculateGradients(workingArray, increment);
             if (saveTemp)
             {
-                Logger.SaveBitmap(runGuid, grads.GradientX, $"GradientXQuad{letter}");
-                Logger.SaveBitmap(runGuid, grads.GradientY, $"GradientYQuad{letter}");
+                Logger.SaveBitmap(_runGuid, grads.GradientX, $"GradientXQuad{letter}");
+                Logger.SaveBitmap(_runGuid, grads.GradientY, $"GradientYQuad{letter}");
             }
-            l.Event(runGuid, $"Calculated Gradients for Quadrant {letter}");
+            _l.Event(_runGuid, $"Calculated Gradients for Quadrant {letter}");
 
-            double[,] _combinedGrads = detector.CombineGradients(grads);
-            if (saveTemp) Logger.SaveBitmap(runGuid, _combinedGrads, $"CombinedGradientsQuad{letter}");
+            double[,] combinedGrads = detector.CombineGradients(grads);
+            if (saveTemp) Logger.SaveBitmap(_runGuid, combinedGrads, $"CombinedGradientsQuad{letter}");
             increment();
-            l.Event(runGuid, $"Calculated Combined Gradients for Quadrant {letter}");
+            _l.Event(_runGuid, $"Calculated Combined Gradients for Quadrant {letter}");
 
-            double[,] _angleGrads = detector.GradientAngle(grads);
+            double[,] angleGrads = detector.GradientAngle(grads);
             increment();
             // Convert to readable?
             if (saveTemp)
             {
-                for (int y = 0; y < _angleGrads.GetLength(0); y++)
-                for (int x = 0; x < _angleGrads.GetLength(1); x++)
-                    _workingArray[y, x] = Utility.MapRadiansToPixel(_angleGrads[y, x]);
+                for (int y = 0; y < angleGrads.GetLength(0); y++)
+                for (int x = 0; x < angleGrads.GetLength(1); x++)
+                    workingArray[y, x] = Utility.MapRadiansToPixel(angleGrads[y, x]);
 
-                Logger.SaveBitmap(runGuid, _workingArray, $"AngleGradientsQuad{letter}");
+                Logger.SaveBitmap(_runGuid, workingArray, $"AngleGradientsQuad{letter}");
             }
-            l.Event(runGuid, $"Calculated Gradient Angles for Quadrant {letter}");
+            _l.Event(_runGuid, $"Calculated Gradient Angles for Quadrant {letter}");
 
-            _workingArray = detector.MagnitudeThreshold(_combinedGrads, _angleGrads);
-            if (saveTemp) Logger.SaveBitmap(runGuid, _workingArray, $"MagnitudeThresholdQuad{letter}");
+            workingArray = detector.MagnitudeThreshold(combinedGrads, angleGrads);
+            if (saveTemp) Logger.SaveBitmap(_runGuid, workingArray, $"MagnitudeThresholdQuad{letter}");
             increment();
-            l.Event(runGuid, $"Applied Magnitude Threshold on Quadrant {letter}");
+            _l.Event(_runGuid, $"Applied Magnitude Threshold on Quadrant {letter}");
 
-            Structures.ThresholdPixel[,] _thresholdArray = detector.DoubleThreshold(_workingArray);
+            Structures.ThresholdPixel[,] thresholdArray = detector.DoubleThreshold(workingArray);
             increment();
             if (saveTemp)
             {
-                Bitmap toSave = new Bitmap(_thresholdArray.GetLength(1), _thresholdArray.GetLength(0));
-                for (int y = 0; y < _thresholdArray.GetLength(0); y++)
+                Bitmap toSave = new Bitmap(thresholdArray.GetLength(1), thresholdArray.GetLength(0));
+                for (int y = 0; y < thresholdArray.GetLength(0); y++)
                 {
-                    for (int x = 0; x < _thresholdArray.GetLength(1); x++)
+                    for (int x = 0; x < thresholdArray.GetLength(1); x++)
                     {
-                        if (_thresholdArray[y,x].Strong) toSave.SetPixel(x,y, Color.Green);
-                        else if (!_thresholdArray[y,x].Strong && _thresholdArray[y,x].Value != 0) toSave.SetPixel(x,y, Color.Red);
+                        if (thresholdArray[y,x].Strong) toSave.SetPixel(x,y, Color.Green);
+                        else if (!thresholdArray[y,x].Strong && thresholdArray[y,x].Value != 0) toSave.SetPixel(x,y, Color.Red);
                         else toSave.SetPixel(x,y, Color.Black);
                     }
                 }
-                Logger.SaveBitmap(runGuid, toSave, $"ThresholdPixelsQuad{letter}");
+                Logger.SaveBitmap(_runGuid, toSave, $"ThresholdPixelsQuad{letter}");
             };
             // TODO just be same think about that colour strong weak etc...?
-            l.Event(runGuid, $"Calculated Threshold Pixels for Quadrant {letter}");
+            _l.Event(_runGuid, $"Calculated Threshold Pixels for Quadrant {letter}");
 
-            _workingArray = detector.EdgeTrackingHysteresis(_thresholdArray);
-            if (saveTemp) Logger.SaveBitmap(runGuid, _workingArray, $"EdgeTrackingHysteresisQuad{letter}");
+            workingArray = detector.EdgeTrackingHysteresis(thresholdArray);
+            if (saveTemp) Logger.SaveBitmap(_runGuid, workingArray, $"EdgeTrackingHysteresisQuad{letter}");
             increment();
-            l.Event(runGuid, $"Applied Edge Tracking by Hysteresis on Quadrant {letter}");
+            _l.Event(_runGuid, $"Applied Edge Tracking by Hysteresis on Quadrant {letter}");
 
-            return _workingArray;
+            return workingArray;
         }
 
         private CannyEdgeDetection GetDetector(Menu m, Input i, Log l)
@@ -177,8 +177,8 @@ namespace LocalApp
                         $"Enter a value for the ratio value for red for the Black and White filter (Default: {cannyDetection.RedRatio}, Range: 0 <= x <= 1)",
                     out double newRedRatio) && newRedRatio <= 1 && newRedRatio >= 0 && newRedRatio != cannyDetection.RedRatio)
             {
-                l.Warn(runGuid, $"Changed red ratio {cannyDetection.RedRatio} -> {newRedRatio}");
-                m.WriteLine($"\x1b[38;5;2mChanged: {cannyDetection.RedRatio} -> {newRedRatio}\x1b[0m");
+                l.Warn(_runGuid, $"Changed red ratio {cannyDetection.RedRatio} -> {newRedRatio}");
+                m.WriteLine($"{Log.Orange}Changed: {cannyDetection.RedRatio} -> {newRedRatio}\x1b[0m");
                 cannyDetection.RedRatio = newRedRatio;
             }
             else m.WriteLine($"\x1b[38;5;3mKept Default: {cannyDetection.RedRatio}\x1b[0m");
@@ -189,7 +189,7 @@ namespace LocalApp
                     out double newGreenRatio) && newGreenRatio <= 1 && newGreenRatio >= 0 &&
                 newGreenRatio != cannyDetection.GreenRatio)
             {
-                l.Warn(runGuid, $"Changed green ratio {cannyDetection.GreenRatio} -> {newGreenRatio}");
+                l.Warn(_runGuid, $"Changed green ratio {cannyDetection.GreenRatio} -> {newGreenRatio}");
                 m.WriteLine($"\x1b[38;5;2mChanged: {cannyDetection.GreenRatio} -> {newGreenRatio}\x1b[0m");
                 cannyDetection.GreenRatio = newGreenRatio;
             }
@@ -200,7 +200,7 @@ namespace LocalApp
                         $"Enter a value for the ratio value for blue for the Black and White filter (Default: {cannyDetection.BlueRatio}, Range: 0 <= x <= 1)",
                     out double newBlueRatio) && newBlueRatio <= 1 && newBlueRatio >= 0 && newBlueRatio != cannyDetection.BlueRatio)
             {
-                l.Warn(runGuid, $"Changed blue ratio {cannyDetection.BlueRatio} -> {newBlueRatio}");
+                l.Warn(_runGuid, $"Changed blue ratio {cannyDetection.BlueRatio} -> {newBlueRatio}");
                 m.WriteLine($"\x1b[38;5;2mChanged: {cannyDetection.BlueRatio} -> {newBlueRatio}\x1b[0m");
                 cannyDetection.BlueRatio = newBlueRatio;
             }
@@ -211,7 +211,7 @@ namespace LocalApp
                         $"Enter a value for sigma for the Gaussian Filter stage (Default: {cannyDetection.Sigma}, Range: 0 < x <= 10)",
                     out double newSigma) && newSigma <= 10 && newSigma > 0 && newSigma != cannyDetection.Sigma)
             {
-                l.Warn(runGuid, $"Changed sigma value {cannyDetection.Sigma} -> {newSigma}");
+                l.Warn(_runGuid, $"Changed sigma value {cannyDetection.Sigma} -> {newSigma}");
                 m.WriteLine($"\x1b[38;5;2mChanged: {cannyDetection.Sigma} -> {newSigma}\x1b[0m");
                 cannyDetection.Sigma = newSigma;
             }
@@ -222,7 +222,7 @@ namespace LocalApp
                     $"Enter a value for kernel size for the Gaussian Filter stage, large values will take exponentially longer (Default: {cannyDetection.KernelSize}, Range: x >= 3, x not a multiple of 2 and a whole number)",
                     out int newKernel) && newKernel >= 3 && newKernel % 2 == 1 && newKernel % 1 == 0 && newKernel != cannyDetection.KernelSize)
             {
-                l.Warn(runGuid, $"Changed kernel size {cannyDetection.KernelSize} -> {newKernel}");
+                l.Warn(_runGuid, $"Changed kernel size {cannyDetection.KernelSize} -> {newKernel}");
                 m.WriteLine($"\x1b[38;5;2mChanged: {cannyDetection.KernelSize} -> {newKernel}\x1b[0m");
                 cannyDetection.KernelSize = newKernel;
             }
@@ -233,7 +233,7 @@ namespace LocalApp
                         $"Enter a value for the lower threshold for the Min Max stage (Default: {cannyDetection.LowerThreshold}, Range: 0 <= x < 1)",
                     out double newLowerThreshold) && newLowerThreshold > 0 && newLowerThreshold < 1 && newLowerThreshold != cannyDetection.LowerThreshold)
             {
-                l.Warn(runGuid, $"Changed lower threshold {cannyDetection.LowerThreshold} -> {newLowerThreshold}");
+                l.Warn(_runGuid, $"Changed lower threshold {cannyDetection.LowerThreshold} -> {newLowerThreshold}");
                 m.WriteLine($"\x1b[38;5;2mChanged: {cannyDetection.LowerThreshold} -> {newLowerThreshold}\x1b[0m");
                 cannyDetection.LowerThreshold = newLowerThreshold;
             }
@@ -244,7 +244,7 @@ namespace LocalApp
                         $"Enter a value for the lower threshold for the Min Max stage (Default: {cannyDetection.UpperThreshold}, Range: {cannyDetection.LowerThreshold} < x <= 1)",
                     out double newHigherThreshold) && newHigherThreshold > cannyDetection.LowerThreshold && newHigherThreshold <= 1 && newHigherThreshold != cannyDetection.UpperThreshold)
             {
-                l.Warn(runGuid, $"Changed upper threshold {cannyDetection.UpperThreshold} -> {newHigherThreshold}");
+                l.Warn(_runGuid, $"Changed upper threshold {cannyDetection.UpperThreshold} -> {newHigherThreshold}");
                 m.WriteLine($"\x1b[38;5;2mChanged: {cannyDetection.UpperThreshold} -> {newHigherThreshold}\x1b[0m");
                 cannyDetection.UpperThreshold = newHigherThreshold;
             }
@@ -255,13 +255,13 @@ namespace LocalApp
             m.ClearUserSection();
 
             m.WriteLine("For reference the variables which will be used are:");
-            m.WriteLine($"    Red Ratio: \x1b[38;5;2m{cannyDetection.RedRatio}\x1b[0m");
-            m.WriteLine($"    Green Ratio: \x1b[38;5;2m{cannyDetection.GreenRatio}\x1b[0m");
-            m.WriteLine($"    Blue Ratio: \x1b[38;5;2m{cannyDetection.BlueRatio}\x1b[0m");
-            m.WriteLine($"    Gaussian Sigma Value: \x1b[38;5;2m{cannyDetection.Sigma}\x1b[0m");
-            m.WriteLine($"    Gaussian Kernel Size: \x1b[38;5;2m{cannyDetection.KernelSize}\x1b[0m");
-            m.WriteLine($"    Double Threshold Lower: \x1b[38;5;2m{cannyDetection.LowerThreshold}\x1b[0m");
-            m.WriteLine($"    Double Threshold Upper: \x1b[38;5;2m{cannyDetection.UpperThreshold}\x1b[0m");
+            m.WriteLine($"    Red Ratio: {Log.Orange}{cannyDetection.RedRatio}\x1b[0m");
+            m.WriteLine($"    Green Ratio: {Log.Orange}{cannyDetection.GreenRatio}\x1b[0m");
+            m.WriteLine($"    Blue Ratio: {Log.Orange}{cannyDetection.BlueRatio}\x1b[0m");
+            m.WriteLine($"    Gaussian Sigma Value: {Log.Orange}{cannyDetection.Sigma}\x1b[0m");
+            m.WriteLine($"    Gaussian Kernel Size: {Log.Orange}{cannyDetection.KernelSize}\x1b[0m");
+            m.WriteLine($"    Double Threshold Lower: {Log.Orange}{cannyDetection.LowerThreshold}\x1b[0m");
+            m.WriteLine($"    Double Threshold Upper: {Log.Orange}{cannyDetection.UpperThreshold}\x1b[0m");
             m.WriteLine();
 
             return cannyDetection;

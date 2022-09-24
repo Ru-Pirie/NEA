@@ -8,6 +8,7 @@ namespace BackendLib.Processing
     {
         private Bitmap _filledBitmap;
         private Bitmap _pathBitmap;
+        private double[,] _pathDoubles;
         private readonly double[,] _imageDoubles;
         private readonly double _threshold;
         private Random _gen = new Random();
@@ -22,6 +23,17 @@ namespace BackendLib.Processing
         {
             List<Color> toRemoveColors = FillImage(updateAction);
             RemoveColor(toRemoveColors, updateAction);
+
+            _pathDoubles = new double[_pathBitmap.Height, _pathBitmap.Width];
+            for (int y = 0; y < _pathBitmap.Height; y++)
+            {
+                for (int x = 0; x < _pathBitmap.Width; x++)
+                {
+                    Color pixel = _pathBitmap.GetPixel(x, y);
+                    if (pixel == Color.FromArgb(0, 0, 0)) _pathDoubles[y, x] = 0;
+                    else _pathDoubles[y, x] = 255;
+                }
+            }
         }
 
         private List<Color> FillImage(Action updateAction)
@@ -120,7 +132,8 @@ namespace BackendLib.Processing
         public Structures.RoadResult Result() => new Structures.RoadResult
         {
             FilledBitmap = _filledBitmap,
-            PathBitmap = _pathBitmap
+            PathBitmap = _pathBitmap,
+            PathDoubles = _pathDoubles
         };
 
     }

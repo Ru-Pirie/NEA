@@ -35,6 +35,7 @@ namespace BackendLib
         {
             public Bitmap FilledBitmap;
             public Bitmap PathBitmap;
+            public double[,] PathDoubles;
         }
 
         public struct CannyResult

@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace LocalApp.WindowsForms
 {
-    public partial class ViewImageForm : Form
+    public partial class PathfindImageForm : Form
     {
         private readonly Bitmap _image;
         private int _width;
         private int _height;
-        public ViewImageForm(Bitmap image)
+        public PathfindImageForm(Bitmap image)
         {
             this._image = image;
             InitializeComponent();
@@ -36,14 +36,10 @@ namespace LocalApp.WindowsForms
             TopMost = true;
 
             // set picture frame
-            imageBox.Width = _width * 2 / 3 - 12;
+            imageBox.Width = _width - 24;
             imageBox.Height = _height - 24;
-            imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            imageBox.SizeMode = PictureBoxSizeMode.Zoom;
             imageBox.Image = _image;
-
-            nextButton.Width = _width / 3 - 24;
-            nextButton.Height = _height - 24;
-            nextButton.Left = _width * 2 / 3 + 12;
 
         }
 

@@ -3,7 +3,10 @@ using BackendLib.Data;
 using BackendLib.Interfaces;
 using LocalApp.CLI;
 using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
+using BackendLib.Datatypes;
 using BackendLib.Processing;
 using LocalApp.WindowsForms;
 
@@ -50,7 +53,7 @@ namespace LocalApp
                         m.WriteLine("6. You can chose to save that map or not.");
                         m.WriteLine("7. That's it!");
                         m.WriteLine();
-                        i.GetInput("\x1b[38;5;208m(Enter to continue)\x1b[0m");
+                        i.GetInput("\x1b[38;5;2m(Enter to continue)\x1b[0m");
 
                         RunNewImage(m, i, l);
                         break;
@@ -100,7 +103,7 @@ namespace LocalApp
                 edgeImageForm.ShowDialog();
 
                 m.ClearUserSection();
-                m.WriteLine("In order for the road detection to function properly there must be a single white line joining roads together, not two either side. If there where two either side then the image must be inverted.");
+                m.WriteLine("In order for the road detection to function properly there must be a a box encapsulating the road. It should look like an outline of the road, if there isn't one then select invert at the next prompt.");
                 m.WriteLine();
                 
                 
@@ -109,20 +112,28 @@ namespace LocalApp
                 {
                     resultOfEdgeDetection = Utility.InverseImage(resultOfEdgeDetection);
 
-
                     ViewImageForm invertImageForm = new ViewImageForm(resultOfEdgeDetection.ToBitmap());
                     m.WriteLine("Click and Press Enter");
                     invertImageForm.ShowDialog();
                 }
                 
 
-
                 // TODO prompt to move onto road detection add user input for threshold
                 RoadDetection roadDetector = new RoadDetection(resultOfEdgeDetection, 0.3);
-                
+                ProgressBar pb = new ProgressBar("Road Detection", resultOfEdgeDetection.Length / 100 * 3, m);
+                pb.DisplayProgress();
+                roadDetector.Start(pb.GetIncrementAction());
+                ViewImageForm roadForm = new ViewImageForm(Utility.CombineBitmap(rawImage.Pixels.ToBitmap(), roadDetector.Result().PathBitmap));
+                roadForm.ShowDialog();
+                // Logger.SaveBitmap(runGuid, roadDetector.Result().PathBitmap, "RoadDetectorPath");
 
 
                 // TODO Next section move road detection then graph stuff
+
+                // TEMP
+                // Traversal<>
+                Graph<Structures.Cord> myGraph = roadDetector.Result().PathDoubles.ToGraph();
+                Traversal<Structures.Cord> myTraversal = new Traversal<Structures.Cord>(myGraph);
 
                 l.EndSuccessRun(runGuid);
             }
@@ -135,7 +146,7 @@ namespace LocalApp
         private static void DevTest(ref Menu m, ref Input i, ref Log l)
         {
             int opt = i.GetOption("Dev Test Options",
-                new[] { "Wipe logs and run files including all saves", "Run automated demo", "Resize window", "TEst Special Stuff" });
+                new[] { "Wipe logs and run files including all saves", "Run automated demo", "Resize window", "Test Special Stuff" });
 
             switch (opt)
             {

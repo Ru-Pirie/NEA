@@ -55,17 +55,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SyncEdgeDetection.cs" />
-    <Compile Include="WindowsForms\ConfirmImageForm.cs">
+    <Compile Include="WindowsForms\PathfindImageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsForms\ConfirmImageForm.Designer.cs">
-      <DependentUpon>ConfirmImageForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WindowsForms\PathfindingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WindowsForms\PathfindingForm.Designer.cs">
-      <DependentUpon>PathfindingForm.cs</DependentUpon>
+    <Compile Include="WindowsForms\PathfindImageForm.Designer.cs">
+      <DependentUpon>PathfindImageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsForms\ViewImageForm.cs">
       <SubType>Form</SubType>
@@ -87,6 +81,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="WindowsForms\PathfindImageForm.resx">
+      <DependentUpon>PathfindImageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WindowsForms\ViewImageForm.resx">
       <DependentUpon>ViewImageForm.cs</DependentUpon>
     </EmbeddedResource>

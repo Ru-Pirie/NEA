@@ -8,6 +8,11 @@ namespace LocalApp.CLI
         private int _logLineCount = 6;
         private Menu _menuInstance;
 
+        public const string Red = "\x1b[38;5;196m";
+        public const string Orange = "\x1b[38;5;3m";
+        public const string Purple = "\x1b[38;5;129m";
+        public const string Green = "\x1b[38;5;2m";
+
         public void Error(string message) => Logger.WriteLineToMaster($"ERROR {message}");
         public void Warn(string message) => Logger.WriteLineToMaster($"WARNING {message}");
         public void Event(string message) => Logger.WriteLineToMaster($"EVENT {message}");
@@ -48,7 +53,7 @@ namespace LocalApp.CLI
         private void LogParent(Guid runGuid, string message, int type)
         {
             Console.CursorVisible = false;
-            string[] prefix = { "\x1b[38;5;9mERROR\x1b[0m", "\x1b[38;5;3m WARN\x1b[0m", "\x1b[38;5;10mEVENT\x1b[0m", "\x1b[38;5;5m  END\x1b[0m" };
+            string[] prefix = { $"{Red} ERROR\x1b[0m", $"{Orange} WARN\x1b[0m", $"{Green} EVENT\x1b[0m", $"{Purple} END\x1b[0m" };
             string[] filePrefix = { "[ERROR] ", "[WARN] ", "[EVENT] ", "[END] " };
 
             lock (_menuInstance.ScreenLock)
