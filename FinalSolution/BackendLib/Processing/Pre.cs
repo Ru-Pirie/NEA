@@ -87,6 +87,7 @@ namespace BackendLib.Processing
         {
             Original = _imageBitmap,
             Pixels = _imageRgb,
+            Path = _imagePath,
             Height = _imageBitmap.Height,
             Width = _imageBitmap.Width
         };

@@ -43,6 +43,7 @@ namespace LocalApp.CLI
             _permLineB = permLineB;
 
             Console.Clear();
+            Console.CursorVisible = false;
         }
 
         public void Setup()
@@ -50,10 +51,11 @@ namespace LocalApp.CLI
             while (!IsWindowMax())
             {
                 Console.SetCursorPosition(0, 0);
-                Console.WriteLine("\x1b[38;5;9mMaximize Window To Continue\x1b[0m");
+                // CANNOT BE CONSTANT DUE TO PREUSE
+                Console.WriteLine($"{Log.Red}Maximize Window To Continue{Log.Blank}");
                 System.Threading.Thread.Sleep(250);
                 Console.SetCursorPosition(0, 0);
-                Console.WriteLine("\x1b[48;5;9mMaximize Window To Continue\x1b[0m");
+                Console.WriteLine($"\x1b[48;5;196mMaximize Window To Continue{Log.Blank}");
                 System.Threading.Thread.Sleep(250);
 
             }
@@ -114,9 +116,10 @@ namespace LocalApp.CLI
             Console.SetCursorPosition(Console.WindowWidth * 3 / 4 + 5, 1);
             Console.WriteLine("Program Logs:");
             Console.SetCursorPosition(Console.WindowWidth * 3 / 4 + 5, 3);
-            Console.WriteLine("\x1b[48;5;9m  \x1b[0m ERROR            \x1b[48;5;10m  \x1b[0m EVENT PROCESSED");
+            // CANNOT USE CONSTANT DUE TO 48 - Background
+            Console.WriteLine($"\x1b[48;5;196m  {Log.Blank} ERROR            \x1b[48;5;2m  {Log.Blank} EVENT PROCESSED");
             Console.SetCursorPosition(Console.WindowWidth * 3 / 4 + 5, 4);
-            Console.WriteLine("\x1b[48;5;3m  \x1b[0m WARNING          \x1b[48;5;5m  \x1b[0m END OF SEQUENCE");
+            Console.WriteLine($"\x1b[48;5;184m  {Log.Blank} WARNING          \x1b[48;5;129m  {Log.Blank} END OF SEQUENCE");
         }
 
         private void BeginInfoLoop(Stopwatch sw)

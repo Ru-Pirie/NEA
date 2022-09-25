@@ -16,7 +16,7 @@ namespace LocalApp
     {
         private static void Main(string[] args)
         {
-            Menu menu = new Menu("Author: Rubens Pirie", "\x1b[38;5;119mDevelopment Mode\x1b[0m");
+            Menu menu = new Menu("Author: Rubens Pirie", $"{Log.Green}Development Mode{Log.Blank}");
             Input inputs = new Input(menu);
             Log logger = new Log(menu);
 
@@ -52,8 +52,8 @@ namespace LocalApp
                         m.WriteLine("5. You can pathfind through your processed map image.");
                         m.WriteLine("6. You can chose to save that map or not.");
                         m.WriteLine("7. That's it!");
+                        i.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
                         m.WriteLine();
-                        i.GetInput("\x1b[38;5;2m(Enter to continue)\x1b[0m");
 
                         RunNewImage(m, i, l);
                         break;
@@ -85,16 +85,23 @@ namespace LocalApp
 
                 // Show Before ask for confirmation after?
                 ViewImageForm beforeForm = new ViewImageForm(rawImage.Pixels.ToBitmap());
-                m.WriteLine("Click and Press Enter");
                 beforeForm.ShowDialog();
+
+                m.WriteLine("Parsed file information:");
+                m.WriteLine($"    Name: {Log.Green}{Path.GetFileNameWithoutExtension(rawImage.Path)}{Log.Blank}");
+                m.WriteLine($"    Folder: {Log.Green}{Path.GetDirectoryName(rawImage.Path)}{Log.Blank}");
+                m.WriteLine($"    File extension: {Log.Green}{Path.GetExtension(rawImage.Path)}{Log.Blank}");
+                m.WriteLine();
+
+
                 // Confirm correct image here before progressing?
 
-                int opt = i.GetOption("Select a version of edge detection to run:",new[] {
+                int opt = i.GetOption("Select a version of edge detection to run:", new[] {
                         "Multi-threaded - Fast, all options decided at the start",
                         "Synchronous - Slow, options can be changed after each step and steps can be repeated" });
-                
+
                 IHandler handler = opt == 0 ? new AsyncEdgeDetection(m, i, l, rawImage, runGuid) : (IHandler)new SyncEdgeDetection(m, i, l, rawImage, runGuid);
-                handler.Start();  
+                handler.Start();
                 double[,] resultOfEdgeDetection = handler.Result();
 
                 //Show After to User
@@ -105,18 +112,16 @@ namespace LocalApp
                 m.ClearUserSection();
                 m.WriteLine("In order for the road detection to function properly there must be a a box encapsulating the road. It should look like an outline of the road, if there isn't one then select invert at the next prompt.");
                 m.WriteLine();
-                
-                
+
+
                 bool invert = i.GetInput("Invert image (y/n)? ").ToLower() == "y";
                 if (invert)
                 {
                     resultOfEdgeDetection = Utility.InverseImage(resultOfEdgeDetection);
-
                     ViewImageForm invertImageForm = new ViewImageForm(resultOfEdgeDetection.ToBitmap());
-                    m.WriteLine("Click and Press Enter");
                     invertImageForm.ShowDialog();
                 }
-                
+
 
                 // TODO prompt to move onto road detection add user input for threshold
                 RoadDetection roadDetector = new RoadDetection(resultOfEdgeDetection, 0.3);
@@ -128,10 +133,11 @@ namespace LocalApp
                 // Logger.SaveBitmap(runGuid, roadDetector.Result().PathBitmap, "RoadDetectorPath");
 
 
+
+
                 // TODO Next section move road detection then graph stuff
 
                 // TEMP
-                // Traversal<>
                 Graph<Structures.Cord> myGraph = roadDetector.Result().PathDoubles.ToGraph();
                 Traversal<Structures.Cord> myTraversal = new Traversal<Structures.Cord>(myGraph);
 
@@ -167,7 +173,7 @@ namespace LocalApp
                     break;
                 // Resize window    
                 case 2:
-                    m = new Menu("Author: Rubens Pirie", "\x1b[38;5;119mDevelopment Mode REBOOT\x1b[0m");
+                    m = new Menu("Author: Rubens Pirie", $"{Log.Green}Development Mode REBOOT{Log.Blank}");
                     i = new Input(m);
                     l = new Log(m);
 
@@ -182,7 +188,7 @@ namespace LocalApp
                     m.WriteLine($"Height - User:{Console.WindowHeight * 5 / 6 * 16}");
                     m.WriteLine($"Height - Total:{Console.WindowHeight * 16}");
 
-                    i.GetInput("");
+                    i.WaitInput("");
 
                     break;
             }

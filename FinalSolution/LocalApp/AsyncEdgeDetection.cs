@@ -82,13 +82,13 @@ namespace LocalApp
                 loopCount > 0)
             {
                 _m.WriteLine();
-                _m.WriteLine($"Running image embossing this will take approximately {Log.Red}{10*loopCount}\x1b[0m seconds!");
+                _m.WriteLine($"Running image embossing this will take approximately {Log.Red}{10*loopCount}{Log.Blank} seconds!");
                 postProcessor.Start(loopCount);
             }
             else
             {
                 _m.WriteLine();
-                _m.WriteLine($"Running image embossing this will take approximately {Log.Red}10\x1b[0m seconds!");
+                _m.WriteLine($"Running image embossing this will take approximately {Log.Red}10{Log.Blank} seconds!");
                 postProcessor.Start(0);
             }
 
@@ -178,10 +178,10 @@ namespace LocalApp
                     out double newRedRatio) && newRedRatio <= 1 && newRedRatio >= 0 && newRedRatio != cannyDetection.RedRatio)
             {
                 l.Warn(_runGuid, $"Changed red ratio {cannyDetection.RedRatio} -> {newRedRatio}");
-                m.WriteLine($"{Log.Orange}Changed: {cannyDetection.RedRatio} -> {newRedRatio}\x1b[0m");
+                m.WriteLine($"{Log.Green}Changed: {cannyDetection.RedRatio} -> {newRedRatio}{Log.Blank}");
                 cannyDetection.RedRatio = newRedRatio;
             }
-            else m.WriteLine($"\x1b[38;5;3mKept Default: {cannyDetection.RedRatio}\x1b[0m");
+            else m.WriteLine($"{Log.Orange}Kept Default: {cannyDetection.RedRatio}{Log.Blank}");
             m.WriteLine();
 
             if (i.TryGetDouble(
@@ -190,10 +190,10 @@ namespace LocalApp
                 newGreenRatio != cannyDetection.GreenRatio)
             {
                 l.Warn(_runGuid, $"Changed green ratio {cannyDetection.GreenRatio} -> {newGreenRatio}");
-                m.WriteLine($"\x1b[38;5;2mChanged: {cannyDetection.GreenRatio} -> {newGreenRatio}\x1b[0m");
+                m.WriteLine($"{Log.Green}Changed: {cannyDetection.GreenRatio} -> {newGreenRatio}{Log.Blank}");
                 cannyDetection.GreenRatio = newGreenRatio;
             }
-            else m.WriteLine($"\x1b[38;5;3mKept Default: {cannyDetection.GreenRatio}\x1b[0m");
+            else m.WriteLine($"{Log.Orange}Kept Default: {cannyDetection.GreenRatio}{Log.Blank}");
             m.WriteLine();
 
             if (i.TryGetDouble(
@@ -201,10 +201,10 @@ namespace LocalApp
                     out double newBlueRatio) && newBlueRatio <= 1 && newBlueRatio >= 0 && newBlueRatio != cannyDetection.BlueRatio)
             {
                 l.Warn(_runGuid, $"Changed blue ratio {cannyDetection.BlueRatio} -> {newBlueRatio}");
-                m.WriteLine($"\x1b[38;5;2mChanged: {cannyDetection.BlueRatio} -> {newBlueRatio}\x1b[0m");
+                m.WriteLine($"{Log.Green}Changed: {cannyDetection.BlueRatio} -> {newBlueRatio}{Log.Blank}");
                 cannyDetection.BlueRatio = newBlueRatio;
             }
-            else m.WriteLine($"\x1b[38;5;3mKept Default: {cannyDetection.BlueRatio}\x1b[0m");
+            else m.WriteLine($"{Log.Orange}Kept Default: {cannyDetection.BlueRatio}{Log.Blank}");
             m.WriteLine();
 
             if (i.TryGetDouble(
@@ -212,10 +212,10 @@ namespace LocalApp
                     out double newSigma) && newSigma <= 10 && newSigma > 0 && newSigma != cannyDetection.Sigma)
             {
                 l.Warn(_runGuid, $"Changed sigma value {cannyDetection.Sigma} -> {newSigma}");
-                m.WriteLine($"\x1b[38;5;2mChanged: {cannyDetection.Sigma} -> {newSigma}\x1b[0m");
+                m.WriteLine($"{Log.Green}Changed: {cannyDetection.Sigma} -> {newSigma}{Log.Blank}");
                 cannyDetection.Sigma = newSigma;
             }
-            else m.WriteLine($"\x1b[38;5;3mKept Default: {cannyDetection.Sigma}\x1b[0m");
+            else m.WriteLine($"{Log.Orange}Kept Default: {cannyDetection.Sigma}{Log.Blank}");
             m.WriteLine();
 
             if (i.TryGetInt(
@@ -223,10 +223,10 @@ namespace LocalApp
                     out int newKernel) && newKernel >= 3 && newKernel % 2 == 1 && newKernel % 1 == 0 && newKernel != cannyDetection.KernelSize)
             {
                 l.Warn(_runGuid, $"Changed kernel size {cannyDetection.KernelSize} -> {newKernel}");
-                m.WriteLine($"\x1b[38;5;2mChanged: {cannyDetection.KernelSize} -> {newKernel}\x1b[0m");
+                m.WriteLine($"{Log.Green}Changed: {cannyDetection.KernelSize} -> {newKernel}{Log.Blank}");
                 cannyDetection.KernelSize = newKernel;
             }
-            else m.WriteLine($"\x1b[38;5;3mKept Default: {cannyDetection.KernelSize}\x1b[0m");
+            else m.WriteLine($"{Log.Orange}Kept Default: {cannyDetection.KernelSize}{Log.Blank}");
             m.WriteLine();
 
             if (i.TryGetDouble(
@@ -234,10 +234,10 @@ namespace LocalApp
                     out double newLowerThreshold) && newLowerThreshold > 0 && newLowerThreshold < 1 && newLowerThreshold != cannyDetection.LowerThreshold)
             {
                 l.Warn(_runGuid, $"Changed lower threshold {cannyDetection.LowerThreshold} -> {newLowerThreshold}");
-                m.WriteLine($"\x1b[38;5;2mChanged: {cannyDetection.LowerThreshold} -> {newLowerThreshold}\x1b[0m");
+                m.WriteLine($"{Log.Green}Changed: {cannyDetection.LowerThreshold} -> {newLowerThreshold}{Log.Blank}");
                 cannyDetection.LowerThreshold = newLowerThreshold;
             }
-            else m.WriteLine($"\x1b[38;5;3mKept Default: {cannyDetection.LowerThreshold}\x1b[0m");
+            else m.WriteLine($"{Log.Orange}Kept Default: {cannyDetection.LowerThreshold}{Log.Blank}");
             m.WriteLine();
 
             if (i.TryGetDouble(
@@ -245,23 +245,23 @@ namespace LocalApp
                     out double newHigherThreshold) && newHigherThreshold > cannyDetection.LowerThreshold && newHigherThreshold <= 1 && newHigherThreshold != cannyDetection.UpperThreshold)
             {
                 l.Warn(_runGuid, $"Changed upper threshold {cannyDetection.UpperThreshold} -> {newHigherThreshold}");
-                m.WriteLine($"\x1b[38;5;2mChanged: {cannyDetection.UpperThreshold} -> {newHigherThreshold}\x1b[0m");
+                m.WriteLine($"{Log.Green}Changed: {cannyDetection.UpperThreshold} -> {newHigherThreshold}{Log.Blank}");
                 cannyDetection.UpperThreshold = newHigherThreshold;
             }
-            else m.WriteLine($"\x1b[38;5;3mKept Default: {cannyDetection.UpperThreshold}\x1b[0m");
+            else m.WriteLine($"{Log.Orange}Kept Default: {cannyDetection.UpperThreshold}{Log.Blank}");
             m.WriteLine();
 
-            i.GetInput("(Press enter to continue)");
+            i.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
             m.ClearUserSection();
 
             m.WriteLine("For reference the variables which will be used are:");
-            m.WriteLine($"    Red Ratio: {Log.Orange}{cannyDetection.RedRatio}\x1b[0m");
-            m.WriteLine($"    Green Ratio: {Log.Orange}{cannyDetection.GreenRatio}\x1b[0m");
-            m.WriteLine($"    Blue Ratio: {Log.Orange}{cannyDetection.BlueRatio}\x1b[0m");
-            m.WriteLine($"    Gaussian Sigma Value: {Log.Orange}{cannyDetection.Sigma}\x1b[0m");
-            m.WriteLine($"    Gaussian Kernel Size: {Log.Orange}{cannyDetection.KernelSize}\x1b[0m");
-            m.WriteLine($"    Double Threshold Lower: {Log.Orange}{cannyDetection.LowerThreshold}\x1b[0m");
-            m.WriteLine($"    Double Threshold Upper: {Log.Orange}{cannyDetection.UpperThreshold}\x1b[0m");
+            m.WriteLine($"    Red Ratio: {Log.Green}{cannyDetection.RedRatio}{Log.Blank}");
+            m.WriteLine($"    Green Ratio: {Log.Green}{cannyDetection.GreenRatio}{Log.Blank}");
+            m.WriteLine($"    Blue Ratio: {Log.Green}{cannyDetection.BlueRatio}{Log.Blank}");
+            m.WriteLine($"    Gaussian Sigma Value: {Log.Green}{cannyDetection.Sigma}{Log.Blank}");
+            m.WriteLine($"    Gaussian Kernel Size: {Log.Green}{cannyDetection.KernelSize}{Log.Blank}");
+            m.WriteLine($"    Double Threshold Lower: {Log.Green}{cannyDetection.LowerThreshold}{Log.Blank}");
+            m.WriteLine($"    Double Threshold Upper: {Log.Green}{cannyDetection.UpperThreshold}{Log.Blank}");
             m.WriteLine();
 
             return cannyDetection;

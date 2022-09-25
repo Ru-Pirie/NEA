@@ -26,6 +26,7 @@ namespace BackendLib
         public struct RawImage
         {
             public Bitmap Original;
+            public string Path;
             public RGB[,] Pixels;
             public int Width;
             public int Height;

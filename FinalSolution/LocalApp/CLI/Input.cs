@@ -7,7 +7,7 @@ namespace LocalApp.CLI
 {
     internal class Input
     {
-        private Menu _menuInstance;
+        private readonly Menu _menuInstance;
 
         public Input(Menu menuInstance)
         {
@@ -23,6 +23,7 @@ namespace LocalApp.CLI
         /// <returns>0 based index for the option which was selected</returns>
         public int GetOption(string title, IEnumerable<string> options, bool clear = true)
         {
+            while (Console.KeyAvailable) Console.ReadKey(true);
             _menuInstance.ClearUserSection();
             _menuInstance.WriteLine(title);
 
@@ -87,6 +88,20 @@ namespace LocalApp.CLI
             }
 
             return currentTop - 3;
+        }
+
+        public void WaitInput(string prompt)
+        {
+            while (Console.KeyAvailable) Console.ReadKey(true);
+            _menuInstance.WriteLine(prompt);
+            bool complete = false;
+
+            while (!complete)
+            {
+                if (!Console.KeyAvailable) continue;
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                if (key.Key == ConsoleKey.Enter) complete = true;
+            }
         }
 
         public string GetInput(string prompt)

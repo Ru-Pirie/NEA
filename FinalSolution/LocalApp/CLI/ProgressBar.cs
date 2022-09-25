@@ -68,7 +68,7 @@ namespace LocalApp.CLI
                     _progressLine = sb.ToString();
 
                     Console.SetCursorPosition(2, middle);
-                    Console.Write($"\x1b[38;5;4m{_progressLine}\x1b[0m");
+                    Console.Write($"{Log.Blue}{_progressLine}{Log.Blank}");
                 }
             }
         }
