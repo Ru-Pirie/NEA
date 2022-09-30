@@ -1,4 +1,5 @@
 ﻿using BackendLib;
+using BackendLib.Data;
 using BackendLib.Exceptions;
 using BackendLib.Processing;
 using LocalApp.CLI;
@@ -26,11 +27,10 @@ namespace LocalApp
             string path = _i.GetInput("Please enter the path of the image you wish to process into a map:");
             _l.Event(_runGuid, $"Looking for image at {path}");
 
+            Pre preProcess = new Pre(path);
 
             ProgressBar progressBar = new ProgressBar("Pre Processing Image", 4, _m);
             progressBar.DisplayProgress();
-
-            Pre preProcess = new Pre(path);
 
             try
             {
@@ -49,6 +49,15 @@ namespace LocalApp
             }
 
             _m.ClearUserSection();
+
+            bool saveAsBinary = Utility.IsYes(_i.GetInput("Would you like to save this map in a custom file to be reused later (y/n)?"));
+            Map mapSave = saveAsBinary ? new Map() : null;
+
+            if (mapSave != null) mapSave.Type = _i.GetOption("What type of image are you supplying:", new[] { "Screenshot", "Hand Drawn", "Photograph", "Other" });          
+
+            Structures.RawImage result = preProcess.Result();
+            if (saveAsBinary) result.MapFile = mapSave;
+
             return preProcess.Result();
         }
     }

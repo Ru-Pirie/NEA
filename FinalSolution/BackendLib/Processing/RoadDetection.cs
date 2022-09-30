@@ -104,7 +104,7 @@ namespace BackendLib.Processing
 
         private void RemoveColor(List<Color> toRemove, Action updateAction)
         {
-            _pathBitmap = _filledBitmap;
+            _pathBitmap = new Bitmap(_filledBitmap);
 
             for (int y = 0; y < _pathBitmap.Height; y++)
             {

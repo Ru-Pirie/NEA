@@ -75,6 +75,8 @@ namespace LocalApp
         private static void RunNewImage(Menu m, Input i, Log l)
         {
             Guid runGuid = Logger.CreateRun();
+            m.ClearUserSection();
+
             l.Event(runGuid, $"Begin processing of new image (Run Id: {runGuid}).");
 
             NewImage newImage = new NewImage(m, i, l, runGuid);
@@ -114,7 +116,7 @@ namespace LocalApp
                 m.WriteLine();
 
 
-                bool invert = i.GetInput("Invert image (y/n)? ").ToLower() == "y";
+                bool invert = Utility.IsYes(i.GetInput("Invert image (y/n)? "));
                 if (invert)
                 {
                     resultOfEdgeDetection = Utility.InverseImage(resultOfEdgeDetection);
@@ -128,9 +130,8 @@ namespace LocalApp
                 ProgressBar pb = new ProgressBar("Road Detection", resultOfEdgeDetection.Length / 100 * 3, m);
                 pb.DisplayProgress();
                 roadDetector.Start(pb.GetIncrementAction());
-                ViewImageForm roadForm = new ViewImageForm(Utility.CombineBitmap(rawImage.Pixels.ToBitmap(), roadDetector.Result().PathBitmap));
-                roadForm.ShowDialog();
-                // Logger.SaveBitmap(runGuid, roadDetector.Result().PathBitmap, "RoadDetectorPath");
+                ViewImageForm roadForm = new ViewImageForm(roadDetector.Result().FilledBitmap);
+
 
 
 
