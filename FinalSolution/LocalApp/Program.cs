@@ -116,7 +116,7 @@ namespace LocalApp
                 m.WriteLine();
 
 
-                bool invert = Utility.IsYes(i.GetInput("Invert image (y/n)? "));
+                bool invert = Utility.IsYes(i.GetInput("Invert image (y/n)?"));
                 if (invert)
                 {
                     resultOfEdgeDetection = Utility.InverseImage(resultOfEdgeDetection);

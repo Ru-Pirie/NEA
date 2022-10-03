@@ -1,6 +1,7 @@
 ﻿using BackendLib.Processing;
 using System;
 using System.Drawing;
+using System.Text.RegularExpressions;
 
 namespace BackendLib
 {
@@ -156,5 +157,7 @@ namespace BackendLib
 
             return true;
         }
+
+        public static bool IsYes(string input) => new Regex(@"^y(es)?$", RegexOptions.IgnoreCase).IsMatch(input);
     }
 }

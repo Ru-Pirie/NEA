@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using BackendLib.Data;
+using System.Drawing;
 
 namespace BackendLib
 {
@@ -30,6 +31,7 @@ namespace BackendLib
             public RGB[,] Pixels;
             public int Width;
             public int Height;
+            public Map MapFile;
         }
 
         public struct RoadResult

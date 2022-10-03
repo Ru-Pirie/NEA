@@ -13,7 +13,8 @@ namespace BackendLib.Data
 
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Type { get; set; }
+        public int Type { get; set; }
+        public bool IsInverted { get; set; }
         public DateTimeOffset TimeCreated { get; set; }
         public Bitmap PathImage { get; set; }
         public Bitmap OriginalImage { get; set; }
@@ -50,26 +51,31 @@ namespace BackendLib.Data
 
                 Name = br.ReadString();
                 Description = br.ReadString();
-                Type = br.ReadString();
+                Type = br.ReadInt32();
+                IsInverted = br.ReadBoolean();
 
                 int width = br.ReadInt32();
                 int height = br.ReadInt32();
 
-                for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 2; j++)
                 {
-                    double[,] tempDoubles = new double[height, width];
-
-                    for (int y = 0; y < height; y++)
+                    Structures.RGB[,] tempImage = new Structures.RGB[height, width];
+                    for (int i = 0; i < 3; i++)
                     {
-                        for (int x = 0; x < width; x++)
+                        for (int y = 0; y < height; y++)
                         {
-                            tempDoubles[y, x] = br.ReadDouble();
+                            for (int x = 0; x < width; x++)
+                            {
+                                if (i == 0) tempImage[y, x].R = br.ReadByte();
+                                else if (i == 1) tempImage[y, x].R = br.ReadByte();
+                                else if (i == 2) tempImage[y, x].R = br.ReadByte();
+                            }
                         }
                     }
 
-                    if (i == 0) OriginalImage = tempDoubles.ToBitmap();
-                    else if (i == 1) PathImage = tempDoubles.ToBitmap();
-                    else if (i == 2) CombinedImage = tempDoubles.ToBitmap();
+                    if (j == 0) OriginalImage = tempImage.ToBitmap();
+                    else if (j == 1) PathImage = tempImage.ToBitmap();
+                    else if (j == 2) CombinedImage = tempImage.ToBitmap();
                 }
             }
         }
@@ -83,19 +89,38 @@ namespace BackendLib.Data
                 bw.Write(Name);
                 bw.Write(Description);
                 bw.Write(Type);
+                bw.Write(IsInverted);
 
                 bw.Write(OriginalImage.Width);
                 bw.Write(OriginalImage.Height);
 
-                for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 2; j++)
                 {
-                    for (int y = 0; y < OriginalImage.Height; y++)
+                    for (int i = 0; i < 3; i++)
                     {
-                        for (int x = 0; x < OriginalImage.Width; x++)
+                        for (int y = 0; y < OriginalImage.Height; y++)
                         {
-                            if (i == 0) bw.Write((double)OriginalImage.GetPixel(x, y).R);
-                            else if (i == 1) bw.Write((double)PathImage.GetPixel(x, y).R);
-                            else if (i == 2) bw.Write((double)CombinedImage.GetPixel(x, y).R);
+                            for (int x = 0; x < OriginalImage.Width; x++)
+                            {
+                                if (j == 0)
+                                {
+                                    if (i == 0) bw.Write(OriginalImage.GetPixel(x, y).R);
+                                    else if(i == 1) bw.Write(OriginalImage.GetPixel(x, y).G);
+                                    else if(i == 2) bw.Write(OriginalImage.GetPixel(x, y).B);
+                                }
+                                else if (j == 1)
+                                {
+                                    if (i == 0) bw.Write(PathImage.GetPixel(x, y).R);
+                                    else if(i == 1) bw.Write(PathImage.GetPixel(x, y).G);
+                                    else if(i == 2) bw.Write(PathImage.GetPixel(x, y).B);
+                                }
+                                else if (j == 2)
+                                {
+                                    if (i == 0) bw.Write(CombinedImage.GetPixel(x, y).R);
+                                    else if (i == 1) bw.Write(CombinedImage.GetPixel(x, y).G);
+                                    else if (i == 2) bw.Write(CombinedImage.GetPixel(x, y).B);
+                                }
+                            }
                         }
                     }
                 }
