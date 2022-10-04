@@ -30,7 +30,7 @@ namespace BackendLib
             if (a.Width != b.Width || a.Height != b.Height)
                 throw new ArgumentException($"Supplied Bitmaps Where Not Of Same Dimensions ({a.Width}x{a.Height} vs {b.Width}x{b.Height})");
 
-            Bitmap result = a;
+            Bitmap result = new Bitmap(a);
             for (int y = 0; y < a.Height; y++)
             {
                 for (int x = 0; x < a.Width; x++)
