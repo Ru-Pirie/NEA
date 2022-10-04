@@ -54,10 +54,13 @@ namespace LocalApp
             Map mapSave = saveAsBinary ? new Map() : null;
 
             if (saveAsBinary) mapSave.Type = _i.GetOption("What type of image are you supplying:", new[] { "Screenshot", "Hand Drawn", "Photograph", "Other" });
+            if (saveAsBinary) mapSave.Name = _i.GetInput("Enter a name for image:");
+            _m.WriteLine();
             if (saveAsBinary) mapSave.Description = _i.GetInput("Enter a brief description about this image:");
 
             Structures.RawImage result = preProcess.Result();
             if (saveAsBinary) result.MapFile = mapSave;
+            else result.MapFile = null;
             if (saveAsBinary) mapSave.OriginalImage = result.Pixels.ToBitmap();
 
             return result;
