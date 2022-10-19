@@ -80,32 +80,15 @@ namespace BackendLib.Data
 
         public T[] AStar(T start, T goal)
         {
-            Datatypes.Queue<T> openSet = new Datatypes.Queue<T>(new[] { start });
-            Datatypes.Queue<T> cameFrom = new Datatypes.Queue<T>();
-
-            int gScore = 0;
-            int fScore = 1;
-
-
-            while (!openSet.IsEmpty())
-            {
-                T current = openSet.Dequeue();
-
-                if (current.Equals(goal))
-                {
-
-                }
-
-            }
-
             return new T[1];
         }
 
         public T[] Dijkstra(T start, T goal)
         {
+            List<T> visited = new List<T>();
+            List<T> unvisited = new List<T>();
 
-
-
+            
 
             return new T[1];
         }

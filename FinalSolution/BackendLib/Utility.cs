@@ -30,7 +30,7 @@ namespace BackendLib
             if (a.Width != b.Width || a.Height != b.Height)
                 throw new ArgumentException($"Supplied Bitmaps Where Not Of Same Dimensions ({a.Width}x{a.Height} vs {b.Width}x{b.Height})");
 
-            Bitmap result = a;
+            Bitmap result = new Bitmap(a);
             for (int y = 0; y < a.Height; y++)
             {
                 for (int x = 0; x < a.Width; x++)
@@ -146,8 +146,12 @@ namespace BackendLib
             return image;
         }
 
+
+
+
         public static bool VerifyCannyEdgeDetectionOptions(CannyEdgeDetection classObject)
         {
+            throw new NotImplementedException();
             // TODO: Add checks for class
             // if (opts.KernelSize % 2 != 1) return false;
             // if (opts.UpperThreshold < opts.LowerThreshold) return false;
@@ -158,6 +162,15 @@ namespace BackendLib
             return true;
         }
 
+
+
         public static bool IsYes(string input) => new Regex(@"^y(es)?$", RegexOptions.IgnoreCase).IsMatch(input);
+
+        public static double GetRed(Color pixel) => pixel.R;
+        public static double GetGreen(Color pixel) => pixel.G;
+        public static double GetBlue(Color pixel) => pixel.B;
+        public static double GetAverage(Color pixel) => (pixel.R + pixel.G + pixel.B) / 3.0;
+        public static double GetIndustryAverage(Color pixel) => (pixel.R * 0.299) + (pixel.G * 0.586) + (pixel.B * 0.114);
+        public static double GetIfExists(Color pixel) => GetAverage(pixel) > 0 ? 255 : 0;
     }
 }

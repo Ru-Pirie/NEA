@@ -1,4 +1,5 @@
 ﻿using BackendLib.Datatypes;
+using System;
 using System.Drawing;
 
 namespace BackendLib
@@ -19,6 +20,21 @@ namespace BackendLib
             }
 
             return output;
+        }
+
+        public static double[,] ToDoubles(this Bitmap image, Func<Color, double> getPixelFunction)
+        {
+            double[,] result = new double[image.Height, image.Width];
+
+            for (int y = 0; y < image.Height; y++)
+            {
+                for (int x = 0; x < image.Width; x++)
+                {
+                    result[y, x] = getPixelFunction(image.GetPixel(x, y));
+                }
+            }
+
+            return result;
         }
 
         public static Bitmap ToBitmap(this Structures.RGB[,] array)

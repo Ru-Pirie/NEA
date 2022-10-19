@@ -20,7 +20,9 @@ namespace BackendLib.Data
         public Bitmap OriginalImage { get; set; }
         public Bitmap CombinedImage { get; set; }
 
-        public Map() { }
+        public Map() { 
+            TimeCreated = DateTimeOffset.Now;
+        }
 
         public Map(string filePath)
         {
@@ -54,10 +56,10 @@ namespace BackendLib.Data
                 Type = br.ReadInt32();
                 IsInverted = br.ReadBoolean();
 
-                int width = br.ReadInt32();
-                int height = br.ReadInt32();
+                int width = (int)br.ReadInt32();
+                int height = (int)br.ReadInt32();
 
-                for (int j = 0; j < 2; j++)
+                for (int j = 0; j < 3; j++)
                 {
                     Structures.RGB[,] tempImage = new Structures.RGB[height, width];
                     for (int i = 0; i < 3; i++)
@@ -67,8 +69,8 @@ namespace BackendLib.Data
                             for (int x = 0; x < width; x++)
                             {
                                 if (i == 0) tempImage[y, x].R = br.ReadByte();
-                                else if (i == 1) tempImage[y, x].R = br.ReadByte();
-                                else if (i == 2) tempImage[y, x].R = br.ReadByte();
+                                else if (i == 1) tempImage[y, x].G = br.ReadByte();
+                                else if (i == 2) tempImage[y, x].B = br.ReadByte();
                             }
                         }
                     }
@@ -81,7 +83,7 @@ namespace BackendLib.Data
         }
 
         public void Save(Guid currentGuid)
-        {
+       {
             using (BinaryWriter bw = new BinaryWriter(File.Open($"./saves/{currentGuid}.vmap", FileMode.OpenOrCreate)))
             {
                 bw.Write(TimeCreated.ToUnixTimeMilliseconds().ToString());
@@ -91,10 +93,10 @@ namespace BackendLib.Data
                 bw.Write(Type);
                 bw.Write(IsInverted);
 
-                bw.Write(OriginalImage.Width);
-                bw.Write(OriginalImage.Height);
+                bw.Write((int)OriginalImage.Width);
+                bw.Write((int)OriginalImage.Height);
 
-                for (int j = 0; j < 2; j++)
+                for (int j = 0; j < 3; j++)
                 {
                     for (int i = 0; i < 3; i++)
                     {

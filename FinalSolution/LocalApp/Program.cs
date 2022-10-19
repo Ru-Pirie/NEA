@@ -9,6 +9,16 @@ using System.IO;
 using BackendLib.Datatypes;
 using BackendLib.Processing;
 using LocalApp.WindowsForms;
+using Microsoft.Data.Sqlite;
+
+/**
+ * A* search tends to work well in a 
+ * Binary Search in priority queue
+ * 
+ * 
+ * 
+ * 
+ * **/
 
 namespace LocalApp
 {
@@ -59,7 +69,14 @@ namespace LocalApp
                         break;
                     // Recall
                     case 1:
-                        Map recalledMap = new Map();
+                        string path = i.GetInput("Please enter a file to recall!?");
+
+                        Map recalledMap = new Map(path);
+                        recalledMap.Initialize();
+
+                        double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
+                        Graph<Structures.Cord> myGraph = doubles.ToGraph();
+                        Traversal<Structures.Cord> traversal = new Traversal<Structures.Cord>(myGraph);
 
                         break;
                     case 2:
@@ -88,13 +105,14 @@ namespace LocalApp
                 // Show Before ask for confirmation after?
                 ViewImageForm beforeForm = new ViewImageForm(rawImage.Pixels.ToBitmap());
                 beforeForm.ShowDialog();
+                m.ClearUserSection();
 
                 m.WriteLine("Parsed file information:");
                 m.WriteLine($"    Name: {Log.Green}{Path.GetFileNameWithoutExtension(rawImage.Path)}{Log.Blank}");
                 m.WriteLine($"    Folder: {Log.Green}{Path.GetDirectoryName(rawImage.Path)}{Log.Blank}");
                 m.WriteLine($"    File extension: {Log.Green}{Path.GetExtension(rawImage.Path)}{Log.Blank}");
                 m.WriteLine();
-
+                i.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
 
                 // Confirm correct image here before progressing?
 
@@ -116,13 +134,18 @@ namespace LocalApp
                 m.WriteLine();
 
 
+                Map saveMapFile = rawImage.MapFile;
+
                 bool invert = Utility.IsYes(i.GetInput("Invert image (y/n)?"));
                 if (invert)
                 {
                     resultOfEdgeDetection = Utility.InverseImage(resultOfEdgeDetection);
                     ViewImageForm invertImageForm = new ViewImageForm(resultOfEdgeDetection.ToBitmap());
                     invertImageForm.ShowDialog();
+                    if (saveMapFile != null) saveMapFile.IsInverted = true;
                 }
+                if (saveMapFile != null) saveMapFile.IsInverted = false;
+
 
 
                 // TODO prompt to move onto road detection add user input for threshold
@@ -130,14 +153,20 @@ namespace LocalApp
                 ProgressBar pb = new ProgressBar("Road Detection", resultOfEdgeDetection.Length / 100 * 3, m);
                 pb.DisplayProgress();
                 roadDetector.Start(pb.GetIncrementAction());
-                ViewImageForm roadForm = new ViewImageForm(roadDetector.Result().FilledBitmap);
+                ViewImageForm roadForm = new ViewImageForm(roadDetector.Result().PathBitmap);
+                roadForm.ShowDialog();
 
-
+                if (saveMapFile != null)
+                {
+                    saveMapFile.PathImage = new Bitmap(roadDetector.Result().PathBitmap);
+                    saveMapFile.CombinedImage = Utility.CombineBitmap(saveMapFile.OriginalImage, roadDetector.Result().PathBitmap);
+                    saveMapFile.Save(runGuid);
+                }
 
 
 
                 // TODO Next section move road detection then graph stuff
-
+                // TODO CHECK FOR REFERENCE TYPE BITMAP ISSUES
                 // TEMP
                 Graph<Structures.Cord> myGraph = roadDetector.Result().PathDoubles.ToGraph();
                 Traversal<Structures.Cord> myTraversal = new Traversal<Structures.Cord>(myGraph);
@@ -169,7 +198,29 @@ namespace LocalApp
 
                 // run auto demo
                 case 1:
+                    PriorityQueue<string> priorityQueue = new PriorityQueue<string>();
+                    priorityQueue.Enqueue("a", 5);
+                    priorityQueue.Enqueue("b", 10);
+                    priorityQueue.Enqueue("c", 1);
+                    priorityQueue.Enqueue("d", 3);
 
+                    for (int ad = 0; ad < 2; ad++)
+                    {
+                        Console.WriteLine(priorityQueue.Size);
+                        Console.WriteLine(priorityQueue.Dequeue());
+                    }
+
+                    priorityQueue.Enqueue("bob", 2);
+                    priorityQueue.Enqueue("super bob", 100);
+
+                    for (int ad = 0; ad < 4; ad++)
+                    {
+                        Console.WriteLine(priorityQueue.Size);
+                        Console.WriteLine(priorityQueue.Dequeue());
+                    }
+
+
+                    i.WaitInput("");
 
                     break;
                 // Resize window    
@@ -184,13 +235,6 @@ namespace LocalApp
 
 
                 case 3:
-                    m.WriteLine($"Width - User: {Console.WindowWidth * 3 / 4 * 8}");
-                    m.WriteLine($"Width - Total: {Console.WindowWidth * 8}");
-                    m.WriteLine($"Height - User:{Console.WindowHeight * 5 / 6 * 16}");
-                    m.WriteLine($"Height - Total:{Console.WindowHeight * 16}");
-
-                    i.WaitInput("");
-
                     break;
             }
         }
