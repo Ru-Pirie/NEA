@@ -20,15 +20,6 @@ using Microsoft.Data.Sqlite;
  * 
  * **/
 
-/**
- * A* search tends to work well in a 
- * Binary Search in priority queue
- * 
- * 
- * 
- * 
- * **/
-
 namespace LocalApp
 {
     internal class Program
@@ -78,7 +69,6 @@ namespace LocalApp
                         break;
                     // Recall
                     case 1:
-<<<<<<< HEAD
                         string path = i.GetInput("Please enter a file to recall!?");
 
                         Map recalledMap = new Map(path);
@@ -87,17 +77,6 @@ namespace LocalApp
                         double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
                         Graph<Structures.Cord> myGraph = doubles.ToGraph();
                         Traversal<Structures.Cord> traversal = new Traversal<Structures.Cord>(myGraph);
-=======
-                        string path = i.GetInput("gib path");
-
-                        Map recalledMap = new Map(path);
-                        recalledMap.Initialize();
-                        //ViewImageForm edgeImageForm = new ViewImageForm(recalledMap.CombinedImage);
-                        //edgeImageForm.Show();
-                        recalledMap.OriginalImage.Save("orig.png");
-                        recalledMap.PathImage.Save("path.png");
-                        recalledMap.CombinedImage.Save("comb.png");
->>>>>>> 252f99ed7118f2e9d8244c636a598d3cf409b3cd
 
                         break;
                     case 2:

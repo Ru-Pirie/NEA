@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace BackendLib.Datatypes
 {
-<<<<<<< HEAD
     public class PriorityQueue<T>
-=======
-    internal class PriorityQueue<T>
->>>>>>> 252f99ed7118f2e9d8244c636a598d3cf409b3cd
     {
         private List<int> _priorityQueue = new List<int>();
-        private List<T> _queue = new List<T> ();
+        private List<T> _queue = new List<T>();
 
         public int Size => _priorityQueue.Count;
         private int _size => _priorityQueue.Count - 1;
@@ -28,7 +24,7 @@ namespace BackendLib.Datatypes
 
         private T GetRightChild(int index) => _queue[RightChild(index)];
         private int RightChild(int index) => (index * 2) + 2;
-            
+
         private void ShiftNodeUp(int index)
         {
             while (index > 0 && _priorityQueue[Parent(index)] < _priorityQueue[index])
@@ -38,10 +34,7 @@ namespace BackendLib.Datatypes
             }
         }
 
-<<<<<<< HEAD
-    
-=======
->>>>>>> 252f99ed7118f2e9d8244c636a598d3cf409b3cd
+
         //TODO make all recursion?
         private void ShiftNodeDown(int index)
         {
@@ -68,7 +61,6 @@ namespace BackendLib.Datatypes
             ShiftNodeUp(_size);
         }
 
-<<<<<<< HEAD
         public T Dequeue() => RemoveMax().Item1;
 
         private (T, int) RemoveMax()
@@ -83,8 +75,6 @@ namespace BackendLib.Datatypes
             return (result, res);
         }
 
-=======
->>>>>>> 252f99ed7118f2e9d8244c636a598d3cf409b3cd
         private void Swap(int indexX, int indexY)
         {
             T tempValue = _queue[indexX];
@@ -95,9 +85,5 @@ namespace BackendLib.Datatypes
             _priorityQueue[indexX] = _priorityQueue[indexY];
             _priorityQueue[indexY] = tempPriority;
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> 252f99ed7118f2e9d8244c636a598d3cf409b3cd
     }
 }
