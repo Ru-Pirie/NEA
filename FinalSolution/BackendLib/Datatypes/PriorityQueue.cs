@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BackendLib.Datatypes
 {
+<<<<<<< HEAD
     public class PriorityQueue<T>
+=======
+    internal class PriorityQueue<T>
+>>>>>>> 252f99ed7118f2e9d8244c636a598d3cf409b3cd
     {
         private List<int> _priorityQueue = new List<int>();
         private List<T> _queue = new List<T> ();
@@ -34,7 +38,10 @@ namespace BackendLib.Datatypes
             }
         }
 
+<<<<<<< HEAD
     
+=======
+>>>>>>> 252f99ed7118f2e9d8244c636a598d3cf409b3cd
         //TODO make all recursion?
         private void ShiftNodeDown(int index)
         {
@@ -61,6 +68,7 @@ namespace BackendLib.Datatypes
             ShiftNodeUp(_size);
         }
 
+<<<<<<< HEAD
         public T Dequeue() => RemoveMax().Item1;
 
         private (T, int) RemoveMax()
@@ -75,6 +83,8 @@ namespace BackendLib.Datatypes
             return (result, res);
         }
 
+=======
+>>>>>>> 252f99ed7118f2e9d8244c636a598d3cf409b3cd
         private void Swap(int indexX, int indexY)
         {
             T tempValue = _queue[indexX];
@@ -85,5 +95,9 @@ namespace BackendLib.Datatypes
             _priorityQueue[indexX] = _priorityQueue[indexY];
             _priorityQueue[indexY] = tempPriority;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 252f99ed7118f2e9d8244c636a598d3cf409b3cd
     }
 }
