@@ -1,15 +1,13 @@
 ﻿using BackendLib;
 using BackendLib.Data;
+using BackendLib.Datatypes;
 using BackendLib.Interfaces;
+using BackendLib.Processing;
 using LocalApp.CLI;
+using LocalApp.WindowsForms;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using BackendLib.Datatypes;
-using BackendLib.Processing;
-using LocalApp.WindowsForms;
-using Microsoft.Data.Sqlite;
 
 /**
  * A* search tends to work well in a 
@@ -75,8 +73,20 @@ namespace LocalApp
                         recalledMap.Initialize();
 
                         double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
+
                         Graph<Structures.Cord> myGraph = doubles.ToGraph();
                         Traversal<Structures.Cord> traversal = new Traversal<Structures.Cord>(myGraph);
+
+                        Structures.Cord[] res = traversal.Dijkstra(new Structures.Cord { X = 123, Y = 1 }, new Structures.Cord { X = 510, Y = 263 }, (_) => 1);
+
+                        Bitmap resultBitmap = new Bitmap(recalledMap.OriginalImage);
+
+                        for (int j = 0; j < res.Length; j++)
+                        {
+                            resultBitmap.SetPixel(res[j].X, res[j].Y, Color.Blue);
+                        }
+
+                        resultBitmap.Save("path.png");
 
                         break;
                     case 2:
@@ -163,8 +173,6 @@ namespace LocalApp
                     saveMapFile.Save(runGuid);
                 }
 
-
-
                 // TODO Next section move road detection then graph stuff
                 // TODO CHECK FOR REFERENCE TYPE BITMAP ISSUES
                 // TEMP
@@ -235,6 +243,17 @@ namespace LocalApp
 
 
                 case 3:
+
+                    Graph<int> myGraph = new Graph<int>();
+                    myGraph.AddNode(0);
+                    myGraph.AddNode(1);
+                    myGraph.AddNode(2);
+                    myGraph.AddNode(3);
+                    myGraph.AddNode(4);
+                    myGraph.AddNode(5);
+                    myGraph.AddNode(6);
+                    myGraph.AddNode(7);
+                    myGraph.AddConnection(0, 1);
                     break;
             }
         }
