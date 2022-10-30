@@ -1,6 +1,8 @@
 ﻿using BackendLib.Processing;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Net;
 using System.Text.RegularExpressions;
 
 namespace BackendLib
@@ -146,23 +148,35 @@ namespace BackendLib
             return image;
         }
 
+        // TODO fix if never hits start
+        public static T[] RebuildPath<T>(Dictionary<T, T> prev, T goal)
+        {
+            if (prev == null) return new T[1];
+            List<T> sequence = new List<T>();
+            T u = goal;
+        
+            while (prev.ContainsKey(u))
+            {
+                sequence.Insert(0, u);
+                u = prev[u];
+            }
 
+            return sequence.ToArray();
+        }
 
 
         public static bool VerifyCannyEdgeDetectionOptions(CannyEdgeDetection classObject)
         {
             throw new NotImplementedException();
             // TODO: Add checks for class
-            // if (opts.KernelSize % 2 != 1) return false;
-            // if (opts.UpperThreshold < opts.LowerThreshold) return false;
-            // if (opts.UpperThreshold <= 0) return false;
-            // if (opts.LowerThreshold >= 1) return false;
-            // if (opts.BlueRatio + opts.RedRatio + opts.GreenRatio > 1) return false;
+             //if (opts.KernelSize % 2 != 1) return false;
+             //if (opts.UpperThreshold < opts.LowerThreshold) return false;
+             //if (opts.UpperThreshold <= 0) return false;
+             //if (opts.LowerThreshold >= 1) return false;
+             //if (opts.BlueRatio + opts.RedRatio + opts.GreenRatio > 1) return false;
 
             return true;
         }
-
-
 
         public static bool IsYes(string input) => new Regex(@"^y(es)?$", RegexOptions.IgnoreCase).IsMatch(input);
 

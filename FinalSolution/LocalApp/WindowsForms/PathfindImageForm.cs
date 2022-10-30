@@ -1,21 +1,44 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
+using BackendLib;
+using BackendLib.Data;
+using BackendLib.Datatypes;
 
 namespace LocalApp.WindowsForms
 {
     public partial class PathfindImageForm : Form
     {
-        private readonly Bitmap _image;
+        private readonly Structures.Coord invalidCord = new Structures.Coord { X=-1, Y=-1 };
+
+        private Bitmap _image;
+        private readonly Bitmap _originalImage;
         private int _width;
         private int _height;
-        public PathfindImageForm(Bitmap image)
+
+        private readonly Graph<Structures.Coord> _graph;
+
+        private readonly Traversal<Structures.Coord> _traversalObject;
+
+        private Structures.Coord prevStartNode;
+        private Structures.Coord startNode = new Structures.Coord { X = -1, Y = -1 };
+        private Structures.Coord endNode = new Structures.Coord{X=-1, Y=-1};
+
+        private Dictionary<Structures.Coord, Structures.Coord> _preCalculatedTree;
+
+        public PathfindImageForm(Bitmap image, Traversal<Structures.Coord> traversal, Graph<Structures.Coord> graph)
         {
-            this._image = image;
+            _image = image;
+            _originalImage = image;
+            _traversalObject = traversal;
+            _graph = graph;
+
             InitializeComponent();
         }
 
-        private void ViewImageForm_Load(object sender, System.EventArgs e)
+        private void ViewImageForm_Load(object sender, EventArgs e)
         {
             // Define size
             _width = Console.WindowWidth * 3 / 4 * 8;
@@ -36,16 +59,170 @@ namespace LocalApp.WindowsForms
             TopMost = true;
 
             // set picture frame
-            imageBox.Width = _width - 24;
+            imageBox.Width = _width * 2 / 3 - 12;
             imageBox.Height = _height - 24;
-            imageBox.SizeMode = PictureBoxSizeMode.Zoom;
+            imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
             imageBox.Image = _image;
 
+            // Set Pathfind Button
+            goButton.Width = _width / 3 - 24;
+            goButton.Height = (_height / 4 - 24) / 2;
+            goButton.Left = _width * 2 / 3 + 12;
+            goButton.Top = _height * 3 / 4;
+
+            // Set Exit Button
+            exitButton.Width = _width / 3 - 24;
+            exitButton.Height = (_height / 4 - 24) / 2;
+            exitButton.Left = _width * 2 / 3 + 12;
+            exitButton.Top = (_height * 3 / 4 + ((_height / 4 - 24) / 2)) + 12;
+            //exitButton.Top = _height * 9 / 10 - 12;
+
+            // Set instruction box
+            textBox.Width = _width / 3 - 24;
+            textBox.Height = _height * 2 / 4 - 24;
+            textBox.Left = _width * 2 / 3 + 12;
+
+            // Set working box
+            workingButton.Width = _width / 3 - 24;
+            workingButton.Height = _height / 2 - 24;
+            workingButton.Left = _width * 2 / 3 + 12;
+            workingButton.Top = _height / 2 + 12;
+            workingButton.Visible = false;
         }
 
-        private void nextButton_Click(object sender, System.EventArgs e)
+        private Structures.Coord ConvertImageBoxToBitmapCord(Point location)
+        {
+            int x = (int)(((double)_image.Width / imageBox.Width) * location.X);
+            int y = (int)(((double)_image.Height/ imageBox.Height) * location.Y);
+
+            return new Structures.Coord { X=x, Y=y };
+        }
+
+        private void RedrawImage()
+        {
+            _image = new Bitmap(_originalImage);
+            if (startNode != invalidCord)
+            {
+                if (_graph.GetNode(startNode).Count == 0)
+                {
+                    double value = Double.MaxValue;
+                    Structures.Coord smallest = new Structures.Coord { X = int.MaxValue, Y = int.MaxValue };
+                    foreach (Structures.Coord node in _graph.GetAllNodes())
+                    {
+                        double compare = Math.Sqrt(Math.Pow(startNode.X - node.X, 2) + Math.Pow(startNode.Y - node.Y, 2));
+                        if (compare < value && _graph.GetNode(node).Count != 0)
+                        {
+                            smallest = node;
+                            value = compare;
+                        }
+                    }
+
+                    startNode = smallest;
+                }
+
+                DrawCross(startNode, Color.Green);
+            }
+
+            if (endNode != invalidCord)
+            {
+                if (_graph.GetNode(endNode).Count == 0)
+                {
+                    double value = Double.MaxValue;
+                    Structures.Coord smallest = new Structures.Coord { X = int.MaxValue, Y = int.MaxValue };
+                    foreach (Structures.Coord node in _graph.GetAllNodes())
+                    {
+                        double compare = Math.Sqrt(Math.Pow(endNode.X - node.X, 2) + Math.Pow(endNode.Y - node.Y, 2));
+                        if (compare < value && _graph.GetNode(node).Count != 0)
+                        {
+                            smallest = node;
+                            value = compare;
+                        }
+                    }
+
+                    endNode = smallest;
+                }
+                DrawCross(endNode, Color.Red);
+            }
+
+            imageBox.Image = _image;
+        }
+
+        private void DrawCross(Structures.Coord center, Color colour)
+        {
+            double xRatio = (double)_image.Width / imageBox.Width;
+            double yRatio = (double)_image.Height / imageBox.Height;
+
+            for (int x = center.X - (int)(2 * xRatio); x <= center.X + (int)(2 * xRatio); x++)
+            {
+                for (int y = center.Y - (int)(10 * yRatio); y <= center.Y + (int)(10 * yRatio); y++)
+                {
+                    if (y >= 0 && y < _image.Height && x >= 0 && x < _image.Width)
+                    {
+                        _image.SetPixel(x, y, colour);
+                    }
+                }
+            }
+
+            for (int y = center.Y - (int)(2 * yRatio); y <= center.Y + (int)(2 * yRatio); y++)
+            {
+                for (int x = center.X - (int)(10 * xRatio); x <= center.X + (int)(10 * xRatio); x++)
+                {
+                    if (x >= 0 && x < _image.Width && y >= 0 && y < _image.Height)
+                    {
+                        _image.SetPixel(x, y, colour);
+                    }
+                }
+            }
+        }
+
+        private void imageBox_Click(object sender, EventArgs eventArgs)
+        {
+            MouseEventArgs mouseEvent = (MouseEventArgs)eventArgs;
+            Structures.Coord clickCord = ConvertImageBoxToBitmapCord(mouseEvent.Location);
+
+            if (mouseEvent.Button == MouseButtons.Left) if (startNode != clickCord) startNode = clickCord;
+            if (mouseEvent.Button == MouseButtons.Right) if (endNode != clickCord) endNode = clickCord;
+
+            RedrawImage();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void goButton_Click(object sender, EventArgs e)
+        {
+            workingButton.Visible = !workingButton.Visible;
+            Update();
+
+            if (startNode != invalidCord && endNode != invalidCord)
+            {
+                if (prevStartNode != startNode && startNode != endNode)
+                {
+                    Dictionary<Structures.Coord, Structures.Coord> tree = _traversalObject.Dijkstra(startNode, (_) => 1);
+                    Structures.Coord[] path = Utility.RebuildPath(tree, endNode);
+                    foreach (Structures.Coord node in path)
+                    {
+                        _image.SetPixel(node.X, node.Y, Color.BlueViolet);
+                        imageBox.Image = _image;
+                    }
+
+                    _preCalculatedTree = tree;
+                }
+                else if (prevStartNode == startNode && startNode != endNode)
+                {
+                    Structures.Coord[] path = Utility.RebuildPath(_preCalculatedTree, endNode);
+                    foreach (Structures.Coord node in path)
+                    {
+                        _image.SetPixel(node.X, node.Y, Color.BlueViolet);
+                        imageBox.Image = _image;
+                    }
+                }
+            }
+
+            prevStartNode = startNode;
+            workingButton.Visible = !workingButton.Visible;
         }
     }
 }

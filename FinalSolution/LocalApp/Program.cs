@@ -6,8 +6,11 @@ using BackendLib.Processing;
 using LocalApp.CLI;
 using LocalApp.WindowsForms;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using static BackendLib.Structures;
 
 /**
  * A* search tends to work well in a 
@@ -74,19 +77,12 @@ namespace LocalApp
 
                         double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
 
-                        Graph<Structures.Cord> myGraph = doubles.ToGraph();
-                        Traversal<Structures.Cord> traversal = new Traversal<Structures.Cord>(myGraph);
+                        Graph<Structures.Coord> myGraph = doubles.ToGraph();
+                        Traversal<Structures.Coord> traversal = new Traversal<Structures.Coord>(myGraph);
 
-                        Structures.Cord[] res = traversal.Dijkstra(new Structures.Cord { X = 123, Y = 1 }, new Structures.Cord { X = 510, Y = 263 }, (_) => 1);
+                        PathfindImageForm myForm = new PathfindImageForm(recalledMap.OriginalImage, traversal, myGraph);
+                        myForm.ShowDialog();
 
-                        Bitmap resultBitmap = new Bitmap(recalledMap.OriginalImage);
-
-                        for (int j = 0; j < res.Length; j++)
-                        {
-                            resultBitmap.SetPixel(res[j].X, res[j].Y, Color.Blue);
-                        }
-
-                        resultBitmap.Save("path.png");
 
                         break;
                     case 2:
@@ -176,8 +172,11 @@ namespace LocalApp
                 // TODO Next section move road detection then graph stuff
                 // TODO CHECK FOR REFERENCE TYPE BITMAP ISSUES
                 // TEMP
-                Graph<Structures.Cord> myGraph = roadDetector.Result().PathDoubles.ToGraph();
-                Traversal<Structures.Cord> myTraversal = new Traversal<Structures.Cord>(myGraph);
+                Graph<Structures.Coord> myGraph = roadDetector.Result().PathDoubles.ToGraph();
+                Traversal<Structures.Coord> myTraversal = new Traversal<Structures.Coord>(myGraph);
+
+                PathfindImageForm myForm = new PathfindImageForm(rawImage.Original, myTraversal, myGraph);
+                myForm.ShowDialog();
 
                 l.EndSuccessRun(runGuid);
             }
@@ -190,7 +189,7 @@ namespace LocalApp
         private static void DevTest(ref Menu m, ref Input i, ref Log l)
         {
             int opt = i.GetOption("Dev Test Options",
-                new[] { "Wipe logs and run files including all saves", "Run automated demo", "Resize window", "Test Special Stuff" });
+                new[] { "Wipe logs and run files including all saves", "Min Queue Test", "Resize window", "Test Dijkstra" });
 
             switch (opt)
             {
@@ -206,7 +205,7 @@ namespace LocalApp
 
                 // run auto demo
                 case 1:
-                    PriorityQueue<string> priorityQueue = new PriorityQueue<string>();
+                    MinPriorityQueue<string> priorityQueue = new MinPriorityQueue<string>();
                     priorityQueue.Enqueue("a", 5);
                     priorityQueue.Enqueue("b", 10);
                     priorityQueue.Enqueue("c", 1);
@@ -214,16 +213,15 @@ namespace LocalApp
 
                     for (int ad = 0; ad < 2; ad++)
                     {
-                        Console.WriteLine(priorityQueue.Size);
                         Console.WriteLine(priorityQueue.Dequeue());
                     }
 
                     priorityQueue.Enqueue("bob", 2);
                     priorityQueue.Enqueue("super bob", 100);
+                    priorityQueue.ChangePriority("b", 200);
 
                     for (int ad = 0; ad < 4; ad++)
-                    {
-                        Console.WriteLine(priorityQueue.Size);
+                    {   
                         Console.WriteLine(priorityQueue.Dequeue());
                     }
 
@@ -243,17 +241,29 @@ namespace LocalApp
 
 
                 case 3:
+                    Bitmap testImage = new Bitmap("test.png");
+                    Graph<Structures.Coord> testGraph = testImage.ToDoubles(Utility.GetIfExists).ToGraph();
 
-                    Graph<int> myGraph = new Graph<int>();
-                    myGraph.AddNode(0);
-                    myGraph.AddNode(1);
-                    myGraph.AddNode(2);
-                    myGraph.AddNode(3);
-                    myGraph.AddNode(4);
-                    myGraph.AddNode(5);
-                    myGraph.AddNode(6);
-                    myGraph.AddNode(7);
-                    myGraph.AddConnection(0, 1);
+                    Traversal<Structures.Coord> testTraversal = new Traversal<Structures.Coord>(testGraph);
+
+                    PathfindImageForm myForm = new PathfindImageForm(testImage, testTraversal, testGraph);
+                    myForm.ShowDialog();
+
+
+                    Structures.Coord start = new Structures.Coord { X = 0, Y = 0 };
+                    Structures.Coord goal = new Structures.Coord { X = 150, Y = 105 };
+
+                    Structures.Coord[] res = Utility.RebuildPath(testTraversal.Dijkstra(start, (_) => 1), goal);
+
+                    
+                    Bitmap testOut = new Bitmap(testImage);
+                    foreach (var node in res)
+                    {
+                        testOut.SetPixel(node.X, node.Y, Color.Blue);
+                    }
+
+                    testOut.Save("testOut.png");
+
                     break;
             }
         }

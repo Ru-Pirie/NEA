@@ -42,6 +42,8 @@ namespace BackendLib.Datatypes
 
         public T[] GetAllNodes() => _data.Keys.ToArray();
 
+        public bool ContainsNode(T node) => _data.ContainsKey(node);
+
         public void Clear() => _data.Clear();
     }
 }
