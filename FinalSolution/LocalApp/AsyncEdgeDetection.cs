@@ -76,6 +76,7 @@ namespace LocalApp
 
         private void PostProcessImage(double[,] image, Input inputHandel)
         {
+            int timeApproximation = 5;
             Post postProcessor = new Post(image);
 
             _menuInstance.ClearUserSection();
@@ -83,13 +84,13 @@ namespace LocalApp
                 loopCount > 0)
             {
                 _menuInstance.WriteLine();
-                _menuInstance.WriteLine($"Running image embossing this will take approximately {Log.Red}{10*loopCount}{Log.Blank} seconds!");
+                _menuInstance.WriteLine($"Running image embossing this will take approximately {Log.Red}{timeApproximation * loopCount}{Log.Blank} seconds!");
                 postProcessor.Start(loopCount);
             }
             else
             {
                 _menuInstance.WriteLine();
-                _menuInstance.WriteLine($"Running image embossing this will take approximately {Log.Red}10{Log.Blank} seconds!");
+                _menuInstance.WriteLine($"Running image embossing this will take approximately {Log.Red}{timeApproximation}{Log.Blank} seconds!");
                 postProcessor.Start(0);
             }
 

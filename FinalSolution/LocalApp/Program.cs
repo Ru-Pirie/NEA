@@ -6,21 +6,8 @@ using BackendLib.Processing;
 using LocalApp.CLI;
 using LocalApp.WindowsForms;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using static BackendLib.Structures;
-
-/**
- * A* search tends to work well in a 
- * Binary Search in priority queue
- * 
- * 
- * 
- * 
- * **/
 
 namespace LocalApp
 {
@@ -68,7 +55,7 @@ namespace LocalApp
                         inputHandel.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
                         menuInstance.WriteLine();
 
-                        RunNewImage(menuInstance, inputHandel, CLILoggingInstance);
+                        RunNewImage(menuInstance, CLILoggingInstance);
                         break;
                     // Recall
                     case 1:
@@ -102,14 +89,16 @@ namespace LocalApp
             }
         }
 
-        private static void RunNewImage(Menu m, Input i, Log l)
+        private static void RunNewImage(Menu menu, Log logger)
         {
+            Input i = new Input(menu);
+
             Guid runGuid = Logger.CreateRun();
-            m.ClearUserSection();
+            menu.ClearUserSection();
 
-            l.Event(runGuid, $"Begin processing of new image (Run Id: {runGuid}).");
+            logger.Event(runGuid, $"Begin processing of new image (Run Id: {runGuid}).");
 
-            NewImage newImage = new NewImage(m, i, l, runGuid);
+            NewImage newImage = new NewImage(menu, logger, runGuid);
 
             try
             {
@@ -118,13 +107,13 @@ namespace LocalApp
                 // Show Before ask for confirmation after?
                 ViewImageForm beforeForm = new ViewImageForm(rawImage.Pixels.ToBitmap());
                 beforeForm.ShowDialog();
-                m.ClearUserSection();
+                menu.ClearUserSection();
 
-                m.WriteLine("Parsed file information:");
-                m.WriteLine($"    Name: {Log.Green}{Path.GetFileNameWithoutExtension(rawImage.Path)}{Log.Blank}");
-                m.WriteLine($"    Folder: {Log.Green}{Path.GetDirectoryName(rawImage.Path)}{Log.Blank}");
-                m.WriteLine($"    File extension: {Log.Green}{Path.GetExtension(rawImage.Path)}{Log.Blank}");
-                m.WriteLine();
+                menu.WriteLine("Parsed file information:");
+                menu.WriteLine($"    Name: {Log.Green}{Path.GetFileNameWithoutExtension(rawImage.Path)}{Log.Blank}");
+                menu.WriteLine($"    Folder: {Log.Green}{Path.GetDirectoryName(rawImage.Path)}{Log.Blank}");
+                menu.WriteLine($"    File extension: {Log.Green}{Path.GetExtension(rawImage.Path)}{Log.Blank}");
+                menu.WriteLine();
                 i.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
 
                 // Confirm correct image here before progressing?
@@ -133,18 +122,18 @@ namespace LocalApp
                         "Multi-threaded - Fast, all options decided at the start",
                         "Synchronous - Slow, options can be changed after each step and steps can be repeated" });
 
-                IHandler handler = opt == 0 ? new AsyncEdgeDetection(m, l, rawImage, runGuid) : (IHandler)new SyncEdgeDetection(m, l, rawImage, runGuid);
+                IHandler handler = opt == 0 ? new AsyncEdgeDetection(menu, logger, rawImage, runGuid) : (IHandler)new SyncEdgeDetection(menu, logger, rawImage, runGuid);
                 handler.Start();
                 double[,] resultOfEdgeDetection = handler.Result();
 
                 //Show After to User
                 ViewImageForm edgeImageForm = new ViewImageForm(resultOfEdgeDetection.ToBitmap());
-                m.WriteLine("Click and Press Enter");
+                menu.WriteLine("Click and Press Enter");
                 edgeImageForm.ShowDialog();
 
-                m.ClearUserSection();
-                m.WriteLine("In order for the road detection to function properly there must be a a box encapsulating the road. It should look like an outline of the road, if there isn't one then select invert at the next prompt.");
-                m.WriteLine();
+                menu.ClearUserSection();
+                menu.WriteLine("In order for the road detection to function properly there must be a a box encapsulating the road. It should look like an outline of the road, if there isn't one then select invert at the next prompt.");
+                menu.WriteLine();
 
 
                 Map saveMapFile = rawImage.MapFile;
@@ -185,14 +174,19 @@ namespace LocalApp
                 PathfindImageForm myForm = new PathfindImageForm(rawImage.Original, myTraversal, myGraph);
                 myForm.ShowDialog();
 
-                l.EndSuccessRun(runGuid);
+                logger.EndSuccessRun(runGuid);
             }
             catch (Exception ex)
             {
-                l.EndErrorRun(runGuid, ex);
+                logger.EndErrorRun(runGuid, ex);
             }
         }
 
+
+
+
+
+        // The unloved child of my code to be removed at some point
         private static void DevTest(ref Menu m, ref Input i, ref Log l)
         {
             int opt = i.GetOption("Dev Test Options",
@@ -228,7 +222,7 @@ namespace LocalApp
                     priorityQueue.ChangePriority("b", 200);
 
                     for (int ad = 0; ad < 4; ad++)
-                    {   
+                    {
                         Console.WriteLine(priorityQueue.Dequeue());
                     }
 
@@ -262,7 +256,7 @@ namespace LocalApp
 
                     Structures.Coord[] res = Utility.RebuildPath(testTraversal.Dijkstra(start, (_) => 1), goal);
 
-                    
+
                     Bitmap testOut = new Bitmap(testImage);
                     foreach (var node in res)
                     {
