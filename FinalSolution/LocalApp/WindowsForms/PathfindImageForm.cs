@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using BackendLib;
 using BackendLib.Data;
 using BackendLib.Datatypes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LocalApp.WindowsForms
 {
@@ -79,14 +80,21 @@ namespace LocalApp.WindowsForms
 
             // Set instruction box
             textBox.Width = _width / 3 - 24;
-            textBox.Height = _height * 2 / 4 - 24;
+            textBox.Height = _height * 3 / 4 - 24;
             textBox.Left = _width * 2 / 3 + 12;
 
-            // Set working box
+            // Set running box
+            runningBox.Width = _width / 3 - 24;
+            runningBox.Height = _height * 2 / 4 - 24;
+            runningBox.Left = _width * 2 / 3 + 12;
+            runningBox.Visible = false;
+            setRunningBox();
+             
+            // Set working button
             workingButton.Width = _width / 3 - 24;
-            workingButton.Height = _height / 2 - 24;
+            workingButton.Height = _height / 2 - 12;
             workingButton.Left = _width * 2 / 3 + 12;
-            workingButton.Top = _height / 2 + 12;
+            workingButton.Top = _height / 2;
             workingButton.Visible = false;
         }
 
@@ -191,9 +199,16 @@ namespace LocalApp.WindowsForms
             Close();
         }
 
+        private void setRunningBox()
+        {
+            runningBox.Text = "This is some modified text";
+        }
+
         private void goButton_Click(object sender, EventArgs e)
         {
             workingButton.Visible = !workingButton.Visible;
+            textBox.Visible = false;
+            runningBox.Visible = true;
             Update();
 
             if (startNode != invalidCord && endNode != invalidCord)
@@ -223,6 +238,8 @@ namespace LocalApp.WindowsForms
 
             prevStartNode = startNode;
             workingButton.Visible = !workingButton.Visible;
+            textBox.Visible = true;
+            runningBox.Visible = false;
         }
     }
 }

@@ -35,6 +35,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.textBox = new System.Windows.Forms.RichTextBox();
             this.workingButton = new System.Windows.Forms.Button();
+            this.runningBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,12 +115,25 @@
             this.workingButton.Text = "Working";
             this.workingButton.UseVisualStyleBackColor = false;
             // 
+            // runningBox
+            // 
+            this.runningBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+            this.runningBox.Font = new System.Drawing.Font("Lucida Console", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.runningBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.runningBox.Location = new System.Drawing.Point(328, 12);
+            this.runningBox.Name = "runningBox";
+            this.runningBox.ReadOnly = true;
+            this.runningBox.Size = new System.Drawing.Size(319, 461);
+            this.runningBox.TabIndex = 6;
+            this.runningBox.Text = "If you see this then an error has occured please see logs for more information.";
+            // 
             // PathfindImageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.runningBox);
             this.Controls.Add(this.workingButton);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.exitButton);
@@ -142,5 +156,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.RichTextBox textBox;
         private System.Windows.Forms.Button workingButton;
+        private System.Windows.Forms.RichTextBox runningBox;
     }
 }

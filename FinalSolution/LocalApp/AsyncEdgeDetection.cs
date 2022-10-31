@@ -4,6 +4,7 @@ using BackendLib.Processing;
 using LocalApp.CLI;
 using System;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Menu = LocalApp.CLI.Menu;
 using ProgressBar = LocalApp.CLI.ProgressBar;
@@ -12,49 +13,49 @@ namespace LocalApp
 {
     internal class AsyncEdgeDetection : IHandler
     {
-        private readonly Menu _m;
-        private readonly Input _i;
-        private readonly Log _l;
+        private readonly Menu _menuInstance;
+        private readonly Log _logInstance;
         private readonly Guid _runGuid;
         private readonly Structures.RawImage _image;
         private double[,] _resultArray;
 
-        public AsyncEdgeDetection(Menu m, Input i, Log l, Structures.RawImage image, Guid currentGuid)
+        public AsyncEdgeDetection(Menu menu, Log log, Structures.RawImage image, Guid currentGuid)
         {
-            this._m = m;
-            this._i = i;
-            this._l = l;
-            this._image = image;
-            this._runGuid = currentGuid;
+            _menuInstance = menu;
+            _logInstance = log;
+            _image = image;
+            _runGuid = currentGuid;
         }
 
         public void Start()
         {
-            _l.Event(_runGuid, "Started Multi Threaded Canny Edge Detection");
+            Input inputHandel = new Input(_menuInstance);
+
+            _logInstance.Event(_runGuid, "Started Multi Threaded Canny Edge Detection");
             bool confirmOptions = false;
             CannyEdgeDetection detector;
 
-            _l.Event(_runGuid, "Getting Multi Thread Options");
+            _logInstance.Event(_runGuid, "Getting Multi Thread Options");
 
             do
             {
-                detector = GetDetector(_m, _i, _l);
+                detector = GetDetector(_menuInstance, inputHandel, _logInstance);
 
-                string opt = _i.GetInput("Are you happy with those edge detection variables (y/n): ");
+                string opt = inputHandel.GetInput("Are you happy with those edge detection variables (y/n): ");
                 if (opt.ToLower() == "y") confirmOptions = true;
-                else _m.ClearUserSection();
+                else _menuInstance.ClearUserSection();
             } while (!confirmOptions);
 
 
             Structures.RGB[][,] quads = Utility.SplitImage(_image.Pixels);
             Task<double[,]>[] threads = new Task<double[,]>[quads.Length];
 
-            int continueOption = _i.GetOption("Continue to Canny Edge Detection:", new[] { "Yes - Continue", "No - Return to main menu" });
+            int continueOption = inputHandel.GetOption("Continue to Canny Edge Detection:", new[] { "Yes - Continue", "No - Return to main menu" });
             if (continueOption != 0) throw new Exception("Map Processing Ended At User Request");
 
-            bool saveTempOption = _i.GetOption("Would you like to save images at each step of the edge detection?", new[] { "Yes", "No" }) == 0;
+            bool saveTempOption = inputHandel.GetOption("Would you like to save images at each step of the edge detection?", new[] { "Yes", "No" }) == 0;
 
-            ProgressBar pb = new ProgressBar("Canny Edge Detection", 36, _m);
+            ProgressBar pb = new ProgressBar("Canny Edge Detection", 36, _menuInstance);
             pb.DisplayProgress();
             
             for (int i = 0; i < quads.Length; i++)
@@ -70,25 +71,25 @@ namespace LocalApp
             double[,] cannyImage = Utility.CombineQuadrants(threads[0].Result, threads[1].Result, threads[2].Result,
                 threads[3].Result);
 
-            PostProcessImage(cannyImage);
+            PostProcessImage(cannyImage, inputHandel);
         }
 
-        private void PostProcessImage(double[,] image)
+        private void PostProcessImage(double[,] image, Input inputHandel)
         {
             Post postProcessor = new Post(image);
 
-            _m.ClearUserSection();
-            if (_i.TryGetInt("How many times would you like to emboss the image (can be 0): ", out int loopCount) &&
+            _menuInstance.ClearUserSection();
+            if (inputHandel.TryGetInt("How many times would you like to emboss the image (can be 0): ", out int loopCount) &&
                 loopCount > 0)
             {
-                _m.WriteLine();
-                _m.WriteLine($"Running image embossing this will take approximately {Log.Red}{10*loopCount}{Log.Blank} seconds!");
+                _menuInstance.WriteLine();
+                _menuInstance.WriteLine($"Running image embossing this will take approximately {Log.Red}{10*loopCount}{Log.Blank} seconds!");
                 postProcessor.Start(loopCount);
             }
             else
             {
-                _m.WriteLine();
-                _m.WriteLine($"Running image embossing this will take approximately {Log.Red}10{Log.Blank} seconds!");
+                _menuInstance.WriteLine();
+                _menuInstance.WriteLine($"Running image embossing this will take approximately {Log.Red}10{Log.Blank} seconds!");
                 postProcessor.Start(0);
             }
 
@@ -99,17 +100,17 @@ namespace LocalApp
         {
             char letter = (char)('A' + id);
             double[,] workingArray;
-            _l.Event(_runGuid, $"Starting processing of quadrant {letter} ({id % 2}, {id / 2})");
+            _logInstance.Event(_runGuid, $"Starting processing of quadrant {letter} ({id % 2}, {id / 2})");
 
             workingArray = detector.BlackWhiteFilter(image);
             if (saveTemp) Logger.SaveBitmap(_runGuid, workingArray, $"BlackWhiteFilterQuad{letter}");
             increment();
-            _l.Event(_runGuid, $"Completed Black and White Filter on Quadrant {letter}");
+            _logInstance.Event(_runGuid, $"Completed Black and White Filter on Quadrant {letter}");
 
             workingArray = detector.GaussianFilter(workingArray);
             if (saveTemp) Logger.SaveBitmap(_runGuid, workingArray, $"GaussianFilterQuad{letter}");
             increment();
-            _l.Event(_runGuid, $"Applied Gaussian Filter on Quadrant {letter}");
+            _logInstance.Event(_runGuid, $"Applied Gaussian Filter on Quadrant {letter}");
 
             Structures.Gradients grads = detector.CalculateGradients(workingArray, increment);
             if (saveTemp)
@@ -117,12 +118,12 @@ namespace LocalApp
                 Logger.SaveBitmap(_runGuid, grads.GradientX, $"GradientXQuad{letter}");
                 Logger.SaveBitmap(_runGuid, grads.GradientY, $"GradientYQuad{letter}");
             }
-            _l.Event(_runGuid, $"Calculated Gradients for Quadrant {letter}");
+            _logInstance.Event(_runGuid, $"Calculated Gradients for Quadrant {letter}");
 
             double[,] combinedGrads = detector.CombineGradients(grads);
             if (saveTemp) Logger.SaveBitmap(_runGuid, combinedGrads, $"CombinedGradientsQuad{letter}");
             increment();
-            _l.Event(_runGuid, $"Calculated Combined Gradients for Quadrant {letter}");
+            _logInstance.Event(_runGuid, $"Calculated Combined Gradients for Quadrant {letter}");
 
             double[,] angleGrads = detector.GradientAngle(grads);
             increment();
@@ -135,12 +136,12 @@ namespace LocalApp
 
                 Logger.SaveBitmap(_runGuid, workingArray, $"AngleGradientsQuad{letter}");
             }
-            _l.Event(_runGuid, $"Calculated Gradient Angles for Quadrant {letter}");
+            _logInstance.Event(_runGuid, $"Calculated Gradient Angles for Quadrant {letter}");
 
             workingArray = detector.MagnitudeThreshold(combinedGrads, angleGrads);
             if (saveTemp) Logger.SaveBitmap(_runGuid, workingArray, $"MagnitudeThresholdQuad{letter}");
             increment();
-            _l.Event(_runGuid, $"Applied Magnitude Threshold on Quadrant {letter}");
+            _logInstance.Event(_runGuid, $"Applied Magnitude Threshold on Quadrant {letter}");
 
             Structures.ThresholdPixel[,] thresholdArray = detector.DoubleThreshold(workingArray);
             increment();
@@ -159,12 +160,12 @@ namespace LocalApp
                 Logger.SaveBitmap(_runGuid, toSave, $"ThresholdPixelsQuad{letter}");
             };
             // TODO just be same think about that colour strong weak etc...?
-            _l.Event(_runGuid, $"Calculated Threshold Pixels for Quadrant {letter}");
+            _logInstance.Event(_runGuid, $"Calculated Threshold Pixels for Quadrant {letter}");
 
             workingArray = detector.EdgeTrackingHysteresis(thresholdArray);
             if (saveTemp) Logger.SaveBitmap(_runGuid, workingArray, $"EdgeTrackingHysteresisQuad{letter}");
             increment();
-            _l.Event(_runGuid, $"Applied Edge Tracking by Hysteresis on Quadrant {letter}");
+            _logInstance.Event(_runGuid, $"Applied Edge Tracking by Hysteresis on Quadrant {letter}");
 
             return workingArray;
         }
