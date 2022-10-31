@@ -52,6 +52,7 @@
     <Compile Include="CLI\Log.cs" />
     <Compile Include="CLI\Menu.cs" />
     <Compile Include="CLI\ProgressBar.cs" />
+    <Compile Include="CLI\TextWall.cs" />
     <Compile Include="CLI\Settings.cs" />
     <Compile Include="NewImage.cs" />
     <Compile Include="Program.cs" />

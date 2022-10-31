@@ -12,7 +12,7 @@ namespace BackendLib.Processing
         private Bitmap _imageBitmap;
         private Structures.RGB[,] _imageRgb;
 
-        private const string FileExtensionRegex = @"^(\d|\w|(\\)|:|-){1,}.(jpg|bmp|exif|png|tiff)$";
+        private const string FileExtensionRegex = @"^([a-z]:\\|\\|[a-z]|\.\.(\\|\/)|\.(\\|\/))((\w|(\\|\/))+)\.(jpg|bmp|exif|png|tiff)$";
 
         public Pre(string imagePath)
         {

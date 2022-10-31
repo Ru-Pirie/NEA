@@ -36,22 +36,14 @@ namespace LocalApp
                 int opt = inputHandel.GetOption("Please select an option to continue:",
                     new[]
                     {
-                        "Process New Image Into Map Data File", "Recall Map From Data File", "Settings", "Exit Program", "Dev Test"
+                        "Process New Image Into Map Data File", "Recall Map From Data File", "Settings", "Exit Program", "??????????? ????ᯅ"
                     });
 
                 switch (opt)
                 {
                     // New
                     case 0:
-                        menuInstance.WriteLine("Before we begin, at the start of this you will be asked to supply an image to be converted into a map. After you have done this the following will occur:");
-                        menuInstance.WriteLine();
-                        menuInstance.WriteLine("1. The image you supplied will be checked to see if it is suitable, if it is you will be shown said image and asked to confirm if you wish to proceed.");
-                        menuInstance.WriteLine("2. The image will have edge detection performed on it to get its roads, you will have the opportunity to enter the variables which control the edge detection.");
-                        menuInstance.WriteLine("3. The result of your map will either be inverted (black pixels to white or vice versa) depending on the result.");
-                        menuInstance.WriteLine("4. This image will then have a combination of holistic algorithms run on it to pick out roads.");
-                        menuInstance.WriteLine("5. You can pathfind through your processed map image.");
-                        menuInstance.WriteLine("6. You can chose to save that map or not.");
-                        menuInstance.WriteLine("7. That's it!");
+                        TextWall.Welcome(menuInstance);
                         inputHandel.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
                         menuInstance.WriteLine();
 
@@ -59,7 +51,10 @@ namespace LocalApp
                         break;
                     // Recall
                     case 1:
-                        string path = inputHandel.GetInput("Please enter a file to recall!?");
+                        string path = inputHandel.GetInput("Please enter the file path of the save to recall:");
+
+                        // TODO ADD SOME OPTIONS HERE ID WHAT MAKE THEM UP
+
 
                         Map recalledMap = new Map(path);
                         recalledMap.Initialize();
@@ -71,16 +66,14 @@ namespace LocalApp
 
                         PathfindImageForm myForm = new PathfindImageForm(recalledMap.OriginalImage, traversal, myGraph);
                         myForm.ShowDialog();
-
-
                         break;
                     case 2:
-                        running = false;
-                        break;
-                    case 3:
                         Settings settingsInstance = new Settings(menuInstance, CLILoggingInstance);
                         settingsInstance.Start();
                         menuInstance.ClearUserSection();
+                        break;
+                    case 3:
+                        running = false;
                         break;
                     case 4:
                         DevTest(ref menuInstance, ref inputHandel, ref CLILoggingInstance);
@@ -152,7 +145,7 @@ namespace LocalApp
 
                 // TODO prompt to move onto road detection add user input for threshold
                 RoadDetection roadDetector = new RoadDetection(resultOfEdgeDetection, 0.3);
-                ProgressBar pb = new ProgressBar("Road Detection", resultOfEdgeDetection.Length / 100 * 3, m);
+                ProgressBar pb = new ProgressBar("Road Detection", resultOfEdgeDetection.Length / 100 * 3, menu);
                 pb.DisplayProgress();
                 roadDetector.Start(pb.GetIncrementAction());
                 ViewImageForm roadForm = new ViewImageForm(roadDetector.Result().PathBitmap);

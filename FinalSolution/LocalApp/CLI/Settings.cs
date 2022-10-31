@@ -18,7 +18,10 @@ namespace LocalApp.CLI
             _loggerInstance = log;
         }
 
-        public void Check
+        public void CheckIfExistsOrCreate()
+        {
+            
+        }
 
         public void Start()
         {
