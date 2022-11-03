@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace LocalApp.CLI
 {
     // TODO better name for this
-    internal static class TextWall
+    public static class TextWall
     {
         public static void Welcome(Menu menuInstance)
         {

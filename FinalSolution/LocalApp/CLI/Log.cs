@@ -3,10 +3,10 @@ using System;
 
 namespace LocalApp.CLI
 {
-    internal class Log
+    public class Log
     {
         private int _logLineCount = 6;
-        private Menu _menuInstance;
+        private readonly Menu _menuInstance;
 
         public const string Red = "\x1b[38;5;196m";
         public const string Orange = "\x1b[38;5;184m";

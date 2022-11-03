@@ -11,7 +11,7 @@ using ProgressBar = LocalApp.CLI.ProgressBar;
 
 namespace LocalApp
 {
-    internal class AsyncEdgeDetection : IHandler
+    public class AsyncEdgeDetection : IHandler
     {
         private readonly Menu _menuInstance;
         private readonly Log _logInstance;

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LocalApp.CLI
 {
-    internal class Menu
+    public class Menu
     {
         public object ScreenLock { get; } = new object();
         public int CurrentLine { get; private set; } = 1;

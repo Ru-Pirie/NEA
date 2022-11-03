@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LocalApp.CLI
 {
-    internal class Input
+    public class Input
     {
         private readonly Menu _menuInstance;
 

@@ -3,7 +3,7 @@ using System.Text;
 
 namespace LocalApp.CLI
 {
-    internal class ProgressBar
+    public class ProgressBar
     {
         private readonly string _progressTitle;
         private double _progressAmount;
@@ -11,7 +11,7 @@ namespace LocalApp.CLI
         private readonly string _progressOutline;
         private string _progressLine;
 
-        private Menu _menuInstance;
+        private readonly Menu _menuInstance;
 
         public ProgressBar(string title, int totalSegments, Menu menuInstance)
         {

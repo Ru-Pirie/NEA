@@ -11,7 +11,7 @@ using System.IO;
 
 namespace LocalApp
 {
-    internal class Program
+    public class Program
     {
         private static void Main(string[] args)
         {
@@ -69,7 +69,8 @@ namespace LocalApp
                         break;
                     case 2:
                         Settings settingsInstance = new Settings(menuInstance, CLILoggingInstance);
-                        settingsInstance.Start();
+                        settingsInstance.Read();
+                        settingsInstance.Update(settingsInstance.UserSettings, settingsInstance.UserSettings);
                         menuInstance.ClearUserSection();
                         break;
                     case 3:
