@@ -18,6 +18,7 @@ namespace LocalApp.CLI
             "# Manually Edit At Own Risk",
             "# General Settings",
             "detailedLogging=false",
+            "forceFormsToFront=true",
             "",
             "# Pathfinding Settings",
             "convertToMST= false",
