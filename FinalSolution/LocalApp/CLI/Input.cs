@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace LocalApp.CLI
 {
@@ -104,6 +106,90 @@ namespace LocalApp.CLI
             }
         }
 
+        public IEnumerable<(string, bool)> OptionSelector(string title, IEnumerable<(string, bool)> options, bool clear = true)
+        {
+            List<(string, bool)> result = new List<(string, bool)>(options);
+            result.Add(("EXIT", false));
+
+            while (Console.KeyAvailable) Console.ReadKey(true);
+            _menuInstance.ClearUserSection();
+            _menuInstance.WriteLine(title);
+
+            int j = 3;
+
+            lock (_menuInstance.ScreenLock)
+            {
+                foreach (var option in result)
+                {
+                    Console.SetCursorPosition(1, j++);
+                    if (option.Item2) Console.WriteLine($"  {option.Item1} [{Log.Green}x{Log.Blank}]");
+                    else Console.WriteLine($"  {option.Item1} [ ]");
+                }
+            }
+
+            bool selected = false;
+            int currentTop;
+
+            lock (_menuInstance.ScreenLock)
+            {
+                Console.SetCursorPosition(1, 3);
+                Console.Write('>');
+
+                currentTop = Console.CursorTop;
+            }
+
+            while (!selected)
+            {
+                Console.CursorVisible = false;
+
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                if (key.Key == ConsoleKey.DownArrow && currentTop < result.Count() + 2)
+                {
+                    lock (_menuInstance.ScreenLock)
+                    {
+                        Console.CursorLeft = 1;
+                        Console.CursorTop = currentTop;
+                        Console.Write(' ');
+                        Console.CursorTop = ++currentTop;
+                        Console.CursorLeft = 1;
+                        Console.Write('>');
+                    }
+                }
+                else if (key.Key == ConsoleKey.UpArrow && currentTop > 3)
+                {
+                    lock (_menuInstance.ScreenLock)
+                    {
+                        Console.CursorLeft = 1;
+                        Console.CursorTop = currentTop;
+                        Console.Write(' ');
+                        Console.CursorTop = --currentTop;
+                        Console.CursorLeft = 1;
+                        Console.Write('>');
+                    }
+                }
+                else if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.Spacebar)
+                {
+                    if (result.Count + 2 == currentTop)
+                    {
+                        if (clear) _menuInstance.ClearUserSection();
+                        Console.CursorVisible = false;
+
+                        selected = true;
+                    }
+                    else
+                    {
+                        result[currentTop - 3] = (result[currentTop - 3].Item1, !result[currentTop - 3].Item2);
+                        Console.SetCursorPosition(1, currentTop);
+                        if (result[currentTop - 3].Item2) Console.WriteLine($"> {result[currentTop - 3].Item1} [{Log.Green}x{Log.Blank}]");
+                        else Console.WriteLine($"> {result[currentTop - 3].Item1} [ ]");
+                    }
+                }
+            }
+
+            return result;
+        }
+
+
         public string GetInput(string prompt)
         {
             while (Console.KeyAvailable) Console.ReadKey(true);
@@ -168,5 +254,8 @@ namespace LocalApp.CLI
         public int GetInt(string prompt) => int.Parse(GetInput(prompt));
 
         public bool TryGetInt(string prompt, out int result) => int.TryParse(GetInput(prompt), out result);
+
+
+
     }
 }

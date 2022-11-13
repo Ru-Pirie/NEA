@@ -33,6 +33,8 @@ namespace LocalApp
 
             while (running)
             {
+                menuInstance.SetPage("Main Selection Menu");
+
                 int opt = inputHandel.GetOption("Please select an option to continue:",
                     new[]
                     {
@@ -43,7 +45,7 @@ namespace LocalApp
                 {
                     // New
                     case 0:
-                        TextWall.Welcome(menuInstance);
+                        TextWall.ImageWelcome(menuInstance);
                         inputHandel.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
                         menuInstance.WriteLine();
 
@@ -51,27 +53,17 @@ namespace LocalApp
                         break;
                     // Recall
                     case 1:
-                        string path = inputHandel.GetInput("Please enter the file path of the save to recall:");
+                        TextWall.SaveWelcome(menuInstance);
+                        inputHandel.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
+                        menuInstance.WriteLine();
 
-                        // TODO ADD SOME OPTIONS HERE ID WHAT MAKE THEM UP
-
-
-                        Map recalledMap = new Map(path);
-                        recalledMap.Initialize();
-
-                        double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
-
-                        Graph<Structures.Coord> myGraph = doubles.ToGraph();
-                        Traversal<Structures.Coord> traversal = new Traversal<Structures.Coord>(myGraph);
-
-                        PathfindImageForm myForm = new PathfindImageForm(recalledMap.OriginalImage, traversal, myGraph);
-                        myForm.ShowDialog();
+                        RunSaveFile(menuInstance, CLILoggingInstance);
                         break;
                     case 2:
                         Settings settingsInstance = new Settings(menuInstance, CLILoggingInstance);
                         settingsInstance.Read();
-                        settingsInstance.Update(settingsInstance.UserSettings, settingsInstance.UserSettings);
-                        menuInstance.ClearUserSection();
+                        
+                        new SettingsControl(settingsInstance, menuInstance, CLILoggingInstance).Start();
                         break;
                     case 3:
                         running = false;
@@ -81,6 +73,33 @@ namespace LocalApp
                         break;
                 }
             }
+        }
+
+        private static void RunSaveFile(Menu menu, Log logger)
+        {
+            Input inputHandel = new Input(menu);
+
+            Guid runGuid = Logger.CreateRun();
+            menu.ClearUserSection();
+
+            logger.Event(runGuid, $"Beginning recall of map file (Run Id: {runGuid})");
+
+            string path = inputHandel.GetInput("Please enter the file path of the save to recall:");
+
+            // TODO ADD SOME OPTIONS HERE IDK WHAT MAKE THEM UP 
+            // DEELETE MAP,  RENAME, ALTER DATA
+
+
+            Map recalledMap = new Map(path);
+            recalledMap.Initialize();
+
+            double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
+
+            Graph<Structures.Coord> myGraph = doubles.ToGraph();
+            Traversal<Structures.Coord> traversal = new Traversal<Structures.Coord>(myGraph);
+
+            PathfindImageForm myForm = new PathfindImageForm(recalledMap.OriginalImage, traversal, myGraph);
+            myForm.ShowDialog();
         }
 
         private static void RunNewImage(Menu menu, Log logger)

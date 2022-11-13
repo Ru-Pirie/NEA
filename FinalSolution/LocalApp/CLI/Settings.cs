@@ -12,16 +12,16 @@ namespace LocalApp.CLI
         private readonly Log _loggerInstance;
 
         private List<string> rawLines;
-        public Dictionary<string, (string, Type)> UserSettings { get; private set; }
+        public static Dictionary<string, (string, Type)> UserSettings { get; private set; }
 
         private readonly string[] defaultSettings = {
             "# Manually Edit At Own Risk",
             "# General Settings",
             "detailedLogging=false",
-            "forceFormsToFront=true",
+            "forceFormsFront=true",
             "",
             "# Pathfinding Settings",
-            "convertToMST= false",
+            "convertToMST=false",
             "pathfindingAlgorithm=AStar",
             "snapToGrid=true",
             "endOnFind=false",
@@ -93,7 +93,7 @@ namespace LocalApp.CLI
         public bool Change(string setting, bool value)
         {
             if (!UserSettings.ContainsKey(setting)) return false;
-            UserSettings[setting] = (value.ToString(), typeof(bool));
+            UserSettings[setting] = (value.ToString().ToLower(), typeof(bool));
 
             return true;
         }
@@ -137,13 +137,11 @@ namespace LocalApp.CLI
             foreach (KeyValuePair<string, (string, Type)> pair in newSettings)
             {
                 int location = rawLines.FindIndex(toCheck => toCheck.Contains(pair.Key));
-                if (location == -1) throw new SettingsException($"Supplied updated settings contained a non-existant setting {pair.Key}.");
+                if (location == -1) throw new SettingsException($"Supplied updated settings contained a non-existent setting {pair.Key}.");
                 else
                 {
                     if (!oldSettings.ContainsKey(pair.Key)) throw new SettingsException($"Setting {pair.Key} does not exist.");
                     if (!oldSettings[pair.Key].Equals(pair.Value)) rawLines[location] = $"{pair.Key}= {pair.Value.Item1}";
-                    
-                    _menuInstance.WriteLine(rawLines[location]);
                 }
             }
 
