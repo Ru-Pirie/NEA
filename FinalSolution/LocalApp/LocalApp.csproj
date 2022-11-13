@@ -57,6 +57,7 @@
     <Compile Include="NewImage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Save.cs" />
     <Compile Include="SyncEdgeDetection.cs" />
     <Compile Include="WindowsForms\PathfindImageForm.cs">
       <SubType>Form</SubType>
