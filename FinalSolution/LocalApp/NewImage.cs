@@ -51,7 +51,7 @@ namespace LocalApp
             _menuInstance.ClearUserSection();
 
             bool saveAsBinary = Utility.IsYes(inputHandel.GetInput("Would you like to save this map in a custom file to be reused later (y/n)?"));
-            Map mapSave = saveAsBinary ? new Map() : null;
+            MapFile mapSave = saveAsBinary ? new MapFile() : null;
 
             if (saveAsBinary) mapSave.Type = inputHandel.GetOption("What type of image are you supplying:", new[] { "Screenshot", "Hand Drawn", "Photograph", "Other" });
             if (saveAsBinary) mapSave.Name = inputHandel.GetInput("Enter a name for image:");

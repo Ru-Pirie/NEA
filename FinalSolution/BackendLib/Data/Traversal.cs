@@ -110,8 +110,6 @@ namespace BackendLib.Data
 
                 foreach (var neighbor in adjacent)
                 {
-                    // Issue seems to be that the pixel already appears before its a neighbor so its deleted so idk 
-                    // how to fix this, its a bit of a future me issue
 
                     if (queue.Contains(neighbor))
                     {

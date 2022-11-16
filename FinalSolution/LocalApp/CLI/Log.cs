@@ -27,7 +27,7 @@ namespace LocalApp.CLI
         public void Event(Guid runGuid, string message) => LogParent(runGuid, message, 2);
         public void End(Guid runGuid, string message) => LogParent(runGuid, message, 3);
 
-        public void EndErrorRun(Guid runGuid, Exception ex)
+        public void EndError(Guid runGuid, Exception ex)
         {
             Error($"Run ({runGuid}) terminated due to an error.");
             Error($"Exception: {ex.Message}");
@@ -40,6 +40,13 @@ namespace LocalApp.CLI
         {
             End(runGuid, "Successfully completed processing and pathfinding of new image!");
             Warn(runGuid, $"Run Guid {runGuid} Deleted. See {Environment.CurrentDirectory}\\saves\\ for output(s) and {Environment.CurrentDirectory}\\runs\\{runGuid.ToString("N").ToUpper()} for temp images.");
+            End($"Completed run {runGuid} successfully.");
+        }
+
+        public void EndSuccessSave(Guid runGuid)
+        {
+            End(runGuid, "Successfully completed recall and pathfinding of save file!");
+            Warn(runGuid, $"Run Guid {runGuid} Deleted. See {Environment.CurrentDirectory}\\saves\\ for output(s). Or just go to where the save file was located.");
             End($"Completed run {runGuid} successfully.");
         }
 

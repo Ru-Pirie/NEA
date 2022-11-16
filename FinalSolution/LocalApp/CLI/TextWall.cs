@@ -1,5 +1,7 @@
-﻿using System;
+﻿using BackendLib;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +35,14 @@ namespace LocalApp.CLI
             menuInstance.WriteLine("7. That's it!");
         }
 
+        public static void FileDetails(Menu menuInstance, Structures.RawImage rawImage)
+        {
+            menuInstance.WriteLine("Parsed file information:");
+            menuInstance.WriteLine($"    Name: {Log.Green}{Path.GetFileNameWithoutExtension(rawImage.Path)}{Log.Blank}");
+            menuInstance.WriteLine($"    Folder: {Log.Green}{Path.GetDirectoryName(rawImage.Path)}{Log.Blank}");
+            menuInstance.WriteLine($"    File extension: {Log.Green}{Path.GetExtension(rawImage.Path)}{Log.Blank}");
+            menuInstance.WriteLine();
+        }
 
     }
 }

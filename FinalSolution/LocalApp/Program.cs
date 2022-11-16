@@ -18,14 +18,17 @@ namespace LocalApp
             Menu menu = new Menu("Author: Rubens Pirie", $"{Log.Green}Development Mode{Log.Blank}");
             Log logger = new Log(menu);
 
+            Settings settings = new Settings(menu, logger);
+            settings.Read();
+
             menu.Setup();
             logger.Event("Program has started and menu has been created successfully.");
             menu.SetPage("Welcome");
 
-            Run(menu, logger);
+            Run(menu, logger, settings);
         }
 
-        private static void Run(Menu menuInstance, Log CLILoggingInstance)
+        private static void Run(Menu menuInstance, Log CLILoggingInstance, Settings settingsInstance)
         {
             Input inputHandel = new Input(menuInstance);
 
@@ -33,12 +36,10 @@ namespace LocalApp
 
             while (running)
             {
-                menuInstance.SetPage("Main Selection Menu");
-
                 int opt = inputHandel.GetOption("Please select an option to continue:",
                     new[]
                     {
-                        "Process New Image Into Map Data File", "Recall Map From Data File", "Settings", "Exit Program", "??????????? ????ᯅ"
+                        "Process New Image Into Map Data File", "Recall Map From Data File", "Settings", "Exit Program", "?????? ?? ?????ᯅ"
                     });
 
                 switch (opt)
@@ -58,12 +59,13 @@ namespace LocalApp
                         menuInstance.WriteLine();
 
                         RunSaveFile(menuInstance, CLILoggingInstance);
+                        
                         break;
                     case 2:
-                        Settings settingsInstance = new Settings(menuInstance, CLILoggingInstance);
-                        settingsInstance.Read();
-                        
-                        new SettingsControl(settingsInstance, menuInstance, CLILoggingInstance).Start();
+                        SettingsControl settingsControl = new SettingsControl(settingsInstance, menuInstance, CLILoggingInstance);
+                        settingsControl.Start();
+
+                        menuInstance.ClearUserSection();
                         break;
                     case 3:
                         running = false;
@@ -82,24 +84,32 @@ namespace LocalApp
             Guid runGuid = Logger.CreateRun();
             menu.ClearUserSection();
 
-            logger.Event(runGuid, $"Beginning recall of map file (Run Id: {runGuid})");
+            logger.Event(runGuid, $"Begining recall of map file (Run Id: {runGuid})");
 
-            string path = inputHandel.GetInput("Please enter the file path of the save to recall:");
+            SaveFile saveFile = new SaveFile(menu, logger, runGuid);
+                
+            try
+            {
+                MapFile recalledMap = saveFile.Read();
 
-            // TODO ADD SOME OPTIONS HERE IDK WHAT MAKE THEM UP 
-            // DEELETE MAP,  RENAME, ALTER DATA
+                //TODO ADD SOME OPTIONS HERE ID WHAT MAKE THEM UP
+                double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
+
+                Graph<Structures.Coord> myGraph = doubles.ToGraph();
+                Traversal<Structures.Coord> traversal = new Traversal<Structures.Coord>(myGraph);
+
+                PathfindImageForm myForm = new PathfindImageForm(recalledMap.OriginalImage, traversal, myGraph);
+                myForm.ShowDialog();
 
 
-            Map recalledMap = new Map(path);
-            recalledMap.Initialize();
 
-            double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
 
-            Graph<Structures.Coord> myGraph = doubles.ToGraph();
-            Traversal<Structures.Coord> traversal = new Traversal<Structures.Coord>(myGraph);
-
-            PathfindImageForm myForm = new PathfindImageForm(recalledMap.OriginalImage, traversal, myGraph);
-            myForm.ShowDialog();
+                logger.EndSuccessSave(runGuid);
+            }
+            catch (Exception ex)
+            {
+                logger.EndError(runGuid, ex);
+            }
         }
 
         private static void RunNewImage(Menu menu, Log logger)
@@ -122,11 +132,7 @@ namespace LocalApp
                 beforeForm.ShowDialog();
                 menu.ClearUserSection();
 
-                menu.WriteLine("Parsed file information:");
-                menu.WriteLine($"    Name: {Log.Green}{Path.GetFileNameWithoutExtension(rawImage.Path)}{Log.Blank}");
-                menu.WriteLine($"    Folder: {Log.Green}{Path.GetDirectoryName(rawImage.Path)}{Log.Blank}");
-                menu.WriteLine($"    File extension: {Log.Green}{Path.GetExtension(rawImage.Path)}{Log.Blank}");
-                menu.WriteLine();
+                TextWall.FileDetails(menu, rawImage);
                 i.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
 
                 // Confirm correct image here before progressing?
@@ -149,7 +155,7 @@ namespace LocalApp
                 menu.WriteLine();
 
 
-                Map saveMapFile = rawImage.MapFile;
+                MapFile saveMapFile = rawImage.MapFile;
 
                 bool invert = Utility.IsYes(i.GetInput("Invert image (y/n)?"));
                 if (invert)
@@ -178,9 +184,8 @@ namespace LocalApp
                     saveMapFile.Save(runGuid);
                 }
 
-                // TODO Next section move road detection then graph stuff
+                // TODO Next section move road detection then graph stuff add some prompts here
                 // TODO CHECK FOR REFERENCE TYPE BITMAP ISSUES
-                // TEMP
                 Graph<Structures.Coord> myGraph = roadDetector.Result().PathDoubles.ToGraph();
                 Traversal<Structures.Coord> myTraversal = new Traversal<Structures.Coord>(myGraph);
 
@@ -191,7 +196,7 @@ namespace LocalApp
             }
             catch (Exception ex)
             {
-                logger.EndErrorRun(runGuid, ex);
+                logger.EndError(runGuid, ex);
             }
         }
 

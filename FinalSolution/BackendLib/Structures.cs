@@ -31,7 +31,7 @@ namespace BackendLib
             public RGB[,] Pixels;
             public int Width;
             public int Height;
-            public Map MapFile;
+            public MapFile MapFile;
         }
 
         public struct RoadResult
