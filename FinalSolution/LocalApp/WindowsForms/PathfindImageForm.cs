@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using BackendLib;
 using BackendLib.Data;
 using BackendLib.Datatypes;
+using LocalApp.CLI;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LocalApp.WindowsForms
@@ -88,7 +89,7 @@ namespace LocalApp.WindowsForms
             runningBox.Height = _height * 2 / 4 - 24;
             runningBox.Left = _width * 2 / 3 + 12;
             runningBox.Visible = false;
-            setRunningBox();
+            SetRunningBox();
              
             // Set working button
             workingButton.Width = _width / 3 - 24;
@@ -111,7 +112,7 @@ namespace LocalApp.WindowsForms
             _image = new Bitmap(_originalImage);
             if (startNode != invalidCord)
             {
-                if (_graph.GetNode(startNode).Count == 0)
+                if (_graph.GetNode(startNode).Count == 0 && bool.Parse(Settings.UserSettings["snapToGrid"].Item1))
                 {
                     double value = Double.MaxValue;
                     Structures.Coord smallest = new Structures.Coord { X = int.MaxValue, Y = int.MaxValue };
@@ -133,7 +134,7 @@ namespace LocalApp.WindowsForms
 
             if (endNode != invalidCord)
             {
-                if (_graph.GetNode(endNode).Count == 0)
+                if (_graph.GetNode(endNode).Count == 0 && bool.Parse(Settings.UserSettings["snapToGrid"].Item1))
                 {
                     double value = Double.MaxValue;
                     Structures.Coord smallest = new Structures.Coord { X = int.MaxValue, Y = int.MaxValue };
@@ -199,9 +200,29 @@ namespace LocalApp.WindowsForms
             Close();
         }
 
-        private void setRunningBox()
+        private void SetRunningBox()
         {
-            runningBox.Text = "This is some modified text";
+            string snapWarning = String.Empty;
+            if (!bool.Parse(Settings.UserSettings["snapToGrid"].Item1))
+                snapWarning = "(Warning can cause broken routes. To change goto settings -> pathfinding -> snapToGrid)\n";
+
+            string mstWarning = String.Empty;
+            if (!bool.Parse(Settings.UserSettings["convertToMST"].Item1))
+                mstWarning = "(Warning can cause non-optimal routes. To change goto settings -> pathfinding -> convertToMST)\n";
+
+            string endWarning = String.Empty;
+            if (bool.Parse(Settings.UserSettings["endOnFind"].Item1))
+                endWarning = "(Warning causes longer times from different start nodes. To change goto settings -> pathfinding -> endOnFind)\n";
+
+
+            runningBox.Text =  "Current Pathfinding Settings\n\n" +
+                              $"\nAlgorithm: {Settings.UserSettings["pathfindingAlgorithm"].Item1}" +
+                              $"\n\nUsing Minimum Spanning Tree: {Settings.UserSettings["convertToMST"].Item1}" +
+                              $"\n{mstWarning}" +
+                              $"\nSnapping to grid: {Settings.UserSettings["snapToGrid"].Item1}" +
+                              $"\n{snapWarning}" +
+                              $"\nEnd pathfinding on Finding End: {Settings.UserSettings["endOnFind"].Item1}" +
+                              $"\n{endWarning}";
         }
 
         private void goButton_Click(object sender, EventArgs e)
