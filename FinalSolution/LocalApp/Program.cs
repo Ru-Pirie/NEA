@@ -39,7 +39,7 @@ namespace LocalApp
                 int opt = inputHandel.GetOption("Please select an option to continue:",
                     new[]
                     {
-                        "Process New Image Into Map Data File", "Recall Map From Data File", "Settings", "Exit Program", "?????? ?? ?????ᯅ"
+                        "Process New Image Into Map Data File", "Recall Map From Data File", "Settings", "Exit Program", "DONT CLICK HEREᯅ"
                     });
 
                 switch (opt)
@@ -59,14 +59,15 @@ namespace LocalApp
                         menuInstance.WriteLine();
 
                         RunSaveFile(menuInstance, CLILoggingInstance);
-                        
                         break;
+                    // Settings
                     case 2:
                         SettingsControl settingsControl = new SettingsControl(settingsInstance, menuInstance, CLILoggingInstance);
                         settingsControl.Start();
 
                         menuInstance.ClearUserSection();
                         break;
+                    // Exit
                     case 3:
                         running = false;
                         break;
@@ -92,14 +93,17 @@ namespace LocalApp
             {
                 MapFile recalledMap = saveFile.Read();
 
-                //TODO ADD SOME OPTIONS HERE ID WHAT MAKE THEM UP
-                double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
+                //TODO ADD SOME OPTIONS HERE ID WHAT MAKE THEM UP SEE PROMPT
 
-                Graph<Structures.Coord> myGraph = doubles.ToGraph();
-                Traversal<Structures.Coord> traversal = new Traversal<Structures.Coord>(myGraph);
 
-                PathfindImageForm myForm = new PathfindImageForm(recalledMap.OriginalImage, traversal, myGraph);
-                myForm.ShowDialog();
+                // use for settings testing
+                //double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
+
+                //Graph<Structures.Coord> myGraph = doubles.ToGraph();
+                //Traversal<Structures.Coord> traversal = new Traversal<Structures.Coord>(myGraph);
+
+                //PathfindImageForm myForm = new PathfindImageForm(recalledMap.OriginalImage, traversal, myGraph);
+                //myForm.ShowDialog();
 
 
 
@@ -208,7 +212,7 @@ namespace LocalApp
         private static void DevTest(ref Menu m, ref Input i, ref Log l)
         {
             int opt = i.GetOption("Dev Test Options",
-                new[] { "Wipe logs and run files including all saves", "Min Queue Test", "Resize window", "Test Dijkstra" });
+                new[] { "Wipe logs and run files including all saves for testing", "Min Queue Test because dijkstra bork", "test settings file PLEASE", "Test Dijkstra to see if worke" });
 
             switch (opt)
             {
@@ -248,13 +252,9 @@ namespace LocalApp
                     i.WaitInput("");
 
                     break;
-                // Resize window    
                 case 2:
-                    m = new Menu("Author: Rubens Pirie", $"{Log.Green}Development Mode REBOOT{Log.Blank}");
-                    i = new Input(m);
-                    l = new Log(m);
-
-                    m.Setup();
+                    m.WriteLine(Settings.UserSettings["forceFormsFront"].Item1);
+                    i.WaitInput("");
 
                     break;
 

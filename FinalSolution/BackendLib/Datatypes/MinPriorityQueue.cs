@@ -21,8 +21,6 @@ namespace BackendLib.Datatypes
         private int Left(int index) => (2 * index) + 1;
         private int Right(int index) => (2 * index) + 2;
 
-        //https://www.geeksforgeeks.org/binary-heap/
-        // https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
         public void Enqueue(T value, int priority)
         {
             int oldSize = Size;
