@@ -37,11 +37,6 @@ namespace LocalApp
             try
             {
                 result.Initialize(progressBar.GetIncrementAction());
-
-                // TODO Finish me
-
-
-
                 _logInstance.Event(_runGuid, "Completed recollection.");
             }
             catch (MapFileException ex)

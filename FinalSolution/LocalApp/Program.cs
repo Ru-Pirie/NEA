@@ -84,7 +84,7 @@ namespace LocalApp
             Guid runGuid = Logger.CreateRun();
             menu.ClearUserSection();
 
-            logger.Event(runGuid, $"Begining recall of map file (Run Id: {runGuid})");
+            logger.Event(runGuid, $"Beginning recall of map file (Run Id: {runGuid})");
 
             SaveFile saveFile = new SaveFile(menu, logger, runGuid);
                 

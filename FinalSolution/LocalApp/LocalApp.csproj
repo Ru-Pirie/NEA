@@ -47,19 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsyncEdgeDetection.cs" />
+    <Compile Include="Processes\AsyncEdgeDetection.cs" />
     <Compile Include="CLI\Input.cs" />
     <Compile Include="CLI\Log.cs" />
     <Compile Include="CLI\Menu.cs" />
     <Compile Include="CLI\ProgressBar.cs" />
     <Compile Include="CLI\TextWall.cs" />
     <Compile Include="CLI\Settings.cs" />
-    <Compile Include="NewImage.cs" />
+    <Compile Include="Actions\NewImage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaveFile.cs" />
-    <Compile Include="SettingsControl.cs" />
-    <Compile Include="SyncEdgeDetection.cs" />
+    <Compile Include="Actions\SaveFile.cs" />
+    <Compile Include="Actions\SettingsControl.cs" />
+    <Compile Include="Processes\SyncEdgeDetection.cs" />
     <Compile Include="WindowsForms\PathfindImageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,5 +93,6 @@
       <DependentUpon>ViewImageForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
