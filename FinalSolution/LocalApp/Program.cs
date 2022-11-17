@@ -81,14 +81,13 @@ namespace LocalApp
         private static void RunSaveFile(Menu menu, Log logger)
         {
             Input inputHandel = new Input(menu);
-
             Guid runGuid = Logger.CreateRun();
-            menu.ClearUserSection();
 
+            menu.ClearUserSection();
             logger.Event(runGuid, $"Beginning recall of map file (Run Id: {runGuid})");
 
             SaveFile saveFile = new SaveFile(menu, logger, runGuid);
-                
+
             try
             {
                 MapFile recalledMap = saveFile.Read();
@@ -97,13 +96,13 @@ namespace LocalApp
 
 
                 // use for settings testing
-                //double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
+                double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
 
-                //Graph<Structures.Coord> myGraph = doubles.ToGraph();
-                //Traversal<Structures.Coord> traversal = new Traversal<Structures.Coord>(myGraph);
+                Graph<Structures.Coord> myGraph = doubles.ToGraph();
+                Traversal<Structures.Coord> traversal = new Traversal<Structures.Coord>(myGraph);
 
-                //PathfindImageForm myForm = new PathfindImageForm(recalledMap.OriginalImage, traversal, myGraph);
-                //myForm.ShowDialog();
+                PathfindImageForm myForm = new PathfindImageForm(recalledMap.OriginalImage, traversal, myGraph);
+                myForm.ShowDialog();
 
 
 
@@ -272,7 +271,7 @@ namespace LocalApp
                     Structures.Coord start = new Structures.Coord { X = 0, Y = 0 };
                     Structures.Coord goal = new Structures.Coord { X = 150, Y = 105 };
 
-                    Structures.Coord[] res = Utility.RebuildPath(testTraversal.Dijkstra(start, (_) => 1), goal);
+                    Structures.Coord[] res = Utility.RebuildPath(testTraversal.Dijkstra(start, goal, false), goal);
 
 
                     Bitmap testOut = new Bitmap(testImage);

@@ -1,7 +1,6 @@
 ﻿using BackendLib.Datatypes;
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 
 namespace BackendLib.Data
 {
@@ -80,12 +79,7 @@ namespace BackendLib.Data
             return path.ToArray();
         }
 
-        public T[] AStar(T start, T goal)
-        {
-            return new T[1];
-        }
-
-        public Dictionary<T, T> Dijkstra(T start, Func<T, int> weightFunction)
+        public Dictionary<T, T> AStar(T start, T goal, Func<T, T, int> weightFunction)
         {
             Dictionary<T, int> dist = new Dictionary<T, int>();
             Dictionary<T, T> prev = new Dictionary<T, T>();
@@ -106,6 +100,54 @@ namespace BackendLib.Data
             while (queue.Size > 0)
             {
                 T minVertex = queue.Dequeue();
+
+                if (Equals(minVertex, goal)) return prev;
+
+                List<T> adjacent = _graph.GetNode(minVertex);
+
+                foreach (var neighbor in adjacent)
+                {
+                    if (queue.Contains(neighbor))
+                    {
+                        int alternateWeight = dist[minVertex] + weightFunction(goal, neighbor);
+                        if (alternateWeight < dist[neighbor])
+                        {
+                            dist[neighbor] = alternateWeight;
+                            if (prev.ContainsKey(neighbor)) prev[neighbor] = minVertex;
+                            else prev.Add(neighbor, minVertex);
+                            queue.ChangePriority(neighbor, alternateWeight);
+                        }
+                    }
+                }
+            }
+
+            return new Dictionary<T, T>();
+        }
+
+        public Dictionary<T, T> Dijkstra(T start, T goal, bool endOnFind)
+        {
+            Dictionary<T, int> dist = new Dictionary<T, int>();
+            Dictionary<T, T> prev = new Dictionary<T, T>();
+            dist.Add(start, 0);
+
+            MinPriorityQueue<T> queue = new MinPriorityQueue<T>();
+
+            T[] nodes = _graph.GetAllNodes();
+            foreach (T node in nodes)
+            {
+                if (_graph.GetNode(node).Count > 0)
+                {
+                    if (!Equals(start, node)) dist.Add(node, int.MaxValue);
+                    queue.Enqueue(node, dist[node]);
+                }
+            }
+
+            while (queue.Size > 0)
+            {
+                T minVertex = queue.Dequeue();
+
+                if (Equals(minVertex, goal) && endOnFind) return prev;
+
                 List<T> adjacent = _graph.GetNode(minVertex);
 
                 foreach (var neighbor in adjacent)
@@ -113,7 +155,7 @@ namespace BackendLib.Data
 
                     if (queue.Contains(neighbor))
                     {
-                        int alternateWeight = dist[minVertex] + weightFunction(neighbor);
+                        int alternateWeight = dist[minVertex] + 1;
                         if (alternateWeight < dist[neighbor])
                         {
                             dist[neighbor] = alternateWeight;

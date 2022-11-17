@@ -55,6 +55,7 @@
     <Compile Include="CLI\TextWall.cs" />
     <Compile Include="CLI\Settings.cs" />
     <Compile Include="Actions\NewImage.cs" />
+    <Compile Include="Processes\Pathfinder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Actions\SaveFile.cs" />
