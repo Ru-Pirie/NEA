@@ -36,6 +36,7 @@
             this.textBox = new System.Windows.Forms.RichTextBox();
             this.workingButton = new System.Windows.Forms.Button();
             this.runningBox = new System.Windows.Forms.RichTextBox();
+            this.nodeBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,12 +128,25 @@
             this.runningBox.TabIndex = 6;
             this.runningBox.Text = "If you see this then an error has occured please see logs for more information.";
             // 
+            // nodeBox
+            // 
+            this.nodeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+            this.nodeBox.Font = new System.Drawing.Font("Lucida Console", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nodeBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.nodeBox.Location = new System.Drawing.Point(12, 597);
+            this.nodeBox.Name = "nodeBox";
+            this.nodeBox.ReadOnly = true;
+            this.nodeBox.Size = new System.Drawing.Size(281, 52);
+            this.nodeBox.TabIndex = 7;
+            this.nodeBox.Text = "NODE COUNT";
+            // 
             // PathfindImageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.nodeBox);
             this.Controls.Add(this.runningBox);
             this.Controls.Add(this.workingButton);
             this.Controls.Add(this.textBox);
@@ -157,5 +171,6 @@
         private System.Windows.Forms.RichTextBox textBox;
         private System.Windows.Forms.Button workingButton;
         private System.Windows.Forms.RichTextBox runningBox;
+        private System.Windows.Forms.RichTextBox nodeBox;
     }
 }

@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Net;
 using System.Text.RegularExpressions;
 
 namespace BackendLib
@@ -154,7 +153,7 @@ namespace BackendLib
             if (prev == null) return new T[1];
             List<T> sequence = new List<T>();
             T u = goal;
-        
+
             while (prev.ContainsKey(u))
             {
                 sequence.Insert(0, u);
@@ -169,11 +168,11 @@ namespace BackendLib
         {
             throw new NotImplementedException();
             // TODO: Add checks for class
-             //if (opts.KernelSize % 2 != 1) return false;
-             //if (opts.UpperThreshold < opts.LowerThreshold) return false;
-             //if (opts.UpperThreshold <= 0) return false;
-             //if (opts.LowerThreshold >= 1) return false;
-             //if (opts.BlueRatio + opts.RedRatio + opts.GreenRatio > 1) return false;
+            //if (opts.KernelSize % 2 != 1) return false;
+            //if (opts.UpperThreshold < opts.LowerThreshold) return false;
+            //if (opts.UpperThreshold <= 0) return false;
+            //if (opts.LowerThreshold >= 1) return false;
+            //if (opts.BlueRatio + opts.RedRatio + opts.GreenRatio > 1) return false;
 
             return true;
         }
@@ -186,5 +185,8 @@ namespace BackendLib
         public static double GetAverage(Color pixel) => (pixel.R + pixel.G + pixel.B) / 3.0;
         public static double GetIndustryAverage(Color pixel) => (pixel.R * 0.299) + (pixel.G * 0.586) + (pixel.B * 0.114);
         public static double GetIfExists(Color pixel) => GetAverage(pixel) > 0 ? 255 : 0;
+
+        public static double GetDistanceBetweenNodes(Structures.Coord a, Structures.Coord b) =>
+            Math.Sqrt(Math.Pow(a.X - b.X, 2) + Math.Pow(a.Y - b.Y, 2));
     }
 }

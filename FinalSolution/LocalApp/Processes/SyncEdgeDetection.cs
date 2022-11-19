@@ -1,11 +1,10 @@
 ﻿using BackendLib;
 using BackendLib.Interfaces;
+using BackendLib.Processing;
 using LocalApp.CLI;
+using LocalApp.WindowsForms;
 using System;
 using System.Drawing;
-using System.Runtime.CompilerServices;
-using BackendLib.Processing;
-using LocalApp.WindowsForms;
 
 namespace LocalApp
 {
@@ -62,8 +61,8 @@ namespace LocalApp
             double[,] gradientDirections = _detector.GradientAngle(grads);
             double[,] gradCopy = gradientDirections;
             for (int y = 0; y < gradientDirections.GetLength(0); y++)
-            for (int x = 0; x < gradientDirections.GetLength(1); x++)
-                gradCopy[y, x] = Utility.MapRadiansToPixel(gradientDirections[y, x]);
+                for (int x = 0; x < gradientDirections.GetLength(1); x++)
+                    gradCopy[y, x] = Utility.MapRadiansToPixel(gradientDirections[y, x]);
             ViewImageForm gradientDirectionForm = new ViewImageForm(gradCopy.ToBitmap());
             gradientDirectionForm.ShowDialog();
 
@@ -111,7 +110,7 @@ namespace LocalApp
         private Structures.ThresholdPixel[,] DoubleThresholdStep()
         {
             bool happy = false;
-            Structures.ThresholdPixel[,] _workingThresholdPixels = new Structures.ThresholdPixel[0,0];
+            Structures.ThresholdPixel[,] _workingThresholdPixels = new Structures.ThresholdPixel[0, 0];
 
             _menuInstance.WriteLine($"The 8th stage of Canny Edge Detection is applying a double threshold. It is made up of two parameters a lower and upper threshold.");
 

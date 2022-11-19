@@ -79,11 +79,11 @@ namespace LocalApp
 
         private void General()
         {
-            (string, bool)[] settings = new(string, bool)[] {
+            (string, bool)[] settings = new (string, bool)[] {
                 ( "detailedLogging", bool.Parse(Settings.UserSettings["detailedLogging"].Item1)),
                 ( "forceFormsFront", bool.Parse(Settings.UserSettings["forceFormsFront"].Item1)),
             };
-            
+
             IEnumerable<(string, bool)> result = _inputHandel.OptionSelector("General Settings:", settings);
             foreach (var item in result) _settings.Change(item.Item1, item.Item2);
         }

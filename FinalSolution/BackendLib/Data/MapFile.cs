@@ -20,7 +20,8 @@ namespace BackendLib.Data
         public Bitmap OriginalImage { get; set; }
         public Bitmap CombinedImage { get; set; }
 
-        public MapFile() { 
+        public MapFile()
+        {
             TimeCreated = DateTimeOffset.Now;
         }
 
@@ -85,7 +86,7 @@ namespace BackendLib.Data
         }
 
         public void Save(Guid currentGuid)
-       {
+        {
             using (BinaryWriter bw = new BinaryWriter(File.Open($"./saves/{currentGuid}.vmap", FileMode.OpenOrCreate)))
             {
                 bw.Write(TimeCreated.ToUnixTimeMilliseconds().ToString());
@@ -109,14 +110,14 @@ namespace BackendLib.Data
                                 if (j == 0)
                                 {
                                     if (i == 0) bw.Write(OriginalImage.GetPixel(x, y).R);
-                                    else if(i == 1) bw.Write(OriginalImage.GetPixel(x, y).G);
-                                    else if(i == 2) bw.Write(OriginalImage.GetPixel(x, y).B);
+                                    else if (i == 1) bw.Write(OriginalImage.GetPixel(x, y).G);
+                                    else if (i == 2) bw.Write(OriginalImage.GetPixel(x, y).B);
                                 }
                                 else if (j == 1)
                                 {
                                     if (i == 0) bw.Write(PathImage.GetPixel(x, y).R);
-                                    else if(i == 1) bw.Write(PathImage.GetPixel(x, y).G);
-                                    else if(i == 2) bw.Write(PathImage.GetPixel(x, y).B);
+                                    else if (i == 1) bw.Write(PathImage.GetPixel(x, y).G);
+                                    else if (i == 2) bw.Write(PathImage.GetPixel(x, y).B);
                                 }
                                 else if (j == 2)
                                 {

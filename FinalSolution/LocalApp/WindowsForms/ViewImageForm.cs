@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocalApp.CLI;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -33,7 +34,7 @@ namespace LocalApp.WindowsForms
             Location = new Point(0, 25);
 
             // Always on top
-            TopMost = true;
+            if (bool.Parse(Settings.UserSettings["forceFormsFront"].Item1)) TopMost = true;
 
             // set picture frame
             imageBox.Width = _width * 2 / 3 - 12;

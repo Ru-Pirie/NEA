@@ -39,7 +39,7 @@ namespace LocalApp
                 int opt = inputHandel.GetOption("Please select an option to continue:",
                     new[]
                     {
-                        "Process New Image Into Map Data File", "Recall Map From Data File", "Settings", "Exit Program", "DONT CLICK HEREᯅ"
+                        "Process New Image Into Map Data File", "Recall Map From Data File", "Settings", "Exit Programᯅ"
                     });
 
                 switch (opt)
@@ -71,24 +71,23 @@ namespace LocalApp
                     case 3:
                         running = false;
                         break;
-                    case 4:
-                        DevTest(ref menuInstance, ref inputHandel, ref CLILoggingInstance);
-                        break;
                 }
             }
         }
 
+        private static double GetDistanceBetweenNodes(Structures.Coord start, Structures.Coord goal) => Utility.GetDistanceBetweenNodes(start, goal);
+
+
         private static void RunSaveFile(Menu menu, Log logger)
         {
             Input inputHandel = new Input(menu);
-
             Guid runGuid = Logger.CreateRun();
-            menu.ClearUserSection();
 
+            menu.ClearUserSection();
             logger.Event(runGuid, $"Beginning recall of map file (Run Id: {runGuid})");
 
             SaveFile saveFile = new SaveFile(menu, logger, runGuid);
-                
+
             try
             {
                 MapFile recalledMap = saveFile.Read();
@@ -97,13 +96,29 @@ namespace LocalApp
 
 
                 // use for settings testing
-                //double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
+                double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
 
-                //Graph<Structures.Coord> myGraph = doubles.ToGraph();
-                //Traversal<Structures.Coord> traversal = new Traversal<Structures.Coord>(myGraph);
+                Graph<Structures.Coord> myGraph = doubles.ToGraph();
+                Traversal<Structures.Coord> traversal = new Traversal<Structures.Coord>(myGraph);
 
-                //PathfindImageForm myForm = new PathfindImageForm(recalledMap.OriginalImage, traversal, myGraph);
-                //myForm.ShowDialog();
+                Bitmap toSave = new Bitmap(recalledMap.OriginalImage);
+
+                //var start = new Structures.Coord{ X = 122, Y = 1 };
+                //var end = new Structures.Coord{X=360, Y=509};
+                //var visitedOrder = traversal.ModifiedAStar(start, end, GetDistanceBetweenNodes);
+
+                //for (int i = 0; i < visitedOrder.Count; i++)
+                //{
+                //    if (i % 1 == 0)
+                //    {
+                //        Logger.SaveBitmap(runGuid, toSave, $"aStarTest{i}");
+                //        toSave.SetPixel(visitedOrder[i].X, visitedOrder[i].Y, Color.Purple);
+                //    }
+                //}
+
+
+                PathfindImageForm myForm = new PathfindImageForm(recalledMap.OriginalImage, traversal, myGraph);
+                myForm.ShowDialog();
 
 
 
@@ -201,89 +216,6 @@ namespace LocalApp
             catch (Exception ex)
             {
                 logger.EndError(runGuid, ex);
-            }
-        }
-
-
-
-
-
-        // The unloved child of my code to be removed at some point
-        private static void DevTest(ref Menu m, ref Input i, ref Log l)
-        {
-            int opt = i.GetOption("Dev Test Options",
-                new[] { "Wipe logs and run files including all saves for testing", "Min Queue Test because dijkstra bork", "test settings file PLEASE", "Test Dijkstra to see if worke" });
-
-            switch (opt)
-            {
-                // wipe logs
-                case 0:
-                    Directory.Delete("./logs", true);
-                    Directory.Delete("./runs", true);
-                    Directory.Delete("./saves", true);
-                    _ = new Logger(true);
-
-                    break;
-
-
-                // run auto demo
-                case 1:
-                    MinPriorityQueue<string> priorityQueue = new MinPriorityQueue<string>();
-                    priorityQueue.Enqueue("a", 5);
-                    priorityQueue.Enqueue("b", 10);
-                    priorityQueue.Enqueue("c", 1);
-                    priorityQueue.Enqueue("d", 3);
-
-                    for (int ad = 0; ad < 2; ad++)
-                    {
-                        Console.WriteLine(priorityQueue.Dequeue());
-                    }
-
-                    priorityQueue.Enqueue("bob", 2);
-                    priorityQueue.Enqueue("super bob", 100);
-                    priorityQueue.ChangePriority("b", 200);
-
-                    for (int ad = 0; ad < 4; ad++)
-                    {
-                        Console.WriteLine(priorityQueue.Dequeue());
-                    }
-
-
-                    i.WaitInput("");
-
-                    break;
-                case 2:
-                    m.WriteLine(Settings.UserSettings["forceFormsFront"].Item1);
-                    i.WaitInput("");
-
-                    break;
-
-
-                case 3:
-                    Bitmap testImage = new Bitmap("test.png");
-                    Graph<Structures.Coord> testGraph = testImage.ToDoubles(Utility.GetIfExists).ToGraph();
-
-                    Traversal<Structures.Coord> testTraversal = new Traversal<Structures.Coord>(testGraph);
-
-                    PathfindImageForm myForm = new PathfindImageForm(testImage, testTraversal, testGraph);
-                    myForm.ShowDialog();
-
-
-                    Structures.Coord start = new Structures.Coord { X = 0, Y = 0 };
-                    Structures.Coord goal = new Structures.Coord { X = 150, Y = 105 };
-
-                    Structures.Coord[] res = Utility.RebuildPath(testTraversal.Dijkstra(start, (_) => 1), goal);
-
-
-                    Bitmap testOut = new Bitmap(testImage);
-                    foreach (var node in res)
-                    {
-                        testOut.SetPixel(node.X, node.Y, Color.Blue);
-                    }
-
-                    testOut.Save("testOut.png");
-
-                    break;
             }
         }
     }

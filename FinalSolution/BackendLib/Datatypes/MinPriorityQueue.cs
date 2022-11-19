@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BackendLib.Datatypes
 {
     public class MinPriorityQueue<T>
     {
-        private List<int> _priorityQueue = new List<int>();
+        private List<double> _priorityQueue = new List<double>();
         private List<T> _queue = new List<T>();
 
         public int Size => _priorityQueue.Count;
@@ -21,7 +16,7 @@ namespace BackendLib.Datatypes
         private int Left(int index) => (2 * index) + 1;
         private int Right(int index) => (2 * index) + 2;
 
-        public void Enqueue(T value, int priority)
+        public void Enqueue(T value, double priority)
         {
             int oldSize = Size;
 
@@ -35,25 +30,28 @@ namespace BackendLib.Datatypes
             }
         }
 
-        public void ChangePriority(T item, int newPriority)
+        public void ChangePriority(T item, double newPriority)
         {
             int index = _queue.FindIndex(i => Equals(i, item));
-
-            if (_priorityQueue[index] > newPriority)
+            if (index > -1)
             {
-                _priorityQueue[index] = newPriority;
-
-                while (index != 0 && _priorityQueue[index] < _priorityQueue[Parent(index)])
+                if (_priorityQueue[index] > newPriority)
                 {
-                    Swap(index, Parent(index));
-                    index = Parent(index);
+                    _priorityQueue[index] = newPriority;
+
+                    while (index != 0 && _priorityQueue[index] < _priorityQueue[Parent(index)])
+                    {
+                        Swap(index, Parent(index));
+                        index = Parent(index);
+                    }
+                }
+                else
+                {
+                    _priorityQueue[index] = newPriority;
+                    MinifyHeap(index);
                 }
             }
-            else
-            {
-                _priorityQueue[index] = newPriority;
-                MinifyHeap(index);
-            }
+
         }
 
         public T Dequeue()
@@ -61,10 +59,10 @@ namespace BackendLib.Datatypes
             if (Size == 1)
             {
                 T val = _queue[0];
-             
+
                 _queue.RemoveAt(0);
                 _priorityQueue.RemoveAt(0);
-                
+
                 return val;
             }
 
@@ -104,7 +102,7 @@ namespace BackendLib.Datatypes
             _queue[indexX] = _queue[indexY];
             _queue[indexY] = tempValue;
 
-            int tempPriority = _priorityQueue[indexX];
+            double tempPriority = _priorityQueue[indexX];
             _priorityQueue[indexX] = _priorityQueue[indexY];
             _priorityQueue[indexY] = tempPriority;
         }

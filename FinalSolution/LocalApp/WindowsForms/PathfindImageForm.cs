@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Windows.Forms;
-using BackendLib;
+﻿using BackendLib;
 using BackendLib.Data;
 using BackendLib.Datatypes;
 using LocalApp.CLI;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace LocalApp.WindowsForms
 {
     public partial class PathfindImageForm : Form
     {
-        private readonly Structures.Coord invalidCord = new Structures.Coord { X=-1, Y=-1 };
+        private readonly Structures.Coord invalidCord = new Structures.Coord { X = -1, Y = -1 };
 
         private Bitmap _image;
         private readonly Bitmap _originalImage;
@@ -24,7 +24,7 @@ namespace LocalApp.WindowsForms
 
         private Structures.Coord prevStartNode;
         private Structures.Coord startNode = new Structures.Coord { X = -1, Y = -1 };
-        private Structures.Coord endNode = new Structures.Coord{X=-1, Y=-1};
+        private Structures.Coord endNode = new Structures.Coord { X = -1, Y = -1 };
 
         private Dictionary<Structures.Coord, Structures.Coord> _preCalculatedTree;
 
@@ -56,7 +56,7 @@ namespace LocalApp.WindowsForms
             Location = new Point(0, 25);
 
             // Always on top
-            TopMost = true;
+            if (bool.Parse(Settings.UserSettings["forceFormsFront"].Item1)) TopMost = true;
 
             // set picture frame
             imageBox.Width = _width * 2 / 3 - 12;
@@ -88,7 +88,7 @@ namespace LocalApp.WindowsForms
             runningBox.Left = _width * 2 / 3 + 12;
             runningBox.Visible = false;
             SetRunningBox();
-             
+
             // Set working button
             workingButton.Width = _width / 3 - 24;
             workingButton.Height = _height / 2 - 12;
@@ -100,9 +100,9 @@ namespace LocalApp.WindowsForms
         private Structures.Coord ConvertImageBoxToBitmapCord(Point location)
         {
             int x = (int)(((double)_image.Width / imageBox.Width) * location.X);
-            int y = (int)(((double)_image.Height/ imageBox.Height) * location.Y);
+            int y = (int)(((double)_image.Height / imageBox.Height) * location.Y);
 
-            return new Structures.Coord { X=x, Y=y };
+            return new Structures.Coord { X = x, Y = y };
         }
 
         private void RedrawImage()
@@ -110,7 +110,7 @@ namespace LocalApp.WindowsForms
             _image = new Bitmap(_originalImage);
             if (startNode != invalidCord)
             {
-                if (_graph.GetNode(startNode).Count == 0 && bool.Parse(Settings.UserSettings["snapToGrid"].Item1))
+                if (!_graph.ContainsNode(startNode) && bool.Parse(Settings.UserSettings["snapToGrid"].Item1))
                 {
                     double value = Double.MaxValue;
                     Structures.Coord smallest = new Structures.Coord { X = int.MaxValue, Y = int.MaxValue };
@@ -132,7 +132,7 @@ namespace LocalApp.WindowsForms
 
             if (endNode != invalidCord)
             {
-                if (_graph.GetNode(endNode).Count == 0 && bool.Parse(Settings.UserSettings["snapToGrid"].Item1))
+                if (!_graph.ContainsNode(endNode) && bool.Parse(Settings.UserSettings["snapToGrid"].Item1))
                 {
                     double value = Double.MaxValue;
                     Structures.Coord smallest = new Structures.Coord { X = int.MaxValue, Y = int.MaxValue };
@@ -198,6 +198,8 @@ namespace LocalApp.WindowsForms
             Close();
         }
 
+
+
         private void SetRunningBox()
         {
             string snapWarning = String.Empty;
@@ -205,7 +207,7 @@ namespace LocalApp.WindowsForms
                 snapWarning = "(Warning can cause broken routes. To change goto settings -> pathfinding -> snapToGrid)\n";
 
             string mstWarning = String.Empty;
-            if (!bool.Parse(Settings.UserSettings["convertToMST"].Item1))
+            if (bool.Parse(Settings.UserSettings["convertToMST"].Item1))
                 mstWarning = "(Warning can cause non-optimal routes. To change goto settings -> pathfinding -> convertToMST)\n";
 
             string endWarning = String.Empty;
@@ -213,14 +215,25 @@ namespace LocalApp.WindowsForms
                 endWarning = "(Warning causes longer times from different start nodes. To change goto settings -> pathfinding -> endOnFind)\n";
 
 
-            runningBox.Text =  "Current Pathfinding Settings\n\n" +
+            runningBox.Text = "Current Pathfinding Settings\n\n" +
                               $"\nAlgorithm: {Settings.UserSettings["pathfindingAlgorithm"].Item1}" +
-                              $"\n\nUsing Minimum Spanning Tree: {Settings.UserSettings["convertToMST"].Item1}" +
+                              $"\n\nUsing Minimum Spanning Tree: {(Settings.UserSettings["convertToMST"].Item1 == "true" ? "Yes" : "No")}" +
                               $"\n{mstWarning}" +
-                              $"\nSnapping to grid: {Settings.UserSettings["snapToGrid"].Item1}" +
+                              $"\nSnapping to grid: {(Settings.UserSettings["snapToGrid"].Item1 == "true" ? "Yes" : "No")}" +
                               $"\n{snapWarning}" +
-                              $"\nEnd pathfinding on Finding End: {Settings.UserSettings["endOnFind"].Item1}" +
+                              $"\nEnd pathfinding on Finding End (Dijkstra Only): {(Settings.UserSettings["endOnFind"].Item1 == "true" ? "Yes" : "No")}" +
                               $"\n{endWarning}";
+        }
+
+        private int GetDistanceBetweenNodes(Structures.Coord start, Structures.Coord goal) => (int)Utility.GetDistanceBetweenNodes(start, goal);
+
+        private int nodes;
+
+        private void UpdateNodes()
+        {
+            nodes++;
+            nodeBox.Text = $"{nodes}/{_graph.GetAllNodes().Length}";
+            Update();
         }
 
         private void goButton_Click(object sender, EventArgs e)
@@ -232,9 +245,34 @@ namespace LocalApp.WindowsForms
 
             if (startNode != invalidCord && endNode != invalidCord)
             {
-                if (prevStartNode != startNode && startNode != endNode)
+                if (Settings.UserSettings["pathfindingAlgorithm"].Item1.ToLower() == "dijkstra")
                 {
-                    Dictionary<Structures.Coord, Structures.Coord> tree = _traversalObject.Dijkstra(startNode, (_) => 1);
+                    if (prevStartNode != startNode && startNode != endNode || bool.Parse(Settings.UserSettings["endOnFind"].Item1) == true)
+                    {
+                        Dictionary<Structures.Coord, Structures.Coord> tree = _traversalObject.Dijkstra(startNode, endNode, bool.Parse(Settings.UserSettings["endOnFind"].Item1), UpdateNodes);
+                        Structures.Coord[] path = Utility.RebuildPath(tree, endNode);
+                        foreach (Structures.Coord node in path)
+                        {
+                            _image.SetPixel(node.X, node.Y, Color.BlueViolet);
+                            imageBox.Image = _image;
+                        }
+
+                        _preCalculatedTree = tree;
+                    }
+                    else if (prevStartNode == startNode && startNode != endNode)
+                    {
+                        Structures.Coord[] path = Utility.RebuildPath(_preCalculatedTree, endNode);
+                        foreach (Structures.Coord node in path)
+                        {
+                            _image.SetPixel(node.X, node.Y, Color.BlueViolet);
+                            imageBox.Image = _image;
+
+                        }
+                    }
+                }
+                else if (Settings.UserSettings["pathfindingAlgorithm"].Item1.ToLower() == "astar")
+                {
+                    Dictionary<Structures.Coord, Structures.Coord> tree = _traversalObject.AStar(startNode, endNode, GetDistanceBetweenNodes);
                     Structures.Coord[] path = Utility.RebuildPath(tree, endNode);
                     foreach (Structures.Coord node in path)
                     {
@@ -243,22 +281,14 @@ namespace LocalApp.WindowsForms
                     }
 
                     _preCalculatedTree = tree;
-                }
-                else if (prevStartNode == startNode && startNode != endNode)
-                {
-                    Structures.Coord[] path = Utility.RebuildPath(_preCalculatedTree, endNode);
-                    foreach (Structures.Coord node in path)
-                    {
-                        _image.SetPixel(node.X, node.Y, Color.BlueViolet);
-                        imageBox.Image = _image;
-                    }
-                }
-            }
 
-            prevStartNode = startNode;
-            workingButton.Visible = !workingButton.Visible;
-            textBox.Visible = true;
-            runningBox.Visible = false;
+                }
+
+                prevStartNode = startNode;
+                workingButton.Visible = !workingButton.Visible;
+                textBox.Visible = true;
+                runningBox.Visible = false;
+            }
         }
     }
 }

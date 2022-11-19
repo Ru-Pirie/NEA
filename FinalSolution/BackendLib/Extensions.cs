@@ -1,6 +1,7 @@
 ﻿using BackendLib.Datatypes;
 using System;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 
 namespace BackendLib
 {
@@ -45,7 +46,7 @@ namespace BackendLib
             {
                 for (int x = 0; x < array.GetLength(1); x++)
                 {
-                    output.SetPixel(x, y, Color.FromArgb((int)array[y,x].R, (int)array[y, x].G, (int)array[y, x].B));
+                    output.SetPixel(x, y, Color.FromArgb((int)array[y, x].R, (int)array[y, x].G, (int)array[y, x].B));
                 }
             }
 
@@ -65,14 +66,22 @@ namespace BackendLib
                     output.AddNode(tempCord);
 
                     double[,] surroundingDoubles = masterKernel.Constant(x, y, 3, 0);
+
+                    bool found = false;
+
                     if (doubles[y, x] == 255)
                     {
                         for (int i = 0; i < 9; i++)
                         {
                             if (surroundingDoubles[i / 3, i % 3] != 0 && i != 4)
+                            {
                                 output.AddConnection(tempCord, new Structures.Coord { X = (x + (i % 3)) - 1, Y = (y + (i / 3)) - 1 });
+                                found = true;
+                            }
                         }
                     }
+
+                    if (!found) output.RemoveNode(tempCord);
                 }
             }
 

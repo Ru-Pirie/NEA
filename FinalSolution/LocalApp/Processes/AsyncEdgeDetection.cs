@@ -4,7 +4,6 @@ using BackendLib.Processing;
 using LocalApp.CLI;
 using System;
 using System.Drawing;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Menu = LocalApp.CLI.Menu;
 using ProgressBar = LocalApp.CLI.ProgressBar;
@@ -57,7 +56,7 @@ namespace LocalApp
 
             ProgressBar pb = new ProgressBar("Canny Edge Detection", 36, _menuInstance);
             pb.DisplayProgress();
-            
+
             for (int i = 0; i < quads.Length; i++)
             {
                 // Overcome Capture Condition
@@ -132,8 +131,8 @@ namespace LocalApp
             if (saveTemp)
             {
                 for (int y = 0; y < angleGrads.GetLength(0); y++)
-                for (int x = 0; x < angleGrads.GetLength(1); x++)
-                    workingArray[y, x] = Utility.MapRadiansToPixel(angleGrads[y, x]);
+                    for (int x = 0; x < angleGrads.GetLength(1); x++)
+                        workingArray[y, x] = Utility.MapRadiansToPixel(angleGrads[y, x]);
 
                 Logger.SaveBitmap(_runGuid, workingArray, $"AngleGradientsQuad{letter}");
             }
@@ -153,9 +152,9 @@ namespace LocalApp
                 {
                     for (int x = 0; x < thresholdArray.GetLength(1); x++)
                     {
-                        if (thresholdArray[y,x].Strong) toSave.SetPixel(x,y, Color.Green);
-                        else if (!thresholdArray[y,x].Strong && thresholdArray[y,x].Value != 0) toSave.SetPixel(x,y, Color.Red);
-                        else toSave.SetPixel(x,y, Color.Black);
+                        if (thresholdArray[y, x].Strong) toSave.SetPixel(x, y, Color.Green);
+                        else if (!thresholdArray[y, x].Strong && thresholdArray[y, x].Value != 0) toSave.SetPixel(x, y, Color.Red);
+                        else toSave.SetPixel(x, y, Color.Black);
                     }
                 }
                 Logger.SaveBitmap(_runGuid, toSave, $"ThresholdPixelsQuad{letter}");

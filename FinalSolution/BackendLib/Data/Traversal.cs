@@ -1,7 +1,7 @@
 ﻿using BackendLib.Datatypes;
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace BackendLib.Data
 {
@@ -80,14 +80,51 @@ namespace BackendLib.Data
             return path.ToArray();
         }
 
-        public T[] AStar(T start, T goal)
+        public Dictionary<T, T> AStar(T start, T goal, Func<T, T, int> weightFunction)
         {
-            return new T[1];
+            Dictionary<T, double> dist = new Dictionary<T, double>();
+            Dictionary<T, T> prev = new Dictionary<T, T>();
+
+            MinPriorityQueue<T> queue = new MinPriorityQueue<T>();
+
+            queue.Enqueue(start, weightFunction(start, goal));
+            dist.Add(start, 0);
+
+            foreach (T node in _graph.GetAllNodes())
+            {
+                if (!Equals(node, start))
+                {
+                    dist.Add(node, double.MaxValue);
+                    queue.Enqueue(node, double.MaxValue);
+                }
+            }
+
+
+            while (queue.Size > 0)
+            {
+                T current = queue.Dequeue();
+                if (Equals(current, goal)) return prev;
+
+                foreach (T neighbor in _graph.GetNode(current))
+                {
+                    double tentative = dist[current] + 1;
+                    if (tentative < dist[neighbor])
+                    {
+                        dist[neighbor] = tentative;
+                        if (prev.ContainsKey(neighbor)) prev[neighbor] = current;
+                        else prev.Add(neighbor, current);
+                        queue.ChangePriority(neighbor, tentative + weightFunction(neighbor, goal));
+                    }
+                }
+            }
+            
+
+            return new Dictionary<T, T>();
         }
 
-        public Dictionary<T, T> Dijkstra(T start, Func<T, int> weightFunction)
+        public Dictionary<T, T> Dijkstra(T start, T goal, bool endOnFind, Action nodeUpdate)
         {
-            Dictionary<T, int> dist = new Dictionary<T, int>();
+            Dictionary<T, double> dist = new Dictionary<T, double>();
             Dictionary<T, T> prev = new Dictionary<T, T>();
             dist.Add(start, 0);
 
@@ -98,7 +135,7 @@ namespace BackendLib.Data
             {
                 if (_graph.GetNode(node).Count > 0)
                 {
-                    if (!Equals(start, node)) dist.Add(node, int.MaxValue);
+                    if (!Equals(start, node)) dist.Add(node, double.MaxValue);
                     queue.Enqueue(node, dist[node]);
                 }
             }
@@ -106,6 +143,9 @@ namespace BackendLib.Data
             while (queue.Size > 0)
             {
                 T minVertex = queue.Dequeue();
+                nodeUpdate();
+                if (Equals(minVertex, goal) && endOnFind) return prev;
+
                 List<T> adjacent = _graph.GetNode(minVertex);
 
                 foreach (var neighbor in adjacent)
@@ -113,7 +153,7 @@ namespace BackendLib.Data
 
                     if (queue.Contains(neighbor))
                     {
-                        int alternateWeight = dist[minVertex] + weightFunction(neighbor);
+                        double alternateWeight = dist[minVertex] + 1;
                         if (alternateWeight < dist[neighbor])
                         {
                             dist[neighbor] = alternateWeight;
@@ -127,5 +167,50 @@ namespace BackendLib.Data
 
             return prev;
         }
+
+
+        public List<T> ModifiedAStar(T start, T goal, Func<T, T, double> weightFunction)
+        {
+            List<T> orderVisited = new List<T>();
+
+            Dictionary<T, double> dist = new Dictionary<T, double>();
+            Dictionary<T, T> prev = new Dictionary<T, T>();
+
+            MinPriorityQueue<T> queue = new MinPriorityQueue<T>();
+
+            queue.Enqueue(start, weightFunction(start, goal));
+            dist.Add(start, 0);
+
+            foreach (T node in _graph.GetAllNodes())
+            {
+                if (!Equals(node, start))
+                {
+                    dist.Add(node, double.MaxValue);
+                    queue.Enqueue(node, double.MaxValue);
+                }
+            }
+            
+            while (queue.Size > 0)
+            {
+                T current = queue.Dequeue();
+                orderVisited.Add(current);
+                if (Equals(current, goal)) return orderVisited;
+
+                foreach (T neighbor in _graph.GetNode(current))
+                {
+                    double tentative = dist[current] + 1;
+                    if (tentative < dist[neighbor])
+                    {
+                        dist[neighbor] = tentative;
+                        if (prev.ContainsKey(neighbor)) prev[neighbor] = current;
+                        else prev.Add(neighbor, current);
+                        if (queue.Contains(neighbor)) queue.ChangePriority(neighbor, tentative + weightFunction(neighbor, goal));
+                    }
+                }
+            }
+
+            return orderVisited;
+        }
+
     }
 }
