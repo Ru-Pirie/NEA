@@ -8,7 +8,7 @@ namespace BackendLib.Data
 {
     public class MapFile
     {
-        private readonly string _filePath;
+        public readonly string _filePath;
         private const string FileExtensionRegex = @"^([a-z]:\\|\\|[a-z]|\.\.(\\|\/)|\.(\\|\/))(([a-z]|(\\|\/))+)\.(vmap)$";
 
         public string Name { get; set; }

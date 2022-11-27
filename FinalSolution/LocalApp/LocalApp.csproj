@@ -62,6 +62,7 @@
     <Compile Include="CLI\Settings.cs" />
     <Compile Include="Actions\NewImage.cs" />
     <Compile Include="Processes\Pathfinder.cs" />
+    <Compile Include="Processes\RoadSequence.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Actions\SaveFile.cs" />
@@ -90,6 +91,7 @@
   <ItemGroup>
     <EmbeddedResource Include="WindowsForms\PathfindImageForm.resx">
       <DependentUpon>PathfindImageForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowsForms\ViewImageForm.resx">
       <DependentUpon>ViewImageForm.cs</DependentUpon>

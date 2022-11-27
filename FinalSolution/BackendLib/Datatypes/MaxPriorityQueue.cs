@@ -40,7 +40,6 @@ namespace BackendLib.Datatypes
             else ShiftNodeDown(index);
         }
 
-        //TODO make all recursion?
         private void ShiftNodeDown(int index)
         {
             int maxIndex = index;

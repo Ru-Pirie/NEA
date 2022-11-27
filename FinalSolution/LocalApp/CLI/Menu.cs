@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -197,7 +196,7 @@ namespace LocalApp.CLI
                 {
                     string toPrint = i == 0 || i == widthStart * 4 - 1 ? "+" : HorizontalChar.ToString();
                     Console.SetCursorPosition(widthStart + i, heightStart);
-                    Console.Write($"{toPrint}"); 
+                    Console.Write($"{toPrint}");
                     Console.SetCursorPosition(widthStart + i, heightStart * 2);
                     Console.Write($"{toPrint}");
                 }
@@ -222,7 +221,7 @@ namespace LocalApp.CLI
             int e = 0;
             while (messageChars.Count > 0)
             {
-                if (messages[e].Count < widthStart*3)
+                if (messages[e].Count < widthStart * 3)
                 {
                     messages[e].Add(messageChars[messageChars.Count - 1]);
                     messageChars.RemoveAt(messageChars.Count - 1);
@@ -242,14 +241,14 @@ namespace LocalApp.CLI
                 Console.Write("Reason for Error");
                 for (int i = 0; i < messages.Count; i++)
                 {
-                    Console.SetCursorPosition((widthStart * 3) - messages[i].Count/ 2, (int)(heightStart * 1.5) - (2 - i));
+                    Console.SetCursorPosition((widthStart * 3) - messages[i].Count / 2, (int)(heightStart * 1.5) - (2 - i));
                     Console.Write($"{Log.Blue}{string.Join("", messages[i])}{Log.Blank}");
                 }
                 Console.SetCursorPosition((widthStart * 3) - 18, heightStart * 2 - 2);
                 Console.Write($"{Log.Grey}(Press Enter to Return to Main Menu){Log.Blank}");
             }
 
-            
+
         }
 
         public void WriteLine(string message)

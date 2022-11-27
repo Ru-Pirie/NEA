@@ -43,8 +43,8 @@ namespace LocalApp.WindowsForms
             // Define size
             _width = Console.WindowWidth * 3 / 4 * 8;
             _height = Console.WindowHeight * 5 / 6 * 16;
-            
-            
+
+
             // Styling
             ControlBox = false;
             FormBorderStyle = FormBorderStyle.None;
@@ -121,7 +121,7 @@ namespace LocalApp.WindowsForms
             {
                 if (!_graph.ContainsNode(startNode) && bool.Parse(Settings.UserSettings["snapToGrid"].Item1))
                 {
-                    double value = Double.MaxValue;
+                    double value = double.MaxValue;
                     Structures.Coord smallest = new Structures.Coord { X = int.MaxValue, Y = int.MaxValue };
                     foreach (Structures.Coord node in _graph.GetAllNodes())
                     {
@@ -143,7 +143,7 @@ namespace LocalApp.WindowsForms
             {
                 if (!_graph.ContainsNode(endNode) && bool.Parse(Settings.UserSettings["snapToGrid"].Item1))
                 {
-                    double value = Double.MaxValue;
+                    double value = double.MaxValue;
                     Structures.Coord smallest = new Structures.Coord { X = int.MaxValue, Y = int.MaxValue };
                     foreach (Structures.Coord node in _graph.GetAllNodes())
                     {
@@ -203,18 +203,18 @@ namespace LocalApp.WindowsForms
         }
 
         private void exitButton_Click(object sender, EventArgs e) => Close();
-        
+
         private void SetRunningBox()
         {
-            string snapWarning = String.Empty;
+            string snapWarning = string.Empty;
             if (!bool.Parse(Settings.UserSettings["snapToGrid"].Item1))
                 snapWarning = "(Warning can cause broken routes. To change goto settings -> pathfinding -> snapToGrid)\n";
 
-            string mstWarning = String.Empty;
+            string mstWarning = string.Empty;
             if (bool.Parse(Settings.UserSettings["convertToMST"].Item1))
                 mstWarning = "(Warning can cause non-optimal routes. To change goto settings -> pathfinding -> convertToMST)\n";
 
-            string endWarning = String.Empty;
+            string endWarning = string.Empty;
             if (bool.Parse(Settings.UserSettings["endOnFind"].Item1))
                 endWarning = "(Warning causes longer times from different start nodes. To change goto settings -> pathfinding -> endOnFind)\n";
 

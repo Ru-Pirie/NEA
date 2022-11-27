@@ -3,7 +3,6 @@ using System.IO;
 
 namespace LocalApp.CLI
 {
-    // TODO better name for this
     public static class TextWall
     {
         public static void SaveWelcome(Menu menuInstance)
@@ -14,7 +13,8 @@ namespace LocalApp.CLI
             menuInstance.WriteLine("2. Delete the file");
             menuInstance.WriteLine("3. Clone the file");
             menuInstance.WriteLine("4. Rename the file");
-            menuInstance.WriteLine("5. Run pathfinding on the image");
+            menuInstance.WriteLine("5. View current file stats");
+            menuInstance.WriteLine("6. Run pathfinding on the image");
         }
 
         public static void ImageWelcome(Menu menuInstance)
@@ -33,7 +33,7 @@ namespace LocalApp.CLI
         {
             menuInstance.WriteLine("Your image file information:");
             menuInstance.WriteLine($"    Name of image: {Log.Green}{Path.GetFileNameWithoutExtension(rawImage.Path)}{Log.Blank}");
-            menuInstance.WriteLine($"    Folder it's contained within: {Log.Green}{Path.GetDirectoryName(rawImage.Path)}{Log.Blank}");
+            menuInstance.WriteLine($"    Folder it's contained within: {Log.Green}{(Path.GetDirectoryName(rawImage.Path) == "" ? "/" : Path.GetDirectoryName(rawImage.Path))}{Log.Blank}");
             menuInstance.WriteLine($"    Type of image: {Log.Green}{Path.GetExtension(rawImage.Path)}{Log.Blank}");
             menuInstance.WriteLine();
         }

@@ -46,7 +46,6 @@ namespace LocalApp.WindowsForms
             nextButton.Width = _width / 3 - 24;
             nextButton.Height = _height - 24;
             nextButton.Left = _width * 2 / 3 + 12;
-
         }
 
         private void nextButton_Click(object sender, System.EventArgs e)

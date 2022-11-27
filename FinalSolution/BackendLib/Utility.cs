@@ -47,7 +47,6 @@ namespace BackendLib
             return result;
         }
 
-        // TODO: Compress to one for loop, tried before ended badly
         public static Structures.RGB[][,] SplitImage(Structures.RGB[,] image)
         {
             Structures.RGB[,] one = new Structures.RGB[image.GetLength(0) / 2, image.GetLength(1) / 2];
@@ -147,7 +146,6 @@ namespace BackendLib
             return image;
         }
 
-        // TODO fix if never hits start
         public static T[] RebuildPath<T>(Dictionary<T, T> prev, T goal)
         {
             if (prev == null) return new T[1];
@@ -164,21 +162,7 @@ namespace BackendLib
         }
 
 
-        public static bool VerifyCannyEdgeDetectionOptions(CannyEdgeDetection classObject)
-        {
-
-            // TODO: Add checks for class
-            //if (opts.KernelSize % 2 != 1) return false;
-            //if (opts.UpperThreshold < opts.LowerThreshold) return false;
-            //if (opts.UpperThreshold <= 0) return false;
-            //if (opts.LowerThreshold >= 1) return false;
-            //if (opts.BlueRatio + opts.RedRatio + opts.GreenRatio > 1) return false;
-
-            throw new NotImplementedException();
-        }
-
-        public static bool IsYes(string input) => new Regex(@"^y(es)?$", RegexOptions.IgnoreCase).IsMatch(input);
-
+        public static bool IsYes(string input) => new Regex(@"^y(es)?$", RegexOptions.IgnoreCase).IsMatch(input.Trim());
         public static double GetRed(Color pixel) => pixel.R;
         public static double GetGreen(Color pixel) => pixel.G;
         public static double GetBlue(Color pixel) => pixel.B;

@@ -5,7 +5,6 @@ using LocalApp.CLI;
 using System;
 using System.Drawing;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 using Menu = LocalApp.CLI.Menu;
 using ProgressBar = LocalApp.CLI.ProgressBar;
 
@@ -196,7 +195,7 @@ namespace LocalApp
                 }
                 Logger.SaveBitmap(_runGuid, toSave, $"ThresholdPixelsQuad{letter}");
             };
-            // TODO just be same think about that colour strong weak etc...?
+
             _logInstance.Event(_runGuid, $"Calculated Threshold Pixels for Quadrant {letter}");
 
             workingArray = detector.EdgeTrackingHysteresis(thresholdArray);
