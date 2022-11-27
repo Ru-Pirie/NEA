@@ -7,13 +7,12 @@ using LocalApp.CLI;
 using LocalApp.WindowsForms;
 using System;
 using System.Drawing;
-using System.IO;
 
 namespace LocalApp
 {
     public class Program
     {
-        private static void Main(string[] args)
+        private static void Main()
         {
             Menu menu = new Menu("Author: Rubens Pirie", $"{Log.Green}Development Mode{Log.Blank}");
             Log logger = new Log(menu);
@@ -77,7 +76,6 @@ namespace LocalApp
 
         private static double GetDistanceBetweenNodes(Structures.Coord start, Structures.Coord goal) => Utility.GetDistanceBetweenNodes(start, goal);
 
-
         private static void RunSaveFile(Menu menu, Log logger)
         {
             Input inputHandel = new Input(menu);
@@ -100,12 +98,6 @@ namespace LocalApp
 
                 Graph<Structures.Coord> myGraph = doubles.ToGraph();
                 Traversal<Structures.Coord> traversal = new Traversal<Structures.Coord>(myGraph);
-<<<<<<< HEAD
-=======
-
-                PathfindImageForm myForm = new PathfindImageForm(recalledMap.OriginalImage, traversal, myGraph);
-                myForm.ShowDialog();
->>>>>>> b7ce23b3c76b600cde0fa745e3e3a87201b3e798
 
                 Bitmap toSave = new Bitmap(recalledMap.OriginalImage);
 
@@ -163,12 +155,57 @@ namespace LocalApp
                 // Confirm correct image here before progressing?
 
                 int opt = i.GetOption("Select a version of edge detection to run:", new[] {
-                        "Multi-threaded - Fast, all options decided at the start",
-                        "Synchronous - Slow, options can be changed after each step and steps can be repeated" });
+                        "Preset - Hand Drawn Map",
+                        "Preset - Screenshot",
+                        "Preset - Photograph",
+                        "Multi-threaded - Fast, all options decided at the start which allows for faster processing.",
+                        "Synchronous - Slow, options can be changed after each step and steps can be repeated." });
 
-                IHandler handler = opt == 0 ? new AsyncEdgeDetection(menu, logger, rawImage, runGuid) : (IHandler)new SyncEdgeDetection(menu, logger, rawImage, runGuid);
-                handler.Start();
-                double[,] resultOfEdgeDetection = handler.Result();
+                double[,] resultOfEdgeDetection = null;
+
+                IHandler handler = opt <= 3
+                            ? new AsyncEdgeDetection(menu,
+                                logger,
+                                rawImage,
+                                runGuid)
+                            : (IHandler)new SyncEdgeDetection(menu,
+                                logger,
+                                rawImage,
+                                runGuid);
+
+                switch (opt)
+                {
+                    case 0:
+                        AsyncEdgeDetection handPreset = new AsyncEdgeDetection(menu,
+                            logger,
+                            rawImage,
+                            runGuid);
+                        handPreset.Preset(5, 0.299, 0.587, 0.114, 1.4, 0.1, 0.3, 1);
+                        handler = handPreset;
+
+                        break;
+                    case 1:
+                        AsyncEdgeDetection screenPreset = new AsyncEdgeDetection(menu,
+                            logger,
+                            rawImage,
+                            runGuid);
+                        screenPreset.Preset(5, 0.299, 0.587, 0.114, 1.4, 0.05, 0.15, 0);
+                        handler = screenPreset;
+                        break;
+                    case 2:
+                        AsyncEdgeDetection photoPreset = new AsyncEdgeDetection(menu,
+                            logger,
+                            rawImage,
+                            runGuid);
+                        photoPreset.Preset(7, 0.299, 0.587, 0.114, 2, 0.1, 0.3, 1);
+                        handler = photoPreset;
+                        break;
+                    default:
+                        handler.Start();
+                        break;
+                }
+
+                resultOfEdgeDetection = handler.Result();
 
                 //Show After to User
                 ViewImageForm edgeImageForm = new ViewImageForm(resultOfEdgeDetection.ToBitmap());
@@ -228,91 +265,5 @@ namespace LocalApp
                 logger.EndError(runGuid, ex);
             }
         }
-<<<<<<< HEAD
-=======
-
-
-
-
-
-        // The unloved child of my code to be removed at some point
-        private static void DevTest(ref Menu m, ref Input i, ref Log l)
-        {
-            int opt = i.GetOption("Dev Test Options",
-                new[] { "Wipe logs and run files including all saves for testing", "Min Queue Test because dijkstra bork", "test settings file PLEASE", "Test Dijkstra to see if worke" });
-
-            switch (opt)
-            {
-                // wipe logs
-                case 0:
-                    Directory.Delete("./logs", true);
-                    Directory.Delete("./runs", true);
-                    Directory.Delete("./saves", true);
-                    _ = new Logger(true);
-
-                    break;
-
-
-                // run auto demo
-                case 1:
-                    MinPriorityQueue<string> priorityQueue = new MinPriorityQueue<string>();
-                    priorityQueue.Enqueue("a", 5);
-                    priorityQueue.Enqueue("b", 10);
-                    priorityQueue.Enqueue("c", 1);
-                    priorityQueue.Enqueue("d", 3);
-
-                    for (int ad = 0; ad < 2; ad++)
-                    {
-                        Console.WriteLine(priorityQueue.Dequeue());
-                    }
-
-                    priorityQueue.Enqueue("bob", 2);
-                    priorityQueue.Enqueue("super bob", 100);
-                    priorityQueue.ChangePriority("b", 200);
-
-                    for (int ad = 0; ad < 4; ad++)
-                    {
-                        Console.WriteLine(priorityQueue.Dequeue());
-                    }
-
-
-                    i.WaitInput("");
-
-                    break;
-                case 2:
-                    m.WriteLine(Settings.UserSettings["forceFormsFront"].Item1);
-                    i.WaitInput("");
-
-                    break;
-
-
-                case 3:
-                    Bitmap testImage = new Bitmap("test.png");
-                    Graph<Structures.Coord> testGraph = testImage.ToDoubles(Utility.GetIfExists).ToGraph();
-
-                    Traversal<Structures.Coord> testTraversal = new Traversal<Structures.Coord>(testGraph);
-
-                    PathfindImageForm myForm = new PathfindImageForm(testImage, testTraversal, testGraph);
-                    myForm.ShowDialog();
-
-
-                    Structures.Coord start = new Structures.Coord { X = 0, Y = 0 };
-                    Structures.Coord goal = new Structures.Coord { X = 150, Y = 105 };
-
-                    Structures.Coord[] res = Utility.RebuildPath(testTraversal.Dijkstra(start, goal, false), goal);
-
-
-                    Bitmap testOut = new Bitmap(testImage);
-                    foreach (var node in res)
-                    {
-                        testOut.SetPixel(node.X, node.Y, Color.Blue);
-                    }
-
-                    testOut.Save("testOut.png");
-
-                    break;
-            }
-        }
->>>>>>> b7ce23b3c76b600cde0fa745e3e3a87201b3e798
     }
 }

@@ -245,6 +245,12 @@ namespace LocalApp.CLI
             return input.ToString();
         }
 
+        public string TryGetInput(string prompt)
+        {
+            string res = GetInput(prompt);
+            return res.Length == 0 ? "None" : res;
+        }
+
         public double GetDouble(string prompt) => double.Parse(GetInput(prompt));
 
         public bool TryGetDouble(string prompt, out double result) => double.TryParse(GetInput(prompt), out result);

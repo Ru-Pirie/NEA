@@ -4,11 +4,7 @@ using System.Runtime.Serialization;
 namespace BackendLib.Exceptions
 {
     [Serializable]
-<<<<<<< HEAD
     public class KernelException : Exception
-=======
-    internal class KernelException : Exception
->>>>>>> b7ce23b3c76b600cde0fa745e3e3a87201b3e798
     {
         public KernelException()
         {

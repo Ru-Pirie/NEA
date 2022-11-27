@@ -166,7 +166,7 @@ namespace BackendLib
 
         public static bool VerifyCannyEdgeDetectionOptions(CannyEdgeDetection classObject)
         {
-            throw new NotImplementedException();
+
             // TODO: Add checks for class
             //if (opts.KernelSize % 2 != 1) return false;
             //if (opts.UpperThreshold < opts.LowerThreshold) return false;
@@ -174,7 +174,7 @@ namespace BackendLib
             //if (opts.LowerThreshold >= 1) return false;
             //if (opts.BlueRatio + opts.RedRatio + opts.GreenRatio > 1) return false;
 
-            return true;
+            throw new NotImplementedException();
         }
 
         public static bool IsYes(string input) => new Regex(@"^y(es)?$", RegexOptions.IgnoreCase).IsMatch(input);

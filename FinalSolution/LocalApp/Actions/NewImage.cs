@@ -24,12 +24,14 @@ namespace LocalApp
         {
             Input inputHandel = new Input(_menuInstance);
 
-            string path = inputHandel.GetInput("Please enter the path of the image you wish to process into a map:");
+            string path =
+                inputHandel.GetInput(
+                    "Please enter the path of the image you wish to process into a map (you can click and drag an image from your file explorer here too):");
             _logInstance.Event(_runGuid, $"Looking for image at {path}");
 
             Pre preProcess = new Pre(path);
 
-            ProgressBar progressBar = new ProgressBar("Pre Processing Image", 4, _menuInstance);
+            ProgressBar progressBar = new ProgressBar("Pre-processing your image", 4, _menuInstance);
             progressBar.DisplayProgress();
 
             try
@@ -50,13 +52,22 @@ namespace LocalApp
 
             _menuInstance.ClearUserSection();
 
-            bool saveAsBinary = Utility.IsYes(inputHandel.GetInput("Would you like to save this map in a custom file to be reused later (y/n)?"));
+            bool saveAsBinary =
+                Utility.IsYes(
+                    inputHandel.TryGetInput(
+                        "Would you like to save this map afterwards in a file to be reused later (y/n)?"));
             MapFile mapSave = saveAsBinary ? new MapFile() : null;
 
-            if (saveAsBinary) mapSave.Type = inputHandel.GetOption("What type of image are you supplying:", new[] { "Screenshot", "Hand Drawn", "Photograph", "Other" });
-            if (saveAsBinary) mapSave.Name = inputHandel.GetInput("Enter a name for image:");
-            _menuInstance.WriteLine();
-            if (saveAsBinary) mapSave.Description = inputHandel.GetInput("Enter a brief description about this image:");
+            if (saveAsBinary)
+            {
+                mapSave.Type = inputHandel.GetOption("What type of image are you supplying:",
+                    new[] { "Screenshot", "Hand Drawn", "Photograph", "Other" });
+
+                mapSave.Name = inputHandel.TryGetInput("Enter a name for image, or leave blank for 'None':");
+                _menuInstance.WriteLine();
+
+                mapSave.Description = inputHandel.TryGetInput("Enter a brief description about this image, or leave blank for 'None':");
+            }
 
             Structures.RawImage result = preProcess.Result();
             if (saveAsBinary) result.MapFile = mapSave;

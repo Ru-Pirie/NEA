@@ -1,10 +1,7 @@
 ﻿using BackendLib.Datatypes;
 using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
 using System.Diagnostics;
-=======
->>>>>>> b7ce23b3c76b600cde0fa745e3e3a87201b3e798
 
 namespace BackendLib.Data
 {
@@ -84,7 +81,6 @@ namespace BackendLib.Data
         }
 
         public Dictionary<T, T> AStar(T start, T goal, Func<T, T, int> weightFunction)
-<<<<<<< HEAD
         {
             Dictionary<T, double> dist = new Dictionary<T, double>();
             Dictionary<T, T> prev = new Dictionary<T, T>();
@@ -127,8 +123,6 @@ namespace BackendLib.Data
         }
 
         public Dictionary<T, T> Dijkstra(T start, T goal, bool endOnFind, Action nodeUpdate)
-=======
->>>>>>> b7ce23b3c76b600cde0fa745e3e3a87201b3e798
         {
             Dictionary<T, double> dist = new Dictionary<T, double>();
             Dictionary<T, T> prev = new Dictionary<T, T>();
@@ -149,56 +143,7 @@ namespace BackendLib.Data
             while (queue.Size > 0)
             {
                 T minVertex = queue.Dequeue();
-<<<<<<< HEAD
                 nodeUpdate();
-=======
-
-                if (Equals(minVertex, goal)) return prev;
-
-                List<T> adjacent = _graph.GetNode(minVertex);
-
-                foreach (var neighbor in adjacent)
-                {
-                    if (queue.Contains(neighbor))
-                    {
-                        int alternateWeight = dist[minVertex] + weightFunction(goal, neighbor);
-                        if (alternateWeight < dist[neighbor])
-                        {
-                            dist[neighbor] = alternateWeight;
-                            if (prev.ContainsKey(neighbor)) prev[neighbor] = minVertex;
-                            else prev.Add(neighbor, minVertex);
-                            queue.ChangePriority(neighbor, alternateWeight);
-                        }
-                    }
-                }
-            }
-
-            return new Dictionary<T, T>();
-        }
-
-        public Dictionary<T, T> Dijkstra(T start, T goal, bool endOnFind)
-        {
-            Dictionary<T, int> dist = new Dictionary<T, int>();
-            Dictionary<T, T> prev = new Dictionary<T, T>();
-            dist.Add(start, 0);
-
-            MinPriorityQueue<T> queue = new MinPriorityQueue<T>();
-
-            T[] nodes = _graph.GetAllNodes();
-            foreach (T node in nodes)
-            {
-                if (_graph.GetNode(node).Count > 0)
-                {
-                    if (!Equals(start, node)) dist.Add(node, int.MaxValue);
-                    queue.Enqueue(node, dist[node]);
-                }
-            }
-
-            while (queue.Size > 0)
-            {
-                T minVertex = queue.Dequeue();
-
->>>>>>> b7ce23b3c76b600cde0fa745e3e3a87201b3e798
                 if (Equals(minVertex, goal) && endOnFind) return prev;
 
                 List<T> adjacent = _graph.GetNode(minVertex);
@@ -208,11 +153,7 @@ namespace BackendLib.Data
 
                     if (queue.Contains(neighbor))
                     {
-<<<<<<< HEAD
                         double alternateWeight = dist[minVertex] + 1;
-=======
-                        int alternateWeight = dist[minVertex] + 1;
->>>>>>> b7ce23b3c76b600cde0fa745e3e3a87201b3e798
                         if (alternateWeight < dist[neighbor])
                         {
                             dist[neighbor] = alternateWeight;

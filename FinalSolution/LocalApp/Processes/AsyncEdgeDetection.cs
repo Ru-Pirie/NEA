@@ -5,6 +5,7 @@ using LocalApp.CLI;
 using System;
 using System.Drawing;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 using Menu = LocalApp.CLI.Menu;
 using ProgressBar = LocalApp.CLI.ProgressBar;
 
@@ -24,6 +25,42 @@ namespace LocalApp
             _logInstance = log;
             _image = image;
             _runGuid = currentGuid;
+        }
+
+        public void Preset(int kernelSize, double redRatio, double greenRatio, double blueRatio, double sigma, double lowerThreshold, double upperThreshold, int loopCount)
+        {
+            CannyEdgeDetection detector = new CannyEdgeDetection(kernelSize, redRatio, greenRatio, blueRatio, sigma,
+                lowerThreshold, upperThreshold);
+
+            Input inputHandel = new Input(_menuInstance);
+
+            Structures.RGB[][,] quads = Utility.SplitImage(_image.Pixels);
+            Task<double[,]>[] threads = new Task<double[,]>[quads.Length];
+
+            int continueOption = inputHandel.GetOption("Continue to Canny Edge Detection:", new[] { "Yes", "No" });
+            if (continueOption != 0) throw new Exception("You asked for the processing of your map to stop.");
+
+            bool saveTempOption = inputHandel.GetOption("Would you like to save images at each step of the edge detection?", new[] { "Yes", "No" }) == 0;
+
+            ProgressBar pb = new ProgressBar("Canny Edge Detection", 36, _menuInstance);
+            pb.DisplayProgress();
+
+            for (int i = 0; i < quads.Length; i++)
+            {
+                // Overcome Capture Condition
+                int copyI = i;
+                Task<double[,]> task = new Task<double[,]>(() => RunDetectionOnQuadrant(detector, quads[copyI], copyI, pb.GetIncrementAction(), saveTempOption));
+                task.Start();
+                threads[i] = task;
+            }
+
+            Task.WaitAll(threads);
+            double[,] cannyImage = Utility.CombineQuadrants(threads[0].Result, threads[1].Result, threads[2].Result,
+            threads[3].Result);
+
+            Post postProcessor = new Post(cannyImage);
+            postProcessor.Start(loopCount);
+            _resultArray = postProcessor.Result();
         }
 
         public void Start()
