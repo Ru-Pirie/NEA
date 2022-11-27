@@ -51,7 +51,6 @@ namespace LocalApp.CLI
             while (!IsWindowMax())
             {
                 Console.SetCursorPosition(0, 0);
-                // CANNOT BE CONSTANT DUE TO PREUSE
                 Console.WriteLine($"{Log.Red}Maximize Window To Continue{Log.Blank}");
                 System.Threading.Thread.Sleep(250);
                 Console.SetCursorPosition(0, 0);
@@ -116,7 +115,6 @@ namespace LocalApp.CLI
             Console.SetCursorPosition(Console.WindowWidth * 3 / 4 + 5, 1);
             Console.WriteLine("Program Logs:");
             Console.SetCursorPosition(Console.WindowWidth * 3 / 4 + 5, 3);
-            // CANNOT USE CONSTANT DUE TO 48 - Background
             Console.WriteLine($"\x1b[48;5;196m  {Log.Blank} ERROR            \x1b[48;5;2m  {Log.Blank} EVENT PROCESSED");
             Console.SetCursorPosition(Console.WindowWidth * 3 / 4 + 5, 4);
             Console.WriteLine($"\x1b[48;5;184m  {Log.Blank} WARNING          \x1b[48;5;129m  {Log.Blank} END OF SEQUENCE");

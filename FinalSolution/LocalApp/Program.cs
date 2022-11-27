@@ -8,13 +8,15 @@ using LocalApp.WindowsForms;
 using System;
 using System.IO;
 
+//TODO in the morning add page changes
+
 namespace LocalApp
 {
     public class Program
     {
         private static void Main()
         {
-            Menu menu = new Menu("Author: Rubens Pirie", $"{Log.Green}Development Mode{Log.Blank}");
+            Menu menu = new Menu("Author: Rubens Pirie", $"{Log.Grey}Production Mode{Log.Blank}");
             Log logger = new Log(menu);
 
             Settings settings = new Settings(menu, logger);
@@ -73,9 +75,7 @@ namespace LocalApp
                 }
             }
         }
-
-        private static double GetDistanceBetweenNodes(Structures.Coord start, Structures.Coord goal) => Utility.GetDistanceBetweenNodes(start, goal);
-
+        
         private static void RunSaveFile(Menu menu, Log logger)
         {
             Input inputHandel = new Input(menu);

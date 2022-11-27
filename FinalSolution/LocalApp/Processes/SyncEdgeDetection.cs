@@ -8,7 +8,6 @@ using System.Drawing;
 
 namespace LocalApp
 {
-    // Use inheritance?
     internal class SyncEdgeDetection : IHandler
     {
         private readonly Menu _menuInstance;

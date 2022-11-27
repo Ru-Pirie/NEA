@@ -165,7 +165,7 @@ namespace LocalApp
 
             double[,] angleGrads = detector.GradientAngle(grads);
             increment();
-            // Convert to readable?
+
             if (saveTemp)
             {
                 for (int y = 0; y < angleGrads.GetLength(0); y++)
