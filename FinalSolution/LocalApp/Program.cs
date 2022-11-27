@@ -100,6 +100,12 @@ namespace LocalApp
 
                 Graph<Structures.Coord> myGraph = doubles.ToGraph();
                 Traversal<Structures.Coord> traversal = new Traversal<Structures.Coord>(myGraph);
+<<<<<<< HEAD
+=======
+
+                PathfindImageForm myForm = new PathfindImageForm(recalledMap.OriginalImage, traversal, myGraph);
+                myForm.ShowDialog();
+>>>>>>> b7ce23b3c76b600cde0fa745e3e3a87201b3e798
 
                 Bitmap toSave = new Bitmap(recalledMap.OriginalImage);
 
@@ -222,5 +228,91 @@ namespace LocalApp
                 logger.EndError(runGuid, ex);
             }
         }
+<<<<<<< HEAD
+=======
+
+
+
+
+
+        // The unloved child of my code to be removed at some point
+        private static void DevTest(ref Menu m, ref Input i, ref Log l)
+        {
+            int opt = i.GetOption("Dev Test Options",
+                new[] { "Wipe logs and run files including all saves for testing", "Min Queue Test because dijkstra bork", "test settings file PLEASE", "Test Dijkstra to see if worke" });
+
+            switch (opt)
+            {
+                // wipe logs
+                case 0:
+                    Directory.Delete("./logs", true);
+                    Directory.Delete("./runs", true);
+                    Directory.Delete("./saves", true);
+                    _ = new Logger(true);
+
+                    break;
+
+
+                // run auto demo
+                case 1:
+                    MinPriorityQueue<string> priorityQueue = new MinPriorityQueue<string>();
+                    priorityQueue.Enqueue("a", 5);
+                    priorityQueue.Enqueue("b", 10);
+                    priorityQueue.Enqueue("c", 1);
+                    priorityQueue.Enqueue("d", 3);
+
+                    for (int ad = 0; ad < 2; ad++)
+                    {
+                        Console.WriteLine(priorityQueue.Dequeue());
+                    }
+
+                    priorityQueue.Enqueue("bob", 2);
+                    priorityQueue.Enqueue("super bob", 100);
+                    priorityQueue.ChangePriority("b", 200);
+
+                    for (int ad = 0; ad < 4; ad++)
+                    {
+                        Console.WriteLine(priorityQueue.Dequeue());
+                    }
+
+
+                    i.WaitInput("");
+
+                    break;
+                case 2:
+                    m.WriteLine(Settings.UserSettings["forceFormsFront"].Item1);
+                    i.WaitInput("");
+
+                    break;
+
+
+                case 3:
+                    Bitmap testImage = new Bitmap("test.png");
+                    Graph<Structures.Coord> testGraph = testImage.ToDoubles(Utility.GetIfExists).ToGraph();
+
+                    Traversal<Structures.Coord> testTraversal = new Traversal<Structures.Coord>(testGraph);
+
+                    PathfindImageForm myForm = new PathfindImageForm(testImage, testTraversal, testGraph);
+                    myForm.ShowDialog();
+
+
+                    Structures.Coord start = new Structures.Coord { X = 0, Y = 0 };
+                    Structures.Coord goal = new Structures.Coord { X = 150, Y = 105 };
+
+                    Structures.Coord[] res = Utility.RebuildPath(testTraversal.Dijkstra(start, goal, false), goal);
+
+
+                    Bitmap testOut = new Bitmap(testImage);
+                    foreach (var node in res)
+                    {
+                        testOut.SetPixel(node.X, node.Y, Color.Blue);
+                    }
+
+                    testOut.Save("testOut.png");
+
+                    break;
+            }
+        }
+>>>>>>> b7ce23b3c76b600cde0fa745e3e3a87201b3e798
     }
 }

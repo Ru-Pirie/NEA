@@ -227,6 +227,7 @@ namespace LocalApp.WindowsForms
 
         private int GetDistanceBetweenNodes(Structures.Coord start, Structures.Coord goal) => (int)Utility.GetDistanceBetweenNodes(start, goal);
 
+<<<<<<< HEAD
         private int nodes;
 
         private void UpdateNodes()
@@ -236,6 +237,8 @@ namespace LocalApp.WindowsForms
             Update();
         }
 
+=======
+>>>>>>> b7ce23b3c76b600cde0fa745e3e3a87201b3e798
         private void goButton_Click(object sender, EventArgs e)
         {
             workingButton.Visible = !workingButton.Visible;
@@ -249,7 +252,11 @@ namespace LocalApp.WindowsForms
                 {
                     if (prevStartNode != startNode && startNode != endNode || bool.Parse(Settings.UserSettings["endOnFind"].Item1) == true)
                     {
+<<<<<<< HEAD
                         Dictionary<Structures.Coord, Structures.Coord> tree = _traversalObject.Dijkstra(startNode, endNode, bool.Parse(Settings.UserSettings["endOnFind"].Item1), UpdateNodes);
+=======
+                        Dictionary<Structures.Coord, Structures.Coord> tree = _traversalObject.Dijkstra(startNode, endNode, bool.Parse(Settings.UserSettings["endOnFind"].Item1));
+>>>>>>> b7ce23b3c76b600cde0fa745e3e3a87201b3e798
                         Structures.Coord[] path = Utility.RebuildPath(tree, endNode);
                         foreach (Structures.Coord node in path)
                         {
