@@ -43,10 +43,12 @@ namespace LocalApp.WindowsForms
             // Define size
             _width = Console.WindowWidth * 3 / 4 * 8;
             _height = Console.WindowHeight * 5 / 6 * 16;
-
+            
+            
             // Styling
             ControlBox = false;
             FormBorderStyle = FormBorderStyle.None;
+            Text = "Pathfinding Window";
 
             // set window to size of user area
             MinimumSize = new Size(_width, _height);
@@ -95,6 +97,13 @@ namespace LocalApp.WindowsForms
             workingButton.Left = _width * 2 / 3 + 12;
             workingButton.Top = _height / 2;
             workingButton.Visible = false;
+
+            // Set Node Progress
+            nodeBox.Width = _width / 3 - 24;
+            nodeBox.Height = _height / 12;
+            nodeBox.Left = _width * 2 / 3 + 12;
+            nodeBox.Top = _height / 2 - 84;
+            nodeBox.Visible = false;
         }
 
         private Structures.Coord ConvertImageBoxToBitmapCord(Point location)
@@ -193,13 +202,8 @@ namespace LocalApp.WindowsForms
             RedrawImage();
         }
 
-        private void exitButton_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-
-
+        private void exitButton_Click(object sender, EventArgs e) => Close();
+        
         private void SetRunningBox()
         {
             string snapWarning = String.Empty;
@@ -232,15 +236,17 @@ namespace LocalApp.WindowsForms
         private void UpdateNodes()
         {
             nodes++;
-            nodeBox.Text = $"{nodes}/{_graph.GetAllNodes().Length}";
-            Update();
+            nodeBox.Text = $"Progress {(nodes / (double)_graph.GetAllNodes().Length * 100):f2}% complete\nNode {nodes} out of {_graph.GetAllNodes().Length}";
+            if (nodes % 2 == 0) Update();
         }
 
         private void goButton_Click(object sender, EventArgs e)
         {
-            workingButton.Visible = !workingButton.Visible;
+            workingButton.Visible = true;
             textBox.Visible = false;
             runningBox.Visible = true;
+            if (Settings.UserSettings["pathfindingAlgorithm"].Item1.ToLower() == "dijkstra") nodeBox.Visible = true;
+
             Update();
 
             if (startNode != invalidCord && endNode != invalidCord)
@@ -286,16 +292,11 @@ namespace LocalApp.WindowsForms
                 }
 
                 prevStartNode = startNode;
-                workingButton.Visible = !workingButton.Visible;
-                textBox.Visible = true;
-                runningBox.Visible = false;
             }
-            else
-            {
-                workingButton.Visible = !workingButton.Visible;
-                textBox.Visible = true;
-                runningBox.Visible = false;
-            }
+            workingButton.Visible = false;
+            textBox.Visible = true;
+            runningBox.Visible = false;
+            nodeBox.Visible = false;
         }
     }
 }

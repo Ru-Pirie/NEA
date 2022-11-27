@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PathfindImageForm));
             this.imageBox = new System.Windows.Forms.PictureBox();
             this.goButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.textBox = new System.Windows.Forms.RichTextBox();
             this.workingButton = new System.Windows.Forms.Button();
             this.runningBox = new System.Windows.Forms.RichTextBox();
@@ -82,11 +81,6 @@
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // textBox
             // 
@@ -138,7 +132,7 @@
             this.nodeBox.ReadOnly = true;
             this.nodeBox.Size = new System.Drawing.Size(281, 52);
             this.nodeBox.TabIndex = 7;
-            this.nodeBox.Text = "NODE COUNT";
+            this.nodeBox.Text = "Node Progress";
             // 
             // PathfindImageForm
             // 
@@ -153,6 +147,7 @@
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.goButton);
             this.Controls.Add(this.imageBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PathfindImageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
@@ -167,7 +162,6 @@
         private System.Windows.Forms.PictureBox imageBox;
         private System.Windows.Forms.Button goButton;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.RichTextBox textBox;
         private System.Windows.Forms.Button workingButton;
         private System.Windows.Forms.RichTextBox runningBox;

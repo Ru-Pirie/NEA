@@ -180,7 +180,7 @@ namespace LocalApp
                             logger,
                             rawImage,
                             runGuid);
-                        handPreset.Preset(5, 0.299, 0.587, 0.114, 1.4, 0.1, 0.3, 1);
+                        handPreset.Preset(5, 0.299, 0.587, 0.114, 2, 0.07, 0.25, 2);
                         handler = handPreset;
 
                         break;
@@ -207,15 +207,17 @@ namespace LocalApp
 
                 resultOfEdgeDetection = handler.Result();
 
-                //Show After to User
-                ViewImageForm edgeImageForm = new ViewImageForm(resultOfEdgeDetection.ToBitmap());
-                menu.WriteLine("Click and Press Enter");
-                edgeImageForm.ShowDialog();
+
 
                 menu.ClearUserSection();
-                menu.WriteLine("In order for the road detection to function properly there must be a a box encapsulating the road. It should look like an outline of the road, if there isn't one then select invert at the next prompt.");
+                menu.WriteLine("In order for the road detection to function properly there must be a outline encapsulating the road. It should look like an outline of the road, if there isn't one, and there is just a big white blob then select invert at the next prompt.");
+                menu.WriteLine();
+                i.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
                 menu.WriteLine();
 
+                //Show After to User
+                ViewImageForm edgeImageForm = new ViewImageForm(resultOfEdgeDetection.ToBitmap());
+                edgeImageForm.ShowDialog();
 
                 MapFile saveMapFile = rawImage.MapFile;
 

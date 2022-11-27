@@ -25,6 +25,7 @@ namespace LocalApp.WindowsForms
             // Styling
             ControlBox = false;
             FormBorderStyle = FormBorderStyle.None;
+            Text = "Preview Window";
 
             // set window to size of user area
             MinimumSize = new Size(_width, _height);

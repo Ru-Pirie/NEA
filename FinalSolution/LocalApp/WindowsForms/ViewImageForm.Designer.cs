@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewImageForm));
             this.imageBox = new System.Windows.Forms.PictureBox();
             this.nextButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
@@ -68,6 +69,7 @@
             this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.imageBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewImageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
