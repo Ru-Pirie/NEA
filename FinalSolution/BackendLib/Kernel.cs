@@ -17,9 +17,9 @@ namespace BackendLib
 
         public T[,] Constant(int x, int y, int size, T constant = default)
         {
-            if (size % 2 != 1) throw new KernelException("Kernel size must be of an odd size.");
+            if (size % 2 != 1) throw new KernelException("The image kernel supplied was of an odd size, check your settings and try again.");
             if (x >= _width || x < 0 || y >= _height || y < 0)
-                throw new KernelException("Kernel must be based of ordinates inside of the image.");
+                throw new KernelException("Your kernel must start within the image.");
 
             T[,] kernel = new T[size, size];
 
@@ -49,9 +49,9 @@ namespace BackendLib
 
         public T[,] Duplication(int x, int y, int size)
         {
-            if (size % 2 != 1) throw new KernelException("Kernel size must be of an odd size.");
+            if (size % 2 != 1) throw new KernelException("The image kernel supplied was of an odd size, check your settings and try again.");
             if (x >= _width || x < 0 || y >= _height || y < 0)
-                throw new KernelException("Kernel must be based of ordinates inside of the image.");
+                throw new KernelException("Your kernel must start within the image.");
 
             T[,] kernel = new T[size, size];
 

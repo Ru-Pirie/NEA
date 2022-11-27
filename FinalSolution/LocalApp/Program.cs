@@ -120,13 +120,13 @@ namespace LocalApp
                 PathfindImageForm myForm = new PathfindImageForm(recalledMap.OriginalImage, traversal, myGraph);
                 myForm.ShowDialog();
 
-
-
-
                 logger.EndSuccessSave(runGuid);
             }
             catch (Exception ex)
             {
+                menu.ClearUserSection();
+                menu.Error(ex.InnerException.Message);
+                new Input(menu).WaitInput("");
                 logger.EndError(runGuid, ex);
             }
         }
@@ -215,6 +215,10 @@ namespace LocalApp
             }
             catch (Exception ex)
             {
+                menu.ClearUserSection();
+                if (ex.InnerException != null) menu.Error(ex.InnerException.Message);
+                else menu.Error(ex.Message);
+                new Input(menu).WaitInput("");
                 logger.EndError(runGuid, ex);
             }
         }

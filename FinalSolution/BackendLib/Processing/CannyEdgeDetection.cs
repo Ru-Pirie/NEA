@@ -117,7 +117,7 @@ namespace BackendLib.Processing
         public double[,] CombineGradients(Structures.Gradients grads)
         {
             if (grads.GradientX.GetLength(0) != grads.GradientY.GetLength(0) || grads.GradientX.GetLength(1) != grads.GradientY.GetLength(1))
-                throw new ArgumentException("Supplied arrays where not of same dimensions");
+                throw new ArgumentException("Canny edge detection failed due to arrays not being of the same size.");
 
             double[,] output = new double[grads.GradientX.GetLength(0), grads.GradientX.GetLength(1)];
 
@@ -135,7 +135,7 @@ namespace BackendLib.Processing
         public double[,] GradientAngle(Structures.Gradients grads)
         {
             if (grads.GradientX.GetLength(0) != grads.GradientY.GetLength(0) || grads.GradientX.GetLength(1) != grads.GradientY.GetLength(1))
-                throw new ArgumentException("Supplied arrays where not of same dimensions");
+                throw new ArgumentException("Canny edge detection failed due to arrays not being of the same size.");
 
             double[,] output = new double[grads.GradientX.GetLength(0), grads.GradientX.GetLength(1)];
 
@@ -153,7 +153,7 @@ namespace BackendLib.Processing
         public double[,] MagnitudeThreshold(double[,] gradCombined, double[,] gradAngle)
         {
             if (gradCombined.GetLength(0) != gradAngle.GetLength(0) || gradCombined.GetLength(1) != gradAngle.GetLength(1))
-                throw new ArgumentException("Supplied arrays where not of same dimensions");
+                throw new ArgumentException("Canny edge detection failed due to arrays not being of the same size.");
 
             double[,] output = gradCombined;
             double[,] anglesInDegrees = new double[gradCombined.GetLength(0), gradCombined.GetLength(1)];
@@ -194,7 +194,7 @@ namespace BackendLib.Processing
                         if (gradCombined[y, x] < magnitudeKernel[0, 0] || gradCombined[y, x] < magnitudeKernel[2, 2])
                             output[y, x] = 0;
                     }
-                    else throw new Exception();
+                    else throw new Exception("Critical unknown error occurred, please try again.");
                 }
             }
 
@@ -215,7 +215,7 @@ namespace BackendLib.Processing
                     if (input[y, x] < min) output[y, x] = new Structures.ThresholdPixel { Strong = false, Value = 0 };
                     else if (input[y, x] > min && input[y, x] < max) output[y, x] = new Structures.ThresholdPixel { Strong = false, Value = input[y, x] };
                     else if (input[y, x] > max) output[y, x] = new Structures.ThresholdPixel { Strong = true, Value = input[y, x] };
-                    else throw new Exception();
+                    else throw new Exception("Critical unknown error occurred, please try again.");
                 }
             }
 

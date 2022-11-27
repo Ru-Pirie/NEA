@@ -17,26 +17,26 @@ namespace BackendLib.Datatypes
 
         public void AddNode(T key)
         {
-            if (_data.ContainsKey(key)) throw new GraphException($"Cannot add {key}, node already exists.");
+            if (_data.ContainsKey(key)) throw new GraphException($"Failed to add node {key} to the graph, the node already exists.");
             _data.Add(key, new List<T>());
         }
 
         public void RemoveNode(T key)
         {
-            if (!_data.ContainsKey(key)) throw new GraphException($"Cannot remove {key}, node does not exist.");
+            if (!_data.ContainsKey(key)) throw new GraphException($"Failed to remove node {key} from the graph, the node does not exist.");
             _data.Remove(key);
         }
 
         public void AddConnection(T key, T value)
         {
-            if (!_data.ContainsKey(key)) throw new GraphException($"Cannot add connection {value} to {key} original node does not exist.");
-            if (_data[key].Contains(value)) throw new GraphException($"Cannot add connection {value} to {key} connection already exists.");
+            if (!_data.ContainsKey(key)) throw new GraphException($"Cannot add connection between {value} and {key} the parent node does not exist in the graph.");
+            if (_data[key].Contains(value)) throw new GraphException($"Cannot add connection between {value} and {key} the connection already exists.");
             _data[key].Add(value);
         }
 
         public List<T> GetNode(T key)
         {
-            if (!_data.ContainsKey(key)) throw new GraphException($"Node {key} does not exist.");
+            if (!_data.ContainsKey(key)) throw new GraphException($"Failed to get node {key} form graph because it does not exist.");
             return _data[key];
         }
 

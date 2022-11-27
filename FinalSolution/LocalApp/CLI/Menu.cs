@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -25,8 +26,8 @@ namespace LocalApp.CLI
         private readonly string _permLineA;
         private readonly string _permLineB;
 
-        private const char VerticalChar = '│';
-        private const char HorizontalChar = '─';
+        public const char VerticalChar = '│';
+        public const char HorizontalChar = '─';
 
         public Menu(string permLineA, string permLineB)
         {
@@ -184,6 +185,71 @@ namespace LocalApp.CLI
         {
             if (CurrentLine > Console.WindowHeight * 5 / 6) ClearUserSection();
             CurrentLine++;
+        }
+
+        public void Error(string message)
+        {
+            int widthStart = ((Console.WindowWidth * 3 / 4) / 3) / 2;
+            int heightStart = (Console.WindowHeight * 5 / 6) / 3;
+            for (int i = 0; i < widthStart * 4; i++)
+            {
+                lock (ScreenLock)
+                {
+                    string toPrint = i == 0 || i == widthStart * 4 - 1 ? "+" : HorizontalChar.ToString();
+                    Console.SetCursorPosition(widthStart + i, heightStart);
+                    Console.Write($"{toPrint}"); 
+                    Console.SetCursorPosition(widthStart + i, heightStart * 2);
+                    Console.Write($"{toPrint}");
+                }
+            }
+
+            for (int i = heightStart + 1; i < heightStart * 2; i++)
+            {
+                lock (ScreenLock)
+                {
+                    Console.SetCursorPosition(widthStart, i);
+                    Console.Write($"{VerticalChar}");
+                    Console.SetCursorPosition(widthStart + widthStart * 4 - 1, i);
+                    Console.Write($"{VerticalChar}");
+                }
+            }
+
+            List<List<char>> messages = new List<List<char>>();
+            messages.Add(new List<char>());
+            List<char> messageChars = message.ToCharArray().ToList();
+            messageChars.Reverse();
+
+            int e = 0;
+            while (messageChars.Count > 0)
+            {
+                if (messages[e].Count < widthStart*3)
+                {
+                    messages[e].Add(messageChars[messageChars.Count - 1]);
+                    messageChars.RemoveAt(messageChars.Count - 1);
+                }
+                else
+                {
+                    e++;
+                    messages.Add(new List<char>());
+                };
+            }
+
+            lock (ScreenLock)
+            {
+                Console.SetCursorPosition((widthStart * 3) - 26, heightStart + 2);
+                Console.Write($"{Log.Red}Something went wrong, to see what take a look below.{Log.Blank}");
+                Console.SetCursorPosition((widthStart * 3) - 8, (int)(heightStart * 1.5) - 3);
+                Console.Write("Reason for Error");
+                for (int i = 0; i < messages.Count; i++)
+                {
+                    Console.SetCursorPosition((widthStart * 3) - messages[i].Count/ 2, (int)(heightStart * 1.5) - (2 - i));
+                    Console.Write($"{Log.Blue}{string.Join("", messages[i])}{Log.Blank}");
+                }
+                Console.SetCursorPosition((widthStart * 3) - 18, heightStart * 2 - 2);
+                Console.Write($"{Log.Grey}(Press Enter to Return to Main Menu){Log.Blank}");
+            }
+
+            
         }
 
         public void WriteLine(string message)

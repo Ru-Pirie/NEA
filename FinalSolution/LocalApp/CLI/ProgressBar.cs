@@ -20,7 +20,7 @@ namespace LocalApp.CLI
 
             StringBuilder bar = new StringBuilder();
             bar.Append('+');
-            for (int i = 0; i < (Console.WindowWidth * 3 / 4) - 4; i++) bar.Append('-');
+            for (int i = 0; i < (Console.WindowWidth * 3 / 4) - 4; i++) bar.Append(Menu.HorizontalChar);
             bar.Append('+');
 
             _progressOutline = bar.ToString();
@@ -41,9 +41,9 @@ namespace LocalApp.CLI
                 Console.SetCursorPosition(1, middle - 1);
                 Console.Write(_progressOutline);
                 Console.SetCursorPosition(1, middle);
-                Console.Write('|');
+                Console.Write(Menu.VerticalChar);
                 Console.SetCursorPosition(Console.WindowWidth * 3 / 4 - 2, middle);
-                Console.Write('|');
+                Console.Write(Menu.VerticalChar);
                 Console.SetCursorPosition(1, middle + 1);
                 Console.Write(_progressOutline);
             }
@@ -64,7 +64,7 @@ namespace LocalApp.CLI
                 if (_progressLine.Length != (int)possibleLength)
                 {
                     StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < possibleLength; i++) sb.Append('|');
+                    for (int i = 0; i < possibleLength; i++) sb.Append(Menu.VerticalChar);
                     _progressLine = sb.ToString();
 
                     Console.SetCursorPosition(2, middle);

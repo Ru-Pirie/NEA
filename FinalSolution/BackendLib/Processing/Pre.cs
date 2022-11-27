@@ -37,8 +37,8 @@ namespace BackendLib.Processing
         {
             Regex fileRegex = new Regex(FileExtensionRegex, RegexOptions.IgnoreCase);
 
-            if (!File.Exists(_imagePath)) throw new PreprocessingException("Supplied Image Does Not Exist");
-            if (!fileRegex.IsMatch(_imagePath)) throw new PreprocessingException("Supplied Image File Is Not Of Valid Type. (jpg, bmp, exif, png, tiff)");
+            if (!File.Exists(_imagePath)) throw new PreprocessingException("The image that you entered does not exist, double check the path to the file and that exists.");
+            if (!fileRegex.IsMatch(_imagePath)) throw new PreprocessingException("The file which you entered does not appear to be an image file. It should end in .jpg, .bmp, .exif, .png or .tiff double check and try again.");
         }
 
         private void ReadImage()
@@ -64,7 +64,7 @@ namespace BackendLib.Processing
         private void CheckDimensions()
         {
             if (_imageRgb.GetLength(0) < 200 || _imageRgb.GetLength(1) < 200)
-                throw new PreprocessingException("Supplied Image Is Too Small To Be Processed");
+                throw new PreprocessingException("The image you supplied is too small to work properly it must be at least 200x200. Try a larger image.");
 
             if (_imageRgb.GetLength(0) % 2 != 0 || _imageRgb.GetLength(1) % 2 != 0)
             {

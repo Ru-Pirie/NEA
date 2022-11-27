@@ -131,15 +131,15 @@ namespace LocalApp.CLI
 
         public void Update(Dictionary<string, (string, Type)> oldSettings, Dictionary<string, (string, Type)> newSettings)
         {
-            if (oldSettings.Count != newSettings.Count) throw new SettingsException("Cannot set settings when discontinuity in amount of settings.");
+            if (oldSettings.Count != newSettings.Count) throw new SettingsException("Cannot set settings when the amount of settings has changed, if this problem persists delete settings.conf and restart the program.");
 
             foreach (KeyValuePair<string, (string, Type)> pair in newSettings)
             {
                 int location = rawLines.FindIndex(toCheck => toCheck.Contains(pair.Key));
-                if (location == -1) throw new SettingsException($"Supplied updated settings contained a non-existent setting {pair.Key}.");
+                if (location == -1) throw new SettingsException($"You have an unknown setting {pair.Key}, if this problem persists delete settings.conf and restart the program.");
                 else
                 {
-                    if (!oldSettings.ContainsKey(pair.Key)) throw new SettingsException($"Setting {pair.Key} does not exist.");
+                    if (!oldSettings.ContainsKey(pair.Key)) throw new SettingsException($"Setting {pair.Key} does not exist, if this problem persists delete settings.conf and restart the program.");
                     if (!oldSettings[pair.Key].Equals(pair.Value)) rawLines[location] = $"{pair.Key}= {pair.Value.Item1}";
                 }
             }

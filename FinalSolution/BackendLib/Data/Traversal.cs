@@ -167,50 +167,5 @@ namespace BackendLib.Data
 
             return prev;
         }
-
-
-        public List<T> ModifiedAStar(T start, T goal, Func<T, T, double> weightFunction)
-        {
-            List<T> orderVisited = new List<T>();
-
-            Dictionary<T, double> dist = new Dictionary<T, double>();
-            Dictionary<T, T> prev = new Dictionary<T, T>();
-
-            MinPriorityQueue<T> queue = new MinPriorityQueue<T>();
-
-            queue.Enqueue(start, weightFunction(start, goal));
-            dist.Add(start, 0);
-
-            foreach (T node in _graph.GetAllNodes())
-            {
-                if (!Equals(node, start))
-                {
-                    dist.Add(node, double.MaxValue);
-                    queue.Enqueue(node, double.MaxValue);
-                }
-            }
-            
-            while (queue.Size > 0)
-            {
-                T current = queue.Dequeue();
-                orderVisited.Add(current);
-                if (Equals(current, goal)) return orderVisited;
-
-                foreach (T neighbor in _graph.GetNode(current))
-                {
-                    double tentative = dist[current] + 1;
-                    if (tentative < dist[neighbor])
-                    {
-                        dist[neighbor] = tentative;
-                        if (prev.ContainsKey(neighbor)) prev[neighbor] = current;
-                        else prev.Add(neighbor, current);
-                        if (queue.Contains(neighbor)) queue.ChangePriority(neighbor, tentative + weightFunction(neighbor, goal));
-                    }
-                }
-            }
-
-            return orderVisited;
-        }
-
     }
 }

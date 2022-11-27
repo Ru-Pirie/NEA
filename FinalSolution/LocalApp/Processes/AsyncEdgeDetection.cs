@@ -50,7 +50,7 @@ namespace LocalApp
             Task<double[,]>[] threads = new Task<double[,]>[quads.Length];
 
             int continueOption = inputHandel.GetOption("Continue to Canny Edge Detection:", new[] { "Yes - Continue", "No - Return to main menu" });
-            if (continueOption != 0) throw new Exception("Map Processing Ended At User Request");
+            if (continueOption != 0) throw new Exception("You asked for the processing of your map to stop.");
 
             bool saveTempOption = inputHandel.GetOption("Would you like to save images at each step of the edge detection?", new[] { "Yes", "No" }) == 0;
 

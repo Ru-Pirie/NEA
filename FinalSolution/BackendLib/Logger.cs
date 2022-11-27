@@ -68,12 +68,11 @@ namespace BackendLib
 
         }
 
-        // TODO a bit missleading with the name there
         public static void SaveBitmap(Guid currentGuid, double[,] image, string name)
         {
             Bitmap toSaveBitmap = image.ToBitmap();
             if (!Directory.Exists($"./runs/{currentGuid.ToString("N").ToUpper()}"))
-                throw new LoggerException("Run Directory Not Found, Logger Not Initialized Correctly");
+                throw new LoggerException("Run directory not found, logger not created correctly, please restart the program.");
 
             toSaveBitmap.Save($"./runs/{currentGuid.ToString("N").ToUpper()}/{name}.png");
         }
@@ -81,7 +80,7 @@ namespace BackendLib
         public static void SaveBitmap(Guid currentGuid, Bitmap image, string name)
         {
             if (!Directory.Exists($"./runs/{currentGuid.ToString("N").ToUpper()}"))
-                throw new LoggerException("Run Directory Not Found, Logger Not Initialized Correctly");
+                throw new LoggerException("Run directory not found, logger not created correctly, please restart the program.");
 
             image.Save($"./runs/{currentGuid.ToString("N").ToUpper()}/{name}.png");
         }

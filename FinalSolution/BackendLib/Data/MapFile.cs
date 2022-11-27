@@ -41,8 +41,8 @@ namespace BackendLib.Data
         {
             Regex fileRegex = new Regex(FileExtensionRegex, RegexOptions.IgnoreCase);
 
-            if (!File.Exists(_filePath)) throw new MapFileException("Supplied Virtual Map File Does Not Exist");
-            if (!fileRegex.IsMatch(_filePath)) throw new MapFileException("Supplied Virtual Map File Is Not Of Valid Type. (vmap)");
+            if (!File.Exists(_filePath)) throw new MapFileException("The virtual map that you entered does not exist, double check the path to the file and that exists.");
+            if (!fileRegex.IsMatch(_filePath)) throw new MapFileException("The file which you entered does not appear to be a map file. It should end in .vmap double check and try again.");
         }
 
         private void ReadMapFile(Action updateProgress)

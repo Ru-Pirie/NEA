@@ -29,7 +29,7 @@ namespace BackendLib
         public static Bitmap CombineBitmap(Bitmap a, Bitmap b)
         {
             if (a.Width != b.Width || a.Height != b.Height)
-                throw new ArgumentException($"Supplied Bitmaps Where Not Of Same Dimensions ({a.Width}x{a.Height} vs {b.Width}x{b.Height})");
+                throw new ArgumentException($"An error has occurred somewhere in the map images aren't of the same size ({a.Width}x{a.Height} vs {b.Width}x{b.Height}) please try again.");
 
             Bitmap result = new Bitmap(a);
             for (int y = 0; y < a.Height; y++)
