@@ -4,6 +4,7 @@ using BackendLib.Processing;
 using LocalApp.CLI;
 using LocalApp.WindowsForms;
 using System;
+using System.CodeDom.Compiler;
 using System.Drawing;
 using System.IO;
 using System.IO.Compression;
@@ -72,11 +73,9 @@ namespace LocalApp.Processes
 
                     File.Copy($"./logs/{_runGuid}.txt", "temp/log.txt");
                     File.Copy($"./saves/{saveName}.vmap", "temp/map.vmap");
-                    ZipFile.CreateFromDirectory("temp", $"RUN-{_runGuid}");
+                    ZipFile.CreateFromDirectory("temp", $"run-{_runGuid}.zip");
+                    Directory.Delete("temp", true);
                 }
-
-
-
             }
         }
 
