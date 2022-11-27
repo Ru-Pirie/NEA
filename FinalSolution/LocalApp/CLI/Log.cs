@@ -22,10 +22,10 @@ namespace LocalApp.CLI
         public void Event(string message) => Logger.WriteLineToMaster($"EVENT {message}");
         public void End(string message) => Logger.WriteLineToMaster($"END {message}");
 
-        public void Error(Guid runGuid, string message) => LogParent(runGuid, message, 0);
-        public void Warn(Guid runGuid, string message) => LogParent(runGuid, message, 1);
-        public void Event(Guid runGuid, string message) => LogParent(runGuid, message, 2);
-        public void End(Guid runGuid, string message) => LogParent(runGuid, message, 3);
+        public void Error(Guid runGuid, string message, bool detailed = false) => LogParent(runGuid, message, 0, detailed);
+        public void Warn(Guid runGuid, string message, bool detailed = false) => LogParent(runGuid, message, 1, detailed);
+        public void Event(Guid runGuid, string message, bool detailed = false) => LogParent(runGuid, message, 2, detailed);
+        public void End(Guid runGuid, string message, bool detailed = false) => LogParent(runGuid, message, 3, detailed);
 
         public void EndError(Guid runGuid, Exception ex)
         {
@@ -33,20 +33,20 @@ namespace LocalApp.CLI
             Error($"Exception: {ex.Message}");
             if (ex.InnerException != null) Error($"Inner Exception: {ex.InnerException.Message}");
             Error(runGuid, ex.Message);
-            End(runGuid, $"Run ({runGuid}) terminated.");
+            End(runGuid, $"Run ({runGuid}) terminated.", true);
         }
 
         public void EndSuccessRun(Guid runGuid)
         {
-            End(runGuid, "Successfully completed processing and pathfinding of new image!");
-            Warn(runGuid, $"Run Guid {runGuid} Deleted. See {Environment.CurrentDirectory}\\saves\\ for output(s) and {Environment.CurrentDirectory}\\runs\\{runGuid.ToString("N").ToUpper()} for temp images.");
+            End(runGuid, "Successfully completed processing and pathfinding of new image!", true);
+            Warn(runGuid, $"Run Guid {runGuid} Deleted. See {Environment.CurrentDirectory}\\saves\\ for output(s) and {Environment.CurrentDirectory}\\runs\\{runGuid.ToString("N").ToUpper()} for temp images.", true);
             End($"Completed run {runGuid} successfully.");
         }
 
         public void EndSuccessSave(Guid runGuid)
         {
-            End(runGuid, "Successfully completed recall and pathfinding of save file!");
-            Warn(runGuid, $"Run Guid {runGuid} Deleted. See {Environment.CurrentDirectory}\\saves\\ for output(s). Or just go to where the save file was located.");
+            End(runGuid, "Successfully completed recall and pathfinding of save file!", true);
+            Warn(runGuid, $"Run Guid {runGuid} Deleted. See {Environment.CurrentDirectory}\\saves\\ for output(s). Or just go to where the save file was located.", true);
             End($"Completed run {runGuid} successfully.");
         }
 
@@ -61,8 +61,10 @@ namespace LocalApp.CLI
         /// </summary>
         /// <param name="message"></param>
         /// <param name="type">0 - Error, 1 - Warning, 2 - Event, 3 - End</param>
-        private void LogParent(Guid runGuid, string message, int type)
+        private void LogParent(Guid runGuid, string message, int type, bool detailed)
         {
+            if (bool.Parse(Settings.UserSettings["detailedLogging"].Item1) && detailed) return;
+
             Console.CursorVisible = false;
             string[] prefix = { $"{Red}ERROR{Log.Blank}", $"{Orange}WARN{Log.Blank}", $"{Green}EVENT{Log.Blank}", $"{Purple}END{Log.Blank}" };
             string[] filePrefix = { "[ERROR] ", "[WARN] ", "[EVENT] ", "[END] " };

@@ -28,6 +28,8 @@ namespace LocalApp
 
         public void Preset(int kernelSize, double redRatio, double greenRatio, double blueRatio, double sigma, double lowerThreshold, double upperThreshold, int loopCount)
         {
+            _logInstance.Event(_runGuid, $"Running preset with values ({Log.Orange}{kernelSize}{Log.Blank}, {Log.Orange}{redRatio}{Log.Blank}, {Log.Orange}{greenRatio}{Log.Blank}, {Log.Orange}{blueRatio}{Log.Blank}, {Log.Orange}{sigma}{Log.Blank}, {Log.Orange}{lowerThreshold}{Log.Blank}, {Log.Orange}{upperThreshold}{Log.Blank}, {Log.Orange}{loopCount}{Log.Blank})");
+
             CannyEdgeDetection detector = new CannyEdgeDetection(kernelSize, redRatio, greenRatio, blueRatio, sigma,
                 lowerThreshold, upperThreshold);
 

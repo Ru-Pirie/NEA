@@ -5,6 +5,8 @@ using LocalApp.CLI;
 using LocalApp.WindowsForms;
 using System;
 using System.Drawing;
+using System.IO;
+using System.IO.Compression;
 
 namespace LocalApp.Processes
 {
@@ -41,7 +43,40 @@ namespace LocalApp.Processes
             {
                 _saveFile.PathImage = new Bitmap(_roadResult.PathBitmap);
                 _saveFile.CombinedImage = Utility.CombineBitmap(_saveFile.OriginalImage, _roadResult.PathBitmap);
-                _saveFile.Save(_runGuid);
+                string path = _saveFile.Save(_runGuid);
+
+                string saveName = _runGuid.ToString();
+
+                if (bool.Parse(Settings.UserSettings["shortNames"]
+                        .Item1))
+                {
+
+                    saveName = _saveFile.Name.Replace(' ', '_');
+                    File.Move(path,
+                        path.Replace(Path.GetFileName(path)
+                                .Split('.')[0],
+                            saveName));
+                }
+
+                if (bool.Parse(Settings.UserSettings["zipOnComplete"]
+                        .Item1))
+                {
+                    Directory.CreateDirectory("temp");
+                    Directory.CreateDirectory("temp/images");
+
+                    string[] files = Directory.GetFiles($"./runs/{_runGuid.ToString("N").ToUpper()}", "*.*", SearchOption.AllDirectories);
+                    foreach (string newPath in files)
+                    {
+                        File.Copy(newPath, newPath.Replace($"./runs/{_runGuid.ToString("N").ToUpper()}", "temp/images"));
+                    }
+
+                    File.Copy($"./logs/{_runGuid}.txt", "temp/log.txt");
+                    File.Copy($"./saves/{saveName}.vmap", "temp/map.vmap");
+                    ZipFile.CreateFromDirectory("temp", $"RUN-{_runGuid}");
+                }
+
+
+
             }
         }
 

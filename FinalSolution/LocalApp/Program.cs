@@ -123,6 +123,7 @@ namespace LocalApp
                         case 1:
                             int option = inputHandel.GetOption("What part of the tile information do you wish to change:",
                                 new[] { "1. Name", "2. Description", "3. Type of image" });
+                            logger.Event(runGuid, $"Changing file settings, see current run save folder for the save file.");
                             switch (option)
                             {
                                 case 0:
@@ -141,7 +142,13 @@ namespace LocalApp
                                     break;
                             }
 
-                            recalledMap.Save(runGuid);
+                            string path = recalledMap.Save(runGuid);
+                            if (bool.Parse(Settings.UserSettings["shortNames"]
+                                    .Item1))
+                                File.Move(path,
+                                    path.Replace(Path.GetFileName(path)
+                                            .Split('.')[0],
+                                        recalledMap.Name));
                             break;
                         case 2:
                             File.Copy(recalledMap._filePath, recalledMap._filePath.Replace(Path.GetFileName(recalledMap._filePath).Split('.')[0], Path.GetFileName(recalledMap._filePath).Split('.')[0] + "-CLONE"));
@@ -162,8 +169,8 @@ namespace LocalApp
                             }
                             break;
                         case 5:
+                            logger.Event(runGuid, $"Starting pathfinding of recalled image.");
                             double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
-
                             new Pathfinder(recalledMap.OriginalImage, doubles).Start();
                             break;
                         default:
@@ -204,6 +211,7 @@ namespace LocalApp
                 i.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
                 menu.WriteLine();
 
+                logger.Event(runGuid, $"Confirming is correct file.");
                 ViewImageForm beforeForm = new ViewImageForm(rawImage.Pixels.ToBitmap());
                 beforeForm.ShowDialog();
                 menu.ClearUserSection();

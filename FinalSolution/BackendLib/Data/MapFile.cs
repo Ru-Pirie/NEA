@@ -85,7 +85,7 @@ namespace BackendLib.Data
             }
         }
 
-        public void Save(Guid currentGuid)
+        public string Save(Guid currentGuid)
         {
             using (BinaryWriter bw = new BinaryWriter(File.Open($"./saves/{currentGuid}.vmap", FileMode.OpenOrCreate)))
             {
@@ -130,7 +130,8 @@ namespace BackendLib.Data
                     }
                 }
             }
-        }
 
+            return $"./saves/{currentGuid}.vmap";
+        }
     }
 }
