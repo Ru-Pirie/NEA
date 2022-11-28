@@ -24,7 +24,6 @@ namespace LocalApp
 
             menu.Setup();
             logger.Event("Program has started and menu has been created successfully.");
-            menu.SetPage("Welcome");
 
             Run(menu, logger, settings);
         }
@@ -37,6 +36,7 @@ namespace LocalApp
 
             while (running)
             {
+                menuInstance.SetPage("Welcome Menu");
                 int opt = inputHandel.GetOption("Please select an option to continue:",
                     new[]
                     {
@@ -47,6 +47,7 @@ namespace LocalApp
                 {
                     // New
                     case 0:
+                        menuInstance.SetPage("Process New Image");
                         TextWall.ImageWelcome(menuInstance);
                         inputHandel.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
                         menuInstance.WriteLine();
@@ -55,6 +56,7 @@ namespace LocalApp
                         break;
                     // Recall
                     case 1:
+                        menuInstance.SetPage("Recall Old Image");
                         TextWall.SaveWelcome(menuInstance);
                         inputHandel.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
                         menuInstance.WriteLine();
@@ -70,6 +72,7 @@ namespace LocalApp
                         break;
                     // Exit
                     case 3:
+                        menuInstance.SetPage("Exit");
                         running = false;
                         break;
                 }
@@ -94,6 +97,8 @@ namespace LocalApp
 
                 while (running)
                 {
+                    menu.SetPage("Recalled Options");
+
                     int opt = inputHandel.GetOption("What would you like to do with your recalled map?",
                         new[]
                         {
@@ -109,6 +114,7 @@ namespace LocalApp
                     switch (opt)
                     {
                         case 0:
+                            menu.SetPage("Image Details");
                             string[] items = { "Screenshot", "Hand Drawn", "Photograph", "Other" };
                             menu.ClearUserSection();
                             menu.WriteLine("Your current save file information:");
@@ -121,6 +127,7 @@ namespace LocalApp
                             inputHandel.WaitInput($"{Log.Grey}(Enter to Continue){Log.Blank}");
                             break;
                         case 1:
+                            menu.SetPage("Change Image Details");
                             int option = inputHandel.GetOption("What part of the tile information do you wish to change:",
                                 new[] { "1. Name", "2. Description", "3. Type of image" });
                             logger.Event(runGuid, $"Changing file settings, see current run save folder for the save file.");
@@ -151,15 +158,18 @@ namespace LocalApp
                                         recalledMap.Name));
                             break;
                         case 2:
+                            menu.SetPage("Clone Image");
                             File.Copy(recalledMap._filePath, recalledMap._filePath.Replace(Path.GetFileName(recalledMap._filePath).Split('.')[0], Path.GetFileName(recalledMap._filePath).Split('.')[0] + "-CLONE"));
                             logger.Event($"Cloned {recalledMap._filePath}.");
                             break;
                         case 3:
+                            menu.SetPage("Rename Image");
                             string name = inputHandel.GetInput("What would you like to rename the file too?");
                             logger.Event(runGuid, $"Renamed {Path.GetFileName(recalledMap._filePath).Split('.')[0]} to {name}.");
                             File.Move(recalledMap._filePath, recalledMap._filePath.Replace(Path.GetFileName(recalledMap._filePath).Split('.')[0], name));
                             break;
                         case 4:
+                            menu.SetPage($"{Log.Red}DANGER: Delete Image{Log.Blank}");
                             if (inputHandel.GetOption("Are you sure you want to delete the save?",
                                     new[] { $"{Log.Red}No{Log.Blank}", $"{Log.Red}No{Log.Blank}", $"{Log.Green}Yes{Log.Blank}", $"{Log.Red}No{Log.Blank}", $"{Log.Red}No{Log.Blank}" }) == 2)
                             {
@@ -169,6 +179,7 @@ namespace LocalApp
                             }
                             break;
                         case 5:
+                            menu.SetPage("Pathfinding Window");
                             logger.Event(runGuid, $"Starting pathfinding of recalled image.");
                             double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
                             new Pathfinder(recalledMap.OriginalImage, doubles).Start();
@@ -184,8 +195,7 @@ namespace LocalApp
             catch (Exception ex)
             {
                 menu.ClearUserSection();
-                if (ex.InnerException != null) menu.Error(ex.InnerException.Message);
-                else menu.Error(ex.Message);
+                menu.Error(ex.InnerException != null ? ex.InnerException.Message : ex.Message);
                 new Input(menu).WaitInput("");
                 logger.EndError(runGuid, ex);
             }
@@ -228,7 +238,8 @@ namespace LocalApp
                         "Preset - Photograph",
                         "Multi-threaded - Fast, all options decided at the start which allows for faster processing.",
                         "Synchronous - Slow, options can be changed after each step and steps can be repeated." });
-
+                
+                menu.SetPage("Edge Detection");
                 double[,] resultOfEdgeDetection = null;
 
                 IHandler handler = opt <= 3
@@ -286,9 +297,11 @@ namespace LocalApp
 
                 MapFile saveMapFile = rawImage.MapFile;
 
+                menu.SetPage("Road Detection");
                 RoadSequence roadDetector = new RoadSequence(menu, logger, runGuid, resultOfEdgeDetection, saveMapFile);
                 roadDetector.Start();
 
+                menu.SetPage("Pathfinding Window");
                 new Pathfinder(rawImage.Original, roadDetector.Result().PathDoubles).Start();
 
                 logger.EndSuccessRun(runGuid);
@@ -296,8 +309,7 @@ namespace LocalApp
             catch (Exception ex)
             {
                 menu.ClearUserSection();
-                if (ex.InnerException != null) menu.Error(ex.InnerException.Message);
-                else menu.Error(ex.Message);
+                menu.Error(ex.InnerException != null ? ex.InnerException.Message : ex.Message);
                 new Input(menu).WaitInput("");
                 logger.EndError(runGuid, ex);
             }

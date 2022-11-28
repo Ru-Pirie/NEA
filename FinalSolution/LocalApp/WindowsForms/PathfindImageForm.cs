@@ -11,7 +11,7 @@ namespace LocalApp.WindowsForms
 {
     public partial class PathfindImageForm : Form
     {
-        private readonly Structures.Coord invalidCord = new Structures.Coord { X = -1, Y = -1 };
+        private static readonly Structures.Coord invalidCord = new Structures.Coord { X = -1, Y = -1 };
 
         private Bitmap _image;
         private readonly Bitmap _originalImage;
@@ -23,8 +23,8 @@ namespace LocalApp.WindowsForms
         private readonly Traversal<Structures.Coord> _traversalObject;
 
         private Structures.Coord prevStartNode;
-        private Structures.Coord startNode = new Structures.Coord { X = -1, Y = -1 };
-        private Structures.Coord endNode = new Structures.Coord { X = -1, Y = -1 };
+        private Structures.Coord startNode = invalidCord;
+        private Structures.Coord endNode = invalidCord;
 
         private Dictionary<Structures.Coord, Structures.Coord> _preCalculatedTree;
 
@@ -242,6 +242,8 @@ namespace LocalApp.WindowsForms
 
         private void goButton_Click(object sender, EventArgs e)
         {
+            nodes = 0;
+
             workingButton.Visible = true;
             textBox.Visible = false;
             runningBox.Visible = true;
@@ -249,14 +251,40 @@ namespace LocalApp.WindowsForms
 
             Update();
 
-            if (startNode != invalidCord && endNode != invalidCord)
-            {
-                if (Settings.UserSettings["pathfindingAlgorithm"].Item1.ToLower() == "dijkstra")
+            try { if (startNode != invalidCord && endNode != invalidCord)
                 {
-                    if (prevStartNode != startNode && startNode != endNode || bool.Parse(Settings.UserSettings["endOnFind"].Item1) == true)
+                    if (Settings.UserSettings["pathfindingAlgorithm"].Item1.ToLower() == "dijkstra")
                     {
+                        if (prevStartNode != startNode && startNode != endNode ||
+                            bool.Parse(Settings.UserSettings["endOnFind"].Item1) == true)
+                        {
 
-                        Dictionary<Structures.Coord, Structures.Coord> tree = _traversalObject.Dijkstra(startNode, endNode, bool.Parse(Settings.UserSettings["endOnFind"].Item1), UpdateNodes);
+                            Dictionary<Structures.Coord, Structures.Coord> tree = _traversalObject.Dijkstra(startNode,
+                                endNode, bool.Parse(Settings.UserSettings["endOnFind"].Item1), UpdateNodes);
+                            Structures.Coord[] path = Utility.RebuildPath(tree, endNode);
+                            foreach (Structures.Coord node in path)
+                            {
+                                _image.SetPixel(node.X, node.Y, Color.BlueViolet);
+                                imageBox.Image = _image;
+                            }
+
+                            _preCalculatedTree = tree;
+                        }
+                        else if (prevStartNode == startNode && startNode != endNode)
+                        {
+                            Structures.Coord[] path = Utility.RebuildPath(_preCalculatedTree, endNode);
+                            foreach (Structures.Coord node in path)
+                            {
+                                _image.SetPixel(node.X, node.Y, Color.BlueViolet);
+                                imageBox.Image = _image;
+
+                            }
+                        }
+                    }
+                    else if (Settings.UserSettings["pathfindingAlgorithm"].Item1.ToLower() == "astar")
+                    {
+                        Dictionary<Structures.Coord, Structures.Coord> tree =
+                            _traversalObject.AStar(startNode, endNode, GetDistanceBetweenNodes);
                         Structures.Coord[] path = Utility.RebuildPath(tree, endNode);
                         foreach (Structures.Coord node in path)
                         {
@@ -265,38 +293,23 @@ namespace LocalApp.WindowsForms
                         }
 
                         _preCalculatedTree = tree;
-                    }
-                    else if (prevStartNode == startNode && startNode != endNode)
-                    {
-                        Structures.Coord[] path = Utility.RebuildPath(_preCalculatedTree, endNode);
-                        foreach (Structures.Coord node in path)
-                        {
-                            _image.SetPixel(node.X, node.Y, Color.BlueViolet);
-                            imageBox.Image = _image;
 
-                        }
-                    }
-                }
-                else if (Settings.UserSettings["pathfindingAlgorithm"].Item1.ToLower() == "astar")
-                {
-                    Dictionary<Structures.Coord, Structures.Coord> tree = _traversalObject.AStar(startNode, endNode, GetDistanceBetweenNodes);
-                    Structures.Coord[] path = Utility.RebuildPath(tree, endNode);
-                    foreach (Structures.Coord node in path)
-                    {
-                        _image.SetPixel(node.X, node.Y, Color.BlueViolet);
-                        imageBox.Image = _image;
                     }
 
-                    _preCalculatedTree = tree;
-
+                    prevStartNode = startNode;
                 }
 
-                prevStartNode = startNode;
+                workingButton.Visible = false;
+                textBox.Visible = true;
+                runningBox.Visible = false;
+                nodeBox.Visible = false;
+            } catch (Exception _)
+            {
+                workingButton.Visible = false;
+                textBox.Visible = true;
+                runningBox.Visible = false;
+                nodeBox.Visible = false;
             }
-            workingButton.Visible = false;
-            textBox.Visible = true;
-            runningBox.Visible = false;
-            nodeBox.Visible = false;
         }
     }
 }

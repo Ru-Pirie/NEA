@@ -1,9 +1,8 @@
-﻿using System.Drawing;
-using BackendLib;
+﻿using BackendLib;
 using BackendLib.Data;
 using BackendLib.Datatypes;
 using LocalApp.WindowsForms;
-using static BackendLib.Structures;
+using System.Drawing;
 
 namespace LocalApp.Processes
 {
