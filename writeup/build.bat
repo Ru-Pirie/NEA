@@ -23,3 +23,4 @@ if "%1" == "full" (
 )
 
 echo Done.
+start chrome file://"%~dp0main.pdf"
