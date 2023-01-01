@@ -132,7 +132,7 @@
             \bk
  
             Bing maps also still includes the feature which allows users to create their own maps based on their own data. Unlike google which did have this feature until they discontinued it.
-            I believe that this could be something that would be beneficial to my program, allowing people to take a photo of their own map and have my solution compute it into a routable map. \\
+            I believe that this could be something that would be beneficial to my program, allowing people to take a photo of their own map and have my solution compute it into a rotatable map. \\
  
             \bk
  
@@ -150,7 +150,7 @@
             for this and as such have an extensive list of pre-planned routes. \\
             \bk
             Similar to Google Maps, and in a limited capacity, Bing maps; OS Maps allow you to view their maps in different forms such as 3D and topographic however in order to access these you will
-            have to access their premium plan therefor for the average user this is not a viable option and a hindrance. It is good to note however that the other variations on the map of the UK,
+            have to access their premium plan therefore for the average user this is not a viable option and a hindrance. It is good to note however that the other variations on the map of the UK,
             and this holds true for all of the aforementioned maps, that the satellite view and other views are not necessary and could in fact be a hindrance. \\
             
             \bk
@@ -272,7 +272,7 @@
             \paragraph{Gaussian Filter} \mbox{} \\
             This is the first step of 5 in terms of performing Canny Edge Detection. Applying the Gaussian filter to the image will smooth out the image and remove any noise. It does this by taking a section
             of the image, sometimes referred to as a kernel and performing an equation on it. Once it has computed the equation it sets all of the pixels inside the kernel to this value. The following is true 
-            for a kernel size of $(2k + 1) * (2k + 1)$. It takes two changeable parameters $\sigma$ which denotes the amount of blur to apply and $k$ is the kernel size. As well as being one of the key steps in canny edge detection it is also a vital component to most edge detection programs since noise can caise errors in the final image.\\ \bk
+            for a kernel size of $(2k + 1) * (2k + 1)$. It takes two changeable parameters $\sigma$ which denotes the amount of blur to apply and $k$ is the kernel size. As well as being one of the key steps in canny edge detection it is also a vital component to most edge detection programs since noise can cause errors in the final image.\\ \bk
             
             \begin{gather*}
                 H_{ij} = \frac{1}{
@@ -288,14 +288,14 @@
             \end{gather*}
 
             \BK
-            Since the Gaussian kernel I would be using would always be centered around the origin $(0, 0)$ I can use a simplified version of the Gaussian distribution equation. This is as follows: \\ \bk
+            Since the Gaussian kernel I would be using would always be centred around the origin $(0, 0)$ I can use a simplified version of the Gaussian distribution equation. This is as follows: \\ \bk
             
             \begin{gather*}
                 H_{ij} = \frac{1}{2\pi\sigma^2} \exp \frac{-(x^2 + y^2)}{\sigma^2}
             \end{gather*}
             
             \BK
-            I can afford to remove the $(i - (k + 1))$ section due to the fact that I am not having to calculate the Gaussian distribution at a non-centered location. One notable thing to mention is that in many cases it is not necessary to calculate the Gaussian kernel by hand and an approximation can be used. The example below is the approximation when $\sigma$ has a value of 1. \\ \bk
+            I can afford to remove the $(i - (k + 1))$ section due to the fact that I am not having to calculate the Gaussian distribution at a non-centred location. One notable thing to mention is that in many cases it is not necessary to calculate the Gaussian kernel by hand and an approximation can be used. The example below is the approximation when $\sigma$ has a value of 1. \\ \bk
             
             \begin{gather*}
                 B = \frac{1}{159} \begin{bmatrix} 
@@ -554,7 +554,7 @@ public double[,] CalculateGradientX(double[,] imageArray)
         \end{figure} \bk
         
         \paragraph{4. Gradient Direction} \mbox{} \\
-        Now that the gradient values have been calculated we can move onto working out which direction the gradient is traveling. This is done via the use of the $2^{nd}$ argument arc-tangent. The definition of the $2^{nd}$ argument arc-tangent is defined as the angle in the Euclidean plane, given in radians, between the positive $x$ axis and the ray from the origin to the point $(x,y)$. Once this is calculated this will allow the program to see in which direction the gradient is traveling in the image. As well as this is also allows us to see how sharp the change is from one to the other, this is how we can decide if there is an edge there. The code to calculate the $2^{nd}$ argument arc-tangent is simple since all is needed is to iterate over the entire image. The code for this can be seen at \textit{5.1.1 Lines 379 through 384.}
+        Now that the gradient values have been calculated we can move onto working out which direction the gradient is travelling. This is done via the use of the $2^{nd}$ argument arc-tangent. The definition of the $2^{nd}$ argument arc-tangent is defined as the angle in the Euclidean plane, given in radians, between the positive $x$ axis and the ray from the origin to the point $(x,y)$. Once this is calculated this will allow the program to see in which direction the gradient is travelling in the image. As well as this is also allows us to see how sharp the change is from one to the other, this is how we can decide if there is an edge there. The code to calculate the $2^{nd}$ argument arc-tangent is simple since all is needed is to iterate over the entire image. The code for this can be seen at \textit{5.1.1 Lines 379 through 384.}
         
         \begin{cscode} 
 public double[,] CalculateTheta(double[,] gradX, double[,] gradY)
@@ -565,7 +565,7 @@ public double[,] CalculateTheta(double[,] gradX, double[,] gradY)
 }
         \end{cscode}
         
-        This however will return an array with values which are in the range of -$\pi$ to $\pi$ therefor in order to create an image to visualise the result a linear transformation must be used which can be calculated as the equation of a line. The derived equation is $\frac{128}{2\pi}x + 128$ where x is the value of theta. Once converted the output of this stage is as follows.
+        This however will return an array with values which are in the range of -$\pi$ to $\pi$ therefore in order to create an image to visualise the result a linear transformation must be used which can be calculated as the equation of a line. The derived equation is $\frac{128}{2\pi}x + 128$ where x is the value of theta. Once converted the output of this stage is as follows.
         \begin{figure}[H]
             \centering
             \includegraphics[width=5cm]{images/edgeDetectionPrototype/f.jpg}
@@ -595,7 +595,7 @@ public double[,] ConvertThetaToDegrees(double[,] thetaArray)
         \end{figure} \bk
 
 
-        The part of the edge detection that this portion of the code is performing is removing parts of the image which have random lines and sporadic noise. This is due to us having a "direction" of where the gradient of the image is traveling. From this we can create a image kernel of our processed image so far. Depending on what the direction is it will fall into several categories. These can be seen in the code as follows:
+        The part of the edge detection that this portion of the code is performing is removing parts of the image which have random lines and sporadic noise. This is due to us having a "direction" of where the gradient of the image is travelling. From this we can create a image kernel of our processed image so far. Depending on what the direction is it will fall into several categories. These can be seen in the code as follows:
 
         \begin{cscode}
 public double[,] ApplyGradientMagnitudeThreshold(double[,] angles, double[,] magnitudes)
@@ -645,7 +645,7 @@ public double[,] ApplyGradientMagnitudeThreshold(double[,] angles, double[,] mag
 }
         \end{cscode}
 
-        The use of the exception at the end is because the code above should catch all values however if it doesn't then something has gone wrong and therefor the process should not continue. After this has been applied to our image we are left with:
+        The use of the exception at the end is because the code above should catch all values however if it doesn't then something has gone wrong and therefore the process should not continue. After this has been applied to our image we are left with:
         
         \begin{figure}[H]
             \centering
@@ -692,10 +692,10 @@ public (double, bool)[,] ApplyDoubleThreshold(double l, double h, double[,] grad
         As you can see lots of noise from the scan lines of the image have been removed in this step as they would have been too small to make it past the lower threshold. Now we have an 2D array of pixel values and whether they are considered "strong" or not. If they are strong this is represented by \textbf{true} in the $2\textsuperscript{nd}$ part of the tuple. And \textbf{false} for a "weak" pixel. \\ \bk
 
         \paragraph{7. Edge tracking by Hysteresis} \mbox{} \\
-        This is the final step of traditional canny edge detection. This will require the 2D array of tuples and will require kernels of the image as it loops over every pixel. This will cause a problem since the usual way fo doing it would default to grey if the kernel overlapped with the edge of the image. So in this case we default to the pixel itself because any other value could cause us to get an erroneous edge. The way that this works is if the pixel is a "strong" pixel then it is defaulted to an edge since it was above the previous threshold. If the pixel is "weak" then it will build a kernel of all of the images arround it. If any of the pixels which surround it are "strong" then this pixel is made "strong". The code for this is as follows.
+        This is the final step of traditional canny edge detection. This will require the 2D array of tuples and will require kernels of the image as it loops over every pixel. This will cause a problem since the usual way fo doing it would default to grey if the kernel overlapped with the edge of the image. So in this case we default to the pixel itself because any other value could cause us to get an erroneous edge. The way that this works is if the pixel is a "strong" pixel then it is defaulted to an edge since it was above the previous threshold. If the pixel is "weak" then it will build a kernel of all of the images around it. If any of the pixels which surround it are "strong" then this pixel is made "strong". The code for this is as follows.
 
         \begin{cscode}
-public double[,] ApplyEdgeTrackingHystersis((double, bool)[,] arrayOfValues)
+public double[,] ApplyEdgeTrackingHysteresis((double, bool)[,] arrayOfValues)
 {
     double[,] result = new double[arrayOfValues.GetLength(0), arrayOfValues.GetLength(1)];
 
@@ -753,11 +753,11 @@ public double[,] ApplyEdgeTrackingHystersis((double, bool)[,] arrayOfValues)
         The code for this is very simple and involved convolution across the entire image using this code. \\ \bk
 
         \begin{cscode}
-public double[,] EmbosImage(double[,] imageArray)
+public double[,] EmbossImage(double[,] imageArray)
 {
     double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
 
-    Matrix embosMatrix = new Matrix(new double[,]
+    Matrix embossMatrix = new Matrix(new double[,]
     {
         { -2, -1, 0 },
         { -1, 1, 1 },
@@ -769,7 +769,7 @@ public double[,] EmbosImage(double[,] imageArray)
         for (int j = 0; j < imageArray.GetLength(1); j++)
         {
             Matrix imageKernel = BuildKernel(j, i, 3, imageArray);
-            result[i, j] = Math.Abs(Matrix.Convolution(imageKernel, embosMatrix));
+            result[i, j] = Math.Abs(Matrix.Convolution(imageKernel, embossMatrix));
         }
     }
 
@@ -845,14 +845,14 @@ public double[,] FillImage(double[,] imageArray)
                     \item Advantages
                     \begin{enumerate}
                         \item[] Easier to use pragmatically and implement
-                        \item[] It is much easier to use linq functions with to find graph connections
+                        \item[] It is much easier to use Linq functions with to find graph connections
                     \end{enumerate}
                     \item Disadvantages
                     \begin{enumerate}
                         \item[] Relatively slower when it comes to accessing sections of the graph.
                         \item[] Would have to be a hybrid with a dictionary to allow for reasonable use
                     \end{enumerate}
-            \end{itemize}
+            \end{itemize}.
         \end{enumerate}
 
         With all of this being said I decided to go for a Dictionary List since this was the easiest way to programmatically manipulate it. It also makes it easier to enter a new graph. This compared to a matrix where it would get into extreme values quickly. The structure of my prototype graph is: \\ \bk
@@ -979,9 +979,9 @@ public static string[] BFS(string start, Graph graph)
         \end{cscode}
 
         Both of these I ran through by hand and they came out correct. It was useful to see how they are calculated and how the implementation is different depending on whether you use a stack or a queue for the graph traversal.
-
+        
         \subsubsection{Windows Forms with Images}
-        To allow the user to easily be able to see the output of the edge detection. In order to do this the project needed to be created in dot-Net Framework. Once this is done a basic mock up of what the prompt to the user will see is made in the user interface. This creates backend XML which is interpreted by the framework to be presented to the user. As well as this there is also the programatic part to it which can be used to display the image. \\ \bk
+        To allow the user to easily be able to see the output of the edge detection. In order to do this the project needed to be created in dot-Net Framework. Once this is done a basic mock up of what the prompt to the user will see is made in the user interface. This creates backend XML which is interpreted by the framework to be presented to the user. As well as this there is also the programmatic part to it which can be used to display the image. \\ \bk
         
         \textbf{Example}
 
@@ -1158,7 +1158,7 @@ public partial class ShowImage : Form
             \begin{enumerate}
                 \item At each stage of the edge detection an image should be produced
                 \begin{enumerate}
-                    \item The user should be able to save the intermidiate images.
+                    % \item The user should be able to save the intermediate images.
                 \end{enumerate}
                 \item Between each stage the user should be able to repeat the last step in order to change parameters.\\
                 \emph{The user should be able to change (at various stages):} 
@@ -1244,7 +1244,7 @@ public partial class ShowImage : Form
                         \item Perform matrix addition
                         \item Perform matrix subtraction
                         \item Perform scalar multiplication
-                        \item Perform matrix minimisation
+                        \item Perform matrix minimization
                 \end{enumerate}
                 \item The program must be able to find the determinant of a matrix
                 \item The program must be able to find the inverse of a matrix
@@ -1300,7 +1300,7 @@ public partial class ShowImage : Form
         % not all modeling needs to go in this section
         % class diagram and equations to be used
         % mockup of the interface (less vital)
-        \subsection{Modeling}
+        \subsection{Modelling}
             TODO
         \bk
 
