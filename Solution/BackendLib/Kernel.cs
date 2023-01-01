@@ -1,0 +1,105 @@
+﻿using BackendLib.Exceptions;
+
+namespace BackendLib
+{
+    public class Kernel<T>
+    {
+        private readonly T[,] _image;
+        private readonly int _width;
+        private readonly int _height;
+
+        public Kernel(T[,] image)
+        {
+            _image = image;
+            _height = image.GetLength(0);
+            _width = image.GetLength(1);
+        }
+
+        public T[,] Constant(int x, int y, int size, T constant = default)
+        {
+            if (size % 2 != 1) throw new KernelException("The image kernel supplied was of an odd size, check your settings and try again.");
+            if (x >= _width || x < 0 || y >= _height || y < 0)
+                throw new KernelException("Your kernel must start within the image.");
+
+            T[,] kernel = new T[size, size];
+
+            int halfK = size / 2;
+
+            for (int i = 0; i < size; i++)
+                for (int j = 0; j < size; j++)
+                    kernel[i, j] = constant;
+
+            int cntY = 0;
+            for (int j = y - halfK; j <= y + halfK; j++)
+            {
+                int cntX = 0;
+                for (int i = x - halfK; i <= x + halfK; i++)
+                {
+                    if (j >= 0 && i >= 0 && j < _height && i < _image.GetLength(1))
+                    {
+                        kernel[cntY, cntX] = _image[j, i];
+                    }
+                    cntX++;
+                }
+                cntY++;
+            }
+
+            return kernel;
+        }
+
+        public T[,] Duplication(int x, int y, int size)
+        {
+            if (size % 2 != 1) throw new KernelException("The image kernel supplied was of an odd size, check your settings and try again.");
+            if (x >= _width || x < 0 || y >= _height || y < 0)
+                throw new KernelException("Your kernel must start within the image.");
+
+            T[,] kernel = new T[size, size];
+
+            int halfK = size / 2;
+
+            for (int i = 0; i < size; i++) for (int j = 0; j < size; j++) kernel[i, j] = _image[y, x];
+
+            int cntY = 0;
+            for (int j = y - halfK; j <= y + halfK; j++)
+            {
+                int cntX = 0;
+                for (int i = x - halfK; i <= x + halfK; i++)
+                {
+                    if (j >= 0 && i >= 0 && j < _height && i < _image.GetLength(1))
+                    {
+                        kernel[cntY, cntX] = _image[j, i];
+                    }
+                    cntX++;
+                }
+                cntY++;
+            }
+
+            return kernel;
+        }
+
+        public static double[,] Gaussian(double sigma, int size)
+        {
+            double[,] result = new double[size, size];
+            int halfK = size / 2;
+
+            double sum = 0;
+
+            int cntY = -halfK;
+            for (int i = 0; i < size; i++)
+            {
+                int cntX = -halfK;
+                for (int j = 0; j < size; j++)
+                {
+                    result[halfK + cntY, halfK + cntX] = Utility.GaussianDistribution(cntX, cntY, sigma);
+                    sum += result[halfK + cntY, halfK + cntX];
+                    cntX++;
+                }
+                cntY++;
+            }
+
+            for (int i = 0; i < size; i++) for (int j = 0; j < size; j++) result[i, j] /= sum;
+            return result;
+        }
+
+    }
+}
