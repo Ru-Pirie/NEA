@@ -39,7 +39,7 @@
         Some of these I believe are out of the scope of this project however once the interview has been conducted with the end user I will have a better idea of the needs that my program needs to for-fill.\\
 
         \bk
-        Finally, 
+        Finally, I feel that the point of my final solution should be to fix all of the flaws which I find during my research as well as from the end user. As well as improving where the end user feels it needs to be. \\
 
         \bk
         
@@ -60,7 +60,7 @@
                 \item {\bf{Have you ever experienced a faulty or mislabeled part of an web map or has said map ever been inaccurate?}} \\
                 \bk
                 "Yes"
-                \item {\bf{Do you often use web maps in your day to day life, if so how?}} \\
+                \item {\bf{Do you often use web maps in your day to day life, if so in what capacity?}} \\
                 \bk
                 "Yes, \textbf{NEEDS TO BE ADDED TO}"
                 \item {\bf{In your opinion do you feel that web maps are vital to every day life if so why or why not? }} \\
@@ -241,7 +241,6 @@
                 \item Graph Traversal: The act of routing or searching through a graph from one node to another, either using an algorithm or by another means.
                 \item Graph Routing: Graph traversal in a \emph{weighted undirected} graph.
                 \item Graph Searching: Graph traversal in a \emph{unweighted undirected} graph.
-                \item Graph MST: The minimum spanning tree of a graph which must be weighted.
             \end{enumerate}
 
             \bk
@@ -333,7 +332,8 @@
             will allow me to correct any inaccurate questions that where asked in the initial interview. This is because after I received my initial responses I realised that I
             needed to be more clear with what I was asking and the information that I wanted back. \\
             \bk
-            
+
+            HAS BEEN ASKED WAITING FOR RESPONSES
             \begin{enumerate}
                 \item {\bf{Bobbert?}} \\
                 \bk
@@ -585,10 +585,525 @@ public double[,] ConvertThetaToDegrees(double[,] thetaArray)
 }
         \end{cscode}
         
-        Once all values are in degrees this becomes easier to deal with since there is less data lost to floating point arithmetic. Now that the angles are in degrees they are compared to predefined values as shown in the code. Depending which if the categories the pixel in question falls into the kernel is then used to decide whether that pixel will be set to black or not. Since this is the first filtering pass it is rather blunt and will not remove all of the noise in the image, this will come at a later stage through the use of min max threshold. \\ \bk
+        Once all values are in degrees this becomes easier to deal with since there is less data lost to floating point arithmetic. Now that the angles are in degrees they are compared to predefined values as shown in the code. Depending which if the categories the pixel in question falls into the kernel is then used to decide whether that pixel will be set to black or not. Since this is the first filtering pass it is rather blunt and will not remove all of the noise in the image, this will come at a later stage through the use of min max threshold. Just so that the gradients can be visualised this is what is generated (adjusted to be visible and comprehensible for a human) see above \textit{figure \ref{fig:proto_gradDir}}. \\ \bk
 
-        The main part of the edge detection that this portion of the code completes is removing parts of the image which have random lines in the image. This is due to us having a "made up" direciton of where the line is  
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=5cm]{images/edgeDetectionPrototype/f.jpg}
+            \caption{Gradient Direction}
+            \label{fig:proto_gradDirection}
+        \end{figure} \bk
 
+
+        The part of the edge detection that this portion of the code is performing is removing parts of the image which have random lines and sporadic noise. This is due to us having a "direction" of where the gradient of the image is traveling. From this we can create a image kernel of our processed image so far. Depending on what the direction is it will fall into several categories. These can be seen in the code as follows:
+
+        \begin{cscode}
+public double[,] ApplyGradientMagnitudeThreshold(double[,] angles, double[,] magnitudes)
+{
+    double[,] result = magnitudes;
+    double[,] anglesInDegrees = ConvertThetaToDegrees(angles);
+
+    for (int i = 0; i < anglesInDegrees.GetLength(0); i++)
+    {
+        for (int j = 0; j < anglesInDegrees.GetLength(1); j++)
+        {
+            double[,] magnitudeKernel = BuildKernel(j, i, 3, magnitudes).matrix;
+
+            if (anglesInDegrees[i, j] < 22.5 || anglesInDegrees[i, j] >= 157.5)
+            {
+                if (magnitudes[i, j] < magnitudeKernel[1, 2] || magnitudes[i, j] < magnitudeKernel[1, 0])
+                {
+                    result[i, j] = 0;
+                }
+            }
+            else if (anglesInDegrees[i, j] >= 22.5 && anglesInDegrees[i, j] < 67.5)
+            {
+                if (magnitudes[i, j] < magnitudeKernel[0, 2] || magnitudes[i, j] < magnitudeKernel[2, 0])
+                {
+                    result[i, j] = 0;
+                }
+            }
+            else if (anglesInDegrees[i, j] >= 67.5 && anglesInDegrees[i, j] < 112.5)
+            {
+                if (magnitudes[i, j] < magnitudeKernel[0, 1] || magnitudes[i, j] < magnitudeKernel[2, 1])
+                {
+                    result[i, j] = 0;
+                }
+            }
+            else if (anglesInDegrees[i, j] >= 112.5 && anglesInDegrees[i, j] < 157.5)
+            {
+                if (magnitudes[i, j] < magnitudeKernel[0, 0] || magnitudes[i, j] < magnitudeKernel[2, 2])
+                {
+                    result[i, j] = 0;
+                }
+            }
+            else throw new Exception();
+        }
+    }
+
+    return result;
+}
+        \end{cscode}
+
+        The use of the exception at the end is because the code above should catch all values however if it doesn't then something has gone wrong and therefor the process should not continue. After this has been applied to our image we are left with:
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=5cm]{images/edgeDetectionPrototype/g.jpg}
+            \caption{Magnitude Threshold}
+            \label{fig:proto_magnitudeThreshold}
+        \end{figure} \bk
+
+        \paragraph{6. Min Max Threshold and Potential Edge Calculations} \mbox{} \\
+        This part of the canny edge detection is also called the double threshold. This is where the image pixels will all be taken and their values considered. This is when it becomes necessary for us to use the black and white version of the image. If we did not then there would be no easy way to perform this. This is because unlike most of he other steps of the edge detection we are not interested yet at the pixels which are surrounding the ones we are looking at. We are just interested in its specific value. The code to perform this is as follows.
+
+        \begin{cscode}
+public (double, bool)[,] ApplyDoubleThreshold(double l, double h, double[,] gradients)
+{
+    double min = l * 255;
+    double max = h * 255;
+
+    (double, bool)[,] result = new (double, bool)[gradients.GetLength(0), gradients.GetLength(1)];
+
+    for (int i = 0; i < gradients.GetLength(0); i++)
+    {
+        for (int j = 0; j < gradients.GetLength(1); j++)
+        {
+            if (gradients[i, j] < min) result[i, j] = (0, false);
+            else if (gradients[i, j] > min && gradients[i, j] < max) result[i, j] = (gradients[i, j], false);
+            else if (gradients[i, j] > max) result[i, j] = (gradients[i, j], true);
+            else throw new Exception();
+        }
+    }
+
+    return result;
+}
+        \end{cscode}
+
+        The function takes two important parameters. The lower bound and the upper bound. These are the values at which we decide if a pixel is too weak and is to be set to black, if it is a "weak" pixel or a "strong" pixel. These are not important at the moment however will be used when it comes to hysteresis. Some pixels will be out right removed however and we can see the result of this double threshold is.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=5cm]{images/edgeDetectionPrototype/h.jpg}
+            \caption{Magnitude Threshold}
+            \label{fig:proto_minmaxThreshold}
+        \end{figure} \bk
+
+        As you can see lots of noise from the scan lines of the image have been removed in this step as they would have been too small to make it past the lower threshold. Now we have an 2D array of pixel values and whether they are considered "strong" or not. If they are strong this is represented by \textbf{true} in the $2\textsuperscript{nd}$ part of the tuple. And \textbf{false} for a "weak" pixel. \\ \bk
+
+        \paragraph{7. Edge tracking by Hysteresis} \mbox{} \\
+        This is the final step of traditional canny edge detection. This will require the 2D array of tuples and will require kernels of the image as it loops over every pixel. This will cause a problem since the usual way fo doing it would default to grey if the kernel overlapped with the edge of the image. So in this case we default to the pixel itself because any other value could cause us to get an erroneous edge. The way that this works is if the pixel is a "strong" pixel then it is defaulted to an edge since it was above the previous threshold. If the pixel is "weak" then it will build a kernel of all of the images arround it. If any of the pixels which surround it are "strong" then this pixel is made "strong". The code for this is as follows.
+
+        \begin{cscode}
+public double[,] ApplyEdgeTrackingHystersis((double, bool)[,] arrayOfValues)
+{
+    double[,] result = new double[arrayOfValues.GetLength(0), arrayOfValues.GetLength(1)];
+
+    for (int i = 0; i < arrayOfValues.GetLength(0); i++)
+    {
+        for (int j = 0; j < arrayOfValues.GetLength(1); j++)
+        {
+            if (arrayOfValues[i, j].Item2 == false)
+            {
+                (double, bool)[,] imageKernel = BuildKernel(j, i, 3, arrayOfValues);
+                bool strong = false;
+                for (int k = 0; k < 3 && !strong; k++)
+                {
+                    for (int l = 0; l < 3 && !strong; l++)
+                    {
+                        if (imageKernel[k, l].Item2 == true) strong = true;
+                    }
+                }
+
+                result[i, j] = strong ? 255 : 0;
+            }
+            else result[i, j] = 255;
+        }
+    }
+
+    return result;
+}
+        \end{cscode}
+
+        After this has been completed we are left with a classically edge detected image which looks as follows. The left image is the original for comparison purposes.
+
+                
+        \begin{figure}[H]
+            \centering
+            \subfloat[Original Input Image]{\includegraphics[width=5cm]{images/edgeDetectionPrototype/in.jpg}}
+            \label{fig:proto_originalComaprison}
+            \qquad
+            \subfloat[Image after Classic Edge Detection]{\includegraphics[width=5cm]{images/edgeDetectionPrototype/i.jpg}}
+            \label{fig:proto_hysteresis}
+        \end{figure} \bk
+
+        As is visible in the final image we can see that after the edge detection there are holes in the lines. As well as this there are occasional gaps this is where I came up with a extra couple of steps. This allows the image to be properly formed and connect any miscellaneous roads which have small gaps.
+
+        \paragraph{8. Emboss Kernel} \mbox{} \\
+        This stage isn't strictly needed for more than the reasons stated above, this will make it so that the some roads which are slightly separated, or artifacts left over from the edge detection are removed. This is done thought the use of an image kernel which is as follows: \\ 
+
+        \begin{gather*}
+            \begin{pmatrix}
+                -2 & -1 & 0 \\
+                -1 & 1  & 1 \\
+                0  & 1  & 2 \\
+            \end{pmatrix}
+        \end{gather*}
+
+        The code for this is very simple and involved convolution across the entire image using this code. \\ \bk
+
+        \begin{cscode}
+public double[,] EmbosImage(double[,] imageArray)
+{
+    double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
+
+    Matrix embosMatrix = new Matrix(new double[,]
+    {
+        { -2, -1, 0 },
+        { -1, 1, 1 },
+        { 0, 1, 2 },
+    });
+
+    for (int i = 0; i < imageArray.GetLength(0); i++)
+    {
+        for (int j = 0; j < imageArray.GetLength(1); j++)
+        {
+            Matrix imageKernel = BuildKernel(j, i, 3, imageArray);
+            result[i, j] = Math.Abs(Matrix.Convolution(imageKernel, embosMatrix));
+        }
+    }
+
+    return result;
+}
+        \end{cscode}
+
+        This results in, as you can imagine, an embossed image. \\ \bk
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=5cm]{images/edgeDetectionPrototype/j.jpg}
+            \caption{Magnitude Threshold}
+            \label{fig:proto_embossedImage}
+        \end{figure} \bk
+
+        \paragraph{9. Custom Hole Filling} \mbox{} \\
+        Now that the lines of the image have been increased then the only step which remains is to make the lines full and complete, this means that in the future when this is Incorporated into my final solution when a filling algorithm is applied it wont pick up erroneous roads.
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=5cm]{images/edgeDetectionPrototype/k.jpg}
+            \caption{Magnitude Threshold}
+            \label{fig:proto_finalFilledImage}
+        \end{figure} \bk
+
+        This is completed with the following code, the way that it works is that it takes a kernel of the surrounding image. If there is a certain amount of pixels in the surrounding kernel which are white then the center pixel is set to white. This threshold can be changed but 4 works well. 
+
+        \begin{cscode}
+public double[,] FillImage(double[,] imageArray)
+{
+    double[,] result = imageArray;
+
+    for (int i = 0; i < imageArray.GetLength(0); i++)
+    {
+        for (int j = 0; j < imageArray.GetLength(1); j++)
+        {
+            Matrix imageKernel = BuildKernel(j, i, 3, imageArray);
+            int count = 0;
+            foreach (double value in imageKernel.matrix)
+            {
+                if (value >= 255) count++;
+            }
+
+            if (count > 4) result[i, j] = 255;
+        }
+    }
+
+    return result;
+}
+        \end{cscode}
+
+
+        \subsubsection{Graph Class and Graph Traversal}
+        The graph data structure is well documented and has two main ways of being represented. One of which is a Adjacency List and the other is an Adjacency Matrix, each have their advantages and disadvantages so I will start with those.
+
+        \begin{enumerate}
+            \item Adjacency Matrix
+            \begin{itemize}
+                \item Advantages
+                    \begin{enumerate}
+                        \item[] Very fast when needing to lookup connections.
+                        \item[] Inserting is also fast due to it being instantly accessible and not a dynamic structure.
+                    \end{enumerate}
+                \item Disadvantages
+                \begin{enumerate}
+                        \item[] Very memory inefficient and will need to grow exponentially in each dimension with the amount of pixels in the image.
+                        \item[] When you have a sparse graph it is even more inefficient.
+                \end{enumerate}
+            \end{itemize}
+            \item Adjacency List
+                \begin{itemize}
+                    \item Advantages
+                    \begin{enumerate}
+                        \item[] Easier to use pragmatically and implement
+                        \item[] It is much easier to use linq functions with to find graph connections
+                    \end{enumerate}
+                    \item Disadvantages
+                    \begin{enumerate}
+                        \item[] Relatively slower when it comes to accessing sections of the graph.
+                        \item[] Would have to be a hybrid with a dictionary to allow for reasonable use
+                    \end{enumerate}
+            \end{itemize}
+        \end{enumerate}
+
+        With all of this being said I decided to go for a Dictionary List since this was the easiest way to programmatically manipulate it. It also makes it easier to enter a new graph. This compared to a matrix where it would get into extreme values quickly. The structure of my prototype graph is: \\ \bk
+
+       \begin{figure}[H]
+            \centering
+            \includegraphics[width=10cm]{images/graphClassDiagram.png}
+            \caption{Graph UML Diagram}
+            \label{fig:proto_umlGraph}
+        \end{figure} \bk
+
+        and in code \\ \bk
+
+        \begin{cscode}
+public class Graph
+{
+    public Dictionary<string, List<string>> _data = new Dictionary<string, List<string>>();
+
+    public Graph(Dictionary<string, List<string>> graph)
+    {
+        _data = graph;
+    }
+
+    public void AddNode(string name)
+    {
+        if (_data.ContainsKey(name)) throw new GraphException($"Cannot add {name}, node already exists.");
+        _data.Add(name, new List<string>());
+    }
+
+    public void RemoveNode(string name)
+    {
+        if (!_data.ContainsKey(name)) throw new GraphException($"Cannot remove {name}, node does not exist.");
+        _data.Remove(name);
+    }
+
+    public void AddConnection(string node, string name)
+    {
+        if (!_data.ContainsKey(node)) throw new GraphException($"Cannot add connection {name} to {node} original node does not exist.");
+        if (_data[node].Contains(name)) throw new GraphException($"Cannot add connection {name} to {node} connection already exists.");
+        _data[node].Add(name);
+    }
+
+    public List<string> GetNode(string node)
+    {
+        if (!_data.ContainsKey(node)) throw new GraphException($"Node {node} does not exist.");
+        return _data[node];
+    }
+
+    public string[] GetAllNodes() => _data.Keys.ToArray();
+
+    public void Clear() => _data.Clear();
+}
+        \end{cscode}
+
+        This is the most basic of graph structures and may need to be changed as I develop the final solution however for the moment it serves as a good prototype. With this graph I also went on to program basic DFS (Depth-First Search) and BFS (Breadth First Search). \\ \bk
+
+        \begin{cscode}
+public static string[] DFS(string start, Graph graph)
+{
+    List<string> path = new List<string>();
+    Stack<string> stack = new Stack<string>();
+    Dictionary<string, bool> visited = new Dictionary<string, bool>();
+    foreach (string s in graph.GetAllNodes()) visited.Add(s, false);
+
+    // Kick Start
+    stack.Push(start);
+
+    while (!stack.IsEmpty())
+    {
+
+        string node = stack.Pop();
+        path.Add(node);
+        visited[node] = true;
+
+        List<string> connections = graph.GetNode(node);
+
+        connections.Reverse();
+
+        foreach (string s in connections)
+        {
+            if (visited[s] == false)
+            {
+                stack.Push(s);
+            }
+        }
+    }
+
+
+    return path.ToArray();
+}
+
+public static string[] BFS(string start, Graph graph)
+{
+    List<string> path = new List<string>();
+    Queue<string> stack = new Queue<string>();
+    Dictionary<string, bool> visited = new Dictionary<string, bool>();
+    foreach (string s in graph.GetAllNodes()) visited.Add(s, false);
+
+    // Kick Start
+    stack.Enqueue(start);
+
+    while (!stack.IsEmpty())
+    {
+
+        string node = stack.Dequeue();
+        path.Add(node);
+        visited[node] = true;
+
+        List<string> connections = graph.GetNode(node);
+
+        connections.Reverse();
+
+        foreach (string s in connections)
+        {
+            if (visited[s] == false)
+            {
+                stack.Enqueue(s);
+            }
+        }
+    }
+
+    return path.ToArray();
+}
+        \end{cscode}
+
+        Both of these I ran through by hand and they came out correct. It was useful to see how they are calculated and how the implementation is different depending on whether you use a stack or a queue for the graph traversal.
+
+        \subsubsection{Windows Forms with Images}
+        To allow the user to easily be able to see the output of the edge detection. In order to do this the project needed to be created in dot-Net Framework. Once this is done a basic mock up of what the prompt to the user will see is made in the user interface. This creates backend XML which is interpreted by the framework to be presented to the user. As well as this there is also the programatic part to it which can be used to display the image. \\ \bk
+        
+        \textbf{Example}
+
+        \begin{cscode}
+partial class ShowImage
+{
+    /// <summary>
+    /// Required designer variable.
+    /// </summary>
+    private System.ComponentModel.IContainer components = null;
+
+    /// <summary>
+    /// Clean up any resources being used.
+    /// </summary>
+    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing && (components != null))
+        {
+            components.Dispose();
+        }
+        base.Dispose(disposing);
+    }
+
+    #region Windows Form Designer generated code
+
+    /// <summary>
+    /// Required method for Designer support - do not modify
+    /// the contents of this method with the code editor.
+    /// </summary>
+    private void InitializeComponent()
+    {
+        this.imageBox = new System.Windows.Forms.PictureBox();
+        this.next = new System.Windows.Forms.Button();
+        this.content = new System.Windows.Forms.RichTextBox();
+        ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
+        this.SuspendLayout();
+        // 
+        // imageBox
+        // 
+        this.imageBox.Location = new System.Drawing.Point(12, 12);
+        this.imageBox.Name = "imageBox";
+        this.imageBox.Size = new System.Drawing.Size(500, 450);
+        this.imageBox.TabIndex = 1;
+        this.imageBox.TabStop = false;
+        // 
+        // next
+        // 
+        this.next.Font = new System.Drawing.Font("JetBrains Mono SemiBold", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        this.next.Location = new System.Drawing.Point(518, 384);
+        this.next.Name = "next";
+        this.next.Size = new System.Drawing.Size(354, 78);
+        this.next.TabIndex = 4;
+        this.next.Text = "Continue";
+        this.next.UseVisualStyleBackColor = true;
+        this.next.Click += new System.EventHandler(this.next_Click);
+        // 
+        // content
+        // 
+        this.content.AcceptsTab = true;
+        this.content.Font = new System.Drawing.Font("JetBrains Mono SemiBold", 15F, System.Drawing.FontStyle.Bold);
+        this.content.Location = new System.Drawing.Point(518, 12);
+        this.content.Name = "content";
+        this.content.ReadOnly = true;
+        this.content.Size = new System.Drawing.Size(354, 366);
+        this.content.TabIndex = 5;
+        this.content.Text = "";
+        // 
+        // ShowImage
+        // 
+        this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        this.ClientSize = new System.Drawing.Size(884, 474);
+        this.Controls.Add(this.content);
+        this.Controls.Add(this.next);
+        this.Controls.Add(this.imageBox);
+        this.Name = "ShowImage";
+        this.Text = "ShowImage";
+        this.Load += new System.EventHandler(this.ShowImage_Load);
+        ((System.ComponentModel.ISupportInitialize)(this.imageBox)).EndInit();
+        this.ResumeLayout(false);
+
+    }
+
+    #endregion
+
+    private System.Windows.Forms.PictureBox imageBox;
+    private System.Windows.Forms.Button next;
+    private System.Windows.Forms.RichTextBox content;
+}
+        
+public partial class ShowImage : Form
+{
+    private Bitmap _image;
+    private string _content;
+
+    public ShowImage(Bitmap image, string content)
+    {
+        this.ControlBox = false;
+
+        _image = image;
+        _content = content;
+
+        InitializeComponent();
+    }
+
+    private void ShowImage_Load(object sender, EventArgs e)
+    {
+        imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
+        imageBox.Image = _image;
+        content.Text = _content;
+    }
+
+    private void next_Click(object sender, EventArgs e)
+    {
+        Close();
+    }
+}
+        \end{cscode}
+
+        These two partial classes come together to form the final form. One thing which I learned from this prototype is that there are several ways that the image can be made to fill the text box and that needs to be carefully considered.
+            
 
         \subsection{Objectives}
         \large
@@ -614,20 +1129,26 @@ public double[,] ConvertThetaToDegrees(double[,] thetaArray)
                 \begin{enumerate}
                     \item A photograph of an map
                     \item A screenshot of an existing map
-                    \item A hand drawing of suitable quality
+                    \item A hand drawing of suitable quality (if it is not a message should be shown)
                 \end{enumerate}
                 \item When the user inputs a map, the program will ask them
                 \begin{enumerate}
                     \item What type of map they are inputting
                     \item Whether this is the correct image
                     \item Whether they want the image deleted after edge detection
-                    \item Whether they would like the image to be stored in a binary file \\
+                    \item Whether they would like the image to be stored in a binary file, \\
+                    \begin{enumerate}
+                        \item If selected then the programs should ask for a name
+                        \item It should ask for a description of the image
+                        \item It should ask for the type of image.
+                        \item The time and date of the image should be automatically calculated.
+                    \end{enumerate}
                     \emph{These are just some examples of prompts}
                 \end{enumerate}
                 \item The inputted map should be converted into a graph
                 \begin{enumerate}
                     \item The map (in graph form) should be able to be traversed
-                    \item The map (in graph form) should be able to be formed into a MST
+                    \item The map in graph form should be simplified to ensure that redundant nodes are not recorded.
                 \end{enumerate}
                 
                 \item If any error occurs during the map input process an appropriate error should be displayed and the program should continue to run
@@ -636,6 +1157,9 @@ public double[,] ConvertThetaToDegrees(double[,] thetaArray)
             \item The Program must perform canny edge detection   
             \begin{enumerate}
                 \item At each stage of the edge detection an image should be produced
+                \begin{enumerate}
+                    \item The user should be able to save the intermidiate images.
+                \end{enumerate}
                 \item Between each stage the user should be able to repeat the last step in order to change parameters.\\
                 \emph{The user should be able to change (at various stages):} 
                 \begin{enumerate}
@@ -648,6 +1172,15 @@ public double[,] ConvertThetaToDegrees(double[,] thetaArray)
                     \item The times de-blocking should be performed
                 \end{enumerate}
                 \item The edge detection must have the option to be multi threaded.
+                \begin{enumerate}
+                    \item There should be presets to allow quicker processing
+                    \begin{enumerate}
+                        \item There should be a preset for hand drawn images
+                        \item There should be a preset for photographed images
+                        \item There should be a preset for screen shot images
+                    \end{enumerate}
+                \end{enumerate}
+                
                 \item The edge detection must have the option to be single threaded
             \end{enumerate}
             
@@ -658,12 +1191,8 @@ public double[,] ConvertThetaToDegrees(double[,] thetaArray)
                 \begin{enumerate}
                     \item The image should have the option to be inverted
                     \item A filling algorithm should be applied to the image
-                    \begin{enumerate}
-                        \item There should be the option of using a stack
-                        \item There should be the option of using a queue
-                    \end{enumerate}
                     \item The percentage threshold for non roads much be changeable by the user
-                    \item The total filled image must be displayed to the user
+                    \item The total filled image can be displayed to the user
                     \item The singled out roads and paths must be shown to the user
                 \end{enumerate}
                 
@@ -678,38 +1207,31 @@ public double[,] ConvertThetaToDegrees(double[,] thetaArray)
                         \begin{enumerate}
                             \item This includes Dijkstra's algorithm
                             \item This includes A*
-                            \item This includes Shortest Path Faster Algorithm (SPFA)
                         \end{enumerate}
                         % https://en.wikipedia.org/wiki/Category:Search_algorithms
-                        \item The Program should Implement Searching Algorithms
+                        \item The Program should Implement Searching Algorithms these do not have to be shown to the user.
                         \begin{enumerate}
-                            \item This includes BFS (Breadth-first search)
-                            \item This includes DFS (Depth-first search)
-                            \item This includes Greedy Best-First Search
-                        \end{enumerate}
-                        \item The program should implement a Minimum spanning tree
-                        \begin{enumerate}
-                            \item It should implement Primm's algorithm
-                            \item It should implement Kruskal's algorithm
+                            \item This includes BFS (Breadth-first search).
+                            \item This includes DFS (Depth-first search).
                         \end{enumerate}
                     \end{enumerate}
                 \item Depending on the option that the user chooses they can either
                 \begin{enumerate}
                     \item Decide a specific algorithm to use
-                    \item Have the program compute all and use the most efficient one
-                    \item Have the program compute all and let the user select one
                     \begin{enumerate}
-                        \item The time for each should be displayed
-                        \item The length of each should be displayed
-                        \item The node count of each should be displayed
+                        \item The general efficiency should be displayed.
+                        \item The general length of each should be displayed.
+                        \item The node count of each should be displayed if Dijkstra's is selected.
                     \end{enumerate}
                 \end{enumerate}
             \end{enumerate}
             
-            \item The Program must have a Clear and Simplistic GUI
+            \item The Program must have a Clear and Simplistic GUI.
             \begin{enumerate}
                 \item At a glance the user should be able to ascertain which step they are at in the process.
-                \item Whenever a forms is displayed it should not serve more than one purpose
+                \item Whenever a forms is displayed it should not serve more than one purpose.
+                \item There should be a setting so that if the user chooses more detail can be displayed.
+                \item The main user window should not be cluttered with old information.
             \end{enumerate}          
 
             \item The program must implement abstract data types
@@ -728,11 +1250,21 @@ public double[,] ConvertThetaToDegrees(double[,] thetaArray)
                 \item The program must be able to find the inverse of a matrix
                 \item The program must be able to apply the convolution operation
                 \end{enumerate}
-                
+                \item The program should implement a graph class
+                \begin{enumerate}
+                    \item The graph should be able to be modified by
+                    \begin{enumerate}
+                        \item Inserting Nodes
+                        \item Accessing per node
+                        \item Access all nodes 
+                        \item Inserting connections between nodes
+                    \end{enumerate}
+                    \item It should be implemented using an adjacency list.
+                \end{enumerate}
             \end{enumerate}
             \bk
         \end{enumerate}  
-        \vspace{1cm}
+        \vspace{1cm}    
         \centerline{\large\textbf{Extension Objectives}}
         \vspace{1cm}
 
@@ -744,16 +1276,21 @@ public double[,] ConvertThetaToDegrees(double[,] thetaArray)
                     \item This file can be saved
                     \item This file can be re-read and re-routed
                 \end{enumerate}
+                \item The saved images from the processing of the map should be able to be saved in a compressed format.
                 \item The routed map with path drawn on it
+                \item The saved binary file should be able to be cloned
+                \item The saved binary file should be able to be renamed
+                \item The saved binary file should be able to be have its description changed
+                \item The saved binary file should be able to be able to be deleted                
             \end{enumerate}
-            \item If the user chooses, the program should be able to run a web server
+            \item The program should have re-callable settings
             \begin{enumerate}
-                \item The web version should have a similar speed to the local version
-                \item The web version should have a similar feature set to the local version \\
-                \emph{This only applies to features that are possible to work in the web, they may be displayed differently that the local application due to different frameworks}
-                \item The web interface should be easy to use and intuitive
-                % \item Have it scale to device sizes (very very hard)
-            \end{enumerate} 
+                \item Map Algorithm
+                \item Random Save Names
+                \item Map Approximations
+            \end{enumerate}
+            \item The program settings should be easily movable.
+            \item The program save files should be easily movable.
         \end{enumerate}
 
         \bk
@@ -764,6 +1301,7 @@ public double[,] ConvertThetaToDegrees(double[,] thetaArray)
         % class diagram and equations to be used
         % mockup of the interface (less vital)
         \subsection{Modeling}
+            TODO
         \bk
 
 \end{flushleft}

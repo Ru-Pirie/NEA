@@ -1,0 +1,5395 @@
+\begin{flushleft}
+    \section{Code Base}
+    \subsection{Prototypes}
+    \subsubsection{Canny Edge Detection}
+    \begin{cscode}
+using System;
+using System.Drawing;
+using System.IO;
+using System.Threading.Tasks;
+
+namespace MultithreadedEdgeDetection
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Directory.CreateDirectory("./out");
+            var thing = System.Diagnostics.Stopwatch.StartNew();
+            Bitmap image = new Bitmap("./image.jpg");
+            if (image.Width < 400 || image.Width < 400)
+                throw new Exception("Too small must be at least 400 x 400");
+            if (image.Width % 2 == 1 || image.Height % 2 == 1)
+                throw new Exception("Must be of even dimensions");
+
+            Bitmap[] images = SplitImage(image);
+
+            Task<double[,]>[] tasks = new Task<double[,]>[4];
+
+            for (int i = 0; i < tasks.Length; i++)
+            {
+                // To overcome the capture condition
+                int copyI = i;
+                CannyDetection item = new CannyDetection();
+                Task<double[,]> task = new Task<double[,]>(() => item.DoDetect(images[copyI], copyI + 1));
+                task.Start();
+                tasks[i] = task;
+            }
+
+            Task.WaitAll(tasks);
+            thing.Stop();
+
+            double[,] partA = new double[image.Height / 2, image.Width];
+            double[,] partB = new double[image.Height / 2, image.Width];
+            for (int i = 0; i < tasks[0].Result.GetLength(0); i++)
+            {
+                for (int j = 0; j < tasks[0].Result.GetLength(1); j++)
+                    partA[i, j] = tasks[0].Result[i, j];
+
+                for (int y = 0; y < tasks[1].Result.GetLength(1); y++)
+                    partA[i, y + tasks[0].Result.GetLength(1)] = tasks[1].Result[i, y];
+            }
+
+            for (int i = 0; i < tasks[2].Result.GetLength(0); i++)
+            {
+                for (int j = 0; j < tasks[2].Result.GetLength(1); j++)
+                    partB[i, j] = tasks[2].Result[i, j];
+
+                for (int y = 0; y < tasks[3].Result.GetLength(1); y++)
+                    partB[i, y + tasks[2].Result.GetLength(1)] = tasks[3].Result[i, y];
+            }
+
+            double[,] final = new double[image.Height, image.Width];
+            for (int i = 0; i < image.Height; i++)
+            {
+                if (i < image.Height / 2)
+                {
+                    for (int j = 0; j < image.Width; j++)
+                    {
+                        final[i, j] = partA[i, j];
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < image.Width; j++)
+                    {
+                        final[i, j] = partB[i - image.Height / 2, j];
+                    }
+                }
+            }
+
+            Bitmap finalImage = CannyDetection.DoubleArrayToBitmap(final);
+            finalImage.Save("./final.jpg");
+
+            Console.WriteLine($"Done, took {thing.ElapsedMilliseconds}ms");
+            Console.ReadLine();
+        }
+
+        public static Bitmap[] SplitImage(Bitmap image)
+        {
+            Bitmap one = new Bitmap(image.Width / 2, image.Height / 2);
+            Bitmap two = new Bitmap(image.Width / 2, image.Height / 2);
+            Bitmap three = new Bitmap(image.Width / 2, image.Height / 2);
+            Bitmap four = new Bitmap(image.Width / 2, image.Height / 2);
+
+            for (int i = 0; i < image.Width / 2; i++)
+            {
+                for (int j = 0; j < image.Height / 2; j++)
+                {
+                    one.SetPixel(i, j, image.GetPixel(i, j));
+                }
+            }
+
+            for (int i = image.Width / 2; i < image.Width; i++)
+            {
+                for (int j = 0; j < image.Height / 2; j++)
+                {
+                    two.SetPixel(i - (image.Width / 2), j, image.GetPixel(i, j));
+                }
+            }
+
+            for (int i = 0; i < image.Width / 2; i++)
+            {
+                for (int j = image.Height / 2; j < image.Height; j++)
+                {
+                    three.SetPixel(i, j - (image.Height / 2), image.GetPixel(i, j));
+                }
+            }
+
+            for (int i = image.Width / 2; i < image.Width; i++)
+            {
+                for (int j = image.Height / 2; j < image.Height; j++)
+                {
+                    four.SetPixel(i - (image.Width / 2), j - (image.Height / 2), image.GetPixel(i, j));
+                }
+            }
+
+            return new[] { one, two, three, four };
+
+        }
+    }
+
+    public class CannyDetection
+    {
+        public double[,] DoDetect(Bitmap masterImage, int id)
+        {
+            Console.WriteLine("Beginning Edge Detection...");
+            Bitmap input = new Bitmap(masterImage);
+            input.Save($"./out/a{id}.jpg");
+
+            Console.WriteLine($"1. Converting to Black and White ({id})");
+            double[,] bwArray = BWFilter(input);
+            Bitmap bwImage = DoubleArrayToBitmap(bwArray);
+            bwImage.Save($"./out/b{id}.jpg");
+            bwImage.Dispose();
+
+            Console.WriteLine($"2. Beginning Gaussian Filter ({id})");
+            double[,] gaussianArray = GaussianFilter(1.4, 7, bwArray);
+            Bitmap gaussianImage = DoubleArrayToBitmap(gaussianArray);
+            gaussianImage.Save($"./out/c{id}.jpg");
+            gaussianImage.Dispose();
+
+            Console.WriteLine($"3. Beginning Gradient Calculations ({id})");
+
+            Task<double[,]>[] tasks = new Task<double[,]>[2];
+            tasks[0] = new Task<double[,]>(() => CalculateGradientX(gaussianArray));
+            tasks[1] = new Task<double[,]>(() => CalculateGradientY(gaussianArray));
+
+            foreach (var task in tasks) task.Start();
+            Task.WaitAll(tasks);
+
+            Bitmap gradientXImage = DoubleArrayToBitmap(tasks[0].Result);
+            Bitmap gradientYImage = DoubleArrayToBitmap(tasks[1].Result);
+            gradientXImage.Save($"./out/d{id}.jpg");
+            gradientYImage.Save($"./out/e{id}.jpg");
+            gradientXImage.Dispose();
+            gradientYImage.Dispose();
+
+            Console.WriteLine($"4. Beginning Total Gradient Calculations ({id})");
+            double[,] gradientCombined = CalculateGradientCombined(tasks[0].Result, tasks[1].Result);
+            Bitmap gradientCombinedImage = DoubleArrayToBitmap(gradientCombined);
+            gradientCombinedImage.Save($"./out/f{id}.jpg");
+            gradientCombinedImage.Dispose();
+
+            Console.WriteLine($"5. Calculating Gradient Angles Calculations ({id})");
+            double[,] thetaArray = CalculateTheta(tasks[0].Result, tasks[1].Result);
+            Bitmap thetaImage = ConvertThetaToBitmap(thetaArray);
+            thetaImage.Save($"./out/g{id}.jpg");
+            thetaImage.Dispose();
+
+            Console.WriteLine($"6. Beginning Initial Gradient Magnitude Thresholding ({id})");
+            double[,] gradientMagnitudeThreshold = ApplyGradientMagnitudeThreshold(thetaArray, gradientCombined);
+            Bitmap gradientMagnitudeThresholdImage = DoubleArrayToBitmap(gradientMagnitudeThreshold);
+            gradientMagnitudeThresholdImage.Save($"./out/h{id}.jpg");
+            gradientMagnitudeThresholdImage.Dispose();
+
+            Console.WriteLine($"7. Beginning Secondary Min Max Thresholding ({id})");
+            (double, bool)[,] doubleThresholdArray = ApplyDoubleThreshold(0.1, 0.3, gradientMagnitudeThreshold);
+
+            double[,] doubleThresholdImageArray = new double[input.Height, input.Width];
+            for (int i = 0; i < input.Height; i++) for (int j = 0; j < input.Width; j++) doubleThresholdImageArray[i, j] = doubleThresholdArray[i, j].Item1;
+            Bitmap doubleThresholdImage = DoubleArrayToBitmap(doubleThresholdImageArray);
+            doubleThresholdImage.Save($"./out/i{id}.jpg");
+            doubleThresholdImage.Dispose();
+
+            Console.WriteLine($"8. Applying Hystersis ({id})");
+            double[,] edgeTrackingHystersis = ApplyEdgeTrackingHystersis(doubleThresholdArray);
+            Bitmap finalImage = DoubleArrayToBitmap(edgeTrackingHystersis);
+            finalImage.Save($"./out/j{id}.jpg");
+            finalImage.Dispose();
+
+            Console.WriteLine("9. Embossing out image");
+            double[,] embosArray = EmbosImage(edgeTrackingHystersis);
+            Bitmap embosImage = DoubleArrayToBitmap(embosArray);
+            embosImage.Save("./out/k.jpg");
+            embosImage.Dispose();
+
+            Console.WriteLine("10. Filling in the blanks");
+            double[,] filledArray = FillImage(embosArray);
+            Bitmap filledImage = DoubleArrayToBitmap(filledArray);
+            filledImage.Save("./out/l.jpg");
+            filledImage.Dispose();
+
+            Console.WriteLine($"Done {id}");
+
+            return edgeTrackingHystersis;
+        }
+        
+        public double[,] FillImage(double[,] imageArray)
+        {
+            double[,] result = imageArray;
+
+            for (int i = 0; i < imageArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < imageArray.GetLength(1); j++)
+                {
+                    Matrix imageKernel = BuildKernel(j, i, 3, imageArray);
+                    int count = 0;
+                    foreach (double value in imageKernel.matrix)
+                    {
+                        if (value >= 255) count++;
+                    }
+
+                    if (count > 4) result[i, j] = 255;
+                }
+            }
+
+            return result;
+        }
+        
+        public double[,] EmbosImage(double[,] imageArray)
+        {
+            double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
+
+            Matrix embosMatrix = new Matrix(new double[,] {
+                { -2, -1, 0 },
+                { -1,  1, 1 },
+                {  0,  1, 2 },
+            });
+
+            for (int i = 0; i < imageArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < imageArray.GetLength(1); j++)
+                {
+                    Matrix imageKernel = BuildKernel(j, i, 3, imageArray);
+                    result[i, j] = Math.Abs(Matrix.Convolution(imageKernel, embosMatrix));
+                }
+            }
+
+            return result;
+        }
+
+        public static Bitmap ConvertThetaToBitmap(double[,] angles)
+        {
+            Bitmap image = new Bitmap(angles.GetLength(1), angles.GetLength(0));
+
+            for (int i = 0; i < angles.GetLength(0); i++)
+            {
+                for (int j = 0; j < angles.GetLength(1); j++)
+                {
+                    int x = (int)(
+                        ((128 / (2 * Math.PI)) * angles[i, j]) + 128
+                    );
+
+                    image.SetPixel(j, i, Color.FromArgb(x, x, x));
+                }
+            }
+
+            return image;
+
+        }
+
+        public double[,] ApplyEdgeTrackingHystersis((double, bool)[,] arrayOfValues)
+        {
+            double[,] result = new double[arrayOfValues.GetLength(0), arrayOfValues.GetLength(1)];
+
+            for (int i = 0; i < arrayOfValues.GetLength(0); i++)
+            {
+                for (int j = 0; j < arrayOfValues.GetLength(1); j++)
+                {
+                    if (arrayOfValues[i, j].Item2 == false)
+                    {
+                        (double, bool)[,] imageKernel = BuildKernel(j, i, 3, arrayOfValues);
+                        bool strong = false;
+                        for (int k = 0; k < 3 && !strong; k++)
+                        {
+                            for (int l = 0; l < 3 && !strong; l++)
+                            {
+                                if (imageKernel[k, l].Item2 == true) strong = true;
+                            }
+                        }
+
+                        result[i, j] = strong ? 255 : 0;
+                    }
+                    else result[i, j] = 255;
+                }
+            }
+
+            return result;
+        }
+
+        public double[,] ApplyGradientMagnitudeThreshold(double[,] angles, double[,] magnitudes)
+        {
+            double[,] result = magnitudes;
+            double[,] anglesInDegrees = ConvertThetaToDegrees(angles);
+
+            for (int i = 0; i < anglesInDegrees.GetLength(0); i++)
+            {
+                for (int j = 0; j < anglesInDegrees.GetLength(1); j++)
+                {
+                    double[,] magnitudeKernel = BuildKernel(j, i, 3, magnitudes).matrix;
+
+                    if (anglesInDegrees[i, j] < 22.5 || anglesInDegrees[i, j] >= 157.5)
+                    {
+                        if (magnitudes[i, j] < magnitudeKernel[1, 2] || magnitudes[i, j] < magnitudeKernel[1, 0])
+                        {
+                            result[i, j] = 0;
+                        }
+                    }
+                    else if (anglesInDegrees[i, j] >= 22.5 && anglesInDegrees[i, j] < 67.5)
+                    {
+                        if (magnitudes[i, j] < magnitudeKernel[0, 2] || magnitudes[i, j] < magnitudeKernel[2, 0])
+                        {
+                            result[i, j] = 0;
+                        }
+                    }
+                    else if (anglesInDegrees[i, j] >= 67.5 && anglesInDegrees[i, j] < 112.5)
+                    {
+                        if (magnitudes[i, j] < magnitudeKernel[0, 1] || magnitudes[i, j] < magnitudeKernel[2, 1])
+                        {
+                            result[i, j] = 0;
+                        }
+                    }
+                    else if (anglesInDegrees[i, j] >= 112.5 && anglesInDegrees[i, j] < 157.5)
+                    {
+                        if (magnitudes[i, j] < magnitudeKernel[0, 0] || magnitudes[i, j] < magnitudeKernel[2, 2])
+                        {
+                            result[i, j] = 0;
+                        }
+                    }
+                    else throw new Exception();
+                }
+            }
+
+            return result;
+        }
+
+
+        public (double, bool)[,] ApplyDoubleThreshold(double l, double h, double[,] gradients)
+        {
+            double min = l * 255;
+            double max = h * 255;
+
+            (double, bool)[,] result = new (double, bool)[gradients.GetLength(0), gradients.GetLength(1)];
+
+            for (int i = 0; i < gradients.GetLength(0); i++)
+            {
+                for (int j = 0; j < gradients.GetLength(1); j++)
+                {
+                    if (gradients[i, j] < min) result[i, j] = (0, false);
+                    else if (gradients[i, j] > min && gradients[i, j] < max) result[i, j] = (gradients[i, j], false);
+                    else if (gradients[i, j] > max) result[i, j] = (gradients[i, j], true);
+                    else throw new Exception();
+                }
+            }
+
+            return result;
+        }
+
+        public double[,] ConvertThetaToDegrees(double[,] thetaArray)
+        {
+            double[,] result = new double[thetaArray.GetLength(0), thetaArray.GetLength(1)];
+            for (int i = 0; i < thetaArray.GetLength(0); i++) for (int j = 0; j < thetaArray.GetLength(1); j++) result[i, j] = 180 * Math.Abs(thetaArray[i, j]) / Math.PI;
+            return result;
+        }
+
+        public double[,] CalculateTheta(double[,] gradX, double[,] gradY)
+        {
+            double[,] result = new double[gradX.GetLength(0), gradX.GetLength(1)];
+            for (int i = 0; i < gradX.GetLength(0); i++) for (int j = 0; j < gradX.GetLength(1); j++) result[i, j] = Math.Atan2(gradY[i, j], gradX[i, j]);
+            return result;
+        }
+
+        public double[,] CalculateGradientCombined(double[,] gradX, double[,] gradY)
+        {
+            double[,] result = new double[gradX.GetLength(0), gradX.GetLength(1)];
+            for (int i = 0; i < gradX.GetLength(0); i++) for (int j = 0; j < gradX.GetLength(1); j++) result[i, j] = Math.Sqrt(Math.Pow(gradX[i, j], 2) + Math.Pow(gradY[i, j], 2));
+            return result;
+        }
+
+        public double[,] CalculateGradientY(double[,] imageArray)
+        {
+            double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
+
+            Matrix sobelY = new Matrix(new double[,] {
+                { 1, 0, -1 },
+                { 2, 0, -2 },
+                { 1, 0, -1 },
+            });
+
+
+            for (int i = 0; i < imageArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < imageArray.GetLength(1); j++)
+                {
+                    Matrix imageKernel = BuildKernel(j, i, 3, imageArray);
+                    result[i, j] = Matrix.Convolution(imageKernel, sobelY);
+                }
+            }
+
+            return result;
+        }
+
+        public double[,] CalculateGradientX(double[,] imageArray)
+        {
+            double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
+
+            Matrix sobelX = new Matrix(new double[,] {
+                {  1,  2,  1 },
+                {  0,  0,  0 },
+                { -1, -2, -1 },
+            });
+            for (int i = 0; i < imageArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < imageArray.GetLength(1); j++)
+                {
+                    Matrix imageKernel = BuildKernel(j, i, 3, imageArray);
+                    result[i, j] = Matrix.Convolution(imageKernel, sobelX);
+                }
+            }
+
+
+            return result;
+        }
+
+        public double[,] GaussianFilter(double sigma, int kernelSize, double[,] imageArray)
+        {
+            double[,] result = new double[imageArray.GetLength(0), imageArray.GetLength(1)];
+
+            Matrix gaussianKernel = GetGaussianKernel(kernelSize, sigma);
+
+            for (int i = 0; i < result.GetLength(0); i++)
+            {
+                for (int j = 0; j < result.GetLength(1); j++)
+                {
+                    Matrix imageKernel = BuildKernel(j, i, kernelSize, imageArray);
+                    double sum = Matrix.Convolution(imageKernel, gaussianKernel);
+                    result[i, j] = sum;
+                }
+            }
+
+            return result;
+        }
+
+        public Matrix GetGaussianKernel(int k, double sigma)
+        {
+            double[,] result = new double[k, k];
+            int halfK = k / 2;
+
+            double sum = 0;
+
+            int cntY = -halfK;
+            for (int i = 0; i < k; i++)
+            {
+                int cntX = -halfK;
+                for (int j = 0; j < k; j++)
+                {
+                    result[halfK + cntY, halfK + cntX] = GetGaussianDistribution(cntX, cntY, sigma);
+                    sum += result[halfK + cntY, halfK + cntX];
+                    cntX++;
+                }
+                cntY++;
+            }
+
+            for (int i = 0; i < k; i++) for (int j = 0; j < k; j++) result[i, j] /= sum;
+            return new Matrix(result);
+        }
+
+
+        public Matrix BuildKernel(int x, int y, int k, double[,] grid)
+        {
+            double[,] kernel = new double[k, k];
+
+            int halfK = k / 2;
+
+            for (int i = 0; i < k; i++) for (int j = 0; j < k; j++) kernel[i, j] = grid[y, x];
+
+            int cntY = 0;
+            for (int j = y - halfK; j <= y + halfK; j++)
+            {
+                int cntX = 0;
+                for (int i = x - halfK; i <= x + halfK; i++)
+                {
+                    if (j >= 0 && i >= 0 && j < grid.GetLength(0) && i < grid.GetLength(1))
+                    {
+                        kernel[cntY, cntX] = grid[j, i];
+                    }
+                    cntX++;
+                }
+                cntY++;
+            }
+
+            return new Matrix(kernel);
+        }
+
+        public (double, bool)[,] BuildKernel(int x, int y, int k, (double, bool)[,] grid)
+        {
+            (double, bool)[,] kernel = new (double, bool)[k, k];
+
+            int halfK = k / 2;
+
+            for (int i = 0; i < k; i++) for (int j = 0; j < k; j++) kernel[i, j] = grid[y, x];
+
+            int cntY = 0;
+            for (int j = y - halfK; j <= y + halfK; j++)
+            {
+                int cntX = 0;
+                for (int i = x - halfK; i <= x + halfK; i++)
+                {
+                    if (j >= 0 && i >= 0 && j < grid.GetLength(0) && i < grid.GetLength(1))
+                    {
+                        kernel[cntY, cntX] = grid[j, i];
+                    }
+                    cntX++;
+                }
+                cntY++;
+            }
+
+            return kernel;
+        }
+
+        public double[,] BWFilter(Bitmap image)
+        {
+            double[,] result = new double[image.Height, image.Width];
+
+            for (int i = 0; i < image.Height; i++)
+            {
+                for (int j = 0; j < image.Width; j++)
+                {
+                    Color c = image.GetPixel(j, i);
+                    double value = c.R * 0.299 + c.G * 0.587 + c.B * 0.114;
+
+                    result[i, j] = Bound(0, 255, value);
+                }
+            }
+
+            return result;
+        }
+
+        public static int Bound(int l, int h, double v) => v > h ? h : (v < l ? l : (int)v);
+
+        public double GetGaussianDistribution(int x, int y, double sigma) =>
+            1 / (2 * Math.PI * sigma * sigma) * Math.Exp(-((Math.Pow(x, 2) + Math.Pow(y, 2)) / (2 * sigma * sigma)));
+
+
+        public static Bitmap DoubleArrayToBitmap(double[,] input)
+        {
+            Bitmap image = new Bitmap(input.GetLength(1), input.GetLength(0));
+            for (int i = 0; i < image.Height; i++)
+            {
+                for (int j = 0; j < image.Width; j++)
+                {
+                    int val = Bound(0, 255, input[i, j]);
+                    image.SetPixel(j, i, Color.FromArgb(val, val, val));
+                }
+            }
+            return image;
+        }
+    }
+
+    public class Matrix
+    {
+        public int x { get; private set; }
+        public int y { get; private set; }
+        public double[,] matrix { get; private set; }
+
+        public Matrix(double[,] inputMatrix)
+        {
+            x = inputMatrix.GetLength(1);
+            y = inputMatrix.GetLength(0);
+            matrix = inputMatrix;
+        }
+
+        public static double Convolution(Matrix a, Matrix b)
+        {
+            if (a.x != a.y || b.x != a.x) throw new Exception();
+
+            double[,] flippedB = new double[b.y, b.x];
+            int l = b.x;
+            for (int i = l - 1; i >= 0; i--)
+            {
+                for (int j = l - 1; j >= 0; j--)
+                {
+                    flippedB[b.y - (i + 1), b.x - (j + 1)] = b.matrix[i, j];
+                }
+            }
+
+
+            double sum = 0;
+            for (int i = 0; i < a.y; i++)
+            {
+                for (int j = 0; j < a.x; j++)
+                {
+                    sum += a.matrix[i, j] * flippedB[i, j];
+                }
+            }
+
+            return sum;
+        }
+    }
+}
+    \end{cscode}
+    \subsubsection{Graph Class and DFS / BFS}
+    \begin{cscode}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace GraphStuff
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Dictionary<string, List<string>> temp = new Dictionary<string, List<string>>();
+            temp.Add("A", new List<string>
+            {
+                "D"
+            });
+            temp.Add("B", new List<string>
+            {
+                "C", "F"
+            });
+            temp.Add("C", new List<string>
+            {
+                "B"
+            });
+            temp.Add("D", new List<string>
+            {
+                "A", "E", "G"
+            });
+            temp.Add("E", new List<string>
+            {
+                "D", "H"
+            });
+            temp.Add("F", new List<string>
+            {
+                "B", "G"
+            });
+            temp.Add("G", new List<string>
+            {
+                "D", "F"
+            });
+            temp.Add("H", new List<string>
+            {
+                "E"
+            });
+
+            Graph myGraph = new Graph(temp);
+            Console.WriteLine(string.Join(", ", DFS("A", myGraph)));
+            Console.WriteLine(string.Join(", ", BFS("A", myGraph)));
+            Console.ReadLine();
+        }
+
+        public static string[] DFS(string start, Graph graph)
+        {
+            List<string> path = new List<string>();
+            Stack<string> stack = new Stack<string>();
+            Dictionary<string, bool> visited = new Dictionary<string, bool>();
+            foreach (string s in graph.GetAllNodes()) visited.Add(s, false);
+
+            // Kick Start
+            stack.Push(start);
+
+            while (!stack.IsEmpty())
+            {
+
+                string node = stack.Pop();
+                path.Add(node);
+                visited[node] = true;
+
+                List<string> connections = graph.GetNode(node);
+
+                connections.Reverse();
+
+                foreach (string s in connections)
+                {
+                    if (visited[s] == false)
+                    {
+                        stack.Push(s);
+                    }
+                }
+            }
+
+
+            return path.ToArray();
+        }
+
+        public static string[] BFS(string start, Graph graph)
+        {
+            List<string> path = new List<string>();
+            Queue<string> stack = new Queue<string>();
+            Dictionary<string, bool> visited = new Dictionary<string, bool>();
+            foreach (string s in graph.GetAllNodes()) visited.Add(s, false);
+
+            // Kick Start
+            stack.Enqueue(start);
+
+            while (!stack.IsEmpty())
+            {
+
+                string node = stack.Dequeue();
+                path.Add(node);
+                visited[node] = true;
+
+                List<string> connections = graph.GetNode(node);
+
+                connections.Reverse();
+
+                foreach (string s in connections)
+                {
+                    if (visited[s] == false)
+                    {
+                        stack.Enqueue(s);
+                    }
+                }
+            }
+
+            return path.ToArray();
+        }
+    }
+
+    public class Queue<T>
+    {
+        public List<T> _data = new List<T>();
+
+        public T Dequeue()
+        {
+            T val = _data[0];
+            _data.RemoveAt(0);
+            return val;
+        }
+
+        public void Enqueue(T val) => _data.Add(val);
+
+        public bool IsEmpty() => _data.Count == 0;
+    }
+
+    public class Stack<T>
+    {
+        public List<T> _data = new List<T>();
+
+        public T Pop()
+        {
+            T val = _data[_data.Count - 1];
+            _data.RemoveAt(_data.Count - 1);
+            return val;
+        }
+
+        public void Push(T val) => _data.Add(val);
+
+        public bool IsEmpty() => _data.Count == 0;
+
+    }
+
+
+    public class Graph
+    {
+        public Dictionary<string, List<string>> _data = new Dictionary<string, List<string>>();
+
+        public Graph(Dictionary<string, List<string>> graph)
+        {
+            _data = graph;
+        }
+
+        public void AddNode(string name)
+        {
+            if (_data.ContainsKey(name)) throw new GraphException($"Cannot add {name}, node already exists.");
+            _data.Add(name, new List<string>());
+        }
+
+        public void RemoveNode(string name)
+        {
+            if (!_data.ContainsKey(name)) throw new GraphException($"Cannot remove {name}, node does not exist.");
+            _data.Remove(name);
+        }
+
+        public void AddConnection(string node, string name)
+        {
+            if (!_data.ContainsKey(node)) throw new GraphException($"Cannot add connection {name} to {node} original node does not exist.");
+            if (_data[node].Contains(name)) throw new GraphException($"Cannot add connection {name} to {node} connection already exists.");
+            _data[node].Add(name);
+        }
+
+        public List<string> GetNode(string node)
+        {
+            if (!_data.ContainsKey(node)) throw new GraphException($"Node {node} does not exist.");
+            return _data[node];
+        }
+
+        public string[] GetAllNodes() => _data.Keys.ToArray();
+
+        public void Clear() => _data.Clear();
+    }
+
+    public class GraphException : Exception
+    {
+        public GraphException(string message) : base(message)
+        {
+        }
+    }
+}
+\end{cscode}
+    \subsubsection{Forms Interface}
+    \subsection{Final Solution}
+    \subsubsection{BackendLib}
+
+    \subsubsubsection{Data}    
+    \paragraph{MapFile.cs}
+    \begin{cscode}
+public class MapFile
+{
+    public readonly string _filePath;
+    private const string FileExtensionRegex = @"^([a-z]:\\|\\|[a-z]|\.\.(\\|\/)|\.(\\|\/))(([a-z]|(\\|\/))+)\.(vmap)$";
+
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public int Type { get; set; }
+    public bool IsInverted { get; set; }
+    public DateTimeOffset TimeCreated { get; set; }
+    public Bitmap PathImage { get; set; }
+    public Bitmap OriginalImage { get; set; }
+    public Bitmap CombinedImage { get; set; }
+
+    public MapFile()
+    {
+        TimeCreated = DateTimeOffset.Now;
+    }
+
+    public MapFile(string filePath)
+    {
+        _filePath = filePath;
+    }
+
+    public void Initialize(Action updateProgress)
+    {
+        ValidateImage();
+        updateProgress();
+        ReadMapFile(updateProgress);
+    }
+
+    private void ValidateImage()
+    {
+        Regex fileRegex = new Regex(FileExtensionRegex, RegexOptions.IgnoreCase);
+
+        if (!File.Exists(_filePath)) throw new MapFileException("The virtual map that you entered does not exist, double check the path to the file and that exists.");
+        if (!fileRegex.IsMatch(_filePath)) throw new MapFileException("The file which you entered does not appear to be a map file. It should end in .vmap double check and try again.");
+    }
+
+    private void ReadMapFile(Action updateProgress)
+    {
+        using (BinaryReader br = new BinaryReader(File.Open(_filePath, FileMode.Open)))
+        {
+            string dateTime = br.ReadString();
+            DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(double.Parse(dateTime)).ToLocalTime();
+            TimeCreated = new DateTimeOffset(dt);
+
+            Name = br.ReadString();
+            Description = br.ReadString();
+            Type = br.ReadInt32();
+            IsInverted = br.ReadBoolean();
+
+            int width = (int)br.ReadInt32();
+            int height = (int)br.ReadInt32();
+
+            for (int j = 0; j < 3; j++)
+            {
+                Structures.RGB[,] tempImage = new Structures.RGB[height, width];
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int y = 0; y < height; y++)
+                    {
+                        for (int x = 0; x < width; x++)
+                        {
+                            if (i == 0) tempImage[y, x].R = br.ReadByte();
+                            else if (i == 1) tempImage[y, x].G = br.ReadByte();
+                            else if (i == 2) tempImage[y, x].B = br.ReadByte();
+                        }
+                    }
+                    updateProgress();
+                }
+
+                if (j == 0) OriginalImage = tempImage.ToBitmap();
+                else if (j == 1) PathImage = tempImage.ToBitmap();
+                else if (j == 2) CombinedImage = tempImage.ToBitmap();
+            }
+        }
+    }
+
+    public string Save(Guid currentGuid)
+    {
+        using (BinaryWriter bw = new BinaryWriter(File.Open($"./saves/{currentGuid}.vmap", FileMode.OpenOrCreate)))
+        {
+            bw.Write(TimeCreated.ToUnixTimeMilliseconds().ToString());
+
+            bw.Write(Name);
+            bw.Write(Description);
+            bw.Write(Type);
+            bw.Write(IsInverted);
+
+            bw.Write((int)OriginalImage.Width);
+            bw.Write((int)OriginalImage.Height);
+
+            for (int j = 0; j < 3; j++)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int y = 0; y < OriginalImage.Height; y++)
+                    {
+                        for (int x = 0; x < OriginalImage.Width; x++)
+                        {
+                            if (j == 0)
+                            {
+                                if (i == 0) bw.Write(OriginalImage.GetPixel(x, y).R);
+                                else if (i == 1) bw.Write(OriginalImage.GetPixel(x, y).G);
+                                else if (i == 2) bw.Write(OriginalImage.GetPixel(x, y).B);
+                            }
+                            else if (j == 1)
+                            {
+                                if (i == 0) bw.Write(PathImage.GetPixel(x, y).R);
+                                else if (i == 1) bw.Write(PathImage.GetPixel(x, y).G);
+                                else if (i == 2) bw.Write(PathImage.GetPixel(x, y).B);
+                            }
+                            else if (j == 2)
+                            {
+                                if (i == 0) bw.Write(CombinedImage.GetPixel(x, y).R);
+                                else if (i == 1) bw.Write(CombinedImage.GetPixel(x, y).G);
+                                else if (i == 2) bw.Write(CombinedImage.GetPixel(x, y).B);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return $"./saves/{currentGuid}.vmap";
+    }
+}
+
+    \end{cscode}
+    \paragraph{Traversal.cs}
+    \begin{cscode}
+public class Traversal<T>
+{
+    private Graph<T> _graph;
+
+    public Traversal(Graph<T> graph)
+    {
+        _graph = graph;
+    }
+
+    public T[] DFS(T start)
+    {
+        List<T> path = new List<T>();
+        Datatypes.Stack<T> stack = new Datatypes.Stack<T>();
+        Dictionary<T, bool> visited = new Dictionary<T, bool>();
+        foreach (T s in _graph.GetAllNodes()) visited.Add(s, false);
+
+        // Kick Start
+        stack.Push(start);
+
+        while (!stack.IsEmpty())
+        {
+            T node = stack.Pop();
+            path.Add(node);
+            visited[node] = true;
+
+            List<T> connections = _graph.GetNode(node);
+
+            connections.Reverse();
+
+            foreach (T s in connections)
+            {
+                if (visited[s] == false && !stack.Contains(s))
+                {
+                    stack.Push(s);
+                }
+            }
+        }
+
+
+        return path.ToArray();
+    }
+
+    public T[] BFS(T start)
+    {
+        List<T> path = new List<T>();
+        Datatypes.Queue<T> queue = new Datatypes.Queue<T>();
+        Dictionary<T, bool> visited = new Dictionary<T, bool>();
+        foreach (T s in _graph.GetAllNodes()) visited.Add(s, false);
+
+        // Kick Start
+        queue.Enqueue(start);
+
+        while (!queue.IsEmpty())
+        {
+
+            T node = queue.Dequeue();
+            path.Add(node);
+            visited[node] = true;
+
+            List<T> connections = _graph.GetNode(node);
+
+            connections.Reverse();
+
+            foreach (T s in connections)
+            {
+                if (visited[s] == false && !queue.Contains(s))
+                {
+                    queue.Enqueue(s);
+                }
+            }
+        }
+
+        return path.ToArray();
+    }
+
+    public Dictionary<T, T> AStar(T start, T goal, Func<T, T, int> weightFunction)
+    {
+        Dictionary<T, double> dist = new Dictionary<T, double>();
+        Dictionary<T, T> prev = new Dictionary<T, T>();
+
+        MinPriorityQueue<T> queue = new MinPriorityQueue<T>();
+
+        queue.Enqueue(start, weightFunction(start, goal));
+        dist.Add(start, 0);
+
+        foreach (T node in _graph.GetAllNodes())
+        {
+            if (!Equals(node, start))
+            {
+                dist.Add(node, double.MaxValue);
+                queue.Enqueue(node, double.MaxValue);
+            }
+        }
+
+
+        while (queue.Size > 0)
+        {
+            T current = queue.Dequeue();
+            if (Equals(current, goal)) return prev;
+
+            foreach (T neighbor in _graph.GetNode(current))
+            {
+                double tentative = dist[current] + 1;
+                if (tentative < dist[neighbor])
+                {
+                    dist[neighbor] = tentative;
+                    if (prev.ContainsKey(neighbor)) prev[neighbor] = current;
+                    else prev.Add(neighbor, current);
+                    queue.ChangePriority(neighbor, tentative + weightFunction(neighbor, goal));
+                }
+            }
+        }
+
+
+        return new Dictionary<T, T>();
+    }
+
+    public Dictionary<T, T> Dijkstra(T start, T goal, bool endOnFind, Action nodeUpdate)
+    {
+        Dictionary<T, double> dist = new Dictionary<T, double>();
+        Dictionary<T, T> prev = new Dictionary<T, T>();
+        dist.Add(start, 0);
+
+        MinPriorityQueue<T> queue = new MinPriorityQueue<T>();
+
+        T[] nodes = _graph.GetAllNodes();
+        foreach (T node in nodes)
+        {
+            if (_graph.GetNode(node).Count > 0)
+            {
+                if (!Equals(start, node)) dist.Add(node, double.MaxValue);
+                queue.Enqueue(node, dist[node]);
+            }
+        }
+
+        while (queue.Size > 0)
+        {
+            T minVertex = queue.Dequeue();
+            nodeUpdate();
+            if (Equals(minVertex, goal) && endOnFind) return prev;
+
+            List<T> adjacent = _graph.GetNode(minVertex);
+
+            foreach (var neighbor in adjacent)
+            {
+
+                if (queue.Contains(neighbor))
+                {
+                    double alternateWeight = dist[minVertex] + 1;
+                    if (alternateWeight < dist[neighbor])
+                    {
+                        dist[neighbor] = alternateWeight;
+                        if (prev.ContainsKey(neighbor)) prev[neighbor] = minVertex;
+                        else prev.Add(neighbor, minVertex);
+                        queue.ChangePriority(neighbor, alternateWeight);
+                    }
+                }
+            }
+        }
+
+        return prev;
+    }
+}
+    \end{cscode}
+
+    \subsubsubsection{Datatypes}    
+    \paragraph{Graph.cs}
+    \begin{cscode}
+public class Graph<T>
+{
+    public Dictionary<T, List<T>> _data = new Dictionary<T, List<T>>();
+
+    public Graph() { }
+
+    public Graph(Dictionary<T, List<T>> graph)
+    {
+        _data = graph;
+    }
+
+    public void AddNode(T key)
+    {
+        if (_data.ContainsKey(key)) throw new GraphException($"Failed to add node {key} to the graph, the node already exists.");
+        _data.Add(key, new List<T>());
+    }
+
+    public void RemoveNode(T key)
+    {
+        if (!_data.ContainsKey(key)) throw new GraphException($"Failed to remove node {key} from the graph, the node does not exist.");
+        _data.Remove(key);
+    }
+
+    public void AddConnection(T key, T value)
+    {
+        if (!_data.ContainsKey(key)) throw new GraphException($"Cannot add connection between {value} and {key} the parent node does not exist in the graph.");
+        if (_data[key].Contains(value)) throw new GraphException($"Cannot add connection between {value} and {key} the connection already exists.");
+        _data[key].Add(value);
+    }
+
+    public List<T> GetNode(T key)
+    {
+        if (!_data.ContainsKey(key)) throw new GraphException($"Failed to get node {key} form graph because it does not exist.");
+        return _data[key];
+    }
+
+    public T[] GetAllNodes() => _data.Keys.ToArray();
+
+    public bool ContainsNode(T node) => _data.ContainsKey(node);
+
+    public void Clear() => _data.Clear();
+}
+    \end{cscode}
+    
+    \paragraph{Matrix.cs}
+    \begin{cscode}
+public class Matrix : IEnumerable
+{
+    private readonly double[,] _matrix;
+    public int X { get; }
+    public int Y { get; }
+
+    public Matrix(double[,] matrix)
+    {
+        _matrix = matrix;
+        X = matrix.GetLength(1);
+        Y = matrix.GetLength(0);
+    }
+
+    public Matrix(int x, int y)
+    {
+        _matrix = new double[y, x];
+        X = x;
+        Y = y;
+    }
+
+
+    public double this[int y, int x]
+    {
+        get => _matrix[y, x];
+        private set => _matrix[y, x] = value;
+    }
+
+    public static Matrix operator +(Matrix a, Matrix b)
+    {
+        if (a.X != b.X || a.Y != b.Y) throw new MatrixException("Matrices must be the same dimensions to add.");
+
+        Matrix m = new Matrix(a.X, a.Y);
+        for (int i = 0; i < a.Y; i++) for (int j = 0; j < a.X; j++) m[i, j] = a[i, j] + b[i, j];
+        return m;
+    }
+
+    public static Matrix operator -(Matrix a, Matrix b)
+    {
+        if (a.X != b.X || a.Y != b.Y) throw new MatrixException("Matrices must be the same dimensions to subtract.");
+
+        Matrix m = new Matrix(a.X, a.Y);
+        for (int i = 0; i < a.Y; i++) for (int j = 0; j < a.X; j++) m[i, j] = a[i, j] - b[i, j];
+        return m;
+    }
+    public static Matrix operator *(Matrix a, Matrix b)
+    {
+        if (a.X != b.X || a.Y != b.Y) throw new MatrixException("Matrices must be the same dimensions to multiply.");
+
+        Matrix m = new Matrix(a.X, a.Y);
+        for (int i = 0; i < a.Y; i++) for (int j = 0; j < a.X; j++) m[i, j] = a[i, j] * b[i, j];
+        return m;
+    }
+
+    public static Matrix operator *(int a, Matrix b)
+    {
+        Matrix m = new Matrix(b.X, b.Y);
+        for (int i = 0; i < b.Y; i++) for (int j = 0; j < b.X; j++) m[i, j] = a * b[i, j];
+        return m;
+    }
+
+    public void Minimize()
+    {
+        double sum = 0;
+        foreach (double val in _matrix) sum += val;
+
+        for (int i = 0; i < Y; i++)
+        {
+            for (int j = 0; j < X; j++)
+            {
+                _matrix[i, j] /= sum;
+            }
+        }
+    }
+
+    public static double Convolution(Matrix a, Matrix b)
+    {
+        if (a.X != b.X || b.Y != a.Y) throw new MatrixException("Matrices must be the same dimensions to apply convolution.");
+
+        double[,] flippedB = new double[b.Y, b.X];
+        int l = b.X;
+        for (int i = l - 1; i >= 0; i--) for (int j = l - 1; j >= 0; j--) flippedB[b.Y - (i + 1), b.X - (j + 1)] = b[i, j];
+
+        double sum = 0;
+        for (int i = 0; i < a.Y; i++) for (int j = 0; j < a.X; j++) sum += a[i, j] * flippedB[i, j];
+        return sum;
+    }
+
+    public IEnumerator GetEnumerator() => _matrix.GetEnumerator();
+
+}
+    \end{cscode}
+    
+    \paragraph{MaxPriorityQueue.cs}
+    \begin{cscode}
+public class MaxPriorityQueue<T>
+{
+    private List<int> _priorityQueue = new List<int>();
+    private List<T> _queue = new List<T>();
+
+    public int Size => _priorityQueue.Count;
+    private int _size => _priorityQueue.Count - 1;
+
+    public MaxPriorityQueue() { }
+
+    private T GetParent(int index) => _queue[Parent(index)];
+    private int Parent(int index) => (index - 1) / 2;
+
+    private T GetLeftChild(int index) => _queue[LeftChild(index)];
+    private int LeftChild(int index) => (index * 2) + 1;
+
+    private T GetRightChild(int index) => _queue[RightChild(index)];
+    private int RightChild(int index) => (index * 2) + 2;
+
+    private void ShiftNodeUp(int index)
+    {
+        while (index > 0 && _priorityQueue[Parent(index)] < _priorityQueue[index])
+        {
+            Swap(Parent(index), index);
+            index = Parent(index);
+        }
+    }
+
+    public void ChangePriority(T item, int newPriority)
+    {
+        int index = _queue.FindIndex(i => Equals(i, item));
+        int oldPriority = _priorityQueue[index];
+        _priorityQueue[index] = newPriority;
+
+        if (newPriority > oldPriority) ShiftNodeUp(index);
+        else ShiftNodeDown(index);
+    }
+
+    private void ShiftNodeDown(int index)
+    {
+        int maxIndex = index;
+
+        int left = LeftChild(index);
+        if (left <= _size && _priorityQueue[left] > _priorityQueue[maxIndex]) maxIndex = left;
+
+        int right = RightChild(index);
+        if (right <= _size && _priorityQueue[right] > _priorityQueue[maxIndex]) maxIndex = right;
+
+        if (index != maxIndex)
+        {
+            Swap(index, maxIndex);
+            ShiftNodeDown(maxIndex);
+        }
+    }
+
+    public void Enqueue(T item, int priority)
+    {
+        _queue.Add(item);
+        _priorityQueue.Add(priority);
+
+        ShiftNodeUp(_size);
+    }
+
+    public T Dequeue() => RemoveMax().Item1;
+
+    private (T, int) RemoveMax()
+    {
+        int res = _priorityQueue[0];
+        T result = _queue[0];
+        _priorityQueue.RemoveAt(0);
+        _queue.RemoveAt(0);
+
+        ShiftNodeDown(0);
+
+        return (result, res);
+    }
+
+    private void Swap(int indexX, int indexY)
+    {
+        T tempValue = _queue[indexX];
+        _queue[indexX] = _queue[indexY];
+        _queue[indexY] = tempValue;
+
+        int tempPriority = _priorityQueue[indexX];
+        _priorityQueue[indexX] = _priorityQueue[indexY];
+        _priorityQueue[indexY] = tempPriority;
+    }
+
+    public bool Contains(T neighbor) => _queue.Contains(neighbor);
+}
+    \end{cscode}
+    
+    \paragraph{MinPriorityQueue.cs}
+    \begin{cscode}
+public class MinPriorityQueue<T>
+{
+    private List<double> _priorityQueue = new List<double>();
+    private List<T> _queue = new List<T>();
+
+    public int Size => _priorityQueue.Count;
+    private int _size => _priorityQueue.Count - 1;
+
+    public MinPriorityQueue() { }
+
+    private int Parent(int index) => (index - 1) / 2;
+    private int Left(int index) => (2 * index) + 1;
+    private int Right(int index) => (2 * index) + 2;
+
+    public void Enqueue(T value, double priority)
+    {
+        int oldSize = Size;
+
+        _queue.Add(value);
+        _priorityQueue.Add(priority);
+
+        while (oldSize != 0 && _priorityQueue[oldSize] < _priorityQueue[Parent(oldSize)])
+        {
+            Swap(oldSize, Parent(oldSize));
+            oldSize = Parent(oldSize);
+        }
+    }
+
+    public void ChangePriority(T item, double newPriority)
+    {
+        int index = _queue.FindIndex(i => Equals(i, item));
+        if (index > -1)
+        {
+            if (_priorityQueue[index] > newPriority)
+            {
+                _priorityQueue[index] = newPriority;
+
+                while (index != 0 && _priorityQueue[index] < _priorityQueue[Parent(index)])
+                {
+                    Swap(index, Parent(index));
+                    index = Parent(index);
+                }
+            }
+            else
+            {
+                _priorityQueue[index] = newPriority;
+                MinifyHeap(index);
+            }
+        }
+
+    }
+
+    public T Dequeue()
+    {
+        if (Size == 1)
+        {
+            T val = _queue[0];
+
+            _queue.RemoveAt(0);
+            _priorityQueue.RemoveAt(0);
+
+            return val;
+        }
+
+        T res = _queue[0];
+
+        int oldSize = _size;
+
+        _queue[0] = _queue[oldSize];
+        _queue.RemoveAt(oldSize);
+        _priorityQueue[0] = _priorityQueue[oldSize];
+        _priorityQueue.RemoveAt(oldSize);
+
+        MinifyHeap(0);
+
+        return res;
+    }
+
+    private void MinifyHeap(int index)
+    {
+        int left = Left(index);
+        int right = Right(index);
+
+        int smallest = index;
+
+        if (left < Size && _priorityQueue[left] < _priorityQueue[smallest]) smallest = left;
+        if (right < Size && _priorityQueue[right] < _priorityQueue[smallest]) smallest = right;
+        if (smallest != index)
+        {
+            Swap(index, smallest);
+            MinifyHeap(smallest);
+        }
+    }
+
+    private void Swap(int indexX, int indexY)
+    {
+        T tempValue = _queue[indexX];
+        _queue[indexX] = _queue[indexY];
+        _queue[indexY] = tempValue;
+
+        double tempPriority = _priorityQueue[indexX];
+        _priorityQueue[indexX] = _priorityQueue[indexY];
+        _priorityQueue[indexY] = tempPriority;
+    }
+
+    public bool Contains(T neighbor) => _queue.Contains(neighbor);
+}
+    \end{cscode}
+    
+    \paragraph{Queue.cs}
+    \begin{cscode}
+public class Queue<T>
+{
+    private List<T> _queue = new List<T>();
+    public int Size => _queue.Count;
+
+    public Queue() { }
+
+    public Queue(IEnumerable<T> input)
+    {
+        foreach (var item in input) _queue.Add(item);
+    }
+
+    public void Enqueue(T item) => _queue.Add(item);
+
+    public T Dequeue()
+    {
+        T item = _queue[0];
+        _queue.RemoveAt(0);
+        return item;
+    }
+
+    public bool IsEmpty() => _queue.Count == 0;
+
+    public bool Contains(T item) => _queue.Contains(item);
+}
+    \end{cscode}
+    
+    \paragraph{Stack.cs}
+    \begin{cscode}
+public class Stack<T>
+{
+    private List<T> _stack = new List<T>();
+    public int Size => _stack.Count;
+
+    public Stack() { }
+
+    public Stack(IEnumerable<T> input)
+    {
+        foreach (var item in input) _stack.Add(item);
+    }
+    public T Peek() => _stack[_stack.Count - 1];
+
+    public void Push(T item) => _stack.Add(item);
+
+    public T Pop()
+    {
+        T item = _stack[_stack.Count - 1];
+        _stack.RemoveAt(_stack.Count - 1);
+        return item;
+    }
+
+    public bool IsEmpty() => _stack.Count == 0;
+
+    public bool Contains(T item) => _stack.Contains(item);
+}
+    \end{cscode}
+    
+    \subsubsubsection{Exceptions}    
+    \paragraph{GraphException.cs}
+    \begin{cscode}
+[Serializable]
+public class GraphException : Exception
+{
+    public GraphException()
+    {
+    }
+
+    public GraphException(string message) : base(message)
+    {
+    }
+
+    public GraphException(string message, Exception innerException) : base(message, innerException)
+    {
+    }
+
+    protected GraphException(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
+    }
+}
+    \end{cscode}
+    
+    \paragraph{KernelException.cs}
+    \begin{cscode}
+[Serializable]
+public class KernelException : Exception
+{
+    public KernelException()
+    {
+    }
+
+    public KernelException(string message) : base(message)
+    {
+    }
+
+    public KernelException(string message, Exception innerException) : base(message, innerException)
+    {
+    }
+
+    protected KernelException(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
+    }
+}
+    \end{cscode}
+    
+    \paragraph{LoggerException.cs}
+    \begin{cscode}
+[Serializable]
+public class LoggerException : Exception
+{
+    public LoggerException()
+    {
+    }
+
+    public LoggerException(string message) : base(message)
+    {
+    }
+
+    public LoggerException(string message, Exception innerException) : base(message, innerException)
+    {
+    }
+
+    protected LoggerException(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
+    }
+}
+    \end{cscode}
+    
+    \paragraph{MapFileException.cs}
+    \begin{cscode}
+[Serializable]
+public class MapFileException : Exception
+{
+    public MapFileException()
+    {
+    }
+
+    public MapFileException(string message) : base(message)
+    {
+    }
+
+    public MapFileException(string message, Exception innerException) : base(message, innerException)
+    {
+    }
+
+    protected MapFileException(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
+    }
+}
+    \end{cscode}
+    
+    \paragraph{MatrixException.cs}
+    \begin{cscode}
+[Serializable]
+public class MatrixException : Exception
+{
+    public MatrixException()
+    {
+    }
+
+    public MatrixException(string message) : base(message)
+    {
+    }
+
+    public MatrixException(string message, Exception innerException) : base(message, innerException)
+    {
+    }
+
+    protected MatrixException(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
+    }
+}
+    \end{cscode}
+    
+    \paragraph{PreprocessingException.cs}
+    \begin{cscode}
+[Serializable]
+public class PreprocessingException : Exception
+{
+    public PreprocessingException()
+    {
+    }
+
+    public PreprocessingException(string message) : base(message)
+    {
+    }
+
+    public PreprocessingException(string message, Exception innerException) : base(message, innerException)
+    {
+    }
+
+    protected PreprocessingException(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
+    }
+}
+    \end{cscode}
+    
+    \paragraph{SettingsException.cs}
+    \begin{cscode}
+[Serializable]
+public class SettingsException : Exception
+{
+    public SettingsException()
+    {
+    }
+
+    public SettingsException(string message) : base(message)
+    {
+    }
+
+    public SettingsException(string message, Exception innerException) : base(message, innerException)
+    {
+    }
+
+    protected SettingsException(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
+    }
+}
+    \end{cscode}
+    
+    
+    \subsubsubsection{Interfaces}    
+    \paragraph{IHandler.cs}
+    \begin{cscode}
+public interface IHandler
+{
+    void Start();
+    double[,] Result();
+}
+    \end{cscode}
+    
+    
+    \subsubsubsection{Processing}
+    \paragraph{CannyEdgeDetection.cs}
+    \begin{cscode}
+public class CannyEdgeDetection
+{
+    public int KernelSize { get; set; } = 5;
+    public double RedRatio { get; set; } = 0.299;
+    public double GreenRatio { get; set; } = 0.587;
+    public double BlueRatio { get; set; } = 0.114;
+    public double Sigma { get; set; } = 1.4;
+    public double LowerThreshold { get; set; } = 0.1;
+    public double UpperThreshold { get; set; } = 0.3;
+
+    public CannyEdgeDetection() { }
+
+    public CannyEdgeDetection(int kernelSize, double redRatio, double greenRatio, double blueRatio, double sigma, double lowerThreshold, double upperThreshold)
+    {
+        KernelSize = kernelSize;
+        RedRatio = redRatio;
+        GreenRatio = greenRatio;
+        BlueRatio = blueRatio;
+        Sigma = sigma;
+        LowerThreshold = lowerThreshold;
+        UpperThreshold = upperThreshold;
+    }
+
+    /// <summary>
+    /// Convert a given image in the form of a RGB double array will convert it to a single double array of black and white pixels.
+    /// </summary>
+    /// <param name="input">The image to be converted to black and white</param>
+    /// <returns>The processed double array</returns>
+    public double[,] BlackWhiteFilter(Structures.RGB[,] input)
+    {
+        double[,] output = new double[input.GetLength(0), input.GetLength(1)];
+
+        for (int y = 0; y < input.GetLength(0); y++)
+        {
+            for (int x = 0; x < input.GetLength(1); x++)
+            {
+                output[y, x] = (input[y, x].R * RedRatio) + (input[y, x].G * GreenRatio) + (input[y, x].B * BlueRatio);
+            }
+        }
+
+        return output;
+    }
+
+    public double[,] GaussianFilter(double[,] input)
+    {
+        double[,] output = new double[input.GetLength(0), input.GetLength(1)];
+
+        Matrix gaussianKernel = new Matrix(Kernel<double>.Gaussian(Sigma, KernelSize));
+        Kernel<double> masterKernel = new Kernel<double>(input);
+
+        for (int y = 0; y < input.GetLength(0); y++)
+        {
+            for (int x = 0; x < input.GetLength(1); x++)
+            {
+                Matrix subKernel = new Matrix(masterKernel.Duplication(x, y, KernelSize));
+                double sum = Matrix.Convolution(subKernel, gaussianKernel);
+                output[y, x] = sum;
+            }
+        }
+
+        return output;
+    }
+
+    public Structures.Gradients CalculateGradients(double[,] input, Action updateMenu)
+    {
+        Task<double[,]>[] tasks =
+        {
+            new Task<double[,]>(() => CalculateGradientX(input, updateMenu)),
+            new Task<double[,]>(() => CalculateGradientY(input, updateMenu))
+        };
+
+        foreach (var task in tasks) task.Start();
+
+        Task.WaitAll(tasks);
+
+        return new Structures.Gradients
+        {
+            GradientX = tasks[0].Result,
+            GradientY = tasks[1].Result
+        };
+    }
+
+    private double[,] CalculateGradientX(double[,] input, Action updateMenu)
+    {
+        double[,] output = new double[input.GetLength(0), input.GetLength(1)];
+
+        Matrix sobelMatrixY = new Matrix(new double[,] { { 1, 0, -1 }, { 2, 0, -2 }, { 1, 0, -1 } });
+        Kernel<double> masterKernel = new Kernel<double>(input);
+
+        for (int y = 0; y < input.GetLength(0); y++)
+        {
+            for (int x = 0; x < input.GetLength(1); x++)
+            {
+                Matrix imageKernel = new Matrix(masterKernel.Duplication(x, y, 3));
+                output[y, x] = Matrix.Convolution(imageKernel, sobelMatrixY);
+            }
+        }
+
+        updateMenu();
+        return output;
+    }
+
+    private double[,] CalculateGradientY(double[,] input, Action updateMenu)
+    {
+        double[,] output = new double[input.GetLength(0), input.GetLength(1)];
+
+        Matrix sobelMatrixY = new Matrix(new double[,] { { 1, 2, 1 }, { 0, 0, 0 }, { -1, -2, -1 } });
+        Kernel<double> masterKernel = new Kernel<double>(input);
+
+        for (int y = 0; y < input.GetLength(0); y++)
+        {
+            for (int x = 0; x < input.GetLength(1); x++)
+            {
+                Matrix imageKernel = new Matrix(masterKernel.Duplication(x, y, 3));
+                output[y, x] = Matrix.Convolution(imageKernel, sobelMatrixY);
+            }
+        }
+
+        updateMenu();
+        return output;
+    }
+
+    public double[,] CombineGradients(Structures.Gradients grads)
+    {
+        if (grads.GradientX.GetLength(0) != grads.GradientY.GetLength(0) || grads.GradientX.GetLength(1) != grads.GradientY.GetLength(1))
+            throw new ArgumentException("Canny edge detection failed due to arrays not being of the same size.");
+
+        double[,] output = new double[grads.GradientX.GetLength(0), grads.GradientX.GetLength(1)];
+
+        for (int y = 0; y < grads.GradientX.GetLength(0); y++)
+        {
+            for (int x = 0; x < grads.GradientX.GetLength(1); x++)
+            {
+                output[y, x] = Math.Sqrt(Math.Pow(grads.GradientX[y, x], 2) + Math.Pow(grads.GradientY[y, x], 2));
+            }
+        }
+
+        return output;
+    }
+
+    public double[,] GradientAngle(Structures.Gradients grads)
+    {
+        if (grads.GradientX.GetLength(0) != grads.GradientY.GetLength(0) || grads.GradientX.GetLength(1) != grads.GradientY.GetLength(1))
+            throw new ArgumentException("Canny edge detection failed due to arrays not being of the same size.");
+
+        double[,] output = new double[grads.GradientX.GetLength(0), grads.GradientX.GetLength(1)];
+
+        for (int y = 0; y < grads.GradientX.GetLength(0); y++)
+        {
+            for (int x = 0; x < grads.GradientX.GetLength(1); x++)
+            {
+                output[y, x] = Math.Atan2(grads.GradientY[y, x], grads.GradientX[y, x]);
+            }
+        }
+
+        return output;
+    }
+
+    public double[,] MagnitudeThreshold(double[,] gradCombined, double[,] gradAngle)
+    {
+        if (gradCombined.GetLength(0) != gradAngle.GetLength(0) || gradCombined.GetLength(1) != gradAngle.GetLength(1))
+            throw new ArgumentException("Canny edge detection failed due to arrays not being of the same size.");
+
+        double[,] output = gradCombined;
+        double[,] anglesInDegrees = new double[gradCombined.GetLength(0), gradCombined.GetLength(1)];
+
+        for (int y = 0; y < anglesInDegrees.GetLength(0); y++)
+        {
+            for (int x = 0; x < anglesInDegrees.GetLength(1); x++)
+            {
+                anglesInDegrees[y, x] = Utility.RadianToDegree(gradAngle[y, x]);
+            }
+        }
+
+        Kernel<double> masterKernel = new Kernel<double>(gradCombined);
+
+        for (int y = 0; y < anglesInDegrees.GetLength(0); y++)
+        {
+            for (int x = 0; x < anglesInDegrees.GetLength(1); x++)
+            {
+                double[,] magnitudeKernel = masterKernel.Duplication(x, y, 3);
+
+                if (anglesInDegrees[y, x] < 22.5 || anglesInDegrees[y, x] >= 157.5)
+                {
+                    if (gradCombined[y, x] < magnitudeKernel[1, 2] || gradCombined[y, x] < magnitudeKernel[1, 0])
+                        output[y, x] = 0;
+                }
+                else if (anglesInDegrees[y, x] >= 22.5 && anglesInDegrees[y, x] < 67.5)
+                {
+                    if (gradCombined[y, x] < magnitudeKernel[0, 2] || gradCombined[y, x] < magnitudeKernel[2, 0])
+                        output[y, x] = 0;
+                }
+                else if (anglesInDegrees[y, x] >= 67.5 && anglesInDegrees[y, x] < 112.5)
+                {
+                    if (gradCombined[y, x] < magnitudeKernel[0, 1] || gradCombined[y, x] < magnitudeKernel[2, 1])
+                        output[y, x] = 0;
+                }
+                else if (anglesInDegrees[y, x] >= 112.5 && anglesInDegrees[y, x] < 157.5)
+                {
+                    if (gradCombined[y, x] < magnitudeKernel[0, 0] || gradCombined[y, x] < magnitudeKernel[2, 2])
+                        output[y, x] = 0;
+                }
+                else throw new Exception("Critical unknown error occurred, please try again.");
+            }
+        }
+
+        return output;
+    }
+
+    public Structures.ThresholdPixel[,] DoubleThreshold(double[,] input)
+    {
+        double min = LowerThreshold * 255;
+        double max = UpperThreshold * 255;
+
+        Structures.ThresholdPixel[,] output = new Structures.ThresholdPixel[input.GetLength(0), input.GetLength(1)];
+
+        for (int y = 0; y < input.GetLength(0); y++)
+        {
+            for (int x = 0; x < input.GetLength(1); x++)
+            {
+                if (input[y, x] < min) output[y, x] = new Structures.ThresholdPixel { Strong = false, Value = 0 };
+                else if (input[y, x] > min && input[y, x] < max) output[y, x] = new Structures.ThresholdPixel { Strong = false, Value = input[y, x] };
+                else if (input[y, x] > max) output[y, x] = new Structures.ThresholdPixel { Strong = true, Value = input[y, x] };
+                else throw new Exception("Critical unknown error occurred, please try again.");
+            }
+        }
+
+        return output;
+    }
+
+    public double[,] EdgeTrackingHysteresis(Structures.ThresholdPixel[,] input)
+    {
+        double[,] output = new double[input.GetLength(0), input.GetLength(1)];
+
+        Kernel<Structures.ThresholdPixel> masterKernel = new Kernel<Structures.ThresholdPixel>(input);
+
+        for (int i = 0; i < input.GetLength(0); i++)
+        {
+            for (int j = 0; j < input.GetLength(1); j++)
+            {
+                if (input[i, j].Strong == false)
+                {
+                    Structures.ThresholdPixel[,] imageKernel = masterKernel.Duplication(j, i, 3);
+                    bool strong = false;
+                    for (int k = 0; k < 3 && !strong; k++)
+                    {
+                        for (int l = 0; l < 3 && !strong; l++)
+                        {
+                            if (imageKernel[k, l].Strong) strong = true;
+                        }
+                    }
+                    output[i, j] = strong ? 255 : 0;
+                }
+                else output[i, j] = 255;
+            }
+        }
+
+        return output;
+    }
+}
+    \end{cscode}
+    
+    \paragraph{Post.cs}
+    \begin{cscode}
+public class Post
+{
+    private double[,] _imageDoubles;
+
+    public Post(double[,] input)
+    {
+        _imageDoubles = input;
+    }
+
+    public void Start(int embossCount)
+    {
+        if (embossCount <= 0) _imageDoubles = FillPixelGaps(_imageDoubles);
+        else
+        {
+            for (int i = 0; i < embossCount; i++)
+            {
+                _imageDoubles = FillPixelGaps(EmbossImage(_imageDoubles));
+            }
+        }
+    }
+
+    private double[,] EmbossImage(double[,] input)
+    {
+        double[,] result = new double[input.GetLength(0), input.GetLength(1)];
+
+        Matrix embossMatrix = new Matrix(new double[,] { { -2, -1, 0 }, { -1, 1, 1 }, { 0, 1, 2 } });
+        Kernel<double> masterKernel = new Kernel<double>(input);
+
+        for (int y = 0; y < input.GetLength(0); y++)
+        {
+            for (int x = 0; x < input.GetLength(1); x++)
+            {
+                Matrix imageKernel = new Matrix(masterKernel.Duplication(x, y, 3));
+                result[y, x] = Math.Abs(Matrix.Convolution(imageKernel, embossMatrix));
+            }
+        }
+
+        return result;
+    }
+
+    private double[,] FillPixelGaps(double[,] input)
+    {
+        double[,] output = new double[input.GetLength(0), input.GetLength(1)];
+        Kernel<double> masterKernel = new Kernel<double>(input);
+
+
+        for (int y = 0; y < input.GetLength(0); y++)
+        {
+            for (int x = 0; x < input.GetLength(1); x++)
+            {
+                Matrix imageKernel = new Matrix(masterKernel.Duplication(x, y, 3));
+                int count = imageKernel.Cast<double>().Count(value => value >= 255);
+                if (count > 4) output[y, x] = 255;
+            }
+        }
+
+        return output;
+    }
+
+
+    public double[,] Result() => _imageDoubles;
+
+}
+    \end{cscode}
+    
+    \paragraph{Pre.cs}
+    \begin{cscode}
+public class Pre
+{
+    private readonly string _imagePath;
+    private Bitmap _imageBitmap;
+    private Structures.RGB[,] _imageRgb;
+    
+    private const string FileExtensionRegex = @"^([a-z]:\\|\\|[a-z]|\.\.(\\|\/)|\.(\\|\/))((\w|(\\|\/))+)\.(jpg|bmp|exif|png|tiff)$";
+    
+    public Pre(string imagePath)
+    {
+        _imagePath = imagePath;
+    }
+    
+    
+    /// <exception cref="PreprocessingException"></exception>
+    /// <exception cref="Exception"></exception>
+    public void Start(Action updateProgressAction)
+    {
+        updateProgressAction();
+        ValidatePath();
+        updateProgressAction();
+        ReadImage();
+        updateProgressAction();
+        CheckDimensions();
+        updateProgressAction();
+    }
+    
+    private void ValidatePath()
+    {
+        Regex fileRegex = new Regex(FileExtensionRegex, RegexOptions.IgnoreCase);
+    
+        if (!File.Exists(_imagePath)) throw new PreprocessingException("The image that you entered does not exist, double check the path to the file and that exists.");
+        if (!fileRegex.IsMatch(_imagePath)) throw new PreprocessingException("The file which you entered does not appear to be an image file. It should end in .jpg, .bmp, .exif, .png or .tiff double check and try again.");
+    }
+    
+    private void ReadImage()
+    {
+        _imageBitmap = new Bitmap(_imagePath, true);
+        _imageRgb = new Structures.RGB[_imageBitmap.Height, _imageBitmap.Width];
+    
+        for (int y = 0; y < _imageBitmap.Height; y++)
+        {
+            for (int x = 0; x < _imageBitmap.Width; x++)
+            {
+                Color tempPixel = _imageBitmap.GetPixel(x, y);
+                _imageRgb[y, x] = new Structures.RGB
+                {
+                    R = tempPixel.R,
+                    G = tempPixel.G,
+                    B = tempPixel.B
+                };
+            }
+        }
+    }
+    
+    private void CheckDimensions()
+    {
+        if (_imageRgb.GetLength(0) < 200 || _imageRgb.GetLength(1) < 200)
+            throw new PreprocessingException("The image you supplied is too small to work properly it must be at least 200x200. Try a larger image.");
+    
+        if (_imageRgb.GetLength(0) % 2 != 0 || _imageRgb.GetLength(1) % 2 != 0)
+        {
+            Structures.RGB[,] resizedRgb =
+                new Structures.RGB[_imageRgb.GetLength(0) / 2 * 2, _imageRgb.GetLength(1) / 2 * 2];
+    
+            for (int y = 0; y < _imageRgb.GetLength(0) / 2 * 2; y++)
+            {
+                for (int x = 0; x < _imageRgb.GetLength(1) / 2 * 2; x++)
+                {
+                    resizedRgb[y, x] = _imageRgb[y, x];
+                }
+            }
+    
+            _imageRgb = resizedRgb;
+        }
+    }
+    
+    public Structures.RawImage Result() => new Structures.RawImage
+    {
+        Original = _imageBitmap,
+        Pixels = _imageRgb,
+        Path = _imagePath,
+        Height = _imageBitmap.Height,
+        Width = _imageBitmap.Width
+    };
+}
+    \end{cscode}
+    
+    \paragraph{RoadDetection.cs}
+    \begin{cscode}
+public class RoadDetection
+{
+    private Bitmap _filledBitmap;
+    private Bitmap _pathBitmap;
+    private double[,] _pathDoubles;
+    private readonly double[,] _imageDoubles;
+    private readonly double _threshold;
+    private Random _gen = new Random();
+
+    public RoadDetection(double[,] imageDoubles, double threshold)
+    {
+        _imageDoubles = imageDoubles;
+        _threshold = threshold;
+    }
+
+    public void Start(Action updateAction)
+    {
+        List<Color> toRemoveColors = FillImage(updateAction);
+        RemoveColor(toRemoveColors, updateAction);
+
+        _pathDoubles = new double[_pathBitmap.Height, _pathBitmap.Width];
+        for (int y = 0; y < _pathBitmap.Height; y++)
+        {
+            for (int x = 0; x < _pathBitmap.Width; x++)
+            {
+                Color pixel = _pathBitmap.GetPixel(x, y);
+                if (pixel == Color.FromArgb(0, 0, 0)) _pathDoubles[y, x] = 0;
+                else _pathDoubles[y, x] = 255;
+            }
+        }
+    }
+
+    private List<Color> FillImage(Action updateAction)
+    {
+        Color[,] tempImage = new Color[_imageDoubles.GetLength(0), _imageDoubles.GetLength(1)];
+
+        for (int y = 0; y < _imageDoubles.GetLength(0); y++)
+            for (int x = 0; x < _imageDoubles.GetLength(1); x++)
+                tempImage[y, x] = Color.FromArgb((int)_imageDoubles[y, x], (int)_imageDoubles[y, x], (int)_imageDoubles[y, x]);
+
+        List<Color> toReplaceColors = new List<Color>();
+        List<Color> usedColors = new List<Color>();
+
+        _filledBitmap = _imageDoubles.ToBitmap();
+
+        for (int y = 0; y < _imageDoubles.GetLength(0); y++)
+        {
+            for (int x = 0; x < _imageDoubles.GetLength(1); x++)
+            {
+                if ((((y + 1) * (x + 1)) / 100) % 100 == 0) updateAction();
+
+                int minX = _imageDoubles.GetLength(1), maxX = 0, minY = _imageDoubles.GetLength(0), maxY = 0;
+                int filled = 0;
+
+                Color randCol = Color.FromArgb(_gen.Next(56, 256), _gen.Next(56, 256), _gen.Next(56, 256));
+                while (usedColors.Contains(randCol))
+                    randCol = Color.FromArgb(_gen.Next(56, 256), _gen.Next(56, 256), _gen.Next(56, 256));
+
+                Datatypes.Queue<(int, int)> queue = new Datatypes.Queue<(int, int)>();
+                queue.Enqueue((y, x));
+
+                while (queue.Size > 0)
+                {
+                    (int, int) cord = queue.Dequeue();
+                    if (tempImage[cord.Item1, cord.Item2] == Color.FromArgb(0, 0, 0))
+                    {
+                        tempImage[cord.Item1, cord.Item2] = randCol;
+                        _filledBitmap.SetPixel(cord.Item2, cord.Item1, tempImage[cord.Item1, cord.Item2]);
+
+                        if (cord.Item1 > 0) queue.Enqueue((cord.Item1 - 1, cord.Item2));
+                        if (cord.Item2 > 0) queue.Enqueue((cord.Item1, cord.Item2 - 1));
+                        if (cord.Item1 < _filledBitmap.Height - 1) queue.Enqueue((cord.Item1 + 1, cord.Item2));
+                        if (cord.Item2 < _filledBitmap.Width - 1) queue.Enqueue((cord.Item1, cord.Item2 + 1));
+
+                        if (!usedColors.Contains(randCol)) usedColors.Add(randCol);
+
+                        filled++;
+                    }
+                    else if (tempImage[cord.Item1, cord.Item2] == Color.FromArgb(255, 255, 255))
+                    {
+                        tempImage[cord.Item1, cord.Item2] = Color.FromArgb(1, 1, 1);
+                        _filledBitmap.SetPixel(cord.Item2, cord.Item1, tempImage[cord.Item1, cord.Item2]);
+                    }
+
+                    if (cord.Item1 > maxY) maxY = cord.Item1;
+                    if (cord.Item2 > maxX) maxX = cord.Item2;
+                    if (cord.Item1 < minY) minY = cord.Item1;
+                    if (cord.Item2 < minX) minX = cord.Item2;
+                }
+
+                double totalSquares = (maxX - minX) * (maxY - minY);
+                if (filled / totalSquares > _threshold || filled == 1) toReplaceColors.Add(randCol);
+            }
+        }
+
+        return toReplaceColors;
+    }
+
+    private void RemoveColor(List<Color> toRemove, Action updateAction)
+    {
+        _pathBitmap = new Bitmap(_filledBitmap);
+
+        for (int y = 0; y < _pathBitmap.Height; y++)
+        {
+            for (int x = 0; x < _pathBitmap.Width; x++)
+            {
+                if ((((y + 1) * (x + 1)) / 100) % 100 == 0) updateAction();
+                if (toRemove.Contains(_pathBitmap.GetPixel(x, y)))
+                {
+                    _pathBitmap.SetPixel(x, y, Color.FromArgb(1, 1, 1));
+                }
+            }
+        }
+
+        for (int i = 0; i < _pathBitmap.Height; i++)
+        {
+            for (int j = 0; j < _pathBitmap.Width; j++)
+            {
+                if ((((i + 1) * (j + 1)) / 100) % 100 == 0) updateAction();
+                if (_pathBitmap.GetPixel(j, i) == Color.FromArgb(1, 1, 1))
+                    _pathBitmap.SetPixel(j, i, Color.FromArgb(0, 0, 0));
+            }
+        }
+    }
+
+    public Structures.RoadResult Result() => new Structures.RoadResult
+    {
+        FilledBitmap = _filledBitmap,
+        PathBitmap = _pathBitmap,
+        PathDoubles = _pathDoubles
+    };
+}
+    \end{cscode}
+    
+    
+    \subsubsubsection{Root}    
+    \paragraph{Extensions.cs}
+    \begin{cscode}
+public static class Extensions
+{
+    public static Bitmap ToBitmap(this double[,] array)
+    {
+        Bitmap output = new Bitmap(array.GetLength(1), array.GetLength(0));
+
+        for (int y = 0; y < array.GetLength(0); y++)
+        {
+            for (int x = 0; x < array.GetLength(1); x++)
+            {
+                int boundedPixel = (int)Utility.Bound(0, 255, array[y, x]);
+                output.SetPixel(x, y, Color.FromArgb(boundedPixel, boundedPixel, boundedPixel));
+            }
+        }
+
+        return output;
+    }
+
+    public static double[,] ToDoubles(this Bitmap image, Func<Color, double> getPixelFunction)
+    {
+        double[,] result = new double[image.Height, image.Width];
+
+        for (int y = 0; y < image.Height; y++)
+        {
+            for (int x = 0; x < image.Width; x++)
+            {
+                result[y, x] = getPixelFunction(image.GetPixel(x, y));
+            }
+        }
+
+        return result;
+    }
+
+    public static Bitmap ToBitmap(this Structures.RGB[,] array)
+    {
+        Bitmap output = new Bitmap(array.GetLength(1), array.GetLength(0));
+
+        for (int y = 0; y < array.GetLength(0); y++)
+        {
+            for (int x = 0; x < array.GetLength(1); x++)
+            {
+                output.SetPixel(x, y, Color.FromArgb((int)array[y, x].R, (int)array[y, x].G, (int)array[y, x].B));
+            }
+        }
+
+        return output;
+    }
+
+    public static Graph<Structures.Coord> ToGraph(this double[,] doubles)
+    {
+        Graph<Structures.Coord> output = new Graph<Structures.Coord>();
+        Kernel<double> masterKernel = new Kernel<double>(doubles);
+
+        for (int y = 0; y < doubles.GetLength(0); y++)
+        {
+            for (int x = 0; x < doubles.GetLength(1); x++)
+            {
+                Structures.Coord tempCord = new Structures.Coord { X = x, Y = y };
+                output.AddNode(tempCord);
+
+                double[,] surroundingDoubles = masterKernel.Constant(x, y, 3, 0);
+
+                bool found = false;
+
+                if (doubles[y, x] == 255)
+                {
+                    for (int i = 0; i < 9; i++)
+                    {
+                        if (surroundingDoubles[i / 3, i % 3] != 0 && i != 4)
+                        {
+                            output.AddConnection(tempCord, new Structures.Coord { X = (x + (i % 3)) - 1, Y = (y + (i / 3)) - 1 });
+                            found = true;
+                        }
+                    }
+                }
+
+                if (!found) output.RemoveNode(tempCord);
+            }
+        }
+
+        return output;
+    }
+
+    // To ensure compatibility with BITMAP
+    public static void SetPixel(this Structures.RGB[,] pixels, int x, int y, Structures.RGB toSetPixel) => pixels[y, x] = toSetPixel;
+
+    public static Structures.RGB GetPixel(this Structures.RGB[,] pixels, int x, int y) => pixels[y, x];
+}
+    \end{cscode}
+    
+    \paragraph{Kernel.cs}
+    \begin{cscode}
+public class Kernel<T>
+{
+    private readonly T[,] _image;
+    private readonly int _width;
+    private readonly int _height;
+
+    public Kernel(T[,] image)
+    {
+        _image = image;
+        _height = image.GetLength(0);
+        _width = image.GetLength(1);
+    }
+
+    public T[,] Constant(int x, int y, int size, T constant = default)
+    {
+        if (size % 2 != 1) throw new KernelException("The image kernel supplied was of an odd size, check your settings and try again.");
+        if (x >= _width || x < 0 || y >= _height || y < 0)
+            throw new KernelException("Your kernel must start within the image.");
+
+        T[,] kernel = new T[size, size];
+
+        int halfK = size / 2;
+
+        for (int i = 0; i < size; i++)
+            for (int j = 0; j < size; j++)
+                kernel[i, j] = constant;
+
+        int cntY = 0;
+        for (int j = y - halfK; j <= y + halfK; j++)
+        {
+            int cntX = 0;
+            for (int i = x - halfK; i <= x + halfK; i++)
+            {
+                if (j >= 0 && i >= 0 && j < _height && i < _image.GetLength(1))
+                {
+                    kernel[cntY, cntX] = _image[j, i];
+                }
+                cntX++;
+            }
+            cntY++;
+        }
+
+        return kernel;
+    }
+
+    public T[,] Duplication(int x, int y, int size)
+    {
+        if (size % 2 != 1) throw new KernelException("The image kernel supplied was of an odd size, check your settings and try again.");
+        if (x >= _width || x < 0 || y >= _height || y < 0)
+            throw new KernelException("Your kernel must start within the image.");
+
+        T[,] kernel = new T[size, size];
+
+        int halfK = size / 2;
+
+        for (int i = 0; i < size; i++) for (int j = 0; j < size; j++) kernel[i, j] = _image[y, x];
+
+        int cntY = 0;
+        for (int j = y - halfK; j <= y + halfK; j++)
+        {
+            int cntX = 0;
+            for (int i = x - halfK; i <= x + halfK; i++)
+            {
+                if (j >= 0 && i >= 0 && j < _height && i < _image.GetLength(1))
+                {
+                    kernel[cntY, cntX] = _image[j, i];
+                }
+                cntX++;
+            }
+            cntY++;
+        }
+
+        return kernel;
+    }
+
+    public static double[,] Gaussian(double sigma, int size)
+    {
+        double[,] result = new double[size, size];
+        int halfK = size / 2;
+
+        double sum = 0;
+
+        int cntY = -halfK;
+        for (int i = 0; i < size; i++)
+        {
+            int cntX = -halfK;
+            for (int j = 0; j < size; j++)
+            {
+                result[halfK + cntY, halfK + cntX] = Utility.GaussianDistribution(cntX, cntY, sigma);
+                sum += result[halfK + cntY, halfK + cntX];
+                cntX++;
+            }
+            cntY++;
+        }
+
+        for (int i = 0; i < size; i++) for (int j = 0; j < size; j++) result[i, j] /= sum;
+        return result;
+    }
+
+}
+    \end{cscode}
+    
+    \paragraph{Logger.cs}
+    \begin{cscode}
+public class Logger
+{
+    private readonly bool _localApplication;
+    private static readonly object Lock = new object();
+    public Logger(bool local)
+    {
+        _localApplication = local;
+        CreateDirStructure();
+    }
+
+    private void CreateDirStructure()
+    {
+        Directory.CreateDirectory("./runs");
+        Directory.CreateDirectory("./logs");
+        Directory.CreateDirectory("./saves");
+
+        string mode = _localApplication ? "Local Application" : "Web Application";
+
+        lock (Lock)
+        {
+            using (StreamWriter sr = File.AppendText("./logs/master.txt"))
+            {
+                sr.WriteLine("<====================== New Instance ======================>");
+                sr.WriteLine($"Datetime: {DateTime.UtcNow:dd-MM-yyyy} {DateTime.UtcNow:HH:mm:ss}");
+                sr.WriteLine($"Mode: {mode}");
+            }
+        }
+    }
+
+    public static Guid CreateRun()
+    {
+        Guid guidForRun = Uuid();
+
+        Directory.CreateDirectory($"./runs/{guidForRun.ToString("N").ToUpper()}");
+
+        WriteLineToRunFile(guidForRun, "<====================== Begin New Run ======================>");
+        WriteLineToRunFile(guidForRun, $"Datetime: {DateTime.UtcNow:dd-MM-yyyy} {DateTime.UtcNow:HH:mm:ss}");
+        WriteLineToRunFile(guidForRun, $"Run Object Guid: {guidForRun.ToString().ToUpper()}");
+
+        WriteLineToMaster($"New Run Started with GUID {guidForRun.ToString().ToUpper()}");
+
+        return guidForRun;
+    }
+
+    public static void WriteLineToRunFile(Guid currentGuid, string message)
+    {
+        lock (Lock)
+        {
+            using (StreamWriter sr = File.AppendText($"./logs/{currentGuid}.txt"))
+                sr.WriteLine($"{message}");
+        }
+    }
+
+    public static void WriteLineToMaster(string message)
+    {
+        lock (Lock)
+        {
+            using (StreamWriter sr = File.AppendText("./logs/master.txt"))
+                sr.WriteLine($"{DateTime.UtcNow:HH:mm:ss} || {message}");
+        }
+
+    }
+
+    public static void SaveBitmap(Guid currentGuid, double[,] image, string name)
+    {
+        Bitmap toSaveBitmap = image.ToBitmap();
+        if (!Directory.Exists($"./runs/{currentGuid.ToString("N").ToUpper()}"))
+            throw new LoggerException("Run directory not found, logger not created correctly, please restart the program.");
+
+        toSaveBitmap.Save($"./runs/{currentGuid.ToString("N").ToUpper()}/{name}.png");
+    }
+
+    public static void SaveBitmap(Guid currentGuid, Bitmap image, string name)
+    {
+        if (!Directory.Exists($"./runs/{currentGuid.ToString("N").ToUpper()}"))
+            throw new LoggerException("Run directory not found, logger not created correctly, please restart the program.");
+
+        image.Save($"./runs/{currentGuid.ToString("N").ToUpper()}/{name}.png");
+    }
+
+    public static Guid Uuid() => Guid.NewGuid();
+}
+    \end{cscode}
+    
+    \paragraph{Structures.cs}
+    \begin{cscode}
+public class Structures
+{
+    public struct ThresholdPixel
+    {
+        public bool Strong;
+        public double Value;
+    }
+
+    public struct RGB
+    {
+        public double R;
+        public double G;
+        public double B;
+    }
+
+    public struct Gradients
+    {
+        public double[,] GradientX;
+        public double[,] GradientY;
+    }
+
+    public struct RawImage
+    {
+        public Bitmap Original;
+        public string Path;
+        public RGB[,] Pixels;
+        public int Width;
+        public int Height;
+        public MapFile MapFile;
+    }
+
+    public struct RoadResult
+    {
+        public Bitmap FilledBitmap;
+        public Bitmap PathBitmap;
+        public double[,] PathDoubles;
+    }
+
+    public struct CannyResult
+    {
+        public Bitmap BitmapImage;
+        public double[,] DoubleImage;
+    }
+
+    public struct Coord
+    {
+        public int X;
+        public int Y;
+
+        public override string ToString() => $"({X}, {Y})";
+        public bool Equals(Coord other) => X == other.X && Y == other.Y;
+        public override bool Equals(object obj) => obj is Coord other && Equals(other);
+        public static bool operator ==(Coord lhs, Coord rhs) => lhs.X == rhs.X && lhs.Y == rhs.Y;
+        public static bool operator !=(Coord lhs, Coord rhs) => !(lhs == rhs);
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (X * 397) ^ Y;
+            }
+        }
+    }
+}
+
+    \end{cscode}
+    
+    \paragraph{Utility.cs}
+    \begin{cscode}
+public static class Utility
+{
+    public static double GaussianDistribution(int x, int y, double sigma) =>
+        1 / (2 * Math.PI * sigma * sigma) * Math.Exp(-((Math.Pow(x, 2) + Math.Pow(y, 2)) / (2 * sigma * sigma)));
+
+    public static double Bound(int l, int h, double v) => v > h ? h : v < l ? l : v;
+
+    public static bool TryBound(int l, int h, double v, out double value)
+    {
+        if (v < h && v > l) value = v;
+        else value = v > h ? h : l;
+        return v < h && v > l;
+    }
+
+    public static double RadianToDegree(double input) => 180 * input / Math.PI;
+
+    public static double DegreeToRadian(double input) => input * Math.PI / 180;
+
+    public static double MapRadiansToPixel(double input) => (int)(128 / (2 * Math.PI) * input + 128);
+
+    public static Bitmap CombineBitmap(Bitmap a, Bitmap b)
+    {
+        if (a.Width != b.Width || a.Height != b.Height)
+            throw new ArgumentException($"An error has occurred somewhere in the map images aren't of the same size ({a.Width}x{a.Height} vs {b.Width}x{b.Height}) please try again.");
+
+        Bitmap result = new Bitmap(a);
+        for (int y = 0; y < a.Height; y++)
+        {
+            for (int x = 0; x < a.Width; x++)
+            {
+                Color pixel = b.GetPixel(x, y);
+                if (pixel != Color.FromArgb(0, 0, 0))
+                {
+                    result.SetPixel(x, y, pixel);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public static Structures.RGB[][,] SplitImage(Structures.RGB[,] image)
+    {
+        Structures.RGB[,] one = new Structures.RGB[image.GetLength(0) / 2, image.GetLength(1) / 2];
+        Structures.RGB[,] beta = new Structures.RGB[image.GetLength(0) / 2, image.GetLength(1) / 2];
+        Structures.RGB[,] gamma = new Structures.RGB[image.GetLength(0) / 2, image.GetLength(1) / 2];
+        Structures.RGB[,] delta = new Structures.RGB[image.GetLength(0) / 2, image.GetLength(1) / 2];
+
+        for (int i = 0; i < image.GetLength(1) / 2; i++)
+        {
+            for (int j = 0; j < image.GetLength(0) / 2; j++)
+            {
+                one.SetPixel(i, j, image.GetPixel(i, j));
+            }
+        }
+
+        for (int i = image.GetLength(1) / 2; i < image.GetLength(1); i++)
+        {
+            for (int j = 0; j < image.GetLength(0) / 2; j++)
+            {
+                beta.SetPixel(i - (image.GetLength(1) / 2), j, image.GetPixel(i, j));
+            }
+        }
+
+        for (int i = 0; i < image.GetLength(1) / 2; i++)
+        {
+            for (int j = image.GetLength(0) / 2; j < image.GetLength(0); j++)
+            {
+                gamma.SetPixel(i, j - (image.GetLength(0) / 2), image.GetPixel(i, j));
+            }
+        }
+
+        for (int i = image.GetLength(1) / 2; i < image.GetLength(1); i++)
+        {
+            for (int j = image.GetLength(0) / 2; j < image.GetLength(0); j++)
+            {
+                delta.SetPixel(i - (image.GetLength(1) / 2), j - (image.GetLength(0) / 2), image.GetPixel(i, j));
+            }
+        }
+
+        return new[] { one, beta, gamma, delta };
+    }
+
+    public static double[,] CombineQuadrants(double[,] alpha, double[,] beta, double[,] gamma, double[,] delta)
+    {
+        double[,] partA = new double[alpha.GetLength(0), alpha.GetLength(1) * 2];
+        double[,] partB = new double[alpha.GetLength(0), alpha.GetLength(1) * 2];
+        for (int i = 0; i < alpha.GetLength(0); i++)
+        {
+            for (int j = 0; j < alpha.GetLength(1); j++)
+                partA[i, j] = alpha[i, j];
+
+            for (int y = 0; y < beta.GetLength(1); y++)
+                partA[i, y + alpha.GetLength(1)] = beta[i, y];
+        }
+
+        for (int i = 0; i < gamma.GetLength(0); i++)
+        {
+            for (int j = 0; j < gamma.GetLength(1); j++)
+                partB[i, j] = gamma[i, j];
+
+            for (int y = 0; y < delta.GetLength(1); y++)
+                partB[i, y + gamma.GetLength(1)] = delta[i, y];
+        }
+
+        double[,] final = new double[alpha.GetLength(0) * 2, alpha.GetLength(1) * 2];
+        for (int i = 0; i < alpha.GetLength(0) * 2; i++)
+        {
+            if (i < alpha.GetLength(0) * 2 / 2)
+            {
+                for (int j = 0; j < alpha.GetLength(1) * 2; j++)
+                {
+                    final[i, j] = partA[i, j];
+                }
+            }
+            else
+            {
+                for (int j = 0; j < alpha.GetLength(1) * 2; j++)
+                {
+                    final[i, j] = partB[i - alpha.GetLength(0) * 2 / 2, j];
+                }
+            }
+        }
+
+        return final;
+    }
+
+    public static double[,] InverseImage(double[,] image)
+    {
+        for (int y = 0; y < image.GetLength(0); y++)
+        {
+            for (int x = 0; x < image.GetLength(1); x++)
+            {
+                image[y, x] = image[y, x] == 255 ? 0 : 255;
+            }
+        }
+
+        return image;
+    }
+
+    public static T[] RebuildPath<T>(Dictionary<T, T> prev, T goal)
+    {
+        if (prev == null) return new T[1];
+        List<T> sequence = new List<T>();
+        T u = goal;
+
+        while (prev.ContainsKey(u))
+        {
+            sequence.Insert(0, u);
+            u = prev[u];
+        }
+
+        return sequence.ToArray();
+    }
+
+
+    public static bool IsYes(string input) => new Regex(@"^y(es)?$", RegexOptions.IgnoreCase).IsMatch(input.Trim());
+    public static double GetRed(Color pixel) => pixel.R;
+    public static double GetGreen(Color pixel) => pixel.G;
+    public static double GetBlue(Color pixel) => pixel.B;
+    public static double GetAverage(Color pixel) => (pixel.R + pixel.G + pixel.B) / 3.0;
+    public static double GetIndustryAverage(Color pixel) => (pixel.R * 0.299) + (pixel.G * 0.586) + (pixel.B * 0.114);
+    public static double GetIfExists(Color pixel) => GetAverage(pixel) > 0 ? 255 : 0;
+
+    public static double GetDistanceBetweenNodes(Structures.Coord a, Structures.Coord b) =>
+        Math.Sqrt(Math.Pow(a.X - b.X, 2) + Math.Pow(a.Y - b.Y, 2));
+}
+    \end{cscode}
+    
+    
+    \subsubsection{LocalApp}
+    \subsubsubsection{Actions}
+    \paragraph{NewImage.cs}
+    \begin{cscode}
+internal class NewImage
+{
+    private readonly Guid _runGuid;
+    private readonly Menu _menuInstance;
+    private readonly Log _logInstance;
+
+    public NewImage(Menu menu, Log logger, Guid runGuid)
+    {
+        _runGuid = runGuid;
+        _menuInstance = menu;
+        _logInstance = logger;
+    }
+
+    public Structures.RawImage Read()
+    {
+        Input inputHandel = new Input(_menuInstance);
+
+        string path =
+            inputHandel.GetInput(
+                "Please enter the path of the image you wish to process into a map (you can click and drag an image from your file explorer here too):");
+        _logInstance.Event(_runGuid, $"Looking for image at {path}");
+
+        Pre preProcess = new Pre(path);
+
+        ProgressBar progressBar = new ProgressBar("Pre-processing your image", 4, _menuInstance);
+        progressBar.DisplayProgress();
+
+        try
+        {
+            preProcess.Start(progressBar.GetIncrementAction());
+            _logInstance.Event(_runGuid, "Completed pre processing of image.");
+        }
+        catch (PreprocessingException ex)
+        {
+            _logInstance.Error(_runGuid, ex.Message);
+            throw new Exception("An expected occurred while pre processing your image.", ex);
+        }
+        catch (Exception ex)
+        {
+            _logInstance.Error(ex.Message);
+            throw new Exception("An unexpected occurred while pre processing your image.", ex);
+        }
+
+        _menuInstance.ClearUserSection();
+
+        bool saveAsBinary =
+            Utility.IsYes(
+                inputHandel.TryGetInput(
+                    "Would you like to save this map afterwards in a file to be reused later (y/n)?"));
+        MapFile mapSave = saveAsBinary ? new MapFile() : null;
+
+        if (saveAsBinary)
+        {
+            mapSave.Type = inputHandel.GetOption("What type of image are you supplying:",
+                new[] { "Screenshot", "Hand Drawn", "Photograph", "Other" });
+
+            mapSave.Name = inputHandel.TryGetInput("Enter a name for image, or leave blank for 'None':");
+            _menuInstance.WriteLine();
+
+            mapSave.Description = inputHandel.TryGetInput("Enter a brief description about this image, or leave blank for 'None':");
+        }
+
+        Structures.RawImage result = preProcess.Result();
+        if (saveAsBinary) result.MapFile = mapSave;
+        else result.MapFile = null;
+        if (saveAsBinary) mapSave.OriginalImage = result.Pixels.ToBitmap();
+
+        return result;
+    }
+}
+    \end{cscode}
+    
+    \paragraph{SaveFile.cs}
+    \begin{cscode}
+public class SaveFile
+{
+    private readonly Guid _runGuid;
+    private readonly Menu _menuInstance;
+    private readonly Log _logInstance;
+
+    public SaveFile(Menu menu, Log logger, Guid runGuid)
+    {
+        _runGuid = runGuid;
+        _menuInstance = menu;
+        _logInstance = logger;
+    }
+
+    public MapFile Read()
+    {
+        Input inputHandel = new Input(_menuInstance);
+
+        string path = inputHandel.GetInput("Please enter the path of the map which you wish to recall:");
+        _logInstance.Event(_runGuid, $"Looking for map file at {path}");
+
+        ProgressBar progressBar = new ProgressBar("Recalling Saved Map File", 10, _menuInstance);
+        progressBar.DisplayProgress();
+
+        MapFile result = new MapFile(path);
+
+        try
+        {
+            result.Initialize(progressBar.GetIncrementAction());
+            _logInstance.Event(_runGuid, "Completed recollection.");
+        }
+        catch (MapFileException ex)
+        {
+            _logInstance.Error(_runGuid, ex.Message);
+            throw new Exception("An expected occurred while recalling your save file.", ex);
+        }
+        catch (Exception ex)
+        {
+            _logInstance.Error(ex.Message);
+            throw new Exception("An unexpected occurred while recalling your save file.", ex);
+        }
+
+
+        return result;
+    }
+
+}
+    \end{cscode}
+    
+    \paragraph{SettingsControl.cs}
+    \begin{cscode}
+public class SettingsControl
+{
+    private readonly Settings _settings;
+    private readonly Menu _menuInstance;
+    private readonly Log _logInstance;
+    private readonly Input _inputHandel;
+
+    private readonly Dictionary<string, (string, Type)> _oldSettings;
+
+    public SettingsControl(Settings settings, Menu menuInstance, Log logInstance)
+    {
+        _settings = settings;
+        _menuInstance = menuInstance;
+        _logInstance = logInstance;
+        _oldSettings = new Dictionary<string, (string, Type)>(Settings.UserSettings);
+        _inputHandel = new Input(_menuInstance);
+    }
+
+    public void Start()
+    {
+        bool running = true;
+
+        while (running)
+        {
+            _menuInstance.SetPage("Settings Home Page");
+            int opt = _inputHandel.GetOption("Whcih settings would you like to change?",
+                new[]
+                {
+                    "General",
+                    "Pathfinding",
+                    "Save",
+                    "Algorithm",
+                    "Exit"
+                }
+            );
+
+            switch (opt)
+            {
+                case 0:
+                    _menuInstance.SetPage("Settings -> General Settings");
+                    General();
+                    break;
+                case 1:
+                    _menuInstance.SetPage("Settings -> Pathfinding Settings");
+                    Pathfinding();
+                    break;
+                case 2:
+                    _menuInstance.SetPage("Settings -> Save Settings");
+                    Save();
+                    break;
+                case 3:
+                    _menuInstance.SetPage("Settings -> Pathfinding Algorithm");
+
+                    int algorithmOption = _inputHandel.GetOption("Select which pathfinding algorithm you wish to use:", new string[] {
+                        "Dijkstra",
+                        "AStar"
+                    });
+
+                    string newValue = algorithmOption == 0 ? "Dijkstra" : "AStar";
+
+                    _settings.Change("pathfindingAlgorithm", newValue);
+                    break;
+                default:
+                    running = false;
+
+                    _settings.Update(_oldSettings, Settings.UserSettings);
+
+                    break;
+
+            }
+        }
+    }
+
+    private void General()
+    {
+        (string, bool)[] settings = new (string, bool)[] {
+            ( "detailedLogging", bool.Parse(Settings.UserSettings["detailedLogging"].Item1)),
+            ( "forceFormsFront", bool.Parse(Settings.UserSettings["forceFormsFront"].Item1)),
+        };
+
+        IEnumerable<(string, bool)> result = _inputHandel.OptionSelector("General Settings:", settings);
+        foreach (var item in result) _settings.Change(item.Item1, item.Item2);
+    }
+
+    private void Pathfinding()
+    {
+        (string, bool)[] settings = new (string, bool)[] {
+            ( "convertToMST", bool.Parse(Settings.UserSettings["convertToMST"].Item1)),
+            ( "snapToGrid", bool.Parse(Settings.UserSettings["snapToGrid"].Item1)),
+            ( "endOnFind", bool.Parse(Settings.UserSettings["endOnFind"].Item1)),
+        };
+
+        IEnumerable<(string, bool)> result = _inputHandel.OptionSelector("Save File Settings:", settings);
+        foreach (var item in result) _settings.Change(item.Item1, item.Item2);
+    }
+
+    private void Save()
+    {
+        (string, bool)[] settings = new (string, bool)[] {
+            ( "shortNames", bool.Parse(Settings.UserSettings["shortNames"].Item1)),
+            ( "zipOnComplete", bool.Parse(Settings.UserSettings["zipOnComplete"].Item1)),
+        };
+
+        IEnumerable<(string, bool)> result = _inputHandel.OptionSelector("Save File Settings:", settings);
+        foreach (var item in result) _settings.Change(item.Item1, item.Item2);
+    }
+
+}
+    \end{cscode}
+    
+    
+    \subsubsubsection{CLI}
+    \paragraph{Input.cs}
+    \begin{cscode}
+public class Input
+{
+    private readonly Menu _menuInstance;
+
+    public Input(Menu menuInstance)
+    {
+        _menuInstance = menuInstance;
+    }
+
+    /// <summary>
+    /// A function to easily display a menu and get an option from a supplied list.
+    /// </summary>
+    /// <param name="title">Title of the menu to be displayed</param>
+    /// <param name="options">Options to be displayed</param>
+    /// <param name="clear">Clear the screen on function call</param>
+    /// <returns>0 based index for the option which was selected</returns>
+    public int GetOption(string title, IEnumerable<string> options, bool clear = true)
+    {
+        while (Console.KeyAvailable) Console.ReadKey(true);
+        _menuInstance.ClearUserSection();
+        _menuInstance.WriteLine(title);
+
+        int j = 3;
+
+        lock (_menuInstance.ScreenLock)
+        {
+            foreach (var option in options)
+            {
+                Console.SetCursorPosition(1, j++);
+                Console.WriteLine($"  {option}");
+            }
+        }
+
+        bool selected = false;
+        int currentTop;
+
+        lock (_menuInstance.ScreenLock)
+        {
+            Console.SetCursorPosition(1, 3);
+            Console.Write('>');
+
+            currentTop = Console.CursorTop;
+        }
+
+        while (!selected)
+        {
+            Console.CursorVisible = false;
+
+            ConsoleKeyInfo key = Console.ReadKey(true);
+            if (key.Key == ConsoleKey.DownArrow && currentTop < options.Count() + 2)
+            {
+                lock (_menuInstance.ScreenLock)
+                {
+                    Console.CursorLeft = 1;
+                    Console.CursorTop = currentTop;
+                    Console.Write(' ');
+                    Console.CursorTop = ++currentTop;
+                    Console.CursorLeft = 1;
+                    Console.Write('>');
+                }
+            }
+            else if (key.Key == ConsoleKey.UpArrow && currentTop > 3)
+            {
+                lock (_menuInstance.ScreenLock)
+                {
+                    Console.CursorLeft = 1;
+                    Console.CursorTop = currentTop;
+                    Console.Write(' ');
+                    Console.CursorTop = --currentTop;
+                    Console.CursorLeft = 1;
+                    Console.Write('>');
+                }
+            }
+            else if (key.Key == ConsoleKey.Enter)
+            {
+                if (clear) _menuInstance.ClearUserSection();
+                Console.CursorVisible = false;
+
+                selected = true;
+            }
+        }
+
+        return currentTop - 3;
+    }
+
+    public void WaitInput(string prompt)
+    {
+        while (Console.KeyAvailable) Console.ReadKey(true);
+        _menuInstance.WriteLine(prompt);
+        bool complete = false;
+
+        while (!complete)
+        {
+            if (!Console.KeyAvailable) continue;
+            ConsoleKeyInfo key = Console.ReadKey(true);
+            if (key.Key == ConsoleKey.Enter) complete = true;
+        }
+    }
+
+    public IEnumerable<(string, bool)> OptionSelector(string title, IEnumerable<(string, bool)> options, bool clear = true)
+    {
+        List<(string, bool)> result = new List<(string, bool)>(options);
+        result.Add(("EXIT", false));
+
+        while (Console.KeyAvailable) Console.ReadKey(true);
+        _menuInstance.ClearUserSection();
+        _menuInstance.WriteLine(title);
+
+        int j = 3;
+
+        lock (_menuInstance.ScreenLock)
+        {
+            foreach (var option in result)
+            {
+                Console.SetCursorPosition(1, j++);
+                if (option.Item2) Console.WriteLine($"  {option.Item1} [{Log.Green}x{Log.Blank}]");
+                else Console.WriteLine($"  {option.Item1} [ ]");
+            }
+        }
+
+        bool selected = false;
+        int currentTop;
+
+        lock (_menuInstance.ScreenLock)
+        {
+            Console.SetCursorPosition(1, 3);
+            Console.Write('>');
+
+            currentTop = Console.CursorTop;
+        }
+
+        while (!selected)
+        {
+            Console.CursorVisible = false;
+
+            ConsoleKeyInfo key = Console.ReadKey(true);
+            if (key.Key == ConsoleKey.DownArrow && currentTop < result.Count() + 2)
+            {
+                lock (_menuInstance.ScreenLock)
+                {
+                    Console.CursorLeft = 1;
+                    Console.CursorTop = currentTop;
+                    Console.Write(' ');
+                    Console.CursorTop = ++currentTop;
+                    Console.CursorLeft = 1;
+                    Console.Write('>');
+                }
+            }
+            else if (key.Key == ConsoleKey.UpArrow && currentTop > 3)
+            {
+                lock (_menuInstance.ScreenLock)
+                {
+                    Console.CursorLeft = 1;
+                    Console.CursorTop = currentTop;
+                    Console.Write(' ');
+                    Console.CursorTop = --currentTop;
+                    Console.CursorLeft = 1;
+                    Console.Write('>');
+                }
+            }
+            else if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.Spacebar)
+            {
+                if (result.Count + 2 == currentTop)
+                {
+                    if (clear) _menuInstance.ClearUserSection();
+                    Console.CursorVisible = false;
+
+                    selected = true;
+                }
+                else
+                {
+                    result[currentTop - 3] = (result[currentTop - 3].Item1, !result[currentTop - 3].Item2);
+                    Console.SetCursorPosition(1, currentTop);
+                    if (result[currentTop - 3].Item2) Console.WriteLine($"> {result[currentTop - 3].Item1} [{Log.Green}x{Log.Blank}]");
+                    else Console.WriteLine($"> {result[currentTop - 3].Item1} [ ]");
+                }
+            }
+        }
+
+        return result;
+    }
+
+
+    public string GetInput(string prompt)
+    {
+        while (Console.KeyAvailable) Console.ReadKey(true);
+        _menuInstance.WriteLine(prompt);
+
+        bool complete = false;
+        StringBuilder input = new StringBuilder();
+        int line = _menuInstance.CurrentLine;
+
+        while (!complete)
+        {
+            if (Console.KeyAvailable)
+            {
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                switch (key.Key)
+                {
+                    case ConsoleKey.Enter:
+                        complete = true;
+                        break;
+                    case ConsoleKey.Backspace:
+                    case ConsoleKey.Delete:
+                        {
+                            if (input.Length > 0)
+                            {
+                                lock (_menuInstance.ScreenLock)
+                                {
+                                    Console.SetCursorPosition((input.Length % (Console.WindowWidth * 3 / 4 - 1)), line);
+                                    Console.Write(' ');
+                                }
+
+                                input.Remove(input.Length - 1, 1);
+                            }
+
+                            break;
+                        }
+                    default:
+                        {
+                            if (input.Length / (line - 1) > Console.WindowWidth * 3 / 4 - 2) line++;
+
+                            lock (_menuInstance.ScreenLock)
+                            {
+                                Console.SetCursorPosition((input.Length % (Console.WindowWidth * 3 / 4 - 1)) + 1, line);
+                                Console.Write(key.KeyChar);
+                            }
+
+                            input.Append(key.KeyChar);
+                            break;
+                        }
+                }
+            }
+        }
+
+        _menuInstance.WriteLine();
+
+        return input.ToString();
+    }
+
+    public string TryGetInput(string prompt)
+    {
+        string res = GetInput(prompt);
+        return res.Length == 0 ? "None" : res;
+    }
+
+    public double GetDouble(string prompt) => double.Parse(GetInput(prompt));
+
+    public bool TryGetDouble(string prompt, out double result) => double.TryParse(GetInput(prompt), out result);
+
+    public int GetInt(string prompt) => int.Parse(GetInput(prompt));
+
+    public bool TryGetInt(string prompt, out int result) => int.TryParse(GetInput(prompt), out result);
+}
+    \end{cscode}
+    
+    \paragraph{Log.cs}
+    \begin{cscode}
+public class Log
+{
+    private int _logLineCount = 6;
+    private readonly Menu _menuInstance;
+
+    public const string Red = "\x1b[38;5;196m";
+    public const string Orange = "\x1b[38;5;184m";
+    public const string Purple = "\x1b[38;5;129m";
+    public const string Green = "\x1b[38;5;2m";
+    public const string Blue = "\x1b[38;5;27m";
+    public const string Pink = "\x1b[38;5;200m";
+    public const string Grey = "\x1b[38;5;243m";
+    public const string Blank = "\x1b[0m";
+
+    public void Error(string message) => Logger.WriteLineToMaster($"ERROR {message}");
+    public void Warn(string message) => Logger.WriteLineToMaster($"WARNING {message}");
+    public void Event(string message) => Logger.WriteLineToMaster($"EVENT {message}");
+    public void End(string message) => Logger.WriteLineToMaster($"END {message}");
+
+    public void Error(Guid runGuid, string message, bool detailed = false) => LogParent(runGuid, message, 0, detailed);
+    public void Warn(Guid runGuid, string message, bool detailed = false) => LogParent(runGuid, message, 1, detailed);
+    public void Event(Guid runGuid, string message, bool detailed = false) => LogParent(runGuid, message, 2, detailed);
+    public void End(Guid runGuid, string message, bool detailed = false) => LogParent(runGuid, message, 3, detailed);
+
+    public void EndError(Guid runGuid, Exception ex)
+    {
+        Error($"Run ({runGuid}) terminated due to an error.");
+        Error($"Exception: {ex.Message}");
+        if (ex.InnerException != null) Error($"Inner Exception: {ex.InnerException.Message}");
+        Error(runGuid, ex.Message);
+        End(runGuid, $"Run ({runGuid}) terminated.", true);
+    }
+
+    public void EndSuccessRun(Guid runGuid)
+    {
+        End(runGuid, "Successfully completed processing and pathfinding of new image!", true);
+        Warn(runGuid, $"Run Guid {runGuid} Deleted. See {Environment.CurrentDirectory}\\saves\\ for output(s) and {Environment.CurrentDirectory}\\runs\\{runGuid.ToString("N").ToUpper()} for temp images.", true);
+        End($"Completed run {runGuid} successfully.");
+    }
+
+    public void EndSuccessSave(Guid runGuid)
+    {
+        End(runGuid, "Successfully completed recall and pathfinding of save file!", true);
+        Warn(runGuid, $"Run Guid {runGuid} Deleted. See {Environment.CurrentDirectory}\\saves\\ for output(s). Or just go to where the save file was located.", true);
+        End($"Completed run {runGuid} successfully.");
+    }
+
+    public Log(Menu menuInstance)
+    {
+        _menuInstance = menuInstance;
+        _ = new Logger(true);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="message"></param>
+    /// <param name="type">0 - Error, 1 - Warning, 2 - Event, 3 - End</param>
+    private void LogParent(Guid runGuid, string message, int type, bool detailed)
+    {
+        if (!bool.Parse(Settings.UserSettings["detailedLogging"].Item1) && !detailed) return;
+
+        Console.CursorVisible = false;
+        string[] prefix = { $"{Red}ERROR{Log.Blank}", $"{Orange}WARN{Log.Blank}", $"{Green}EVENT{Log.Blank}", $"{Purple}END{Log.Blank}" };
+        string[] filePrefix = { "[ERROR] ", "[WARN] ", "[EVENT] ", "[END] " };
+
+        lock (_menuInstance.ScreenLock)
+        {
+            CheckLogLineCount();
+
+            if (message.Length > Console.WindowWidth / 4 - 7)
+            {
+                Console.SetCursorPosition(Console.WindowWidth * 3 / 4 + 2, _logLineCount++);
+                int i = 10;
+
+                Console.Write($"{prefix[type]}: ");
+
+                foreach (char letter in message)
+                {
+                    Console.Write(letter);
+                    i++;
+                    if (i > Console.WindowWidth / 4)
+                    {
+                        if (CheckLogLineCount()) return;
+                        Console.SetCursorPosition(Console.WindowWidth * 3 / 4 + 9, _logLineCount++);
+                        i = 10;
+                    }
+                }
+            }
+            else
+            {
+                Console.SetCursorPosition(Console.WindowWidth * 3 / 4 + 2, _logLineCount++);
+                Console.Write($"{prefix[type]}: {message}");
+            }
+        }
+
+        Logger.WriteLineToRunFile(runGuid, $"{filePrefix[type]}{message}");
+    }
+
+    // Make sure that the total log lines does not exceed the space given
+    private bool CheckLogLineCount()
+    {
+        if (_logLineCount >= Console.WindowHeight)
+        {
+            _logLineCount = 6;
+            _menuInstance.ClearLogSection();
+
+            return true;
+        }
+
+        return false;
+    }
+}
+    \end{cscode}
+    
+    \paragraph{Menu.cs}    
+    \begin{cscode}
+public class Menu
+{
+    public object ScreenLock { get; } = new object();
+    public int CurrentLine { get; private set; } = 1;
+
+    [DllImport("kernel32.dll", SetLastError = true)]
+    private static extern bool SetConsoleMode(IntPtr hConsoleHandle, int mode);
+    [DllImport("kernel32.dll", SetLastError = true)]
+    private static extern bool GetConsoleMode(IntPtr handle, out int mode);
+    [DllImport("kernel32.dll", SetLastError = true)]
+    private static extern IntPtr GetStdHandle(int handle);
+
+    public bool IsWindowMax() => Console.WindowHeight >= Console.LargestWindowHeight && Console.WindowWidth >= Console.LargestWindowWidth - 3;
+
+    private readonly string _permLineA;
+    private readonly string _permLineB;
+
+    public const char VerticalChar = '│';
+    public const char HorizontalChar = '─';
+
+    public Menu(string permLineA, string permLineB)
+    {
+        IntPtr handle = GetStdHandle(-11);
+        GetConsoleMode(handle, out var mode);
+        SetConsoleMode(handle, mode | 0x4);
+
+        int width = Console.WindowWidth / 2;
+        int height = Console.WindowHeight / 4;
+        Console.SetWindowSize(width, height);
+        Console.SetBufferSize(width, height);
+
+        _permLineA = permLineA;
+        _permLineB = permLineB;
+
+        Console.Clear();
+        Console.CursorVisible = false;
+    }
+
+    public void Setup()
+    {
+        while (!IsWindowMax())
+        {
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine($"{Log.Red}Maximize Window To Continue{Log.Blank}");
+            System.Threading.Thread.Sleep(250);
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine($"\x1b[48;5;196mMaximize Window To Continue{Log.Blank}");
+            System.Threading.Thread.Sleep(250);
+
+        }
+
+        Console.Clear();
+
+        DisplayInfoBox();
+        DisplayLogBox();
+
+        Console.SetCursorPosition(0, 0);
+        Console.CursorVisible = false;
+
+        new Task(() => BeginInfoLoop(Stopwatch.StartNew())).Start();
+    }
+
+    private void DisplayInfoBox()
+    {
+        for (int i = 0; i < Console.WindowWidth * 3 / 4; i++)
+        {
+            Console.SetCursorPosition(i, Console.WindowHeight * 5 / 6);
+            Console.Write(HorizontalChar);
+        }
+
+        Console.SetCursorPosition(1, Console.WindowHeight * 5 / 6 + 2);
+        Console.WriteLine("Current Page: ????? ??? ??????");
+        Console.SetCursorPosition(1, Console.WindowHeight * 5 / 6 + 3);
+        Console.WriteLine("Runtime:       ??:??:??");
+
+        Console.SetCursorPosition(1, Console.WindowHeight * 5 / 6 + 8);
+        Console.WriteLine(_permLineA);
+        Console.SetCursorPosition(1, Console.WindowHeight * 5 / 6 + 9);
+        Console.WriteLine(_permLineB);
+    }
+
+    private void DisplayLogBox()
+    {
+        for (int i = 0; i < Console.WindowHeight; i++)
+        {
+            if (i > 5)
+            {
+                for (int j = Console.WindowWidth * 3 / 4; j < Console.WindowWidth; j++)
+                {
+                    Console.SetCursorPosition(j, i);
+                    Console.Write(' ');
+                }
+            }
+
+            Console.SetCursorPosition(Console.WindowWidth * 3 / 4, i);
+            Console.Write(VerticalChar);
+        }
+
+        for (int i = Console.WindowWidth * 3 / 4 + 1; i < Console.WindowWidth; i++)
+        {
+            Console.SetCursorPosition(i, 5);
+            Console.Write(HorizontalChar);
+        }
+
+        Console.SetCursorPosition(Console.WindowWidth * 3 / 4 + 5, 1);
+        Console.WriteLine("Program Logs:");
+        Console.SetCursorPosition(Console.WindowWidth * 3 / 4 + 5, 3);
+        Console.WriteLine($"\x1b[48;5;196m  {Log.Blank} ERROR            \x1b[48;5;2m  {Log.Blank} EVENT PROCESSED");
+        Console.SetCursorPosition(Console.WindowWidth * 3 / 4 + 5, 4);
+        Console.WriteLine($"\x1b[48;5;184m  {Log.Blank} WARNING          \x1b[48;5;129m  {Log.Blank} END OF SEQUENCE");
+    }
+
+    private void BeginInfoLoop(Stopwatch sw)
+    {
+        while (true)
+        {
+            lock (ScreenLock)
+            {
+                Console.SetCursorPosition(15, Console.WindowHeight * 5 / 6 + 3);
+                Console.Write($"{sw.Elapsed.Hours}:{sw.Elapsed.Minutes}:{sw.Elapsed.Seconds}".PadRight(10, ' '));
+                Console.CursorVisible = false;
+            }
+            System.Threading.Thread.Sleep(1000);
+        }
+    }
+
+    public void ClearLogSection()
+    {
+        for (int i = 6; i < Console.WindowHeight; i++)
+        {
+            for (int j = Console.WindowWidth * 3 / 4 + 1; j < Console.WindowWidth; j++)
+            {
+                Console.SetCursorPosition(j, i);
+                Console.Write(' ');
+            }
+        }
+    }
+
+    public void ClearUserSection()
+    {
+        CurrentLine = 1;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < Console.WindowWidth * 3 / 4; i++) sb.Append(' ');
+
+        string line = sb.ToString();
+
+        lock (ScreenLock)
+        {
+            for (int i = 0; i < Console.WindowHeight * 5 / 6; i++)
+            {
+                Console.SetCursorPosition(0, i);
+                Console.Write(line);
+            }
+        }
+
+        Console.SetCursorPosition(0, 0);
+    }
+
+    public void SetPage(string message)
+    {
+        lock (ScreenLock)
+        {
+            Console.CursorVisible = false;
+            Console.SetCursorPosition(15, Console.WindowHeight * 5 / 6 + 2);
+            Console.Write(message.PadRight(Console.WindowWidth * 3 / 4 - 15));
+        }
+
+        Console.Title = $"Comp Sci NEA | Rubens Pirie | {message}";
+    }
+
+    public void WriteLine()
+    {
+        if (CurrentLine > Console.WindowHeight * 5 / 6) ClearUserSection();
+        CurrentLine++;
+    }
+
+    public void Error(string message)
+    {
+        int widthStart = ((Console.WindowWidth * 3 / 4) / 3) / 2;
+        int heightStart = (Console.WindowHeight * 5 / 6) / 3;
+        for (int i = 0; i < widthStart * 4; i++)
+        {
+            lock (ScreenLock)
+            {
+                string toPrint = i == 0 || i == widthStart * 4 - 1 ? "+" : HorizontalChar.ToString();
+                Console.SetCursorPosition(widthStart + i, heightStart);
+                Console.Write($"{toPrint}");
+                Console.SetCursorPosition(widthStart + i, heightStart * 2);
+                Console.Write($"{toPrint}");
+            }
+        }
+
+        for (int i = heightStart + 1; i < heightStart * 2; i++)
+        {
+            lock (ScreenLock)
+            {
+                Console.SetCursorPosition(widthStart, i);
+                Console.Write($"{VerticalChar}");
+                Console.SetCursorPosition(widthStart + widthStart * 4 - 1, i);
+                Console.Write($"{VerticalChar}");
+            }
+        }
+
+        List<List<char>> messages = new List<List<char>>();
+        messages.Add(new List<char>());
+        List<char> messageChars = message.ToCharArray().ToList();
+        messageChars.Reverse();
+
+        int e = 0;
+        while (messageChars.Count > 0)
+        {
+            if (messages[e].Count < widthStart * 3)
+            {
+                messages[e].Add(messageChars[messageChars.Count - 1]);
+                messageChars.RemoveAt(messageChars.Count - 1);
+            }
+            else
+            {
+                e++;
+                messages.Add(new List<char>());
+            };
+        }
+
+        lock (ScreenLock)
+        {
+            Console.SetCursorPosition((widthStart * 3) - 26, heightStart + 2);
+            Console.Write($"{Log.Red}Something went wrong, to see what take a look below.{Log.Blank}");
+            Console.SetCursorPosition((widthStart * 3) - 8, (int)(heightStart * 1.5) - 3);
+            Console.Write("Reason for Error");
+            for (int i = 0; i < messages.Count; i++)
+            {
+                Console.SetCursorPosition((widthStart * 3) - messages[i].Count / 2, (int)(heightStart * 1.5) - (2 - i));
+                Console.Write($"{Log.Blue}{string.Join("", messages[i])}{Log.Blank}");
+            }
+            Console.SetCursorPosition((widthStart * 3) - 18, heightStart * 2 - 2);
+            Console.Write($"{Log.Grey}(Press Enter to Return to Main Menu){Log.Blank}");
+        }
+
+
+    }
+
+    public void WriteLine(string message)
+    {
+        Console.CursorVisible = false;
+
+        if (message.Length > Console.WindowWidth * 3 / 4)
+        {
+            int maxLength = Console.WindowWidth * 3 / 4;
+
+            List<string> words = message.Split(' ').ToList();
+            StringBuilder sb = new StringBuilder();
+
+            foreach (string word in words)
+            {
+                if ($"{sb} {word}".Length > maxLength)
+                {
+                    WriteLine(sb.ToString());
+                    sb.Remove(0, sb.Length);
+                }
+                else
+                {
+                    sb.Append($"{word} ");
+                }
+            }
+
+            WriteLine(sb.ToString());
+        }
+        else
+        {
+            lock (ScreenLock)
+            {
+                if (CurrentLine > Console.WindowHeight * 5 / 6) ClearUserSection();
+
+                Console.SetCursorPosition(1, CurrentLine++);
+                Console.Write(message);
+            }
+        }
+    }
+
+}
+    \end{cscode}
+    
+    \paragraph{ProgressBar.cs}
+    \begin{cscode}
+public class ProgressBar
+{
+    private readonly string _progressTitle;
+    private double _progressAmount;
+    private readonly double _progressInterval;
+    private readonly string _progressOutline;
+    private string _progressLine;
+
+    private readonly Menu _menuInstance;
+
+    public ProgressBar(string title, int totalSegments, Menu menuInstance)
+    {
+        _progressInterval = (double)1 / totalSegments;
+        _progressAmount = 0;
+
+        StringBuilder bar = new StringBuilder();
+        bar.Append('+');
+        for (int i = 0; i < (Console.WindowWidth * 3 / 4) - 4; i++) bar.Append(Menu.HorizontalChar);
+        bar.Append('+');
+
+        _progressOutline = bar.ToString();
+        _progressLine = "";
+        _progressTitle = title;
+        _menuInstance = menuInstance;
+    }
+
+    public void DisplayProgress()
+    {
+        int middle = Console.WindowHeight * 5 / 12;
+
+        lock (_menuInstance.ScreenLock)
+        {
+            Console.SetCursorPosition((Console.WindowWidth * 3 / 8) - (_progressTitle.Length / 2), middle - 3);
+            Console.Write(_progressTitle);
+
+            Console.SetCursorPosition(1, middle - 1);
+            Console.Write(_progressOutline);
+            Console.SetCursorPosition(1, middle);
+            Console.Write(Menu.VerticalChar);
+            Console.SetCursorPosition(Console.WindowWidth * 3 / 4 - 2, middle);
+            Console.Write(Menu.VerticalChar);
+            Console.SetCursorPosition(1, middle + 1);
+            Console.Write(_progressOutline);
+        }
+    }
+
+    public Action GetIncrementAction() => new Action(IncrementProgress);
+
+    private void IncrementProgress()
+    {
+        lock (_menuInstance.ScreenLock)
+        {
+            _progressAmount = _progressAmount + _progressInterval > 1 ? 1 : _progressAmount + _progressInterval;
+
+            int middle = Console.WindowHeight * 5 / 12;
+            double possibleLength = (Console.WindowWidth * 3 / 4) - 4;
+            possibleLength *= _progressAmount;
+
+            if (_progressLine.Length != (int)possibleLength)
+            {
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < possibleLength; i++) sb.Append(Menu.VerticalChar);
+                _progressLine = sb.ToString();
+
+                Console.SetCursorPosition(2, middle);
+                Console.Write($"{Log.Blue}{_progressLine}{Log.Blank}");
+            }
+        }
+    }
+}
+    \end{cscode}
+    
+    \paragraph{Settings.cs}
+    \begin{cscode}
+public class Settings
+{
+    private readonly Menu _menuInstance;
+    private readonly Log _loggerInstance;
+
+    private List<string> rawLines;
+    public static Dictionary<string, (string, Type)> UserSettings { get; private set; }
+
+    private readonly string[] defaultSettings = {
+        "# Manually Edit At Own Risk",
+        "# General Settings",
+        "detailedLogging=false",
+        "forceFormsFront=true",
+        "",
+        "# Pathfinding Settings",
+        "convertToMST=false",
+        "pathfindingAlgorithm=AStar",
+        "snapToGrid=true",
+        "endOnFind=false",
+        "",
+        "# Save Settings",
+        "shortNames=false",
+        "zipOnComplete=false",
+    };
+
+    public Settings(Menu menu, Log log)
+    {
+        _menuInstance = menu;
+        _loggerInstance = log;
+    }
+
+    public void CheckIfExistsOrCreate()
+    {
+        if (!File.Exists("settings.conf"))
+        {
+            _loggerInstance.Event("Settings file did not exist. Creating...");
+            using (TextWriter tw = File.CreateText("settings.conf"))
+            {
+                foreach (string line in defaultSettings)
+                {
+                    tw.WriteLine(line);
+                }
+            }
+        }
+    }
+
+    public List<string> ParseSettingsFile()
+    {
+        List<string> lines = new List<string>();
+        using (StreamReader sr = File.OpenText("settings.conf"))
+        {
+            while (!sr.EndOfStream)
+            {
+                lines.Add(sr.ReadLine());
+            }
+        }
+
+        rawLines = lines;
+
+        List<string> validLines = new List<string>();
+        for (int i = 0; i < lines.Count; i++)
+        {
+            if (lines[i].Trim() != "" && !lines[i].Trim().StartsWith("#")) validLines.Add(lines[i]);
+        }
+
+        return validLines;
+    }
+
+    private Dictionary<string, (string, Type)> ConvertSettingsToPairs(List<string> parsedLines)
+    {
+        Dictionary<string, (string, Type)> pairs = new Dictionary<string, (string, Type)>();
+        foreach (string item in parsedLines)
+        {
+            string name = item.Split('=')[0].Trim();
+            string value = item.Split('=')[1].Trim();
+            if (bool.TryParse(value, out bool _)) pairs.Add(name, (value, typeof(bool)));
+            else if (int.TryParse(value, out int _)) pairs.Add(name, (value, typeof(int)));
+            else if (double.TryParse(value, out double _)) pairs.Add(name, (value, typeof(double)));
+            else pairs.Add(name, (value, typeof(string)));
+        }
+
+        return pairs;
+    }
+
+    public bool Change(string setting, bool value)
+    {
+        if (!UserSettings.ContainsKey(setting)) return false;
+        UserSettings[setting] = (value.ToString().ToLower(), typeof(bool));
+
+        return true;
+    }
+
+    public bool Change(string setting, int value)
+    {
+        if (!UserSettings.ContainsKey(setting)) return false;
+        UserSettings[setting] = (value.ToString(), typeof(int));
+
+        return true;
+    }
+
+    public bool Change(string setting, double value)
+    {
+        if (!UserSettings.ContainsKey(setting)) return false;
+        UserSettings[setting] = (value.ToString(), typeof(double));
+
+        return true;
+    }
+
+    public bool Change(string setting, string value)
+    {
+        if (!UserSettings.ContainsKey(setting)) return false;
+        UserSettings[setting] = (value.ToString(), typeof(string));
+
+        return true;
+    }
+
+    public void Read()
+    {
+        CheckIfExistsOrCreate();
+        List<string> parsedLines = ParseSettingsFile();
+        Dictionary<string, (string, Type)> settingValuePairs = ConvertSettingsToPairs(parsedLines);
+        UserSettings = settingValuePairs;
+    }
+
+    public void Update(Dictionary<string, (string, Type)> oldSettings, Dictionary<string, (string, Type)> newSettings)
+    {
+        if (oldSettings.Count != newSettings.Count) throw new SettingsException("Cannot set settings when the amount of settings has changed, if this problem persists delete settings.conf and restart the program.");
+
+        foreach (KeyValuePair<string, (string, Type)> pair in newSettings)
+        {
+            int location = rawLines.FindIndex(toCheck => toCheck.Contains(pair.Key));
+            if (location == -1) throw new SettingsException($"You have an unknown setting {pair.Key}, if this problem persists delete settings.conf and restart the program.");
+            else
+            {
+                if (!oldSettings.ContainsKey(pair.Key)) throw new SettingsException($"Setting {pair.Key} does not exist, if this problem persists delete settings.conf and restart the program.");
+                if (!oldSettings[pair.Key].Equals(pair.Value)) rawLines[location] = $"{pair.Key}= {pair.Value.Item1}";
+            }
+        }
+
+        Write();
+    }
+
+    private void Write()
+    {
+        using (TextWriter tw = File.CreateText("settings.conf"))
+        {
+            foreach (string line in rawLines)
+            {
+                tw.WriteLine(line);
+            }
+        }
+    }
+}
+    \end{cscode}
+    
+    \paragraph{TextWall.cs}    
+    \begin{cscode}
+public static class TextWall
+{
+    public static void SaveWelcome(Menu menuInstance)
+    {
+        menuInstance.WriteLine("You have chosen to re-call a map file which has been previously used. At the next prompt you will be asked to enter the file / the path to it. After that you will have several options open to you:");
+        menuInstance.WriteLine();
+        menuInstance.WriteLine("1. You can choose to modify the file parameters, i.e. Name, Description or Type");
+        menuInstance.WriteLine("2. Delete the file");
+        menuInstance.WriteLine("3. Clone the file");
+        menuInstance.WriteLine("4. Rename the file");
+        menuInstance.WriteLine("5. View current file stats");
+        menuInstance.WriteLine("6. Run pathfinding on the image");
+    }
+
+    public static void ImageWelcome(Menu menuInstance)
+    {
+        menuInstance.WriteLine("You have selected to read a new image and turn it into a route-able map, during this the following steps will occur:");
+        menuInstance.WriteLine();
+        menuInstance.WriteLine("1. You will be asked to supply an image to process.");
+        menuInstance.WriteLine("2. The image will be checked to make sure it is valid, if it is not you will have to pick another and start again.");
+        menuInstance.WriteLine("3. You will be shown the image to check if it is the right one, as well as some file details about it. You can chose to end here if you wish.");
+        menuInstance.WriteLine("4. You will have some options as to how to pick out the roads. There are some presets as well as a step by step version.");
+        menuInstance.WriteLine("5. After the roads have been picked out you will be able to click on different points and find the most efficient root through them.");
+        menuInstance.WriteLine("6. You can chose to save that map or not.");
+    }
+
+    public static void FileDetails(Menu menuInstance, Structures.RawImage rawImage)
+    {
+        menuInstance.WriteLine("Your image file information:");
+        menuInstance.WriteLine($"    Name of image: {Log.Green}{Path.GetFileNameWithoutExtension(rawImage.Path)}{Log.Blank}");
+        menuInstance.WriteLine($"    Folder it's contained within: {Log.Green}{(Path.GetDirectoryName(rawImage.Path) == "" ? "/" : Path.GetDirectoryName(rawImage.Path))}{Log.Blank}");
+        menuInstance.WriteLine($"    Type of image: {Log.Green}{Path.GetExtension(rawImage.Path)}{Log.Blank}");
+        menuInstance.WriteLine();
+    }
+}
+
+    \end{cscode}
+    
+    
+    \subsubsubsection{Processes}
+    \paragraph{AsyncEdgeDetection.cs}
+    \begin{cscode}
+public class AsyncEdgeDetection : IHandler
+{
+    private readonly Menu _menuInstance;
+    private readonly Log _logInstance;
+    private readonly Guid _runGuid;
+    private readonly Structures.RawImage _image;
+    private double[,] _resultArray;
+
+    public AsyncEdgeDetection(Menu menu, Log log, Structures.RawImage image, Guid currentGuid)
+    {
+        _menuInstance = menu;
+        _logInstance = log;
+        _image = image;
+        _runGuid = currentGuid;
+    }
+
+    public void Preset(int kernelSize, double redRatio, double greenRatio, double blueRatio, double sigma, double lowerThreshold, double upperThreshold, int loopCount)
+    {
+        _logInstance.Event(_runGuid, $"Running preset with values ({Log.Orange}{kernelSize}{Log.Blank}, {Log.Orange}{redRatio}{Log.Blank}, {Log.Orange}{greenRatio}{Log.Blank}, {Log.Orange}{blueRatio}{Log.Blank}, {Log.Orange}{sigma}{Log.Blank}, {Log.Orange}{lowerThreshold}{Log.Blank}, {Log.Orange}{upperThreshold}{Log.Blank}, {Log.Orange}{loopCount}{Log.Blank})");
+
+        CannyEdgeDetection detector = new CannyEdgeDetection(kernelSize, redRatio, greenRatio, blueRatio, sigma,
+            lowerThreshold, upperThreshold);
+
+        Input inputHandel = new Input(_menuInstance);
+
+        Structures.RGB[][,] quads = Utility.SplitImage(_image.Pixels);
+        Task<double[,]>[] threads = new Task<double[,]>[quads.Length];
+
+        int continueOption = inputHandel.GetOption("Continue to Canny Edge Detection:", new[] { "Yes", "No" });
+        if (continueOption != 0) throw new Exception("You asked for the processing of your map to stop.");
+
+        bool saveTempOption = inputHandel.GetOption("Would you like to save images at each step of the edge detection?", new[] { "Yes", "No" }) == 0;
+
+        ProgressBar pb = new ProgressBar("Canny Edge Detection", 36, _menuInstance);
+        pb.DisplayProgress();
+
+        for (int i = 0; i < quads.Length; i++)
+        {
+            // Overcome Capture Condition
+            int copyI = i;
+            Task<double[,]> task = new Task<double[,]>(() => RunDetectionOnQuadrant(detector, quads[copyI], copyI, pb.GetIncrementAction(), saveTempOption));
+            task.Start();
+            threads[i] = task;
+        }
+
+        Task.WaitAll(threads);
+        double[,] cannyImage = Utility.CombineQuadrants(threads[0].Result, threads[1].Result, threads[2].Result,
+        threads[3].Result);
+
+        Post postProcessor = new Post(cannyImage);
+        postProcessor.Start(loopCount);
+        _resultArray = postProcessor.Result();
+    }
+
+    public void Start()
+    {
+        Input inputHandel = new Input(_menuInstance);
+
+        _logInstance.Event(_runGuid, "Started Multi Threaded Canny Edge Detection");
+        bool confirmOptions = false;
+        CannyEdgeDetection detector;
+
+        _logInstance.Event(_runGuid, "Getting Multi Thread Options");
+
+        do
+        {
+            detector = GetDetector(_menuInstance, inputHandel, _logInstance);
+
+            string opt = inputHandel.GetInput("Are you happy with those edge detection variables (y/n): ");
+            if (opt.ToLower() == "y") confirmOptions = true;
+            else _menuInstance.ClearUserSection();
+        } while (!confirmOptions);
+
+
+        Structures.RGB[][,] quads = Utility.SplitImage(_image.Pixels);
+        Task<double[,]>[] threads = new Task<double[,]>[quads.Length];
+
+        int continueOption = inputHandel.GetOption("Continue to Canny Edge Detection:", new[] { "Yes - Continue", "No - Return to main menu" });
+        if (continueOption != 0) throw new Exception("You asked for the processing of your map to stop.");
+
+        bool saveTempOption = inputHandel.GetOption("Would you like to save images at each step of the edge detection?", new[] { "Yes", "No" }) == 0;
+
+        ProgressBar pb = new ProgressBar("Canny Edge Detection", 36, _menuInstance);
+        pb.DisplayProgress();
+
+        for (int i = 0; i < quads.Length; i++)
+        {
+            // Overcome Capture Condition
+            int copyI = i;
+            Task<double[,]> task = new Task<double[,]>(() => RunDetectionOnQuadrant(detector, quads[copyI], copyI, pb.GetIncrementAction(), saveTempOption));
+            task.Start();
+            threads[i] = task;
+        }
+
+        Task.WaitAll(threads);
+        double[,] cannyImage = Utility.CombineQuadrants(threads[0].Result, threads[1].Result, threads[2].Result,
+            threads[3].Result);
+
+        PostProcessImage(cannyImage, inputHandel);
+    }
+
+    private void PostProcessImage(double[,] image, Input inputHandel)
+    {
+        int timeApproximation = 5;
+        Post postProcessor = new Post(image);
+
+        _menuInstance.ClearUserSection();
+        if (inputHandel.TryGetInt("How many times would you like to emboss the image (can be 0): ", out int loopCount) &&
+            loopCount > 0)
+        {
+            _menuInstance.WriteLine();
+            _menuInstance.WriteLine($"Running image embossing this will take approximately {Log.Red}{timeApproximation * loopCount}{Log.Blank} seconds!");
+            postProcessor.Start(loopCount);
+        }
+        else
+        {
+            _menuInstance.WriteLine();
+            _menuInstance.WriteLine($"Running image embossing this will take approximately {Log.Red}{timeApproximation}{Log.Blank} seconds!");
+            postProcessor.Start(0);
+        }
+
+        _resultArray = postProcessor.Result();
+    }
+
+    private double[,] RunDetectionOnQuadrant(CannyEdgeDetection detector, Structures.RGB[,] image, int id, Action increment, bool saveTemp)
+    {
+        char letter = (char)('A' + id);
+        double[,] workingArray;
+        _logInstance.Event(_runGuid, $"Starting processing of quadrant {letter} ({id % 2}, {id / 2})");
+
+        workingArray = detector.BlackWhiteFilter(image);
+        if (saveTemp) Logger.SaveBitmap(_runGuid, workingArray, $"BlackWhiteFilterQuad{letter}");
+        increment();
+        _logInstance.Event(_runGuid, $"Completed Black and White Filter on Quadrant {letter}");
+
+        workingArray = detector.GaussianFilter(workingArray);
+        if (saveTemp) Logger.SaveBitmap(_runGuid, workingArray, $"GaussianFilterQuad{letter}");
+        increment();
+        _logInstance.Event(_runGuid, $"Applied Gaussian Filter on Quadrant {letter}");
+
+        Structures.Gradients grads = detector.CalculateGradients(workingArray, increment);
+        if (saveTemp)
+        {
+            Logger.SaveBitmap(_runGuid, grads.GradientX, $"GradientXQuad{letter}");
+            Logger.SaveBitmap(_runGuid, grads.GradientY, $"GradientYQuad{letter}");
+        }
+        _logInstance.Event(_runGuid, $"Calculated Gradients for Quadrant {letter}");
+
+        double[,] combinedGrads = detector.CombineGradients(grads);
+        if (saveTemp) Logger.SaveBitmap(_runGuid, combinedGrads, $"CombinedGradientsQuad{letter}");
+        increment();
+        _logInstance.Event(_runGuid, $"Calculated Combined Gradients for Quadrant {letter}");
+
+        double[,] angleGrads = detector.GradientAngle(grads);
+        increment();
+
+        if (saveTemp)
+        {
+            for (int y = 0; y < angleGrads.GetLength(0); y++)
+                for (int x = 0; x < angleGrads.GetLength(1); x++)
+                    workingArray[y, x] = Utility.MapRadiansToPixel(angleGrads[y, x]);
+
+            Logger.SaveBitmap(_runGuid, workingArray, $"AngleGradientsQuad{letter}");
+        }
+        _logInstance.Event(_runGuid, $"Calculated Gradient Angles for Quadrant {letter}");
+
+        workingArray = detector.MagnitudeThreshold(combinedGrads, angleGrads);
+        if (saveTemp) Logger.SaveBitmap(_runGuid, workingArray, $"MagnitudeThresholdQuad{letter}");
+        increment();
+        _logInstance.Event(_runGuid, $"Applied Magnitude Threshold on Quadrant {letter}");
+
+        Structures.ThresholdPixel[,] thresholdArray = detector.DoubleThreshold(workingArray);
+        increment();
+        if (saveTemp)
+        {
+            Bitmap toSave = new Bitmap(thresholdArray.GetLength(1), thresholdArray.GetLength(0));
+            for (int y = 0; y < thresholdArray.GetLength(0); y++)
+            {
+                for (int x = 0; x < thresholdArray.GetLength(1); x++)
+                {
+                    if (thresholdArray[y, x].Strong) toSave.SetPixel(x, y, Color.Green);
+                    else if (!thresholdArray[y, x].Strong && thresholdArray[y, x].Value != 0) toSave.SetPixel(x, y, Color.Red);
+                    else toSave.SetPixel(x, y, Color.Black);
+                }
+            }
+            Logger.SaveBitmap(_runGuid, toSave, $"ThresholdPixelsQuad{letter}");
+        };
+
+        _logInstance.Event(_runGuid, $"Calculated Threshold Pixels for Quadrant {letter}");
+
+        workingArray = detector.EdgeTrackingHysteresis(thresholdArray);
+        if (saveTemp) Logger.SaveBitmap(_runGuid, workingArray, $"EdgeTrackingHysteresisQuad{letter}");
+        increment();
+        _logInstance.Event(_runGuid, $"Applied Edge Tracking by Hysteresis on Quadrant {letter}");
+
+        return workingArray;
+    }
+
+    private CannyEdgeDetection GetDetector(Menu m, Input i, Log l)
+    {
+        CannyEdgeDetection cannyDetection = new CannyEdgeDetection();
+
+        if (i.TryGetDouble(
+                    $"Enter a value for the ratio value for red for the Black and White filter (Default: {cannyDetection.RedRatio}, Range: 0 <= x <= 1)",
+                out double newRedRatio) && newRedRatio <= 1 && newRedRatio >= 0 && newRedRatio != cannyDetection.RedRatio)
+        {
+            l.Warn(_runGuid, $"Changed red ratio {cannyDetection.RedRatio} -> {newRedRatio}");
+            m.WriteLine($"{Log.Green}Changed: {cannyDetection.RedRatio} -> {newRedRatio}{Log.Blank}");
+            cannyDetection.RedRatio = newRedRatio;
+        }
+        else m.WriteLine($"{Log.Orange}Kept Default: {cannyDetection.RedRatio}{Log.Blank}");
+        m.WriteLine();
+
+        if (i.TryGetDouble(
+                    $"Enter a value for the ratio value for green for the Black and White filter (Default: {cannyDetection.GreenRatio}, Range: 0 <= x <= 1)",
+                out double newGreenRatio) && newGreenRatio <= 1 && newGreenRatio >= 0 &&
+            newGreenRatio != cannyDetection.GreenRatio)
+        {
+            l.Warn(_runGuid, $"Changed green ratio {cannyDetection.GreenRatio} -> {newGreenRatio}");
+            m.WriteLine($"{Log.Green}Changed: {cannyDetection.GreenRatio} -> {newGreenRatio}{Log.Blank}");
+            cannyDetection.GreenRatio = newGreenRatio;
+        }
+        else m.WriteLine($"{Log.Orange}Kept Default: {cannyDetection.GreenRatio}{Log.Blank}");
+        m.WriteLine();
+
+        if (i.TryGetDouble(
+                    $"Enter a value for the ratio value for blue for the Black and White filter (Default: {cannyDetection.BlueRatio}, Range: 0 <= x <= 1)",
+                out double newBlueRatio) && newBlueRatio <= 1 && newBlueRatio >= 0 && newBlueRatio != cannyDetection.BlueRatio)
+        {
+            l.Warn(_runGuid, $"Changed blue ratio {cannyDetection.BlueRatio} -> {newBlueRatio}");
+            m.WriteLine($"{Log.Green}Changed: {cannyDetection.BlueRatio} -> {newBlueRatio}{Log.Blank}");
+            cannyDetection.BlueRatio = newBlueRatio;
+        }
+        else m.WriteLine($"{Log.Orange}Kept Default: {cannyDetection.BlueRatio}{Log.Blank}");
+        m.WriteLine();
+
+        if (i.TryGetDouble(
+                    $"Enter a value for sigma for the Gaussian Filter stage (Default: {cannyDetection.Sigma}, Range: 0 < x <= 10)",
+                out double newSigma) && newSigma <= 10 && newSigma > 0 && newSigma != cannyDetection.Sigma)
+        {
+            l.Warn(_runGuid, $"Changed sigma value {cannyDetection.Sigma} -> {newSigma}");
+            m.WriteLine($"{Log.Green}Changed: {cannyDetection.Sigma} -> {newSigma}{Log.Blank}");
+            cannyDetection.Sigma = newSigma;
+        }
+        else m.WriteLine($"{Log.Orange}Kept Default: {cannyDetection.Sigma}{Log.Blank}");
+        m.WriteLine();
+
+        if (i.TryGetInt(
+                $"Enter a value for kernel size for the Gaussian Filter stage, large values will take exponentially longer (Default: {cannyDetection.KernelSize}, Range: x >= 3, x not a multiple of 2 and a whole number)",
+                out int newKernel) && newKernel >= 3 && newKernel % 2 == 1 && newKernel % 1 == 0 && newKernel != cannyDetection.KernelSize)
+        {
+            l.Warn(_runGuid, $"Changed kernel size {cannyDetection.KernelSize} -> {newKernel}");
+            m.WriteLine($"{Log.Green}Changed: {cannyDetection.KernelSize} -> {newKernel}{Log.Blank}");
+            cannyDetection.KernelSize = newKernel;
+        }
+        else m.WriteLine($"{Log.Orange}Kept Default: {cannyDetection.KernelSize}{Log.Blank}");
+        m.WriteLine();
+
+        if (i.TryGetDouble(
+                    $"Enter a value for the lower threshold for the Min Max stage (Default: {cannyDetection.LowerThreshold}, Range: 0 <= x < 1)",
+                out double newLowerThreshold) && newLowerThreshold > 0 && newLowerThreshold < 1 && newLowerThreshold != cannyDetection.LowerThreshold)
+        {
+            l.Warn(_runGuid, $"Changed lower threshold {cannyDetection.LowerThreshold} -> {newLowerThreshold}");
+            m.WriteLine($"{Log.Green}Changed: {cannyDetection.LowerThreshold} -> {newLowerThreshold}{Log.Blank}");
+            cannyDetection.LowerThreshold = newLowerThreshold;
+        }
+        else m.WriteLine($"{Log.Orange}Kept Default: {cannyDetection.LowerThreshold}{Log.Blank}");
+        m.WriteLine();
+
+        if (i.TryGetDouble(
+                    $"Enter a value for the lower threshold for the Min Max stage (Default: {cannyDetection.UpperThreshold}, Range: {cannyDetection.LowerThreshold} < x <= 1)",
+                out double newHigherThreshold) && newHigherThreshold > cannyDetection.LowerThreshold && newHigherThreshold <= 1 && newHigherThreshold != cannyDetection.UpperThreshold)
+        {
+            l.Warn(_runGuid, $"Changed upper threshold {cannyDetection.UpperThreshold} -> {newHigherThreshold}");
+            m.WriteLine($"{Log.Green}Changed: {cannyDetection.UpperThreshold} -> {newHigherThreshold}{Log.Blank}");
+            cannyDetection.UpperThreshold = newHigherThreshold;
+        }
+        else m.WriteLine($"{Log.Orange}Kept Default: {cannyDetection.UpperThreshold}{Log.Blank}");
+        m.WriteLine();
+
+        i.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
+        m.ClearUserSection();
+
+        m.WriteLine("For reference the variables which will be used are:");
+        m.WriteLine($"    Red Ratio: {Log.Green}{cannyDetection.RedRatio}{Log.Blank}");
+        m.WriteLine($"    Green Ratio: {Log.Green}{cannyDetection.GreenRatio}{Log.Blank}");
+        m.WriteLine($"    Blue Ratio: {Log.Green}{cannyDetection.BlueRatio}{Log.Blank}");
+        m.WriteLine($"    Gaussian Sigma Value: {Log.Green}{cannyDetection.Sigma}{Log.Blank}");
+        m.WriteLine($"    Gaussian Kernel Size: {Log.Green}{cannyDetection.KernelSize}{Log.Blank}");
+        m.WriteLine($"    Double Threshold Lower: {Log.Green}{cannyDetection.LowerThreshold}{Log.Blank}");
+        m.WriteLine($"    Double Threshold Upper: {Log.Green}{cannyDetection.UpperThreshold}{Log.Blank}");
+        m.WriteLine();
+
+        return cannyDetection;
+    }
+
+    public double[,] Result() => _resultArray;
+}
+    \end{cscode}
+    
+    \paragraph{Pathfinder.cs}
+    \begin{cscode}
+public class Pathfinder
+{
+    private readonly double[,] _input;
+    private readonly Bitmap _originalBitmap;
+
+    private Graph<Structures.Coord> _graph;
+    private Traversal<Structures.Coord> _traversal;
+
+    public Pathfinder(Bitmap originalImage, double[,] input)
+    {
+        _originalBitmap = originalImage;
+        _input = input;
+    }
+
+    public void Start()
+    {
+        InstanceClasses();
+
+        PathfindImageForm pathfindForm = new PathfindImageForm(_originalBitmap, _traversal, _graph);
+        pathfindForm.ShowDialog();
+    }
+
+    private void InstanceClasses()
+    {
+        _graph = _input.ToGraph();
+        _traversal = new Traversal<Structures.Coord>(_graph);
+    }
+}
+    \end{cscode}
+    
+    \paragraph{RoadSquence.cs}    
+    \begin{cscode}
+internal class RoadSequence
+{
+    private readonly Menu _menuInstance;
+    private readonly Log _logInstance;
+    private readonly Guid _runGuid;
+    private double[,] _cannyEdgeDetectionResult;
+    private readonly MapFile _saveFile;
+    private Structures.RoadResult _roadResult;
+
+    public RoadSequence(Menu menuInstance, Log logInstance, Guid currentGuid, double[,] cannyResult, MapFile saveFile)
+    {
+        _menuInstance = menuInstance;
+        _logInstance = logInstance;
+        _runGuid = currentGuid;
+        _cannyEdgeDetectionResult = cannyResult;
+        _saveFile = saveFile;
+        _roadResult = new Structures.RoadResult();
+    }
+
+    public Structures.RoadResult Result() => _roadResult;
+
+    public void Start()
+    {
+        Input inputHandel = new Input(_menuInstance);
+
+        InvertImage(inputHandel);
+
+        DetectRoads(inputHandel);
+
+        if (_saveFile != null)
+        {
+            _saveFile.PathImage = new Bitmap(_roadResult.PathBitmap);
+            _saveFile.CombinedImage = Utility.CombineBitmap(_saveFile.OriginalImage, _roadResult.PathBitmap);
+            string path = _saveFile.Save(_runGuid);
+
+            string saveName = _runGuid.ToString();
+
+            if (bool.Parse(Settings.UserSettings["shortNames"]
+                    .Item1))
+            {
+
+                saveName = _saveFile.Name.Replace(' ', '_');
+                File.Move(path,
+                    path.Replace(Path.GetFileName(path)
+                            .Split('.')[0],
+                        saveName));
+            }
+
+            if (bool.Parse(Settings.UserSettings["zipOnComplete"]
+                    .Item1))
+            {
+                Directory.CreateDirectory("temp");
+                Directory.CreateDirectory("temp/images");
+
+                string[] files = Directory.GetFiles($"./runs/{_runGuid.ToString("N").ToUpper()}", "*.*", SearchOption.AllDirectories);
+                foreach (string newPath in files)
+                {
+                    File.Copy(newPath, newPath.Replace($"./runs/{_runGuid.ToString("N").ToUpper()}", "temp/images"));
+                }
+
+                File.Copy($"./logs/{_runGuid}.txt", "temp/log.txt");
+                File.Copy($"./saves/{saveName}.vmap", "temp/map.vmap");
+                ZipFile.CreateFromDirectory("temp", $"run-{_runGuid}.zip");
+                Directory.Delete("temp", true);
+            }
+        }
+    }
+
+    private void InvertImage(Input inputHandel)
+    {
+        bool invert = Utility.IsYes(inputHandel.GetInput("Invert image (y/n)?"));
+        if (invert)
+        {
+            _cannyEdgeDetectionResult = Utility.InverseImage(_cannyEdgeDetectionResult);
+            ViewImageForm invertImageForm = new ViewImageForm(_cannyEdgeDetectionResult.ToBitmap());
+            invertImageForm.ShowDialog();
+            if (_saveFile != null) _saveFile.IsInverted = true;
+        }
+        if (_saveFile != null) _saveFile.IsInverted = false;
+
+        _menuInstance.WriteLine();
+    }
+
+    private void DetectRoads(Input inputHandel)
+    {
+        bool happy = true;
+
+        double threshold = 0.3;
+
+        while (happy)
+        {
+            if (inputHandel.TryGetDouble(
+                    $"Value for Threshold (Default: {threshold}, Range: 0 <= x < 1)",
+                    out double newThreshold) && newThreshold > 0 && newThreshold < 1 && newThreshold != threshold)
+            {
+                _logInstance.Warn(_runGuid, $"Changed threshold {threshold} -> {newThreshold}");
+                _menuInstance.WriteLine($"{Log.Green}Changed: {threshold} -> {newThreshold}{Log.Blank}");
+                threshold = newThreshold;
+            }
+            else _menuInstance.WriteLine($"{Log.Orange}Kept Default: {threshold}{Log.Blank}");
+            _menuInstance.WriteLine();
+
+            RoadDetection roadDetector = new RoadDetection(_cannyEdgeDetectionResult, threshold);
+            ProgressBar pb = new ProgressBar("Road Detection", _cannyEdgeDetectionResult.Length / 100 * 3, _menuInstance);
+
+            pb.DisplayProgress();
+            roadDetector.Start(pb.GetIncrementAction());
+
+            _roadResult = roadDetector.Result();
+            ViewImageForm roadForm = new ViewImageForm(_roadResult.PathBitmap);
+            roadForm.ShowDialog();
+
+            _menuInstance.ClearUserSection();
+
+            if (Utility.IsYes(inputHandel.GetInput("Are you happy with this lower threshold you should see your roads, if you don't try decreasing the threshold if you see too much then increase the threshold. (y/n)?"))) happy = false;
+        }
+    }
+}
+    \end{cscode}
+    
+    \paragraph{SyncEdgeDetection.cs}
+    \begin{cscode}
+internal class SyncEdgeDetection : IHandler
+{
+    private readonly Menu _menuInstance;
+    private readonly Log _logInstance;
+    private Input _classInputHandel;
+    private readonly Structures.RawImage _image;
+    private readonly Guid _runGuid;
+    private double[,] _workingArray;
+    private double[,] _resultArray;
+    private CannyEdgeDetection _detector;
+
+    public SyncEdgeDetection(Menu menu, Log logger, Structures.RawImage image, Guid currentGuid)
+    {
+        _menuInstance = menu;
+        _logInstance = logger;
+        _image = image;
+        _runGuid = currentGuid;
+    }
+
+    public void Start()
+    {
+        _classInputHandel = new Input(_menuInstance);
+        _detector = new CannyEdgeDetection();
+
+        ShowDialog();
+        BlackWhiteStep();
+        GaussianStep();
+
+        _menuInstance.WriteLine("The next 5 steps don't require any parameters, you will still see the result of each step however, in the order of:");
+        _menuInstance.WriteLine("   1. Gradient in X");
+        _menuInstance.WriteLine("   2. Gradient in Y");
+        _menuInstance.WriteLine("   3. Combined Gradients");
+        _menuInstance.WriteLine("   4. Gradient Directions");
+        _menuInstance.WriteLine("   5. Magnitude Threshold");
+        _menuInstance.WriteLine();
+        _classInputHandel.WaitInput($"{Log.Grey}(Enter to Continue){Log.Blank}");
+        _menuInstance.WriteLine("This may take some time to process each step.");
+
+        Structures.Gradients grads = _detector.CalculateGradients(_workingArray, () => { });
+        ViewImageForm gradXForm = new ViewImageForm(grads.GradientX.ToBitmap());
+        gradXForm.ShowDialog();
+
+        ViewImageForm gradYForm = new ViewImageForm(grads.GradientY.ToBitmap());
+        gradYForm.ShowDialog();
+
+        _workingArray = _detector.CombineGradients(grads);
+        ViewImageForm combinedGradientForm = new ViewImageForm(_workingArray.ToBitmap());
+        combinedGradientForm.ShowDialog();
+
+        double[,] gradientDirections = _detector.GradientAngle(grads);
+        double[,] gradCopy = gradientDirections;
+        for (int y = 0; y < gradientDirections.GetLength(0); y++)
+            for (int x = 0; x < gradientDirections.GetLength(1); x++)
+                gradCopy[y, x] = Utility.MapRadiansToPixel(gradientDirections[y, x]);
+        ViewImageForm gradientDirectionForm = new ViewImageForm(gradCopy.ToBitmap());
+        gradientDirectionForm.ShowDialog();
+
+        _workingArray = _detector.MagnitudeThreshold(_workingArray, gradientDirections);
+        ViewImageForm magnitudeForm = new ViewImageForm(_workingArray.ToBitmap());
+        magnitudeForm.ShowDialog();
+
+        _menuInstance.ClearUserSection();
+
+        Structures.ThresholdPixel[,] _thresholdPixels = DoubleThresholdStep();
+
+        _menuInstance.WriteLine("From here on out stages are automated, however as before you will see each step after it occurs.");
+        _menuInstance.WriteLine();
+        _classInputHandel.WaitInput($"{Log.Grey}(Enter to Continue){Log.Blank}");
+
+        _workingArray = _detector.EdgeTrackingHysteresis(_thresholdPixels);
+        ViewImageForm edgeTrackingForm = new ViewImageForm(_workingArray.ToBitmap());
+        edgeTrackingForm.ShowDialog();
+
+        PostProcessImage(_workingArray);
+    }
+
+    private void PostProcessImage(double[,] image)
+    {
+        Post postProcessor = new Post(image);
+
+        _menuInstance.ClearUserSection();
+        if (_classInputHandel.TryGetInt("How many times would you like to emboss the image (can be 0): ", out int loopCount) &&
+            loopCount > 0)
+        {
+            _menuInstance.WriteLine();
+            _menuInstance.WriteLine($"Running image embossing this will take approximately {Log.Red}{10 * loopCount}{Log.Blank} seconds!");
+            postProcessor.Start(loopCount);
+        }
+        else
+        {
+            _menuInstance.WriteLine();
+            _menuInstance.WriteLine($"Running image embossing this will take approximately {Log.Red}10{Log.Blank} seconds!");
+            postProcessor.Start(0);
+        }
+
+        _resultArray = postProcessor.Result();
+    }
+
+    private Structures.ThresholdPixel[,] DoubleThresholdStep()
+    {
+        bool happy = false;
+        Structures.ThresholdPixel[,] _workingThresholdPixels = new Structures.ThresholdPixel[0, 0];
+
+        _menuInstance.WriteLine($"The 8th stage of Canny Edge Detection is applying a double threshold. It is made up of two parameters a lower and upper threshold.");
+
+        while (!happy)
+        {
+            if (_classInputHandel.TryGetDouble(
+                    $"Value for Lower Threshold (Default: {_detector.LowerThreshold}, Range: 0 <= x < 1)",
+                    out double newLowerThreshold) && newLowerThreshold > 0 && newLowerThreshold < 1 && newLowerThreshold != _detector.LowerThreshold)
+            {
+                _logInstance.Warn(_runGuid, $"Changed lower threshold {_detector.LowerThreshold} -> {newLowerThreshold}");
+                _menuInstance.WriteLine($"{Log.Green}Changed: {_detector.LowerThreshold} -> {newLowerThreshold}{Log.Blank}");
+                _detector.LowerThreshold = newLowerThreshold;
+            }
+            else _menuInstance.WriteLine($"{Log.Orange}Kept Default: {_detector.LowerThreshold}{Log.Blank}");
+            _menuInstance.WriteLine();
+
+            if (_classInputHandel.TryGetDouble(
+                    $"Value for Upper Threshold  (Default: {_detector.UpperThreshold}, Range: {_detector.LowerThreshold} < x <= 1)",
+                    out double newHigherThreshold) && newHigherThreshold > _detector.LowerThreshold && newHigherThreshold <= 1 && newHigherThreshold != _detector.UpperThreshold)
+            {
+                _logInstance.Warn(_runGuid, $"Changed upper threshold {_detector.UpperThreshold} -> {newHigherThreshold}");
+                _menuInstance.WriteLine($"{Log.Green}Changed: {_detector.UpperThreshold} -> {newHigherThreshold}{Log.Blank}");
+                _detector.UpperThreshold = newHigherThreshold;
+            }
+            else _menuInstance.WriteLine($"{Log.Orange}Kept Default: {_detector.UpperThreshold}{Log.Blank}");
+            _menuInstance.WriteLine();
+            _menuInstance.WriteLine();
+            _menuInstance.WriteLine("Applying Double Threshold. This may take some time...");
+
+            _workingThresholdPixels = _detector.DoubleThreshold(_workingArray);
+            Bitmap toView = new Bitmap(_workingThresholdPixels.GetLength(1), _workingThresholdPixels.GetLength(0));
+            for (int y = 0; y < _workingThresholdPixels.GetLength(0); y++)
+            {
+                for (int x = 0; x < _workingThresholdPixels.GetLength(1); x++)
+                {
+                    if (_workingThresholdPixels[y, x].Strong) toView.SetPixel(x, y, Color.Green);
+                    else if (!_workingThresholdPixels[y, x].Strong && _workingThresholdPixels[y, x].Value != 0) toView.SetPixel(x, y, Color.Red);
+                    else toView.SetPixel(x, y, Color.Black);
+                }
+            }
+            ViewImageForm gaussianForm = new ViewImageForm(toView);
+            _menuInstance.ClearUserSection();
+            gaussianForm.ShowDialog();
+
+            _menuInstance.WriteLine("Current values for thresholds");
+            _menuInstance.WriteLine($"Lower: {_detector.LowerThreshold}");
+            _menuInstance.WriteLine($"Upper: {_detector.UpperThreshold}");
+            _menuInstance.WriteLine();
+
+            string opt = _classInputHandel.GetInput("Are you happy with these values for the upper and lower threshold (y/n)?");
+
+            if (opt.ToLower().StartsWith("y")) happy = true;
+            else
+            {
+                _menuInstance.ClearUserSection();
+                _menuInstance.WriteLine($"{Log.Pink}Please re-enter your values.{Log.Blank}");
+            }
+        }
+
+        _menuInstance.ClearUserSection();
+        return _workingThresholdPixels;
+    }
+
+    private void GaussianStep()
+    {
+        bool happy = false;
+
+        _menuInstance.WriteLine($"The second stage of Canny Edge Detection is applying a Gaussian filter. It is made up of two parameters sigma and kernel size.");
+
+        while (!happy)
+        {
+            if (_classInputHandel.TryGetDouble(
+                    $"Value for Sigma (Default: {_detector.Sigma}, Range: 0 < x <= 10)",
+                    out double newSigma) && newSigma <= 10 && newSigma > 0 && newSigma != _detector.Sigma)
+            {
+                _logInstance.Warn(_runGuid, $"Changed Sigma value {_detector.Sigma} -> {newSigma}");
+                _menuInstance.WriteLine($"{Log.Green}Changed: {_detector.Sigma} -> {newSigma}{Log.Blank}");
+                _detector.Sigma = newSigma;
+            }
+            else _menuInstance.WriteLine($"{Log.Orange}Kept Default: {_detector.Sigma}{Log.Blank}");
+            _menuInstance.WriteLine();
+
+            if (_classInputHandel.TryGetInt(
+                    $"Value for Kernel Size (Default: {_detector.KernelSize}, Range: x >= 3, x not a multiple of 2 and a whole number)",
+                    out int newKernel) && newKernel >= 3 && newKernel % 2 == 1 && newKernel % 1 == 0 && newKernel != _detector.KernelSize)
+            {
+                _logInstance.Warn(_runGuid, $"Changed Kernel Size {_detector.KernelSize} -> {newKernel}");
+                _menuInstance.WriteLine($"{Log.Green}Changed: {_detector.KernelSize} -> {newKernel}{Log.Blank}");
+                _detector.KernelSize = newKernel;
+            }
+            else _menuInstance.WriteLine($"{Log.Orange}Kept Default: {_detector.KernelSize}{Log.Blank}");
+            _menuInstance.WriteLine();
+            _menuInstance.WriteLine("Applying Gaussian Filter. This may take some time...");
+
+            _workingArray = _detector.GaussianFilter(_workingArray);
+            ViewImageForm gaussianForm = new ViewImageForm(_workingArray.ToBitmap());
+            _menuInstance.ClearUserSection();
+            gaussianForm.ShowDialog();
+
+            _menuInstance.WriteLine("Current values");
+            _menuInstance.WriteLine($"Sigma: {_detector.Sigma}");
+            _menuInstance.WriteLine($"Kernel Size: {_detector.KernelSize}");
+            _menuInstance.WriteLine();
+
+            string opt = _classInputHandel.GetInput("Are you happy with this value of sigma and the result (y/n)?");
+
+            if (opt.ToLower().StartsWith("y")) happy = true;
+            else
+            {
+                _menuInstance.ClearUserSection();
+                _menuInstance.WriteLine($"{Log.Pink}Please re-enter your values.{Log.Blank}");
+            }
+        }
+
+        _menuInstance.ClearUserSection();
+    }
+
+    private void BlackWhiteStep()
+    {
+        bool happy = false;
+
+        _menuInstance.WriteLine($"The first stage of Canny Edge Detection is the Black and White filter. It is made up of 3 parameters {Log.Red}Red{Log.Blank}, {Log.Green}Green{Log.Blank}, {Log.Blue}Blue{Log.Blank} Ratios.");
+
+        while (!happy)
+        {
+            if (_classInputHandel.TryGetDouble(
+                    $"Value for {Log.Red}Red{Log.Blank} (Old: {_detector.RedRatio}, Range: 0 <= x <= 1)",
+                    out double newRedRatio) && newRedRatio <= 1 && newRedRatio >= 0 && newRedRatio != _detector.RedRatio)
+            {
+                _logInstance.Warn(_runGuid, $"Changed {Log.Red}Red{Log.Blank} ratio {_detector.RedRatio} -> {newRedRatio}");
+                _menuInstance.WriteLine($"{Log.Green}Changed: {_detector.RedRatio} -> {newRedRatio}{Log.Blank}");
+                _detector.RedRatio = newRedRatio;
+            }
+            else _menuInstance.WriteLine($"{Log.Orange}Kept Default: {_detector.RedRatio}{Log.Blank}");
+            _menuInstance.WriteLine();
+
+            if (_classInputHandel.TryGetDouble(
+                        $"Value for {Log.Green}Green{Log.Blank} (Old: {_detector.GreenRatio}, Range: 0 <= x <= 1)",
+                    out double newGreenRatio) && newGreenRatio <= 1 && newGreenRatio >= 0 &&
+                newGreenRatio != _detector.GreenRatio)
+            {
+                _logInstance.Warn(_runGuid, $"Changed {Log.Green}Green{Log.Blank} ratio {_detector.GreenRatio} -> {newGreenRatio}");
+                _menuInstance.WriteLine($"{Log.Green}Changed: {_detector.GreenRatio} -> {newGreenRatio}{Log.Blank}");
+                _detector.GreenRatio = newGreenRatio;
+            }
+            else _menuInstance.WriteLine($"{Log.Orange}Kept Default: {_detector.GreenRatio}{Log.Blank}");
+            _menuInstance.WriteLine();
+
+            if (_classInputHandel.TryGetDouble(
+                        $"Value for {Log.Blue}Blue{Log.Blank} (Old: {_detector.BlueRatio}, Range: 0 <= x <= 1)",
+                    out double newBlueRatio) && newBlueRatio <= 1 && newBlueRatio >= 0 && newBlueRatio != _detector.BlueRatio)
+            {
+                _logInstance.Warn(_runGuid, $"Changed {Log.Blue}Blue{Log.Blank} ratio {_detector.BlueRatio} -> {newBlueRatio}");
+                _menuInstance.WriteLine($"{Log.Green}Changed: {_detector.BlueRatio} -> {newBlueRatio}{Log.Blank}");
+                _detector.BlueRatio = newBlueRatio;
+            }
+            else _menuInstance.WriteLine($"{Log.Orange}Kept Default: {_detector.BlueRatio}{Log.Blank}");
+            _menuInstance.WriteLine();
+            _menuInstance.WriteLine("Converting to black and white. This may take some time...");
+
+            _workingArray = _detector.BlackWhiteFilter(_image.Pixels);
+            ViewImageForm blackWhiteForm = new ViewImageForm(_workingArray.ToBitmap());
+            _menuInstance.ClearUserSection();
+            blackWhiteForm.ShowDialog();
+
+            _menuInstance.WriteLine("Current values for ratios");
+            _menuInstance.WriteLine($"Red: {Log.Red}{_detector.RedRatio}{Log.Blank}");
+            _menuInstance.WriteLine($"Green: {Log.Green}{_detector.GreenRatio}{Log.Blank}");
+            _menuInstance.WriteLine($"Blue: {Log.Blue}{_detector.BlueRatio}{Log.Blank}");
+            _menuInstance.WriteLine();
+
+            string opt = _classInputHandel.GetInput("Are you happy with these values and the result (y/n)?");
+
+            if (opt.ToLower().StartsWith("y")) happy = true;
+            else
+            {
+                _menuInstance.ClearUserSection();
+                _menuInstance.WriteLine($"{Log.Pink}Please re-enter your values.{Log.Blank}");
+            }
+        }
+        _menuInstance.ClearUserSection();
+    }
+
+    private void ShowDialog()
+    {
+        _menuInstance.ClearUserSection();
+        _menuInstance.WriteLine("You have selected to run edge detection steps one after another, this means that at the end of every step you will be shown your image and then have the option to continue to the next step or change variables.");
+        _classInputHandel.WaitInput($"{Log.Grey}(Enter to Continue){Log.Blank}");
+        _menuInstance.WriteLine();
+    }
+
+    public double[,] Result() => _resultArray;
+}
+    \end{cscode}
+    
+    
+    \subsubsubsection{WindowsForms}
+    \paragraph{PathfindImageForm.cs (Partial)}
+    \begin{cscode}
+public partial class PathfindImageForm : Form
+{
+    private static readonly Structures.Coord invalidCord = new Structures.Coord { X = -1, Y = -1 };
+
+    private Bitmap _image;
+    private readonly Bitmap _originalImage;
+    private int _width;
+    private int _height;
+
+    private readonly Graph<Structures.Coord> _graph;
+
+    private readonly Traversal<Structures.Coord> _traversalObject;
+
+    private Structures.Coord prevStartNode;
+    private Structures.Coord startNode = invalidCord;
+    private Structures.Coord endNode = invalidCord;
+
+    private Dictionary<Structures.Coord, Structures.Coord> _preCalculatedTree;
+
+    public PathfindImageForm(Bitmap image, Traversal<Structures.Coord> traversal, Graph<Structures.Coord> graph)
+    {
+        _image = image;
+        _originalImage = image;
+        _traversalObject = traversal;
+        _graph = graph;
+
+        InitializeComponent();
+    }
+
+    private void ViewImageForm_Load(object sender, EventArgs e)
+    {
+        // Define size
+        _width = Console.WindowWidth * 3 / 4 * 8;
+        _height = Console.WindowHeight * 5 / 6 * 16;
+
+
+        // Styling
+        ControlBox = false;
+        FormBorderStyle = FormBorderStyle.None;
+        Text = "Pathfinding Window";
+
+        // set window to size of user area
+        MinimumSize = new Size(_width, _height);
+        MaximumSize = new Size(_width, _height);
+
+        // account for window bar
+        Location = new Point(0, 25);
+
+        // Always on top
+        if (bool.Parse(Settings.UserSettings["forceFormsFront"].Item1)) TopMost = true;
+
+        // set picture frame
+        imageBox.Width = _width * 2 / 3 - 12;
+        imageBox.Height = _height - 24;
+        imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
+        imageBox.Image = _image;
+
+        // Set Pathfind Button
+        goButton.Width = _width / 3 - 24;
+        goButton.Height = (_height / 4 - 24) / 2;
+        goButton.Left = _width * 2 / 3 + 12;
+        goButton.Top = _height * 3 / 4;
+
+        // Set Exit Button
+        exitButton.Width = _width / 3 - 24;
+        exitButton.Height = (_height / 4 - 24) / 2;
+        exitButton.Left = _width * 2 / 3 + 12;
+        exitButton.Top = (_height * 3 / 4 + ((_height / 4 - 24) / 2)) + 12;
+        //exitButton.Top = _height * 9 / 10 - 12;
+
+        // Set instruction box
+        textBox.Width = _width / 3 - 24;
+        textBox.Height = _height * 3 / 4 - 24;
+        textBox.Left = _width * 2 / 3 + 12;
+
+        // Set running box
+        runningBox.Width = _width / 3 - 24;
+        runningBox.Height = _height * 2 / 4 - 24;
+        runningBox.Left = _width * 2 / 3 + 12;
+        runningBox.Visible = false;
+        SetRunningBox();
+
+        // Set working button
+        workingButton.Width = _width / 3 - 24;
+        workingButton.Height = _height / 2 - 12;
+        workingButton.Left = _width * 2 / 3 + 12;
+        workingButton.Top = _height / 2;
+        workingButton.Visible = false;
+
+        // Set Node Progress
+        nodeBox.Width = _width / 3 - 24;
+        nodeBox.Height = _height / 12;
+        nodeBox.Left = _width * 2 / 3 + 12;
+        nodeBox.Top = _height / 2 - 84;
+        nodeBox.Visible = false;
+    }
+
+    private Structures.Coord ConvertImageBoxToBitmapCord(Point location)
+    {
+        int x = (int)(((double)_image.Width / imageBox.Width) * location.X);
+        int y = (int)(((double)_image.Height / imageBox.Height) * location.Y);
+
+        return new Structures.Coord { X = x, Y = y };
+    }
+
+    private void RedrawImage()
+    {
+        _image = new Bitmap(_originalImage);
+        if (startNode != invalidCord)
+        {
+            if (!_graph.ContainsNode(startNode) && bool.Parse(Settings.UserSettings["snapToGrid"].Item1))
+            {
+                double value = double.MaxValue;
+                Structures.Coord smallest = new Structures.Coord { X = int.MaxValue, Y = int.MaxValue };
+                foreach (Structures.Coord node in _graph.GetAllNodes())
+                {
+                    double compare = Math.Sqrt(Math.Pow(startNode.X - node.X, 2) + Math.Pow(startNode.Y - node.Y, 2));
+                    if (compare < value && _graph.GetNode(node).Count != 0)
+                    {
+                        smallest = node;
+                        value = compare;
+                    }
+                }
+
+                startNode = smallest;
+            }
+
+            DrawCross(startNode, Color.Green);
+        }
+
+        if (endNode != invalidCord)
+        {
+            if (!_graph.ContainsNode(endNode) && bool.Parse(Settings.UserSettings["snapToGrid"].Item1))
+            {
+                double value = double.MaxValue;
+                Structures.Coord smallest = new Structures.Coord { X = int.MaxValue, Y = int.MaxValue };
+                foreach (Structures.Coord node in _graph.GetAllNodes())
+                {
+                    double compare = Math.Sqrt(Math.Pow(endNode.X - node.X, 2) + Math.Pow(endNode.Y - node.Y, 2));
+                    if (compare < value && _graph.GetNode(node).Count != 0)
+                    {
+                        smallest = node;
+                        value = compare;
+                    }
+                }
+
+                endNode = smallest;
+            }
+            DrawCross(endNode, Color.Red);
+        }
+
+        imageBox.Image = _image;
+    }
+
+    private void DrawCross(Structures.Coord center, Color colour)
+    {
+        double xRatio = (double)_image.Width / imageBox.Width;
+        double yRatio = (double)_image.Height / imageBox.Height;
+
+        for (int x = center.X - (int)(2 * xRatio); x <= center.X + (int)(2 * xRatio); x++)
+        {
+            for (int y = center.Y - (int)(10 * yRatio); y <= center.Y + (int)(10 * yRatio); y++)
+            {
+                if (y >= 0 && y < _image.Height && x >= 0 && x < _image.Width)
+                {
+                    _image.SetPixel(x, y, colour);
+                }
+            }
+        }
+
+        for (int y = center.Y - (int)(2 * yRatio); y <= center.Y + (int)(2 * yRatio); y++)
+        {
+            for (int x = center.X - (int)(10 * xRatio); x <= center.X + (int)(10 * xRatio); x++)
+            {
+                if (x >= 0 && x < _image.Width && y >= 0 && y < _image.Height)
+                {
+                    _image.SetPixel(x, y, colour);
+                }
+            }
+        }
+    }
+
+    private void imageBox_Click(object sender, EventArgs eventArgs)
+    {
+        MouseEventArgs mouseEvent = (MouseEventArgs)eventArgs;
+        Structures.Coord clickCord = ConvertImageBoxToBitmapCord(mouseEvent.Location);
+
+        if (mouseEvent.Button == MouseButtons.Left) if (startNode != clickCord) startNode = clickCord;
+        if (mouseEvent.Button == MouseButtons.Right) if (endNode != clickCord) endNode = clickCord;
+
+        RedrawImage();
+    }
+
+    private void exitButton_Click(object sender, EventArgs e) => Close();
+
+    private void SetRunningBox()
+    {
+        string snapWarning = string.Empty;
+        if (!bool.Parse(Settings.UserSettings["snapToGrid"].Item1))
+            snapWarning = "(Warning can cause broken routes. To change goto settings -> pathfinding -> snapToGrid)\n";
+
+        string mstWarning = string.Empty;
+        if (bool.Parse(Settings.UserSettings["convertToMST"].Item1))
+            mstWarning = "(Warning can cause non-optimal routes. To change goto settings -> pathfinding -> convertToMST)\n";
+
+        string endWarning = string.Empty;
+        if (bool.Parse(Settings.UserSettings["endOnFind"].Item1))
+            endWarning = "(Warning causes longer times from different start nodes. To change goto settings -> pathfinding -> endOnFind)\n";
+
+
+        runningBox.Text = "Current Pathfinding Settings\n\n" +
+                          $"\nAlgorithm: {Settings.UserSettings["pathfindingAlgorithm"].Item1}" +
+                          $"\n\nUsing Minimum Spanning Tree: {(Settings.UserSettings["convertToMST"].Item1 == "true" ? "Yes" : "No")}" +
+                          $"\n{mstWarning}" +
+                          $"\nSnapping to grid: {(Settings.UserSettings["snapToGrid"].Item1 == "true" ? "Yes" : "No")}" +
+                          $"\n{snapWarning}" +
+                          $"\nEnd pathfinding on Finding End (Dijkstra Only): {(Settings.UserSettings["endOnFind"].Item1 == "true" ? "Yes" : "No")}" +
+                          $"\n{endWarning}";
+    }
+
+    private int GetDistanceBetweenNodes(Structures.Coord start, Structures.Coord goal) => (int)Utility.GetDistanceBetweenNodes(start, goal);
+
+    private int nodes;
+
+    private void UpdateNodes()
+    {
+        nodes++;
+        nodeBox.Text = $"Progress {(nodes / (double)_graph.GetAllNodes().Length * 100):f2}% complete\nNode {nodes} out of {_graph.GetAllNodes().Length}";
+        if (nodes % 2 == 0) Update();
+    }
+
+    private void goButton_Click(object sender, EventArgs e)
+    {
+        nodes = 0;
+
+        workingButton.Visible = true;
+        textBox.Visible = false;
+        runningBox.Visible = true;
+        if (Settings.UserSettings["pathfindingAlgorithm"].Item1.ToLower() == "dijkstra") nodeBox.Visible = true;
+
+        Update();
+
+        try { if (startNode != invalidCord && endNode != invalidCord)
+            {
+                if (Settings.UserSettings["pathfindingAlgorithm"].Item1.ToLower() == "dijkstra")
+                {
+                    if (prevStartNode != startNode && startNode != endNode ||
+                        bool.Parse(Settings.UserSettings["endOnFind"].Item1) == true)
+                    {
+
+                        Dictionary<Structures.Coord, Structures.Coord> tree = _traversalObject.Dijkstra(startNode,
+                            endNode, bool.Parse(Settings.UserSettings["endOnFind"].Item1), UpdateNodes);
+                        Structures.Coord[] path = Utility.RebuildPath(tree, endNode);
+                        foreach (Structures.Coord node in path)
+                        {
+                            _image.SetPixel(node.X, node.Y, Color.BlueViolet);
+                            imageBox.Image = _image;
+                        }
+
+                        _preCalculatedTree = tree;
+                    }
+                    else if (prevStartNode == startNode && startNode != endNode)
+                    {
+                        Structures.Coord[] path = Utility.RebuildPath(_preCalculatedTree, endNode);
+                        foreach (Structures.Coord node in path)
+                        {
+                            _image.SetPixel(node.X, node.Y, Color.BlueViolet);
+                            imageBox.Image = _image;
+
+                        }
+                    }
+                }
+                else if (Settings.UserSettings["pathfindingAlgorithm"].Item1.ToLower() == "astar")
+                {
+                    Dictionary<Structures.Coord, Structures.Coord> tree =
+                        _traversalObject.AStar(startNode, endNode, GetDistanceBetweenNodes);
+                    Structures.Coord[] path = Utility.RebuildPath(tree, endNode);
+                    foreach (Structures.Coord node in path)
+                    {
+                        _image.SetPixel(node.X, node.Y, Color.BlueViolet);
+                        imageBox.Image = _image;
+                    }
+
+                    _preCalculatedTree = tree;
+
+                }
+
+                prevStartNode = startNode;
+            }
+
+            workingButton.Visible = false;
+            textBox.Visible = true;
+            runningBox.Visible = false;
+            nodeBox.Visible = false;
+        } catch (Exception _)
+        {
+            workingButton.Visible = false;
+            textBox.Visible = true;
+            runningBox.Visible = false;
+            nodeBox.Visible = false;
+        }
+    }
+}
+    \end{cscode}
+    
+    \paragraph{ViewImageForm.cs (Partial)}
+    \begin{cscode}
+public partial class ViewImageForm : Form
+{
+    private readonly Bitmap _image;
+    private int _width;
+    private int _height;
+    public ViewImageForm(Bitmap image)
+    {
+        this._image = image;
+        InitializeComponent();
+    }
+
+    private void ViewImageForm_Load(object sender, System.EventArgs e)
+    {
+        // Define size
+        _width = Console.WindowWidth * 3 / 4 * 8;
+        _height = Console.WindowHeight * 5 / 6 * 16;
+
+        // Styling
+        ControlBox = false;
+        FormBorderStyle = FormBorderStyle.None;
+        Text = "Preview Window";
+
+        // set window to size of user area
+        MinimumSize = new Size(_width, _height);
+        MaximumSize = new Size(_width, _height);
+
+        // account for window bar
+        Location = new Point(0, 25);
+
+        // Always on top
+        if (bool.Parse(Settings.UserSettings["forceFormsFront"].Item1)) TopMost = true;
+
+        // set picture frame
+        imageBox.Width = _width * 2 / 3 - 12;
+        imageBox.Height = _height - 24;
+        imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
+        imageBox.Image = _image;
+
+        nextButton.Width = _width / 3 - 24;
+        nextButton.Height = _height - 24;
+        nextButton.Left = _width * 2 / 3 + 12;
+    }
+
+    private void nextButton_Click(object sender, System.EventArgs e)
+    {
+        Close();
+    }
+}
+    \end{cscode}
+    
+    
+    \subsubsubsection{Root}
+    \paragraph{Program.cs}
+    \begin{cscode}
+public class Program
+{
+    private static void Main()
+    {
+        Menu menu = new Menu("Author: Rubens Pirie", $"{Log.Grey}Production Mode{Log.Blank}");
+        Log logger = new Log(menu);
+
+        Settings settings = new Settings(menu, logger);
+        settings.Read();
+
+        menu.Setup();
+        logger.Event("Program has started and menu has been created successfully.");
+
+        Run(menu, logger, settings);
+    }
+
+    private static void Run(Menu menuInstance, Log CLILoggingInstance, Settings settingsInstance)
+    {
+        Input inputHandel = new Input(menuInstance);
+
+        bool running = true;
+
+        while (running)
+        {
+            menuInstance.SetPage("Welcome Menu");
+            int opt = inputHandel.GetOption("Please select an option to continue:",
+                new[]
+                {
+                    "Process New Image Into Map Data File", "Recall Map From Data File", "Settings", "Exit Program"
+                });
+
+            switch (opt)
+            {
+                // New
+                case 0:
+                    menuInstance.SetPage("Process New Image");
+                    TextWall.ImageWelcome(menuInstance);
+                    inputHandel.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
+                    menuInstance.WriteLine();
+
+                    RunNewImage(menuInstance, CLILoggingInstance);
+                    break;
+                // Recall
+                case 1:
+                    menuInstance.SetPage("Recall Old Image");
+                    TextWall.SaveWelcome(menuInstance);
+                    inputHandel.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
+                    menuInstance.WriteLine();
+
+                    RunSaveFile(menuInstance, CLILoggingInstance);
+                    break;
+                // Settings
+                case 2:
+                    try
+                    {
+                        SettingsControl settingsControl = new SettingsControl(settingsInstance, menuInstance, CLILoggingInstance);
+                        settingsControl.Start();
+                    }
+                    catch (Exception ex)
+                    {
+                        menuInstance.ClearUserSection();
+                        menuInstance.Error("Your settings file is corrupt, please delete the 'settings.conf' file and restart. The program will now exit.");
+                        new Input(menuInstance).WaitInput("");
+                        Environment.Exit(0);
+                    }
+
+                    menuInstance.ClearUserSection();
+                    break;
+                // Exit
+                case 3:
+                    menuInstance.SetPage("Exit");
+                    running = false;
+                    break;
+            }
+        }
+    }
+
+    private static void RunSaveFile(Menu menu, Log logger)
+    {
+        Input inputHandel = new Input(menu);
+        Guid runGuid = Logger.CreateRun();
+
+        menu.ClearUserSection();
+        logger.Event(runGuid, $"Beginning recall of map file (Run Id: {runGuid})");
+
+        SaveFile saveFile = new SaveFile(menu, logger, runGuid);
+
+        try
+        {
+            MapFile recalledMap = saveFile.Read();
+
+            bool running = true;
+
+            while (running)
+            {
+                menu.SetPage("Recalled Options");
+
+                int opt = inputHandel.GetOption("What would you like to do with your recalled map?",
+                    new[]
+                    {
+                        "View File / Map Information",
+                        "Change File Information",
+                        "Clone File",
+                        "Rename File",
+                        "Delete File",
+                        "Pathfind Through Image",
+                        "Exit"
+                    });
+
+                switch (opt)
+                {
+                    case 0:
+                        menu.SetPage("Image Details");
+                        string[] items = { "Screenshot", "Hand Drawn", "Photograph", "Other" };
+                        menu.ClearUserSection();
+                        menu.WriteLine("Your current save file information:");
+                        menu.WriteLine($"Name: {recalledMap.Name}");
+                        menu.WriteLine($"Description: {recalledMap.Description}");
+                        menu.WriteLine();
+                        menu.WriteLine($"Type of image: {Log.Orange}{items[recalledMap.Type]}{Log.Blank}");
+                        menu.WriteLine($"Was it inverted: {Log.Purple}{(recalledMap.IsInverted ? "Yes" : "No")}{Log.Blank}");
+                        menu.WriteLine($"Time Created: {Log.Green}{recalledMap.TimeCreated}{Log.Grey}");
+                        inputHandel.WaitInput($"{Log.Grey}(Enter to Continue){Log.Blank}");
+                        break;
+                    case 1:
+                        menu.SetPage("Change Image Details");
+                        int option = inputHandel.GetOption("What part of the tile information do you wish to change:",
+                            new[] { "1. Name", "2. Description", "3. Type of image" });
+                        logger.Event(runGuid, $"Changing file settings, see current run save folder for the save file.");
+                        switch (option)
+                        {
+                            case 0:
+                                string newName =
+                                    inputHandel.GetInput("What do you want to change the title of the save to?");
+                                recalledMap.Name = newName;
+                                break;
+                            case 1:
+                                string newDescription =
+                                    inputHandel.GetInput("What do you want to change the title of the save to?");
+                                recalledMap.Description = newDescription;
+                                break;
+                            case 2:
+                                recalledMap.Type = inputHandel.GetOption("What type of image is this save?",
+                                    new[] { "Screenshot", "Hand Drawn", "Photograph", "Other" });
+                                break;
+                        }
+
+                        string path = recalledMap.Save(runGuid);
+                        if (bool.Parse(Settings.UserSettings["shortNames"]
+                                .Item1))
+                            File.Move(path,
+                                path.Replace(Path.GetFileName(path)
+                                        .Split('.')[0],
+                                    recalledMap.Name));
+                        break;
+                    case 2:
+                        menu.SetPage("Clone Image");
+                        File.Copy(recalledMap._filePath, recalledMap._filePath.Replace(Path.GetFileName(recalledMap._filePath).Split('.')[0], Path.GetFileName(recalledMap._filePath).Split('.')[0] + "-CLONE"));
+                        logger.Event($"Cloned {recalledMap._filePath}.");
+                        break;
+                    case 3:
+                        menu.SetPage("Rename Image");
+                        string name = inputHandel.GetInput("What would you like to rename the file too?");
+                        logger.Event(runGuid, $"Renamed {Path.GetFileName(recalledMap._filePath).Split('.')[0]} to {name}.");
+                        File.Move(recalledMap._filePath, recalledMap._filePath.Replace(Path.GetFileName(recalledMap._filePath).Split('.')[0], name));
+                        break;
+                    case 4:
+                        menu.SetPage($"{Log.Red}DANGER: Delete Image{Log.Blank}");
+                        if (inputHandel.GetOption("Are you sure you want to delete the save?",
+                                new[] { $"{Log.Red}No{Log.Blank}", $"{Log.Red}No{Log.Blank}", $"{Log.Green}Yes{Log.Blank}", $"{Log.Red}No{Log.Blank}", $"{Log.Red}No{Log.Blank}" }) == 2)
+                        {
+                            logger.Warn(runGuid, $"Save file at path {recalledMap._filePath} deleted.");
+                            File.Delete(recalledMap._filePath);
+                            running = false;
+                        }
+                        break;
+                    case 5:
+                        menu.SetPage("Pathfinding Window");
+                        logger.Event(runGuid, $"Starting pathfinding of recalled image.");
+                        double[,] doubles = recalledMap.PathImage.ToDoubles(Utility.GetIfExists);
+                        new Pathfinder(recalledMap.OriginalImage, doubles).Start();
+                        break;
+                    default:
+                        running = false;
+                        break;
+                }
+            }
+
+            logger.EndSuccessSave(runGuid);
+        }
+        catch (Exception ex)
+        {
+            menu.ClearUserSection();
+            menu.Error(ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+            new Input(menu).WaitInput("");
+            logger.EndError(runGuid, ex);
+        }
+    }
+
+    private static void RunNewImage(Menu menu, Log logger)
+    {
+        Input i = new Input(menu);
+
+        Guid runGuid = Logger.CreateRun();
+        menu.ClearUserSection();
+
+        logger.Event(runGuid, $"Begin processing of new image (Run Id: {runGuid}).");
+
+        NewImage newImage = new NewImage(menu, logger, runGuid);
+
+        try
+        {
+            Structures.RawImage rawImage = newImage.Read();
+
+            menu.WriteLine();
+            menu.WriteLine("Successfully managed to read in your image, please look carefully at the next popup and make sure it is your image.");
+            i.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
+            menu.WriteLine();
+
+            logger.Event(runGuid, $"Confirming is correct file.");
+            ViewImageForm beforeForm = new ViewImageForm(rawImage.Pixels.ToBitmap());
+            beforeForm.ShowDialog();
+            menu.ClearUserSection();
+
+            TextWall.FileDetails(menu, rawImage);
+            menu.WriteLine();
+
+            bool correctImage = Utility.IsYes(i.GetInput("Is this the correct image (y/n)?"));
+            if (!correctImage) throw new Exception("You asked for the processing of your map to stop.");
+
+            int opt = i.GetOption("Select a version of edge detection to run:", new[] {
+                    "Preset - Hand Drawn Map",
+                    "Preset - Screenshot",
+                    "Preset - Photograph",
+                    "Multi-threaded - Fast, all options decided at the start which allows for faster processing.",
+                    "Synchronous - Slow, options can be changed after each step and steps can be repeated." });
+
+            menu.SetPage("Edge Detection");
+            double[,] resultOfEdgeDetection = null;
+
+            IHandler handler = opt <= 3
+                        ? new AsyncEdgeDetection(menu,
+                            logger,
+                            rawImage,
+                            runGuid)
+                        : (IHandler)new SyncEdgeDetection(menu,
+                            logger,
+                            rawImage,
+                            runGuid);
+
+            switch (opt)
+            {
+                case 0:
+                    AsyncEdgeDetection handPreset = new AsyncEdgeDetection(menu,
+                        logger,
+                        rawImage,
+                        runGuid);
+                    handPreset.Preset(5, 0.299, 0.587, 0.114, 2, 0.07, 0.25, 2);
+                    handler = handPreset;
+
+                    break;
+                case 1:
+                    AsyncEdgeDetection screenPreset = new AsyncEdgeDetection(menu,
+                        logger,
+                        rawImage,
+                        runGuid);
+                    screenPreset.Preset(5, 0.299, 0.587, 0.114, 1.4, 0.05, 0.15, 0);
+                    handler = screenPreset;
+                    break;
+                case 2:
+                    AsyncEdgeDetection photoPreset = new AsyncEdgeDetection(menu,
+                        logger,
+                        rawImage,
+                        runGuid);
+                    photoPreset.Preset(7, 0.299, 0.587, 0.114, 2, 0.1, 0.3, 1);
+                    handler = photoPreset;
+                    break;
+                default:
+                    handler.Start();
+                    break;
+            }
+
+            resultOfEdgeDetection = handler.Result();
+
+            menu.ClearUserSection();
+            menu.WriteLine("In order for the road detection to function properly there must be a outline encapsulating the road. It should look like an outline of the road, if there isn't one, and there is just a big white blob then select invert at the next prompt.");
+            menu.WriteLine();
+            i.WaitInput($"{Log.Grey}(Enter to continue){Log.Blank}");
+            menu.WriteLine();
+
+            ViewImageForm edgeImageForm = new ViewImageForm(resultOfEdgeDetection.ToBitmap());
+            edgeImageForm.ShowDialog();
+
+            MapFile saveMapFile = rawImage.MapFile;
+
+            menu.SetPage("Road Detection");
+            RoadSequence roadDetector = new RoadSequence(menu, logger, runGuid, resultOfEdgeDetection, saveMapFile);
+            roadDetector.Start();
+
+            menu.SetPage("Pathfinding Window");
+            new Pathfinder(rawImage.Original, roadDetector.Result().PathDoubles).Start();
+
+            logger.EndSuccessRun(runGuid);
+        }
+        catch (Exception ex)
+        {
+            menu.ClearUserSection();
+            menu.Error(ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+            new Input(menu).WaitInput("");
+            logger.EndError(runGuid, ex);
+        }
+    }
+}
+    \end{cscode}
+    
+\end{flushleft}

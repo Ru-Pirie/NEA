@@ -2,14 +2,19 @@
 \documentclass{article}
 \usepackage[a4paper]{geometry}
 
-\geometry{a4paper, left=20mm, right=20mm, top=20mm}
+\geometry{a4paper, left=15mm, right=15mm, top=20mm}
 \setlength{\headheight}{20.0pt}
 
 % Package Import
 \usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{tgpagella}
 \usepackage{fancyhdr}
 \usepackage{lipsum}
+\usepackage{tikz}
+\usepackage{multirow}
 \usepackage{graphicx}
+\usepackage{qrcode}
 \usepackage{enumitem}
 \usepackage{subfig}
 \usepackage{titlesec}
@@ -17,12 +22,64 @@
 \usepackage{mathtools}
 \usepackage{float}
 \usepackage{relsize}
+\usepackage{wrapfig}
+\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{longtable} % <- this is for the table
 
+% Special
 \usepackage{minted}
 
 % Custom Commands
 \newcommand{\bk}{\vspace{0.2cm}}
 \newcommand{\BK}{\vspace{0.5cm}}
+
+% For Testing Table
+\renewcommand{\arraystretch}{1.5}
+
+\newcommand\rn{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
+\newcommand\nrn{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
+\newcommand{\random}{\rand\arabic{rand}}
+\usetikzlibrary{matrix,shapes,arrows,positioning,chains,decorations,automata,backgrounds,petri,bending,shapes.multipart,patterns}
+
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+% Add Custom SubSubSubSection for final code
+\titleclass{\subsubsubsection}{straight}[\subsection]
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\makeatletter
+\AtBeginEnvironment{minted}{\dontdofcolorbox}
+\def\dontdofcolorbox{\renewcommand\fcolorbox[4][]{##4}}
+\makeatother
+
+% Minted Definitions
+\newminted[cscode]{csharp}{frame=none,framesep=2mm,baselinestretch=1.2,linenos,fontsize=\smaller,breaklines}
+\newminted[pseudocode]{markdown}{escapeinside=||,mathescape=true,frame=leftline,linenos,fontsize=\smaller,breaklines}
 
 % Renewed Commands
 \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
@@ -51,7 +108,6 @@
 \newcounter{magicrownumbers}
 
 \begin{document}
-   
     \begin{titlepage}
         \begin{center}
             \vspace*{3cm}
@@ -90,5 +146,7 @@
     \include{pages/solution.tex.tex}
 
     \include{pages/evaluation.tex}
+    
+    \include{pages/code.tex}
 
 \end{document}
