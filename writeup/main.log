@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2022.12.31)  1 JAN 2023 20:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8) (preloaded format=pdflatex 2023.1.1)  2 JAN 2023 13:09
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
 **./main.tex
 (main.tex
-LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2022-12-17>
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
-Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
-File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+LaTeX2e <2022-06-01> patch level 5
+L3 programming layer <2022-08-05>
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@section=\count186
@@ -19,58 +19,50 @@ File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 \c@subparagraph=\count190
 \c@figure=\count191
 \c@table=\count192
-\abovecaptionskip=\skip48
-\belowcaptionskip=\skip49
-\bibindent=\dimen140
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometr
-y.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.
-sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.s
-ty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.st
-y
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
 \Gm@cnth=\count193
 \Gm@cntv=\count194
 \c@Gm@tempcnt=\count195
-\Gm@bindingoffset=\dimen141
-\Gm@wd@mp=\dimen142
-\Gm@odd@mp=\dimen143
-\Gm@even@mp=\dimen144
-\Gm@layoutwidth=\dimen145
-\Gm@layoutheight=\dimen146
-\Gm@layouthoffset=\dimen147
-\Gm@layoutvoffset=\dimen148
+\Gm@bindingoffset=\dimen139
+\Gm@wd@mp=\dimen140
+\Gm@odd@mp=\dimen141
+\Gm@even@mp=\dimen142
+\Gm@layoutwidth=\dimen143
+\Gm@layoutheight=\dimen144
+\Gm@layouthoffset=\dimen145
+\Gm@layoutvoffset=\dimen146
 \Gm@dimlist=\toks17
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometr
-y.cfg))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.st
-y
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\col
-or.cfg
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 227.
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdf
-tex.def
-File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcol
-or.ltx)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex-dev/graphics\mathcolor.
+ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
 Package xcolor Info: Model `RGB' extended on input line 1369.
@@ -80,137 +72,123 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
-)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\tgterme
-s.sty
+) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\tgtermes.sty
 Package: tgtermes 2009/09/27 v1.2 TeX Gyre Termes as default roman family
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvopti
-ons.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmd
-s.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetk
-eys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-)))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhd
-r.sty
-Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
-
-\f@nch@headwidth=\skip50
-\f@nch@O@elh=\skip51
-\f@nch@O@erh=\skip52
-\f@nch@O@olh=\skip53
-\f@nch@O@orh=\skip54
-\f@nch@O@elf=\skip55
-\f@nch@O@erf=\skip56
-\f@nch@O@olf=\skip57
-\f@nch@O@orf=\skip58
-)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.st
-y
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3key
-s2e\l3keys2e.sty
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.s
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/kvsetkeys\kvsetkeys.s
 ty
-Package: expl3 2022-12-17 L3 programming layer (loader) 
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2022/05/18 v4.0.3 Extensive control of page headers and foote
+rs
+\f@nch@headwidth=\skip49
+\f@nch@O@elh=\skip50
+\f@nch@O@erh=\skip51
+\f@nch@O@olh=\skip52
+\f@nch@O@orh=\skip53
+\f@nch@O@elf=\skip54
+\f@nch@O@erf=\skip55
+\f@nch@O@olf=\skip56
+\f@nch@O@orf=\skip57
+)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l3k
+eys2e.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2022-08-05 L3 programming layer (loader) 
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3back
-end-pdftex.def
-File: l3backend-pdftex.def 2022-10-26 L3 backend support: PDF output (pdfTeX)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2022-08-05 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count196
 \l__pdf_internal_box=\box51
 ))
-Package: l3keys2e 2022-12-17 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2022-06-22 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \g__lipsum_par_int=\count197
 \l__lipsum_a_int=\count198
 \l__lipsum_b_int=\count199
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.lt
-d.tex))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlaye
-r\tikz.sty
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\p
-gf.sty
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pg
-frcs.sty
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
-pgfutil-common.tex
-\pgfutil@everybye=\toks18
-\pgfutil@tempdima=\dimen149
-\pgfutil@tempdimb=\dimen150
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex))
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
-pgfutil-common-lists.tex))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
-pgfutil-latex.def
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
+sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.st
+y
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-common.tex
+\pgfutil@everybye=\toks18
+\pgfutil@tempdima=\dimen147
+\pgfutil@tempdimb=\dimen148
+
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-common-lists.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-latex.def
 \pgfutil@abb=\box52
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
-pgfrcs.code.tex
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revisi
-on.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.
+code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
 Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
 ))
 Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\p
-gfcore.sty
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphic
-x.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.
+sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphic
-s.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.st
-y
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\gra
-phics.cfg
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\Gin@req@height=\dimen151
-\Gin@req@width=\dimen152
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\
-pgfsys.sty
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlaye
-r\pgfsys.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.
+sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s.code.tex
 Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
-pgfkeys.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex
 \pgfkeys@pathtoks=\toks19
 \pgfkeys@temptoks=\toks20
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
-pgfkeysfiltered.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+filtered.code.tex
 \pgfkeys@tmptoks=\toks21
 ))
-\pgf@x=\dimen153
-\pgf@y=\dimen154
-\pgf@xa=\dimen155
-\pgf@ya=\dimen156
-\pgf@xb=\dimen157
-\pgf@yb=\dimen158
-\pgf@xc=\dimen159
-\pgf@yc=\dimen160
-\pgf@xd=\dimen161
-\pgf@yd=\dimen162
+\pgf@x=\dimen151
+\pgf@y=\dimen152
+\pgf@xa=\dimen153
+\pgf@ya=\dimen154
+\pgf@xb=\dimen155
+\pgf@yb=\dimen156
+\pgf@xc=\dimen157
+\pgf@yc=\dimen158
+\pgf@xd=\dimen159
+\pgf@yd=\dimen160
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
 \c@pgf@counta=\count266
@@ -222,236 +200,234 @@ pgfkeysfiltered.code.tex
 \t@pgf@tokc=\toks24
 \pgf@sys@id@count=\count270
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlaye
-r\pgf.cfg
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
+fg
 File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
 )
 Driver file for pgf: pgfsys-pdftex.def
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlaye
-r\pgfsys-pdftex.def
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-pdftex.def
 File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlaye
-r\pgfsys-common-pdf.def
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-common-pdf.def
 File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 )))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlaye
-r\pgfsyssoftpath.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+ssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfsyssoftpath@smallbuffer@items=\count271
 \pgfsyssoftpath@bigbuffer@items=\count272
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlaye
-r\pgfsysprotocol.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+sprotocol.code.tex
 File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcore.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+e.code.tex
 Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-th.code.tex
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-thcalc.code.tex
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-thutil.code.tex)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-thparser.code.tex
-\pgfmath@dimen=\dimen163
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.
+code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.
+code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
+r.code.tex
+\pgfmath@dimen=\dimen161
 \pgfmath@count=\count273
 \pgfmath@box=\box53
 \pgfmath@toks=\toks25
 \pgfmath@stack@operand=\toks26
 \pgfmath@stack@operation=\toks27
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-thfunctions.code.tex
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-thfunctions.basic.code.tex)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-thfunctions.trigonometric.code.tex)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-thfunctions.random.code.tex)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-thfunctions.comparison.code.tex)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-thfunctions.base.code.tex)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-thfunctions.round.code.tex)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-thfunctions.misc.code.tex)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-thfunctions.integerarithmetics.code.tex)))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-thfloat.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.basic.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.trigonometric.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.random.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.comparison.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.base.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.round.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.misc.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.integerarithmetics.code.tex)))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
+.code.tex
 \c@pgfmathroundto@lastzeros=\count274
 ))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfin
-t.code.tex)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcorepoints.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
+tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epoints.code.tex
 File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@picminx=\dimen164
-\pgf@picmaxx=\dimen165
-\pgf@picminy=\dimen166
-\pgf@picmaxy=\dimen167
-\pgf@pathminx=\dimen168
-\pgf@pathmaxx=\dimen169
-\pgf@pathminy=\dimen170
-\pgf@pathmaxy=\dimen171
-\pgf@xx=\dimen172
-\pgf@xy=\dimen173
-\pgf@yx=\dimen174
-\pgf@yy=\dimen175
-\pgf@zx=\dimen176
-\pgf@zy=\dimen177
+\pgf@picminx=\dimen162
+\pgf@picmaxx=\dimen163
+\pgf@picminy=\dimen164
+\pgf@picmaxy=\dimen165
+\pgf@pathminx=\dimen166
+\pgf@pathmaxx=\dimen167
+\pgf@pathminy=\dimen168
+\pgf@pathmaxy=\dimen169
+\pgf@xx=\dimen170
+\pgf@xy=\dimen171
+\pgf@yx=\dimen172
+\pgf@yy=\dimen173
+\pgf@zx=\dimen174
+\pgf@zy=\dimen175
 LaTeX Font Info:    Trying to load font information for T1+qtm on input line 92
 6.
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\t1qtm.f
-d
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\t1qtm.fd
 File: t1qtm.fd 2009/09/25 v1.2 font definition file for T1/qtm
 ))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcorepathconstruct.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@path@lastx=\dimen178
-\pgf@path@lasty=\dimen179
+\pgf@path@lastx=\dimen176
+\pgf@path@lasty=\dimen177
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcorepathusage.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathusage.code.tex
 File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@shorten@end@additional=\dimen180
-\pgf@shorten@start@additional=\dimen181
+\pgf@shorten@end@additional=\dimen178
+\pgf@shorten@start@additional=\dimen179
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcorescopes.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+escopes.code.tex
 File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfpic=\box54
 \pgf@hbox=\box55
 \pgf@layerbox@main=\box56
 \pgf@picture@serial@count=\count275
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcoregraphicstate.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+egraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgflinewidth=\dimen182
+\pgflinewidth=\dimen180
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcoretransformations.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransformations.code.tex
 File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@pt@x=\dimen183
-\pgf@pt@y=\dimen184
-\pgf@pt@temp=\dimen185
+\pgf@pt@x=\dimen181
+\pgf@pt@y=\dimen182
+\pgf@pt@temp=\dimen183
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcorequick.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+equick.code.tex
 File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcoreobjects.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eobjects.code.tex
 File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcorepathprocessing.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathprocessing.code.tex
 File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcorearrows.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+earrows.code.tex
 File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfarrowsep=\dimen186
+\pgfarrowsep=\dimen184
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcoreshade.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eshade.code.tex
 File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@max=\dimen187
+\pgf@max=\dimen185
 \pgf@sys@shading@range@num=\count276
 \pgf@shadingcount=\count277
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcoreimage.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eimage.code.tex
 File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcoreexternal.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eexternal.code.tex
 File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfexternal@startupbox=\box57
 ))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcorelayers.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+elayers.code.tex
 File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcoretransparency.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransparency.code.tex
 File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcorepatterns.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epatterns.code.tex
 File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
-\pgfcorerdf.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+erdf.code.tex
 File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pg
-fmoduleshapes.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+shapes.code.tex
 File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfnodeparttextbox=\box58
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pg
-fmoduleplot.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+plot.code.tex
 File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibilit
-y\pgfcomp-version-0-65.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-0-65.sty
 Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@nodesepstart=\dimen188
-\pgf@nodesepend=\dimen189
+\pgf@nodesepstart=\dimen186
+\pgf@nodesepend=\dimen187
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibilit
-y\pgfcomp-version-1-18.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-1-18.sty
 Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
 ))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pg
-ffor.sty
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pg
-fkeys.sty
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
-pgfkeys.code.tex))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath
-.sty
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-th.code.tex))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
-pgffor.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.st
+y
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.s
+ty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.
+code.tex
 Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
-th.code.tex)
-\pgffor@iter=\dimen190
-\pgffor@skip=\dimen191
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex)
+\pgffor@iter=\dimen188
+\pgffor@skip=\dimen189
 \pgffor@stack=\toks28
 \pgffor@toks=\toks29
 ))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz\tikz.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z\tikz.code.tex
 Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\
-pgflibraryplothandlers.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@plot@mark@count=\count278
-\pgfplotmarksize=\dimen192
+\pgfplotmarksize=\dimen190
 )
-\tikz@lastx=\dimen193
-\tikz@lasty=\dimen194
-\tikz@lastxsaved=\dimen195
-\tikz@lastysaved=\dimen196
-\tikz@lastmovetox=\dimen197
-\tikz@lastmovetoy=\dimen198
-\tikzleveldistance=\dimen199
-\tikzsiblingdistance=\dimen256
+\tikz@lastx=\dimen191
+\tikz@lasty=\dimen192
+\tikz@lastxsaved=\dimen193
+\tikz@lastysaved=\dimen194
+\tikz@lastmovetox=\dimen195
+\tikz@lastmovetoy=\dimen196
+\tikzleveldistance=\dimen197
+\tikzsiblingdistance=\dimen198
 \tikz@figbox=\box59
 \tikz@figbox@bg=\box60
 \tikz@tempbox=\box61
@@ -461,8 +437,8 @@ File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \tikznumberofcurrentchild=\count281
 \tikz@fig@count=\count282
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pg
-fmodulematrix.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+matrix.code.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfmatrixcurrentrow=\count283
 \pgfmatrixcurrentcolumn=\count284
@@ -470,30 +446,25 @@ File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
 \tikz@expandcount=\count286
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibrarytopaths.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multiro
-w.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip59
+\multirow@colwidth=\skip58
 \multirow@cntb=\count287
-\multirow@dima=\skip60
-\bigstrutjot=\dimen257
+\multirow@dima=\skip59
+\bigstrutjot=\dimen199
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/qrcode\qrcode.st
-y
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/qrcode\qrcode.sty
 Package: qrcode 2015/01/08 v1.51 QR code generation
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.
-sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyva
-l.tex
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvuti
-ls.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
 \XKV@toks=\toks30
 \XKV@tempa@toks=\toks31
 )
@@ -512,9 +483,9 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 \qr@for@step=\count298
 \qr@newforcount=\count299
 \qr@newforcount=\count300
-\qr@desiredheight=\skip61
-\qr@modulesize=\skip62
-\qr@minipagewidth=\skip63
+\qr@desiredheight=\skip60
+\qr@modulesize=\skip61
+\qr@minipagewidth=\skip62
 \c@maski=\count301
 \c@maskj=\count302
 \c@totalones=\count303
@@ -526,91 +497,78 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 \qr@newforcount=\count309
 \c@qr@divisionsremaining=\count310
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumite
-m.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
-\labelindent=\skip64
-\enit@outerparindent=\dimen258
+\labelindent=\skip63
+\enit@outerparindent=\dimen256
 \enit@toks=\toks32
 \enit@inbox=\box63
 \enit@count@id=\count311
 \enitdp@description=\count312
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/subfig\subfig.st
-y
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/subfig\subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.
-sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2022/03/01 v3.6b Customizing captions (AR)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3
-.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
-\caption@tempdima=\dimen259
-\captionmargin=\dimen260
-\caption@leftmargin=\dimen261
-\caption@rightmargin=\dimen262
-\caption@width=\dimen263
-\caption@indent=\dimen264
-\caption@parindent=\dimen265
-\caption@hangindent=\dimen266
+\caption@tempdima=\dimen257
+\captionmargin=\dimen258
+\caption@leftmargin=\dimen259
+\caption@rightmargin=\dimen260
+\caption@width=\dimen261
+\caption@indent=\dimen262
+\caption@parindent=\dimen263
+\caption@hangindent=\dimen264
 Package caption Info: Standard document class detected.
 )
 \c@caption@flags=\count313
 \c@continuedfloat=\count314
 )
 \c@KVtest=\count315
-\sf@farskip=\skip65
-\sf@captopadj=\dimen267
-\sf@capskip=\skip66
-\sf@nearskip=\skip67
+\sf@farskip=\skip64
+\sf@captopadj=\dimen265
+\sf@capskip=\skip65
+\sf@nearskip=\skip66
 \c@subfigure=\count316
 \c@subfigure@save=\count317
 \c@lofdepth=\count318
 \c@subtable=\count319
 \c@subtable@save=\count320
 \c@lotdepth=\count321
-\sf@top=\skip68
-\sf@bottom=\skip69
-)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlese
-c.sty
+\sf@top=\skip67
+\sf@bottom=\skip68
+) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
 Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \ttl@box=\box64
-\beforetitleunit=\skip70
-\aftertitleunit=\skip71
-\ttl@plus=\dimen268
-\ttl@minus=\dimen269
+\beforetitleunit=\skip69
+\aftertitleunit=\skip70
+\ttl@plus=\dimen266
+\ttl@minus=\dimen267
 \ttl@toksa=\toks33
-\titlewidth=\dimen270
-\titlewidthlast=\dimen271
-\titlewidthfirst=\dimen272
-)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.
-sty
+\titlewidth=\dimen268
+\titlewidthlast=\dimen269
+\titlewidthfirst=\dimen270
+) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2022/04/08 v2.17n AMS math features
-\@mathmargin=\skip72
+\@mathmargin=\skip71
 
 For additional information on amsmath, use the `?' option.
-
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.
-sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.s
-ty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks34
-\ex@=\dimen273
+\ex@=\dimen271
 ))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.s
-ty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen274
+\pmbraise@=\dimen272
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.s
-ty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count322
@@ -630,7 +588,7 @@ LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen275
+\big@size=\dimen273
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \macc@depth=\count327
@@ -648,53 +606,49 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \column@=\count332
 \maxfields@=\count333
 \andhelp@=\toks36
-\eqnshift@=\dimen276
-\alignsep@=\dimen277
-\tagshift@=\dimen278
-\tagwidth@=\dimen279
-\totwidth@=\dimen280
-\lineht@=\dimen281
+\eqnshift@=\dimen274
+\alignsep@=\dimen275
+\tagshift@=\dimen276
+\tagwidth@=\dimen277
+\totwidth@=\dimen278
+\lineht@=\dimen279
 \@envbody=\toks37
-\multlinegap=\skip73
-\multlinetaggap=\skip74
+\multlinegap=\skip72
+\multlinetaggap=\skip73
 \mathdisplay@stack=\toks38
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathto
-ols.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
 Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
-
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count334
 \calc@Bcount=\count335
-\calc@Adimen=\dimen282
-\calc@Bdimen=\dimen283
-\calc@Askip=\skip75
-\calc@Bskip=\skip76
+\calc@Adimen=\dimen280
+\calc@Bdimen=\dimen281
+\calc@Askip=\skip74
+\calc@Bskip=\skip75
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count336
-\calc@Cskip=\skip77
+\calc@Cskip=\skip76
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetu
-p.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
 \g_MT_multlinerow_int=\count337
-\l_MT_multwidth_dim=\dimen284
-\origjot=\skip78
-\l_MT_shortvdotswithinadjustabove_dim=\dimen285
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen286
-\l_MT_above_intertext_sep=\dimen287
-\l_MT_below_intertext_sep=\dimen288
-\l_MT_above_shortintertext_sep=\dimen289
-\l_MT_below_shortintertext_sep=\dimen290
+\l_MT_multwidth_dim=\dimen282
+\origjot=\skip77
+\l_MT_shortvdotswithinadjustabove_dim=\dimen283
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen284
+\l_MT_above_intertext_sep=\dimen285
+\l_MT_below_intertext_sep=\dimen286
+\l_MT_above_shortintertext_sep=\dimen287
+\l_MT_below_shortintertext_sep=\dimen288
 \xmathstrut@box=\box67
-\xmathstrut@dim=\dimen291
-)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+\xmathstrut@dim=\dimen289
+) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count338
 \float@exts=\toks39
@@ -702,93 +656,80 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks40
 \@floatcapt=\box69
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.
-sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
 Package: relsize 2013/03/29 ver 4.1
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.
-sty
-\wrapoverhang=\dimen292
-\WF@size=\dimen293
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
+\wrapoverhang=\dimen290
+\WF@size=\dimen291
 \c@WF@wrappedlines=\count339
 \WF@box=\box70
 \WF@everypar=\toks41
 Package: wrapfig 2003/01/31  v 3.6
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperre
-f.sty
-Package: hyperref 2022-11-13 v7.00u Hypertext links for LaTeX
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2022-06-20 v7.00s Hypertext links for LaTeX
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdf
-texcmds.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infw
-arerr.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\k
-vdefinekeys.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfe
-scape.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.
-sty
+) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letl
-txmacro.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
+.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.
-sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref
-.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcoun
-t.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring
-\gettitlestring.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count340
 )
-\@linkdim=\dimen294
+\@linkdim=\dimen292
 \Hy@linkcounter=\count341
 \Hy@pagecounter=\count342
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.
-def
-File: pd1enc.def 2022-11-13 v7.00u Hyperref: PDFDocEncoding definition (HO)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2022-06-20 v7.00s Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcal
-c.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexc
-mds.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count343
-
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.d
-ef
-File: puenc.def 2022-11-13 v7.00u Hyperref: PDF Unicode definition (HO)
+ (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2022-06-20 v7.00s Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
@@ -798,37 +739,36 @@ Package hyperref Info: Hyper index ON on input line 4170.
 Package hyperref Info: Plain pages OFF on input line 4177.
 Package hyperref Info: Backreferencing OFF on input line 4182.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4410.
+Package hyperref Info: Bookmarks ON on input line 4408.
 \c@Hy@tempcnt=\count344
- (C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4748.
-\XeTeXLinkMargin=\dimen295
+LaTeX Info: Redefining \url on input line 4746.
+\XeTeXLinkMargin=\dimen293
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.
-sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\big
-intcalc.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count345
-\Field@Width=\dimen296
-\Fld@charsize=\dimen297
-Package hyperref Info: Hyper figures OFF on input line 6027.
-Package hyperref Info: Link nesting OFF on input line 6032.
-Package hyperref Info: Hyper index ON on input line 6035.
-Package hyperref Info: backreferencing OFF on input line 6042.
-Package hyperref Info: Link coloring OFF on input line 6047.
-Package hyperref Info: Link coloring with OCG OFF on input line 6052.
-Package hyperref Info: PDF/A mode OFF on input line 6057.
+\Field@Width=\dimen294
+\Fld@charsize=\dimen295
+Package hyperref Info: Hyper figures OFF on input line 6024.
+Package hyperref Info: Link nesting OFF on input line 6029.
+Package hyperref Info: Hyper index ON on input line 6032.
+Package hyperref Info: backreferencing OFF on input line 6039.
+Package hyperref Info: Link coloring OFF on input line 6044.
+Package hyperref Info: Link coloring with OCG OFF on input line 6049.
+Package hyperref Info: PDF/A mode OFF on input line 6054.
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-lt
-x.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
@@ -837,13 +777,10 @@ package with kernel methods
 \c@Hfootnote=\count348
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2022-06-20 v7.00s Hyperref driver for pdfTeX
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex
-.def
-File: hpdftex.def 2022-11-13 v7.00u Hyperref driver for pdfTeX
-
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-l
-tx.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
@@ -851,50 +788,48 @@ with kernel methods
 \Fld@listcount=\count349
 \c@bookmark@seq@number=\count350
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\r
-erunfilecheck.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\
-uniquecounter.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
 )
-\Hy@SectionHShift=\skip79
+\Hy@SectionHShift=\skip78
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.s
-ty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
-Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
-\col@sep=\dimen298
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen296
 \ar@mcellbox=\box71
-\extrarowheight=\dimen299
+\extrarowheight=\dimen297
 \NC@list=\toks42
-\extratabsurround=\skip80
-\backup@length=\skip81
+\extratabsurround=\skip79
+\backup@length=\skip80
 \ar@cellbox=\box72
 )
-\TX@col@width=\dimen300
-\TX@old@table=\dimen301
-\TX@old@col=\dimen302
-\TX@target=\dimen303
-\TX@delta=\dimen304
+\TX@col@width=\dimen298
+\TX@old@table=\dimen299
+\TX@old@col=\dimen300
+\TX@target=\dimen301
+\TX@delta=\dimen302
 \TX@cols=\count351
 \TX@ftn=\toks43
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.
-sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
-\LTleft=\skip82
-\LTright=\skip83
-\LTpre=\skip84
-\LTpost=\skip85
+\LTleft=\skip81
+\LTright=\skip82
+\LTpre=\skip83
+\LTpost=\skip84
 \LTchunksize=\count352
-\LTcapwidth=\dimen305
+\LTcapwidth=\dimen303
 \LT@head=\box73
 \LT@firsthead=\box74
 \LT@foot=\box75
@@ -906,21 +841,20 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \c@LT@chunks=\count356
 \LT@p@ftn=\toks44
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/minted\minted.st
-y
-Package: minted 2022/12/12 v2.7 Yet another Pygments shim for LaTeX
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/minted\minted.sty
+Package: minted 2021/12/24 v2.6 Yet another Pygments shim for LaTeX
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/fvextra\fvextra.
-sty
-Package: fvextra 2022/11/30 v1.5 fvextra - extensions and patches for fancyvrb
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/fvextra\fvextra.sty
+Package: fvextra 2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbo
-x.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count357
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvr
-b.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvrb.sty
 Package: fancyvrb 2022/06/06 4.5 verbatim text (tvz,hv)
 \FV@CodeLineNo=\count358
 \FV@InFile=\read3
@@ -929,158 +863,144 @@ Package: fancyvrb 2022/06/06 4.5 verbatim text (tvz,hv)
 \FV@StepNumber=\count360
 \FV@OutFile=\write4
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.
-sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.st
-y
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 ))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/lineno\lineno.st
-y
-Package: lineno 2022/07/30 line numbers on paragraphs v5.0
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/lineno\lineno.sty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 \linenopenalty=\count361
 \output=\toks45
 \linenoprevgraf=\count362
-\linenumbersep=\dimen306
-\linenumberwidth=\dimen307
+\linenumbersep=\dimen304
+\linenumberwidth=\dimen305
 \c@linenumber=\count363
 \c@pagewiselinenumber=\count364
 \c@LN@truepage=\count365
 \c@internallinenumber=\count366
 \c@internallinenumbers=\count367
-\quotelinenumbersep=\dimen308
-\bframerule=\dimen309
-\bframesep=\dimen310
+\quotelinenumbersep=\dimen306
+\bframerule=\dimen307
+\bframesep=\dimen308
 \bframebox=\box79
-\linenoamsmath@ams@eqpen=\count368
-LaTeX Info: Redefining \\ on input line 3114.
+LaTeX Info: Redefining \\ on input line 3056.
 )
-\c@FV@TrueTabGroupLevel=\count369
-\c@FV@TrueTabCounter=\count370
+\c@FV@TrueTabGroupLevel=\count368
+\c@FV@TrueTabCounter=\count369
 \FV@TabBox@Group=\box80
-\FV@TmpLength=\skip86
-\c@FV@HighlightLinesStart=\count371
-\c@FV@HighlightLinesStop=\count372
-\FV@LoopCount=\count373
+\FV@TmpLength=\skip85
+\c@FV@HighlightLinesStart=\count370
+\c@FV@HighlightLinesStop=\count371
+\FV@LoopCount=\count372
 \FV@NCharsBox=\box81
-\FV@BreakIndent=\dimen311
-\FV@BreakIndentNChars=\count374
-\FV@BreakSymbolSepLeft=\dimen312
-\FV@BreakSymbolSepLeftNChars=\count375
-\FV@BreakSymbolSepRight=\dimen313
-\FV@BreakSymbolSepRightNChars=\count376
-\FV@BreakSymbolIndentLeft=\dimen314
-\FV@BreakSymbolIndentLeftNChars=\count377
-\FV@BreakSymbolIndentRight=\dimen315
-\FV@BreakSymbolIndentRightNChars=\count378
-\c@FancyVerbLineBreakLast=\count379
+\FV@BreakIndent=\dimen309
+\FV@BreakIndentNChars=\count373
+\FV@BreakSymbolSepLeft=\dimen310
+\FV@BreakSymbolSepLeftNChars=\count374
+\FV@BreakSymbolSepRight=\dimen311
+\FV@BreakSymbolSepRightNChars=\count375
+\FV@BreakSymbolIndentLeft=\dimen312
+\FV@BreakSymbolIndentLeftNChars=\count376
+\FV@BreakSymbolIndentRight=\dimen313
+\FV@BreakSymbolIndentRightNChars=\count377
+\c@FancyVerbLineBreakLast=\count378
 \FV@LineBox=\box82
 \FV@LineIndentBox=\box83
-\c@FV@BreakBufferDepth=\count380
-\FV@LineWidth=\dimen316
+\FV@LineWidth=\dimen314
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
-Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
-)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.s
-ty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.sty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
 Package shellesc Info: Unrestricted shell escape enabled on input line 75.
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/ifplatform\ifpla
-tform.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/ifplatform\ifplatform.s
+ty
 Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/catchfile\catc
-hfile.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/catchfile\catchfile.s
+ty
 Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex
-.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 ))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.
-sty
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstrin
-g.tex
-\integerpart=\count381
-\decimalpart=\count382
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstring.tex
+\integerpart=\count379
+\decimalpart=\count380
 )
 Package: xstring 2021/07/21 v1.84 String manipulations (CT)
-)
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/framed\framed.st
-y
+) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/framed\framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip87
-\fb@frw=\dimen317
-\fb@frh=\dimen318
-\FrameRule=\dimen319
-\FrameSep=\dimen320
+\OuterFrameSep=\skip86
+\fb@frw=\dimen315
+\fb@frh=\dimen316
+\FrameRule=\dimen317
+\FrameSep=\dimen318
 )
 \minted@appexistsfile=\read4
 \minted@bgbox=\box84
 \minted@code=\write5
-\c@minted@FancyVerbLineTemp=\count383
-\c@minted@pygmentizecounter=\count384
+\c@minted@FancyVerbLineTemp=\count381
+\c@minted@pygmentizecounter=\count382
 \@float@every@listing=\toks46
-\c@listing=\count385
+\c@listing=\count383
 )
 runsystem(if not exist _minted-main mkdir _minted-main)...executed.
 
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibrarymatrix.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarymatrix.code.tex
 File: tikzlibrarymatrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibraryshapes.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.code.tex
 File: tikzlibraryshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibraryshapes.geometric.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.geometric.code.tex
 File: tikzlibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/
-shapes\pgflibraryshapes.geometric.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.geometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibraryshapes.misc.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.misc.code.tex
 File: tikzlibraryshapes.misc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/
-shapes\pgflibraryshapes.misc.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.misc.code.tex
 File: pgflibraryshapes.misc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibraryshapes.symbols.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.symbols.code.tex
 File: tikzlibraryshapes.symbols.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/
-shapes\pgflibraryshapes.symbols.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.symbols.code.tex
 File: pgflibraryshapes.symbols.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibraryshapes.arrows.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.arrows.code.tex
 File: tikzlibraryshapes.arrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/
-shapes\pgflibraryshapes.arrows.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.arrows.code.tex
 File: pgflibraryshapes.arrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibraryshapes.callouts.code.tex
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/
-shapes\pgflibraryshapes.callouts.code.tex))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibraryshapes.multipart.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.callouts.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.callouts.code.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.multipart.code.tex
 File: tikzlibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/
-shapes\pgflibraryshapes.multipart.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfnodepartlowerbox=\box85
 \pgfnodeparttwobox=\box86
@@ -1103,92 +1023,93 @@ File: pgflibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfnodepartsixbox=\box103
 \pgfnodepartfivebox=\box104
 )))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibraryarrows.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryarrows.code.tex
 File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\
-pgflibraryarrows.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryarrows.code.tex
 File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\arrowsize=\dimen321
+\arrowsize=\dimen319
 ))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibrarypositioning.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibrarychains.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarychains.code.tex
 File: tikzlibrarychains.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibrarydecorations.code.tex
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pg
-fmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen322
-\pgfdecoratedremainingdistance=\dimen323
-\pgfdecoratedinputsegmentcompleteddistance=\dimen324
-\pgfdecoratedinputsegmentremainingdistance=\dimen325
-\pgf@decorate@distancetomove=\dimen326
-\pgf@decorate@repeatstate=\count386
-\pgfdecorationsegmentamplitude=\dimen327
-\pgfdecorationsegmentlength=\dimen328
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarydecorations.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+decorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen320
+\pgfdecoratedremainingdistance=\dimen321
+\pgfdecoratedinputsegmentcompleteddistance=\dimen322
+\pgfdecoratedinputsegmentremainingdistance=\dimen323
+\pgf@decorate@distancetomove=\dimen324
+\pgf@decorate@repeatstate=\count384
+\pgfdecorationsegmentamplitude=\dimen325
+\pgfdecorationsegmentlength=\dimen326
 )
 \tikz@lib@dec@box=\box105
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibraryautomata.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryautomata.code.tex
 File: tikzlibraryautomata.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibrarybackgrounds.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@layerbox@background=\box106
 \pgf@layerboxsaved@background=\box107
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibrarypetri.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarypetri.code.tex
 File: tikzlibrarypetri.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibrarybending.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarybending.code.tex
 File: tikzlibrarybending.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pg
-fmodulebending.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+bending.code.tex
 File: pgfmodulebending.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pg
-fmodulenonlineartransformations.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+nonlineartransformations.code.tex
 File: pgfmodulenonlineartransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgftransformnonlinearflatness=\dimen329
+\pgftransformnonlinearflatness=\dimen327
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\
-pgflibrarycurvilinear.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+arycurvilinear.code.tex
 File: pgflibrarycurvilinear.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@curvilinear@time@a=\dimen330
-\pgf@curvilinear@length@a=\dimen331
-\pgf@curvilinear@length@b=\dimen332
-\pgf@curvilinear@length@c=\dimen333
-\pgf@curvilinear@length@d=\dimen334
+\pgf@curvilinear@time@a=\dimen328
+\pgf@curvilinear@length@a=\dimen329
+\pgf@curvilinear@length@b=\dimen330
+\pgf@curvilinear@length@c=\dimen331
+\pgf@curvilinear@length@d=\dimen332
 )
-\pgf@arrows@the@rigidity=\dimen335
+\pgf@arrows@the@rigidity=\dimen333
 ))
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibrarypatterns.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarypatterns.code.tex
 File: tikzlibrarypatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\
-pgflibrarypatterns.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+arypatterns.code.tex
 File: pgflibrarypatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))
-\c@subsubsubsection=\count387
-\c@magicrownumbers=\count388
+\c@subsubsubsection=\count385
+\c@magicrownumbers=\count386
 runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > ma
 in.aex <nul: /p x=^%~$PATH:i>> main.aex)...executed.
 
 runsystem(del main.aex)...executed.
 
- (main.aux (pages/analysis.aux) (pages/design.aux) (pages/testing.aux
+ (main.aux (pages/analysis.aux) (pages/design.aux)
+(pages/testing.aux
 <Reading QR code for "https://youtu.be/cJqFovg27Bo" at level 3-Q from aux file.
 >
 ) (pages/solution.tex.aux) (pages/evaluation.aux) (pages/code.aux))
@@ -1248,29 +1169,29 @@ LaTeX Font Info:    ... okay on input line 110.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp
--pdf.mkii
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count389
-\scratchdimen=\dimen336
+\scratchcounter=\count387
+\scratchdimen=\dimen334
 \scratchbox=\box108
-\nofMPsegments=\count390
-\nofMParguments=\count391
+\nofMPsegments=\count388
+\nofMParguments=\count389
 \everyMPshowfont=\toks47
-\MPscratchCnt=\count392
-\MPscratchDim=\dimen337
-\MPnumerator=\count393
-\makeMPintoPDFobject=\count394
+\MPscratchCnt=\count390
+\MPscratchDim=\dimen335
+\MPnumerator=\count391
+\makeMPintoPDFobject=\count392
 \everyMPtoPDFconversion=\toks48
 )
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\eps
-topdf-base.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopd
-f-sys.cfg
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
@@ -1279,25 +1200,25 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaptio
-n.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 110.
- (main.out) (main.out)
+
+(main.out) (main.out)
 \@outlinefile=\write6
 \openout6 = `main.out'.
 
  [1
 
-{C:/Users/Rubens Pirie/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+{C:/Users/ruben/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
 38.
 
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmss.fd
-File: t1cmss.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmss.fd
+File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <16> not available
@@ -1354,9 +1275,7 @@ Package pdftex.def Info: images/labeledMap.png  used on input line 17.
 (pdftex.def)             Requested size: 170.71652pt x 170.71487pt.
 LaTeX Font Info:    Trying to load font information for TS1+qtm on input line 1
 8.
-
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qtm.
-fd
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qtm.fd
 File: ts1qtm.fd 2009/09/25 v1.2 font definition file for TS1/qtm
 )
 
@@ -1498,13 +1417,12 @@ ne 409.
 \openout4 = `main.pyg'.
 
  (_minted-main/default.pygstyle)
-(_minted-main/656C6A182A1A98A3F4235BFF507F423CBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/656C6A182A1A98A3F4235BFF507F423C6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 .
-
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
-File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+ (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -1625,7 +1543,7 @@ e 442.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/5F0F0DCDBF6CD1F1279AC03DC2AADA23BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/5F0F0DCDBF6CD1F1279AC03DC2AADA236A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -1911,7 +1829,7 @@ e 499.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/AA04E7DC3BE073534EBDF2C0CFD0E189BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/AA04E7DC3BE073534EBDF2C0CFD0E1896A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -2049,7 +1967,7 @@ e 551.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/A67F50EE0225B6220F14308B316004F8BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/A67F50EE0225B6220F14308B316004F86A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -2157,7 +2075,7 @@ e 571.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/42C0FB5521F11DF0EFB12DB3100EB194BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/42C0FB5521F11DF0EFB12DB3100EB1946A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -2256,7 +2174,7 @@ e 592.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/8EB0E74B496CDAF8D1992A9C708B952BBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/8EB0E74B496CDAF8D1992A9C708B952B6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -2454,7 +2372,7 @@ e 652.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/7B6B93B34F23A9A43D4119F3739C398BBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/7B6B93B34F23A9A43D4119F3739C398B6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -2683,7 +2601,7 @@ e 687.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/101232C9544DFA133CCFC37EC5BE3D23BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/101232C9544DFA133CCFC37EC5BE3D236A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -2909,7 +2827,7 @@ e 736.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/7D6A941DA03E684619043CEF6BFAE8CDBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/7D6A941DA03E684619043CEF6BFAE8CD6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -3041,7 +2959,7 @@ e 794.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/7D5F121F1C6DD4F6A5391EBAEDE88D0ABFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/7D5F121F1C6DD4F6A5391EBAEDE88D0A6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -3193,7 +3111,7 @@ Package pdftex.def Info: images/graphClassDiagram.png  used on input line 862.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/35A61BA301D18BE32A0FB386F466C031BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/35A61BA301D18BE32A0FB386F466C0316A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -3576,7 +3494,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/796FB987E41A909C824E96D7405DEDA1BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/796FB987E41A909C824E96D7405DEDA16A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -4052,7 +3970,7 @@ LaTeX Font Warning: Font shape `T1/cmss/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/CDF22D473D825B438353524DED729EEFBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/CDF22D473D825B438353524DED729EEF6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -5123,7 +5041,7 @@ LaTeX Font Warning: Font shape `T1/cmss/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/0B71B649FF06EBB80BE2FCE42F2A530DBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/0B71B649FF06EBB80BE2FCE42F2A530D6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -8837,7 +8755,7 @@ LaTeX Font Warning: Font shape `T1/cmss/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/3B8E81F35E50E389B33AEE9804A5ADF9BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/3B8E81F35E50E389B33AEE9804A5ADF96A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -10226,7 +10144,7 @@ LaTeX Font Warning: Font shape `T1/cmss/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/BD5076E27BAB48FBAC5B1A82A0C4383FBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/BD5076E27BAB48FBAC5B1A82A0C4383F6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -11075,7 +10993,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/DDCD38AE71671326F34979C0439946C2BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/DDCD38AE71671326F34979C0439946C26A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -11755,7 +11673,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/78EC761638FAE7F6CB61A445E5A5E2A6BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/78EC761638FAE7F6CB61A445E5A5E2A66A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -12074,7 +11992,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/58378F5D102BBE967D75A358E05998A7BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/58378F5D102BBE967D75A358E05998A76A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -12922,7 +12840,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/F42492C9E9C0D651D76DBE2C3B627766BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/F42492C9E9C0D651D76DBE2C3B6277666A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -13441,7 +13359,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/22C2EA1D524062832D06E44E6E724448BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/22C2EA1D524062832D06E44E6E7244486A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -13921,7 +13839,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/F2115DA59D3E17CDC60DD9B1E771AD00BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/F2115DA59D3E17CDC60DD9B1E771AD006A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -14088,7 +14006,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/AB4013B0CCDC95D47B8352BB718FD48DBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/AB4013B0CCDC95D47B8352BB718FD48D6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -14262,7 +14180,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/B05422CB9E381707650235C73840FB4CBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/B05422CB9E381707650235C73840FB4C6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -14364,7 +14282,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/DA2C731E153C321C8E4743DD9B26E695BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/DA2C731E153C321C8E4743DD9B26E6956A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -14466,7 +14384,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/CB356A6843270BD849CBB01066EC718CBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/CB356A6843270BD849CBB01066EC718C6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -14568,7 +14486,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/A5D82F2EBC72C13D923263097E3E4225BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/A5D82F2EBC72C13D923263097E3E42256A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -14671,7 +14589,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/77367F640EBE28CD01399CD9AE1F0243BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/77367F640EBE28CD01399CD9AE1F02436A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -14773,7 +14691,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/D74BF6CFB8FF0988234A0F0189CDC924BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/D74BF6CFB8FF0988234A0F0189CDC9246A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -14875,7 +14793,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/E6A2D3A7B2B1DE5EC7472FF73DA9AFBABFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/E6A2D3A7B2B1DE5EC7472FF73DA9AFBA6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -14978,7 +14896,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/E49B3667CD5019289A45E1302285E049BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/E49B3667CD5019289A45E1302285E0496A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -15016,7 +14934,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/3B4587E3AED7DA8EE961D82D2743DCF3BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/3B4587E3AED7DA8EE961D82D2743DCF36A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -16794,7 +16712,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/1E84FCB86847C9E39703F2F777F0B9A5BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/1E84FCB86847C9E39703F2F777F0B9A56A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -17233,7 +17151,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/461C46D35C2033A1DAFA7A07FF556DFBBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/461C46D35C2033A1DAFA7A07FF556DFB6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -17616,7 +17534,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/FF597AACDA46313334702FF1BB99DFF3BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/FF597AACDA46313334702FF1BB99DFF36A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -18312,7 +18230,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/E7A590883443A110F6FF9DA2F7DFB15ABFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/E7A590883443A110F6FF9DA2F7DFB15A6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -18928,7 +18846,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/DB4DFB219DAF97CD9D87576C58F1AF44BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/DB4DFB219DAF97CD9D87576C58F1AF446A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -19592,7 +19510,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/03A0E264AB69255B1EEE08914EDCC13BBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/03A0E264AB69255B1EEE08914EDCC13B6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -20007,7 +19925,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/6F75D9ACC6A50C7126EF5B7608E22219BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/6F75D9ACC6A50C7126EF5B7608E222196A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -20662,7 +20580,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/BA5456BFB812B8A614A69F8E7F2C743EBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/BA5456BFB812B8A614A69F8E7F2C743E6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -21043,8 +20961,8 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
 25.
-(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
-File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
+File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -21960,7 +21878,7 @@ LaTeX Font Warning: Font shape `T1/cmss/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/E4E55830D0980D389DA0035F696A6F14BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/E4E55830D0980D389DA0035F696A6F146A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -22223,7 +22141,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/CEBDB23E10697D1B4D77F46A67FDBC77BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/CEBDB23E10697D1B4D77F46A67FDBC776A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -22414,7 +22332,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/F6DF11F9D3CD42BE797093676F5BCAADBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/F6DF11F9D3CD42BE797093676F5BCAAD6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -23110,7 +23028,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/5C0B17821ACF3ECDD660AE66F863FEE2BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/5C0B17821ACF3ECDD660AE66F863FEE26A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -24272,7 +24190,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/8B197BCBBED051C71A5CC3151795AD63BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/8B197BCBBED051C71A5CC3151795AD636A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -25136,7 +25054,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/BDDB0FE7C6946DABC042CFB456C5681BBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/BDDB0FE7C6946DABC042CFB456C5681B6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -26335,7 +26253,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/19646387968408637BED5D26C3977A65BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/19646387968408637BED5D26C3977A656A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -26670,7 +26588,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/E1B5A19BE62D684B83C548BFFCE0DD21BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/E1B5A19BE62D684B83C548BFFCE0DD216A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -28039,7 +27957,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/3A7E48EEEBF57DFB7812C80FCCBB8547BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/3A7E48EEEBF57DFB7812C80FCCBB85476A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -28150,7 +28068,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/F45B71325D3DC9946E81C0FBF097636ABFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/F45B71325D3DC9946E81C0FBF097636A6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -29236,15 +29154,15 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 257.
 
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 260.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 260.
+
 [122]
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 260.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 260.
-
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 262.
@@ -29329,7 +29247,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/2E7E690CD39525D960852124E37371C3BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/2E7E690CD39525D960852124E37371C36A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -29480,7 +29398,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/F9ABAEE54B064121D26F0C32BBBBBE79BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/F9ABAEE54B064121D26F0C32BBBBBE796A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -29923,15 +29841,15 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 95.
 
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 101.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 101.
+
 [125]
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 101.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 101.
-
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 104.
@@ -29976,7 +29894,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/77DD73A8FF1916D21C6B9ED58B4D1D40BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/77DD73A8FF1916D21C6B9ED58B4D1D406A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -30484,17 +30402,17 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 141.
 
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 144.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 144.
+
 [128]
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 144.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 144.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 153.
 
 
@@ -30636,16 +30554,16 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 194.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 199.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 199.
 
 [129]
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 199.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 199.
-
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 208.
@@ -30891,7 +30809,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/68D0D720ECA166E8406578198DF41DB7BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/68D0D720ECA166E8406578198DF41DB76A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -31029,31 +30947,31 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 11.
 
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 13.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 13.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 13.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 13.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 15.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 15.
+
 [131]
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 13.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 13.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 13.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 13.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 15.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 15.
-
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 16.
@@ -31407,33 +31325,33 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 122.
 
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 132.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 132.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 134.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 134.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 134.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 134.
+
 [133]
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 132.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 132.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 134.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 134.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 134.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 134.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 136.
 
 
@@ -31775,34 +31693,34 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 190.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 195.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 195.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 195.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 195.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 195.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 195.
 
 [134]
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 195.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 195.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 195.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 195.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 195.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 195.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 197.
 
 
@@ -32080,26 +31998,26 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 244.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 246.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 246.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 248.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 248.
 
 [135]
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 246.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 246.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 248.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 248.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 249.
 
 
@@ -32258,11 +32176,11 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 301.
 
-[136])
+)
 \openout4 = `main.pyg'.
 
 
-(_minted-main/AD42BCF487B063530F70EBA5B884AF95BFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/AD42BCF487B063530F70EBA5B884AF956A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -32312,6 +32230,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 4.
 
+[136]
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 5.
@@ -32468,7 +32387,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 \openout4 = `main.pyg'.
 
 
-(_minted-main/2698A8B73DD278098DB41996C579BD6EBFA2CFDC5BD54279ABD95FFD29AE2971.
+(_minted-main/2698A8B73DD278098DB41996C579BD6E6A8AE5FAD709ACE6B4074555FF19DB7D.
 pygtex
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
@@ -32526,25 +32445,25 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 6.
 
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 7.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 7.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 9.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 9.
+
 [137]
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 7.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 7.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 9.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 9.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 18.
 
 
@@ -32694,18 +32613,18 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 64.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 69.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 69.
 
 [138]
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 69.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 69.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 71.
 
 
@@ -32839,34 +32758,34 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 115.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 125.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 125.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 126.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 126.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 128.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 128.
 
 [139]
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 125.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 125.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 126.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 126.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 128.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 128.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 129.
 
 
@@ -33056,42 +32975,42 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 175.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 177.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 177.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 178.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 178.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 181.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 181.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 182.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 182.
 
 [140]
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 177.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 177.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 178.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 178.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 181.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 181.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 182.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 182.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 183.
 
 
@@ -33249,26 +33168,26 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 232.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 240.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 240.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 240.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 240.
 
 [141]
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 240.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 240.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 240.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 240.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 243.
 
 
@@ -33386,16 +33305,16 @@ LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 292.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 298.
+
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/bx/n' instead on input line 298.
 
 [142]
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 298.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 298.
-
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
 (Font)              using `T1/cmtt/bx/n' instead on input line 302.
@@ -33442,41 +33361,39 @@ runsystem(del main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 33659 strings out of 476406
- 707601 string characters out of 2786226
- 1934787 words of memory out of 3000000
- 52706 multiletter control sequences out of 15000+600000
- 567901 words of font info for 79 fonts, out of 8000000 for 9000
+ 33575 strings out of 477992
+ 698197 string characters out of 2827467
+ 1161169 words of memory out of 3000000
+ 51039 multiletter control sequences out of 15000+600000
+ 524873 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,18n,133p,1230b,1248s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\Rubens Pirie\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi6
-00\tctt0800.pk> <C:\Users\Rubens Pirie\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
-appen/ec/dpi600\ecit0800.pk> <C:\Users\Rubens Pirie\AppData\Local\MiKTeX\fonts/
-pk/ljfour/jknappen/ec/dpi600\ectt0800.pk> <C:\Users\Rubens Pirie\AppData\Local\
-MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\Rubens Pirie\A
-ppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit1000.pk> <C:\Users\R
-ubens Pirie\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk
->{C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/
-q-ec.enc}{C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/t
-ex-gyre/q-ts1.enc} <C:\Users\Rubens Pirie\AppData\Local\MiKTeX\fonts/pk/ljfour/
-jknappen/ec/dpi600\ecsx1095.pk> <C:\Users\Rubens Pirie\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecsx1200.pk> <C:\Users\Rubens Pirie\AppData\Loc
-al\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1728.pk><C:/Users/Rubens Pirie
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Us
-ers/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mmi12.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmmi5.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Rubens Pirie/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Rubens Pirie/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/
-Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmsy5.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Rubens Pirie/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Users/Rubens Pirie/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/Rubens Piri
-e/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb>
-Output written on main.pdf (144 pages, 12134017 bytes).
+ 100i,18n,133p,1230b,1230s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt
+0800.pk> <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecit0800.pk> <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ectt0800.pk> <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ectt1200.pk> <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecit1000.pk> <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ectt1000.pk>{C:/Users/ruben/AppData/Local/Programs/Mi
+KTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}{C:/Users/ruben/AppData/Local/Programs/M
+iKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc} <C:\Users\ruben\AppData\Local\MiKTeX\
+fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1095.pk> <C:\Users\ruben\AppData\Local\M
+iKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1200.pk> <C:\Users\ruben\AppData\L
+ocal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1728.pk><C:/Users/ruben/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/r
+uben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C
+:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
+5.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmmi8.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmr12.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmr8.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ruben/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/ruben/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/ruben/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Users/ruben/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/ruben/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb>
+Output written on main.pdf (144 pages, 12133756 bytes).
 PDF statistics:
  1909 PDF objects out of 2073 (max. 8388607)
  467 named destinations out of 1000 (max. 500000)
