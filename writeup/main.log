@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.1.5)  5 JAN 2023 12:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.1.5)  5 JAN 2023 13:30
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1367,65 +1367,80 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.54 ...ed Testing Areas}{36}{subsubsection.3.1.1}
+l.54 ...e {3.1}Testing Tables}{37}{subsection.3.1}
                                                   % [1]
-Overfull \hbox (0.55994pt too wide) detected at line 104
- []\T1/LibreBskvl-LF/regular/n/10 101
+Overfull \hbox (3.23993pt too wide) detected at line 102
+ []\T1/LibreBskvl-LF/regular/n/10 100
  []
 
 
-Overfull \hbox (0.55994pt too wide) detected at line 105
- []\T1/LibreBskvl-LF/regular/n/10 101
+Overfull \hbox (3.23993pt too wide) detected at line 103
+ []\T1/LibreBskvl-LF/regular/n/10 100
+ []
+
+
+Overfull \hbox (3.23993pt too wide) detected at line 104
+ []\T1/LibreBskvl-LF/regular/n/10 100
+ []
+
+
+Overfull \hbox (2.25993pt too wide) detected at line 105
+ []\T1/LibreBskvl-LF/regular/n/10 102
  []
 
 
 Overfull \hbox (2.25993pt too wide) detected at line 106
- []\T1/LibreBskvl-LF/regular/n/10 103
+ []\T1/LibreBskvl-LF/regular/n/10 102
  []
 
 
-Overfull \hbox (2.25993pt too wide) detected at line 107
- []\T1/LibreBskvl-LF/regular/n/10 103
+Overfull \hbox (1.94994pt too wide) detected at line 107
+ []\T1/LibreBskvl-LF/regular/n/10 104
+ []
+
+
+Overfull \hbox (1.94994pt too wide) detected at line 108
+ []\T1/LibreBskvl-LF/regular/n/10 104
  []
 
 [2]
-Overfull \hbox (2.15994pt too wide) detected at line 108
- []\T1/LibreBskvl-LF/regular/n/10 108
+Overfull \hbox (2.52994pt too wide) detected at line 109
+ []\T1/LibreBskvl-LF/regular/n/10 109
  []
 
 
-Overfull \hbox (0.55994pt too wide) detected at line 109
- []\T1/LibreBskvl-LF/regular/n/10 110
+Overfull \hbox (2.25993pt too wide) detected at line 114
+ []\T1/LibreBskvl-LF/regular/n/10 120
  []
 
 
-Overfull \hbox (0.79994pt too wide) detected at line 115
- []\T1/LibreBskvl-LF/regular/n/10 125
+Overfull \hbox (2.25993pt too wide) detected at line 115
+ []\T1/LibreBskvl-LF/regular/n/10 120
  []
 
 
-Overfull \hbox (0.79994pt too wide) detected at line 116
- []\T1/LibreBskvl-LF/regular/n/10 125
+Overfull \hbox (1.54994pt too wide) detected at line 116
+ []\T1/LibreBskvl-LF/regular/n/10 126
  []
 
 
-Overfull \hbox (0.13994pt too wide) detected at line 117
- []\T1/LibreBskvl-LF/regular/n/10 127
+Overfull \hbox (1.54994pt too wide) detected at line 117
+ []\T1/LibreBskvl-LF/regular/n/10 126
  []
 
 
-Overfull \hbox (1.27994pt too wide) detected at line 118
- []\T1/LibreBskvl-LF/regular/n/10 133
+Overfull \hbox (1.17995pt too wide) detected at line 118
+ []\T1/LibreBskvl-LF/regular/n/10 128
  []
 
 
-Overfull \hbox (1.27994pt too wide) detected at line 119
- []\T1/LibreBskvl-LF/regular/n/10 133
+Overfull \hbox (0.96994pt too wide) detected at line 119
+ []\T1/LibreBskvl-LF/regular/n/10 134
  []
 
 
-Overfull \hbox (1.17995pt too wide) detected at line 120
- []\T1/LibreBskvl-LF/regular/n/10 138
+Overfull \hbox (0.96994pt too wide) detected at line 120
+ []\T1/LibreBskvl-LF/regular/n/10 134
  []
 
 
@@ -1434,8 +1449,13 @@ Overfull \hbox (1.54994pt too wide) detected at line 121
  []
 
 
-Overfull \hbox (1.54994pt too wide) detected at line 122
- []\T1/LibreBskvl-LF/regular/n/10 139
+Overfull \hbox (1.94994pt too wide) detected at line 122
+ []\T1/LibreBskvl-LF/regular/n/10 140
+ []
+
+
+Overfull \hbox (1.94994pt too wide) detected at line 123
+ []\T1/LibreBskvl-LF/regular/n/10 140
  []
 
 )
@@ -1458,7 +1478,7 @@ LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/m/n' aliased to
 (Font)              `T1/LibreBskvl-LF/regular/n' on input line 6.
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/regular/n' will be
 (Font)              scaled to size 7.0pt on input line 6.
-<images/unlabeledMap.png, id=446, 489.32813pt x 489.32813pt>
+<images/unlabeledMap.png, id=448, 489.32813pt x 489.32813pt>
 File: images/unlabeledMap.png Graphic file (type png)
 <use images/unlabeledMap.png>
 Package pdftex.def Info: images/unlabeledMap.png  used on input line 15.
@@ -1467,7 +1487,7 @@ LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/m/n' aliased to
 (Font)              `T1/LibreBskvl-LF/regular/n' on input line 15.
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/regular/n' will be
 (Font)              scaled to size 8.0pt on input line 15.
-<images/labeledMap.png, id=448, 489.32813pt x 489.32813pt>
+<images/labeledMap.png, id=450, 489.32813pt x 489.32813pt>
 File: images/labeledMap.png Graphic file (type png)
 <use images/labeledMap.png>
 Package pdftex.def Info: images/labeledMap.png  used on input line 17.
@@ -1506,7 +1526,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.1
                    \relax 
 l.121                 \subfloat
                                [\centering Example of Google Maps' GUI]{{\in...
-<images/googleMapExample.png, id=478, 963.6pt x 693.34032pt>
+<images/googleMapExample.png, id=480, 963.6pt x 693.34032pt>
 File: images/googleMapExample.png Graphic file (type png)
 <use images/googleMapExample.png>
 Package pdftex.def Info: images/googleMapExample.png  used on input line 121.
@@ -1526,12 +1546,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.2
                    \relax 
 l.141                 \subfloat
                                [\centering Example of Bing Maps' GUI]{{\incl...
-<images/bingMapExample.png, id=488, 963.6pt x 693.34032pt>
+<images/bingMapExample.png, id=490, 963.6pt x 693.34032pt>
 File: images/bingMapExample.png Graphic file (type png)
 <use images/bingMapExample.png>
 Package pdftex.def Info: images/bingMapExample.png  used on input line 141.
 (pdftex.def)             Requested size: 213.39566pt x 153.54039pt.
-<images/osMapExample.png, id=489, 963.6pt x 693.34032pt>
+<images/osMapExample.png, id=491, 963.6pt x 693.34032pt>
 File: images/osMapExample.png Graphic file (type png)
 <use images/osMapExample.png>
 Package pdftex.def Info: images/osMapExample.png  used on input line 160.
@@ -1548,37 +1568,37 @@ LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/m/n' aliased to
 LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/regular/n' will be
 (Font)              scaled to size 10.0pt on input line 371.
  [12]
-<images/kernelExamples/wrap.png, id=540, 344.78813pt x 149.8097pt>
+<images/kernelExamples/wrap.png, id=542, 344.78813pt x 149.8097pt>
 File: images/kernelExamples/wrap.png Graphic file (type png)
 <use images/kernelExamples/wrap.png>
 Package pdftex.def Info: images/kernelExamples/wrap.png  used on input line 392
 .
 (pdftex.def)             Requested size: 128.0374pt x 55.63216pt.
-<images/kernelExamples/mirror.png, id=541, 344.78813pt x 149.8097pt>
+<images/kernelExamples/mirror.png, id=543, 344.78813pt x 149.8097pt>
 File: images/kernelExamples/mirror.png Graphic file (type png)
 <use images/kernelExamples/mirror.png>
 Package pdftex.def Info: images/kernelExamples/mirror.png  used on input line 3
 94.
 (pdftex.def)             Requested size: 128.0374pt x 55.63216pt.
-<images/kernelExamples/extend.png, id=542, 229.60782pt x 225.09094pt>
+<images/kernelExamples/extend.png, id=544, 229.60782pt x 225.09094pt>
 File: images/kernelExamples/extend.png Graphic file (type png)
 <use images/kernelExamples/extend.png>
 Package pdftex.def Info: images/kernelExamples/extend.png  used on input line 3
 97.
 (pdftex.def)             Requested size: 71.13188pt x 69.7328pt.
-<images/kernelExamples/constant.png, id=543, 229.60782pt x 225.09094pt>
+<images/kernelExamples/constant.png, id=545, 229.60782pt x 225.09094pt>
 File: images/kernelExamples/constant.png Graphic file (type png)
 <use images/kernelExamples/constant.png>
 Package pdftex.def Info: images/kernelExamples/constant.png  used on input line
  399.
 (pdftex.def)             Requested size: 71.13188pt x 69.7328pt.
-<images/kernelExamples/clone.png, id=544, 229.60782pt x 225.09094pt>
+<images/kernelExamples/clone.png, id=546, 229.60782pt x 225.09094pt>
 File: images/kernelExamples/clone.png Graphic file (type png)
 <use images/kernelExamples/clone.png>
 Package pdftex.def Info: images/kernelExamples/clone.png  used on input line 40
 1.
 (pdftex.def)             Requested size: 71.13188pt x 69.7328pt.
-<images/edgeDetectionPrototype/in.jpg, id=545, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/in.jpg, id=547, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/in.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/in.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/in.jpg  used on input li
@@ -1601,7 +1621,7 @@ File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <8> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
 )
-<images/edgeDetectionPrototype/a.jpg, id=567, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/a.jpg, id=569, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/a.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/a.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/a.jpg  used on input lin
@@ -1613,7 +1633,7 @@ e 442.
 
 (_minted-main/5F0F0DCDBF6CD1F1279AC03DC2AADA23BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [15 <./images/edgeDetectionPrototype/a.jpg>])
-<images/edgeDetectionPrototype/b.jpg, id=580, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/b.jpg, id=582, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/b.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/b.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/b.jpg  used on input lin
@@ -1624,19 +1644,19 @@ e 499.
 
 (_minted-main/AA04E7DC3BE073534EBDF2C0CFD0E189BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [16 <./images/edgeDetectionPrototype/b.jpg>])
-<images/edgeDetectionPrototype/c.jpg, id=587, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/c.jpg, id=589, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/c.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/c.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/c.jpg  used on input lin
 e 540.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
-<images/edgeDetectionPrototype/d.jpg, id=588, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/d.jpg, id=590, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/d.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/d.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/d.jpg  used on input lin
 e 543.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
-<images/edgeDetectionPrototype/e.jpg, id=589, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/e.jpg, id=591, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/e.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/e.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/e.jpg  used on input lin
@@ -1649,7 +1669,7 @@ e 551.
 
 (_minted-main/A67F50EE0225B6220F14308B316004F8BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
-<images/edgeDetectionPrototype/f.jpg, id=599, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/f.jpg, id=601, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/f.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/f.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/f.jpg  used on input lin
@@ -1672,7 +1692,7 @@ e 592.
 
 (_minted-main/8EB0E74B496CDAF8D1992A9C708B952BBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [19])
-<images/edgeDetectionPrototype/g.jpg, id=617, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/g.jpg, id=619, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/g.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/g.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/g.jpg  used on input lin
@@ -1684,7 +1704,7 @@ e 652.
 
 (_minted-main/7B6B93B34F23A9A43D4119F3739C398BBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
-<images/edgeDetectionPrototype/h.jpg, id=624, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/h.jpg, id=626, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/h.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/h.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/h.jpg  used on input lin
@@ -1701,7 +1721,7 @@ File: images/edgeDetectionPrototype/in.jpg Graphic file (type jpg)
 Package pdftex.def Info: images/edgeDetectionPrototype/in.jpg  used on input li
 ne 733.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
-<images/edgeDetectionPrototype/i.jpg, id=631, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/i.jpg, id=633, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/i.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/i.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/i.jpg  used on input lin
@@ -1713,14 +1733,14 @@ e 736.
 
 (_minted-main/7D6A941DA03E684619043CEF6BFAE8CDBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
-<images/edgeDetectionPrototype/j.jpg, id=640, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/j.jpg, id=642, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/j.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/j.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/j.jpg  used on input lin
 e 784.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
  [23 <./images/edgeDetectionPrototype/j.jpg>]
-<images/edgeDetectionPrototype/k.jpg, id=647, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/k.jpg, id=649, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/k.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/k.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/k.jpg  used on input lin
@@ -1731,7 +1751,7 @@ e 794.
 
 (_minted-main/7D5F121F1C6DD4F6A5391EBAEDE88D0ABFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex) [24 <./images/edgeDetectionPrototype/k.jpg>]
-<images/graphClassDiagram.png, id=656, 397.485pt x 294.8616pt>
+<images/graphClassDiagram.png, id=658, 397.485pt x 294.8616pt>
 File: images/graphClassDiagram.png Graphic file (type png)
 <use images/graphClassDiagram.png>
 Package pdftex.def Info: images/graphClassDiagram.png  used on input line 862.
@@ -1799,7 +1819,7 @@ I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-<images/HighLevelOverview.png, id=788, 1733.47626pt x 828.09375pt>
+<images/HighLevelOverview.png, id=790, 1733.47626pt x 828.09375pt>
 File: images/HighLevelOverview.png Graphic file (type png)
 <use images/HighLevelOverview.png>
 Package pdftex.def Info: images/HighLevelOverview.png  used on input line 35.
@@ -1809,7 +1829,7 @@ Package pdftex.def Info: images/HighLevelOverview.png  used on input line 35.
 
 
 ]
-<images/UML/Backend.png, id=793, 1556.81625pt x 1054.94125pt>
+<images/UML/Backend.png, id=795, 1556.81625pt x 1054.94125pt>
 File: images/UML/Backend.png Graphic file (type png)
 <use images/UML/Backend.png>
 Package pdftex.def Info: images/UML/Backend.png  used on input line 49.
@@ -1828,6 +1848,13 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+[35 <./images/UML/Backend.png (PNG copy)>]
+<images/design/consoleMock.png, id=813, 445.665pt x 254.45062pt>
+File: images/design/consoleMock.png Graphic file (type png)
+<use images/design/consoleMock.png>
+Package pdftex.def Info: images/design/consoleMock.png  used on input line 71.
+(pdftex.def)             Requested size: 355.65944pt x 203.0638pt.
+
 
 ! LaTeX Error: There's no line here to end.
 
@@ -1835,7 +1862,46 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.66     \\
+l.72     \end{figure}\\
+                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.76     \\
+            \BK
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.79     \\
+            \BK
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.82     \\
             \bk
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1848,13 +1914,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.68 \end{flushleft}
+l.84 \end{flushleft}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) [35 <./images/UML/Backend.png (PNG copy)>]
+) [36 <./images/design/consoleMock.png>]
 \openout2 = `pages/testing.aux'.
 
  (pages/testing.tex
@@ -1862,17 +1928,17 @@ Overfull \hbox (12.20384pt too wide) in alignment at lines 65--123
  [] [] [] [] [] [] 
  []
 
-[36
+[37
 
 
 
-] [37] [38]
+] [38] [39]
 Overfull \hbox (32.09196pt too wide) in alignment at lines 131--153
  [] [] [] [] [] [] 
  []
 
-[39]
-<images/cannyTestImage.jpg, id=869, 1023.825pt x 722.7pt>
+[40]
+<images/cannyTestImage.jpg, id=879, 1023.825pt x 722.7pt>
 File: images/cannyTestImage.jpg Graphic file (type jpg)
 <use images/cannyTestImage.jpg>
 Package pdftex.def Info: images/cannyTestImage.jpg  used on input line 160.
@@ -1890,8 +1956,8 @@ l.163         }
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[40]
-<images/cannyTesting/Canny_Walkthrough_0_Black_White_Filter.jpg, id=876, 1023.8
+[41]
+<images/cannyTesting/Canny_Walkthrough_0_Black_White_Filter.jpg, id=886, 1023.8
 25pt x 722.7pt>
 File: images/cannyTesting/Canny_Walkthrough_0_Black_White_Filter.jpg Graphic fi
 le (type jpg)
@@ -1899,7 +1965,7 @@ le (type jpg)
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_0_Black_White_Fi
 lter.jpg  used on input line 174.
 (pdftex.def)             Requested size: 128.0374pt x 90.37035pt.
-<images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png, id=877, 803.0pt x 5
+<images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png, id=887, 803.0pt x 5
 67.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png Graphic file (t
 ype png)
@@ -1907,7 +1973,7 @@ ype png)
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.
 png  used on input line 176.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png, id=878, 803.0p
+<images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png, id=888, 803.0p
 t x 567.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png Graphic fi
 le (type png)
@@ -1915,7 +1981,7 @@ le (type png)
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_2_Intensity_Grad
 ient.png  used on input line 178.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png, id=879, 8
+<images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png, id=889, 8
 03.0pt x 567.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png Graph
 ic file (type png)
@@ -1923,7 +1989,7 @@ ic file (type png)
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_3_Non-maximum_su
 ppression.png  used on input line 182.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png, id=880, 803.0pt 
+<images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png, id=890, 803.0pt 
 x 567.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png Graphic file
  (type png)
@@ -1931,7 +1997,7 @@ File: images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png Graphic file
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_4_Double_Thresho
 ld.png  used on input line 184.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png, id=881, 1023.825pt x 7
+<images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png, id=891, 1023.825pt x 7
 22.7pt>
 File: images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png Graphic file (type
  png)
@@ -1950,22 +2016,22 @@ Overfull \hbox (12.20384pt too wide) in alignment at lines 168--190
  [] [] [] [] [] [] 
  []
 
-[41 <./images/cannyTestImage.jpg> <./images/cannyTesting/Canny_Walkthrough_0_Bl
+[42 <./images/cannyTestImage.jpg> <./images/cannyTesting/Canny_Walkthrough_0_Bl
 ack_White_Filter.jpg> <./images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.
 png (PNG copy)> <./images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.p
 ng (PNG copy)>]
-<images/roadExamples/comb.png, id=890, 644.4075pt x 385.44pt>
+<images/roadExamples/comb.png, id=901, 644.4075pt x 385.44pt>
 File: images/roadExamples/comb.png Graphic file (type png)
 <use images/roadExamples/comb.png>
 Package pdftex.def Info: images/roadExamples/comb.png  used on input line 208.
 (pdftex.def)             Requested size: 128.0374pt x 76.58083pt.
-<images/roadExamples/white.png, id=891, 75.28125pt x 75.28125pt>
+<images/roadExamples/white.png, id=902, 75.28125pt x 75.28125pt>
 File: images/roadExamples/white.png Graphic file (type png)
 <use images/roadExamples/white.png>
 Package pdftex.def Info: images/roadExamples/white.png  used on input line 220.
 
 (pdftex.def)             Requested size: 128.0374pt x 128.06256pt.
-<images/roadExamples/quadsFilledExample.png, id=892, 150.5625pt x 150.5625pt>
+<images/roadExamples/quadsFilledExample.png, id=903, 150.5625pt x 150.5625pt>
 File: images/roadExamples/quadsFilledExample.png Graphic file (type png)
 <use images/roadExamples/quadsFilledExample.png>
 Package pdftex.def Info: images/roadExamples/quadsFilledExample.png  used on in
@@ -1976,7 +2042,7 @@ Overfull \hbox (12.20384pt too wide) in alignment at lines 201--227
  [] [] [] [] [] [] 
  []
 
-[42 <./images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png (PNG
+[43 <./images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png (PNG
  copy)> <./images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png (PNG co
 py)> <./images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png> <./images/roadE
 xamples/comb.png>]
@@ -1984,42 +2050,42 @@ Overfull \hbox (12.20384pt too wide) in alignment at lines 234--238
  [] [] [] [] [] [] 
  []
 
-[43 <./images/roadExamples/white.png> <./images/roadExamples/quadsFilledExample
+[44 <./images/roadExamples/white.png> <./images/roadExamples/quadsFilledExample
 .png>]
 Overfull \hbox (46.05193pt too wide) in alignment at lines 241--275
  [] [] [] [] [] [] 
  []
 
-[44]
+[45]
 Overfull \hbox (12.20384pt too wide) in alignment at lines 282--346
  [] [] [] [] [] [] 
  []
 
-[45] [46] [47]
+[46] [47] [48]
 Overfull \hbox (12.20384pt too wide) in alignment at lines 353--439
  [] [] [] [] [] [] 
  []
 
-[48] [49]
+[49] [50]
 Overfull \hbox (12.20384pt too wide) in alignment at lines 441--460
  [] [] [] [] [] [] 
  []
 
-[50] 
+[51] 
 
 <QR code requested for "https://youtu.be/cJqFovg27Bo" in version 0-M.>
 <Error-correction level increased from M to Q at no cost.>
 
 <Copying the QR code for "https://youtu.be/cJqFovg27Bo" in version 3-Q as previ
 ously calculated.>
-) [51]
+) [52]
 \openout2 = `pages/solution.tex.aux'.
 
 
 No file pages/solution.tex.tex.
 \openout2 = `pages/evaluation.aux'.
 
-(pages/evaluation.tex) [52
+(pages/evaluation.tex) [53
 
 
 
@@ -2034,51 +2100,51 @@ No file pages/solution.tex.tex.
 
 
 (_minted-main/0B71B649FF06EBB80BE2FCE42F2A530DBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [53
+pygtex [54
 
 
 
-] [54] [55] [56] [57] [58] [59] [60] [61] [62])
+] [55] [56] [57] [58] [59] [60] [61] [62] [63])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/3B8E81F35E50E389B33AEE9804A5ADF9BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [63] [64] [65])
+pygtex [64] [65] [66])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/BD5076E27BAB48FBAC5B1A82A0C4383FBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [66] [67] [68])
+pygtex [67] [68] [69])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/DDCD38AE71671326F34979C0439946C2BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [69] [70])
+pygtex [70] [71])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/78EC761638FAE7F6CB61A445E5A5E2A6BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [71])
+pygtex [72])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/58378F5D102BBE967D75A358E05998A7BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [72] [73])
+pygtex [73] [74])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/F42492C9E9C0D651D76DBE2C3B627766BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [74])
+pygtex [75])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/22C2EA1D524062832D06E44E6E724448BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [75] [76])
+pygtex [76] [77])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/F2115DA59D3E17CDC60DD9B1E771AD00BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [77])
+pygtex [78])
 \openout4 = `main.pyg'.
 
 
@@ -2088,7 +2154,7 @@ pygtex)
 
 
 (_minted-main/B05422CB9E381707650235C73840FB4CBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [78])
+pygtex [79])
 \openout4 = `main.pyg'.
 
 
@@ -2103,7 +2169,7 @@ pygtex)
 
 
 (_minted-main/A5D82F2EBC72C13D923263097E3E4225BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [79])
+pygtex [80])
 \openout4 = `main.pyg'.
 
 
@@ -2118,7 +2184,7 @@ pygtex)
 
 
 (_minted-main/E6A2D3A7B2B1DE5EC7472FF73DA9AFBABFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [80])
+pygtex [81])
 \openout4 = `main.pyg'.
 
 
@@ -2128,58 +2194,58 @@ pygtex)
 
 
 (_minted-main/3B4587E3AED7DA8EE961D82D2743DCF3BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [81] [82] [83] [84] [85])
+pygtex [82] [83] [84] [85] [86])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/1E84FCB86847C9E39703F2F777F0B9A5BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [86])
-\openout4 = `main.pyg'.
-
-
-(_minted-main/461C46D35C2033A1DAFA7A07FF556DFBBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [87])
 \openout4 = `main.pyg'.
 
 
+(_minted-main/461C46D35C2033A1DAFA7A07FF556DFBBFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [88])
+\openout4 = `main.pyg'.
+
+
 (_minted-main/FF597AACDA46313334702FF1BB99DFF3BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [88] [89])
+pygtex [89] [90])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/E7A590883443A110F6FF9DA2F7DFB15ABFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [90] [91])
+pygtex [91] [92])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/DB4DFB219DAF97CD9D87576C58F1AF44BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [92] [93])
+pygtex [93] [94])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/03A0E264AB69255B1EEE08914EDCC13BBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [94])
-\openout4 = `main.pyg'.
-
-
-(_minted-main/6F75D9ACC6A50C7126EF5B7608E22219BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [95])
 \openout4 = `main.pyg'.
 
 
+(_minted-main/6F75D9ACC6A50C7126EF5B7608E22219BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [96])
+\openout4 = `main.pyg'.
+
+
 (_minted-main/BA5456BFB812B8A614A69F8E7F2C743EBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [96]
+pygtex [97]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
 25.
 
 (C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
-) [97] [98])
+) [98] [99])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/E4E55830D0980D389DA0035F696A6F14BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [99] [100])
+pygtex [100] [101])
 \openout4 = `main.pyg'.
 
 
@@ -2189,17 +2255,17 @@ pygtex)
 
 
 (_minted-main/F6DF11F9D3CD42BE797093676F5BCAADBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [101] [102])
+pygtex [102] [103])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/5C0B17821ACF3ECDD660AE66F863FEE2BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [103] [104] [105] [106] [107])
+pygtex [104] [105] [106] [107] [108])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/8B197BCBBED051C71A5CC3151795AD63BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [108] [109])
+pygtex [109] [110])
 \openout4 = `main.pyg'.
 
 
@@ -2257,27 +2323,27 @@ l.20 ...G{l+s+sc}{\PYGZsq{}─\PYGZsq{}}\PYG{p}{;}
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[110] [111] [112] [113])
+[111] [112] [113] [114])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/19646387968408637BED5D26C3977A65BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [114] [115])
+pygtex [115] [116])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/E1B5A19BE62D684B83C548BFFCE0DD21BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [116] [117])
+pygtex [117] [118])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/3A7E48EEEBF57DFB7812C80FCCBB8547BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [118])
+pygtex [119])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/F45B71325D3DC9946E81C0FBF097636ABFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [119] [120] [121] [122] [123] [124])
+pygtex [120] [121] [122] [123] [124] [125])
 \openout4 = `main.pyg'.
 
 
@@ -2287,27 +2353,27 @@ pygtex)
 
 
 (_minted-main/F9ABAEE54B064121D26F0C32BBBBBE79BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [125] [126])
+pygtex [126] [127])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/77DD73A8FF1916D21C6B9ED58B4D1D40BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [127] [128] [129] [130] [131] [132])
+pygtex [128] [129] [130] [131] [132] [133])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/68D0D720ECA166E8406578198DF41DB7BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [133] [134] [135] [136] [137])
+pygtex [134] [135] [136] [137] [138])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/AD42BCF487B063530F70EBA5B884AF95BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [138])
+pygtex [139])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/2698A8B73DD278098DB41996C579BD6EBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [139] [140] [141] [142] [143] [144])) [145]
+pygtex [140] [141] [142] [143] [144] [145])) [146]
 
 ! LaTeX Error: \begin{flushleft} on input line 1 ended by \end{document}.
 
@@ -2339,10 +2405,10 @@ runsystem(del main.pyg)...executed.
 ### semi simple group (level 1) entered at line 1 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 33918 strings out of 476406
- 714655 string characters out of 2786228
+ 33930 strings out of 476406
+ 714939 string characters out of 2786228
  1930787 words of memory out of 3000000
- 52925 multiletter control sequences out of 15000+600000
+ 52931 multiletter control sequences out of 15000+600000
  744410 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  100i,18n,133p,1248b,1436s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -2374,9 +2440,9 @@ s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Rubens Pirie/AppData
 ns Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 ><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmsy7.pfb>
-Output written on main.pdf (146 pages, 12340449 bytes).
+Output written on main.pdf (147 pages, 12354109 bytes).
 PDF statistics:
- 1863 PDF objects out of 2073 (max. 8388607)
- 483 named destinations out of 1000 (max. 500000)
- 660 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1874 PDF objects out of 2073 (max. 8388607)
+ 487 named destinations out of 1000 (max. 500000)
+ 665 words of extra memory for PDF output out of 10000 (max. 10000000)
 
