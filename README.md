@@ -13,6 +13,6 @@ Deadlines
 > All deadlines are 10am unless otherwise stated
 - ~~1st interview and draft objectives 23rd June 2022~~
 - ~~Analysis (including finished prototype, 2nd interview and final objectives) 14th September 2022~~
-- Technical Solution the actual program 29th November 2022
-- All write up of NEA - electronic 9th January 2023
+- ~~Technical Solution the actual program 29th November 2022~~
+- ~~All write up of NEA - electronic 9th January 2023~~
 - FINAL hand in with corrections (dont miss this one dumbo) – printed and PDF 9th February 2023 @ 4pm
