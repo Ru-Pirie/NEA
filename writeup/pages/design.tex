@@ -32,17 +32,37 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering High Level Overview Of Program]{{\includegraphics[width=17cm]{images/HighLevelOverview.png}}}
-        \caption*{A High Level Overview of the Whole Program}
+        \subfloat[\centering High Level Overview Of Program]{{\includegraphics[width=17.2cm]{images/HighLevelOverview.png}}}
     \end{figure}
 
     The version of Edge Detection I will be using as previously stated will be Canny Edge Detection, this is as opposed to Sobel Edge Detection. The main version of filling I will be using is flood fill due to it simple nature to implement ad due to the fact that it does not take much memory and can be made recursive so it performs well. The final main algorithm I will need to use is image kernels and convolution, this will allow me to manipulate the inputted image.
 
-    \subsubsection{Bitmap}
-    In order for my program to function a required part of it is that it is able to take an image as an input. In native C# there is no set way to do this. Therefore I needed to use the Microsoft System.Drawing Namespace. This namespace provides access to GDI+ basic graphics functionality. This does limit this project as is to only working on Windows since the library requires access to the GDI+ native library which is only on windows services. \\
-    
-    The only part of this library I will be using is the Bitmap class. This will allow me to accept all types of images without the need of parsing them myself since this is not the aim of my project. 
-    \\ \bk 
+    \subsubsection{Backend Library}
+    For my project to ensure that I conform to the OOP principle of encapsulate what varies. I will accomplish this through the use of classes and encapsulation. Furthermore I have also made the decision to split up my solution into two separate projects, this means that my program will produce two files in order to run, one of these will be the DLL for the backend library and the other will be the executable for the front end. \\ \bk
 
+    Contained within this backend section of my program will be contained the edge detection, road detection, complex data types and graph traversal algorithms as well as various utilities that are frequently used throughout the program. \\ \bk
+
+    One of the main features of the backend library are the custom structures that have been created in order to allow for easier processing of data. Find below the image of the structure class layout and the classes which link within.
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Overview of Backend Structures]{{\includegraphics[width=17.2cm]{images/UML/Backend.png}}}
+    \end{figure}
+
+    \\
+
+    As can be seen form the class diagram of the backend library, there is very little dependency within the library itself. This allows the backend to function independently of the program which is using it. This allows the backend to be split out and moved to another program if needed. Summarised there are four main reasons to do this:
+
+    \begin{enumerate}
+        \item Modularity - By separating the backend from the frontend one is able to be built without the other. This means that when working on my project I can take time to perfect one without impacting the other.
+        \item Reusability - As previously stated being able to be reused is a large reason as to why to separating the elements is a good idea. Since if I wanted to expand this project for example and make a web interface for it, I could take the maths of the backend and recreate the front end in a web framework like Razor Pages.
+        \item Maintainability - It is allot easier to maintain code when it has been organised into classes and by extension into libraries where a library is a collection of classes
+        \item Testability - 
+    \\ \bk
+
+
+
+    \subsubsection{Local Application}
+    \\ \bk
 
 \end{flushleft}
