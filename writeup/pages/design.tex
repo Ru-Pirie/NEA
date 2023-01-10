@@ -1,4 +1,4 @@
-\small
+\normalsize
 \begin{flushleft}
     \section{Technical Design}
 
@@ -75,15 +75,290 @@
 
     As for the other elements of the console UI, as part of objective 5, this must be easy to see at a glance what is going on and which step you are in. To accomplish this on the right hand side of the console there will be a log which, should the user select to do so in settings, will display each method call and the result of that call allowing them to see exactly where they are in the process. \\ \bk
     
-    At the bottom of the console in the section labelled "Area for Current Page and Time Elapsed" this will be used for, as the name suggests, the current page and time elapsed. What this means is that at a glance a non-technical user or one wh has opted not to have the advanced logging will be able to see 
+    At the bottom of the console in the section labelled "Area for Current Page and Time Elapsed" this will be used for, as the name suggests, the current page and time elapsed. What this means is that at a glance a non-technical user or one who has opted not to have the advanced logging will still be able to see where they area at in the current process. \\ \bk
 
-    \\ \BK
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Mock-up of Console Interface]{{\includegraphics[width=12.5cm]{images/design/terminal.png}}}
+    \end{figure}\\
+    
+    \BK
 
     \paragraph{Design of User Interface (Windows Forms)} \mbox{} \\
-    This is some text
+    For the forms interface I have chosen to keep the use of the opening of new windows to a minimum, as explained above I want this part of the program to be as simple as possible to avoid over stimulating the user and confusing them. 
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Windows Form For Confirming Image]{{\includegraphics[width=12.5cm]{images/design/confirmWindow.jpeg}}}
+    \end{figure}\\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Windows Form For Pathfinding Image]{{\includegraphics[width=12.5cm]{images/design/pathfindWindow.png}}}
+    \end{figure}\\
+
     \\ \BK
 
 
     \\ \bk
+
+    \subsection{Class Overviews}
+
+    In this following part of the write up will go briefly over every class in the program first stating its function, which section it is in (backend library or front end application) and finally how it plays a part in the program.
+
+    \paragraph{Canny Edge Detection \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Canny Edge Detection Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/CannyEdgeDetection.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Extensions \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Extensions Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Extensions.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Graph \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Graph Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Graph.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Graph Exception \textit{(Exception)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Graph Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/GraphException.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{IHandler \textit{(Interface)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering IHandler UML Diagram]{{\includegraphics[width=12.5cm]{images/UML/IHandler.png  }}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Kernel \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Kernel Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Kernel.png}}}
+    \end{figure}\\
+
+    \bk
+
+    
+    \paragraph{Kernel Exception \textit{(Exception)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Kernel Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/KernelException.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Logger \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Logger Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Logger.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Logger Exception \textit{(Exception)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Logger Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/LoggerException.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Map File Exception \textit{(Exception)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Map File Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/MapFileException.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Matrix \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Matrix Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Matrix.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Matrix Exception \textit{(Exception)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Matrix Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/MatrixException.png}}}
+    \end{figure}\\
+
+    \bk
+
+
+    \paragraph{Max Priority Queue \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Max Priority Queue Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/MaxPriorityQueue.png}}}
+    \end{figure}\\
+
+    \bk
+
+    
+    \paragraph{Min Priority Queue \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Min Priority Queue Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/MinPriorityQueue.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Pathfinder \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Pathfinder Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Pathfinder.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Pathfind Image Form \textit{(Windows Form)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Pathfind Image Form UML Diagram]{{\includegraphics[width=12.5cm]{images/UML/PathfindImageForm.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Post \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Post Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Post.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Preprocessing Exception \textit{(Exception)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Preprocessing Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/PreprocessingException.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Program \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Program Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Program.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Queue \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Queue Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Queue.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Road Detection \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Road Detection Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/RoadDetection.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Settings Exception \textit{(Exception)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Settings Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/SettingsException.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Stack \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Stack Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Stack.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Text Wall \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Text Wall Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/TextWall.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Traversal \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Traversal Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Traversal.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Utility \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Utility Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Utility.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{View Image Form \textit{(Windows Form)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering View Image Form UML Diagram]{{\includegraphics[width=12.5cm]{images/UML/ViewImageForm.png}}}
+    \end{figure}\\
+
+    \bk
+
+    
+
+
+
+
+
+
+
 
 \end{flushleft}

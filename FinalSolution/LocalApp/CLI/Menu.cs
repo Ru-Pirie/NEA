@@ -83,7 +83,7 @@ namespace LocalApp.CLI
             Console.SetCursorPosition(1, Console.WindowHeight * 5 / 6 + 3);
             Console.WriteLine("Runtime:       ??:??:??");
 
-            Console.SetCursorPosition(1, Console.WindowHeight * 5 / 6 + 8);
+            Console.SetCursorPosition(1, (int)(Console.WindowHeight * 5 / 6) + 8);
             Console.WriteLine(_permLineA);
             Console.SetCursorPosition(1, Console.WindowHeight * 5 / 6 + 9);
             Console.WriteLine(_permLineB);

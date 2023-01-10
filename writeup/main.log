@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.1.5)  5 JAN 2023 14:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.1.5)  10 JAN 2023 10:12
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1343,10 +1343,6 @@ LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/bold/n' will be
  [1
 
 {C:/Users/Rubens Pirie/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/m/n' aliased to
-(Font)              `T1/LibreBskvl-LF/regular/n' on input line 138.
-LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/regular/n' will be
-(Font)              scaled to size 9.0pt on input line 138.
 LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
 39.
 
@@ -1365,55 +1361,116 @@ LaTeX Font Warning: Font shape `T1/cmss/bx/n' in size <16> not available
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/b/n' aliased to
 (Font)              `T1/LibreBskvl-LF/bold/n' on input line 1.
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/bold/n' will be
-(Font)              scaled to size 9.0pt on input line 1.
-LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/b/n' aliased to
-(Font)              `T1/LibreBskvl-LF/bold/n' on input line 59.
-LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/bold/n' will be
-(Font)              scaled to size 10.0pt on input line 59.
+(Font)              scaled to size 10.0pt on input line 1.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.59 ...on Testing Table}{40}{subsubsection.3.1.4}
+l.55 ...ection \textit {(Class)}}{38}{section*.49}
                                                   % [1]
-Overfull \hbox (2.03395pt too wide) detected at line 110
- []\T1/LibreBskvl-LF/regular/n/9 102
+LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/m/it' aliased to
+(Font)              `T1/LibreBskvl-LF/regular/it' on input line 55.
+LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/regular/it' will be
+(Font)              scaled to size 10.0pt on input line 55.
+ [2]
+Overfull \hbox (2.25993pt too wide) detected at line 122
+ []\T1/LibreBskvl-LF/regular/n/10 102
  []
 
 
-Overfull \hbox (1.75496pt too wide) detected at line 111
- []\T1/LibreBskvl-LF/regular/n/9 104
+Overfull \hbox (2.25993pt too wide) detected at line 123
+ []\T1/LibreBskvl-LF/regular/n/10 103
  []
 
 
-Overfull \hbox (1.94395pt too wide) detected at line 112
- []\T1/LibreBskvl-LF/regular/n/9 108
+Overfull \hbox (1.94994pt too wide) detected at line 124
+ []\T1/LibreBskvl-LF/regular/n/10 104
  []
 
 
-Overfull \hbox (0.50395pt too wide) detected at line 113
- []\T1/LibreBskvl-LF/regular/n/9 110
- []
-
-[2]
-Overfull \hbox (1.39494pt too wide) detected at line 120
- []\T1/LibreBskvl-LF/regular/n/9 126
+Overfull \hbox (1.11993pt too wide) detected at line 125
+ []\T1/LibreBskvl-LF/regular/n/10 107
  []
 
 
-Overfull \hbox (1.39494pt too wide) detected at line 121
- []\T1/LibreBskvl-LF/regular/n/9 126
+Overfull \hbox (1.11993pt too wide) detected at line 126
+ []\T1/LibreBskvl-LF/regular/n/10 107
  []
 
 
-Overfull \hbox (1.15195pt too wide) detected at line 123
- []\T1/LibreBskvl-LF/regular/n/9 132
+Overfull \hbox (2.15994pt too wide) detected at line 127
+ []\T1/LibreBskvl-LF/regular/n/10 108
  []
 
 
-Overfull \hbox (1.15195pt too wide) detected at line 124
- []\T1/LibreBskvl-LF/regular/n/9 132
+Overfull \hbox (0.55994pt too wide) detected at line 128
+ []\T1/LibreBskvl-LF/regular/n/10 110
+ []
+
+
+Overfull \hbox (0.96994pt too wide) detected at line 138
+ []\T1/LibreBskvl-LF/regular/n/10 124
+ []
+
+
+Overfull \hbox (1.54994pt too wide) detected at line 139
+ []\T1/LibreBskvl-LF/regular/n/10 126
+ []
+
+
+Overfull \hbox (2.25993pt too wide) detected at line 140
+ []\T1/LibreBskvl-LF/regular/n/10 130
+ []
+
+
+Overfull \hbox (1.27994pt too wide) detected at line 141
+ []\T1/LibreBskvl-LF/regular/n/10 132
+ []
+
+
+Overfull \hbox (0.96994pt too wide) detected at line 142
+ []\T1/LibreBskvl-LF/regular/n/10 134
+ []
+
+
+Overfull \hbox (0.79994pt too wide) detected at line 143
+ []\T1/LibreBskvl-LF/regular/n/10 135
+ []
+
+
+Overfull \hbox (0.79994pt too wide) detected at line 144
+ []\T1/LibreBskvl-LF/regular/n/10 135
+ []
+
+
+Overfull \hbox (0.96994pt too wide) detected at line 147
+ []\T1/LibreBskvl-LF/regular/n/10 143
+ []
+
+
+Overfull \hbox (1.23994pt too wide) detected at line 148
+ []\T1/LibreBskvl-LF/regular/n/10 149
+ []
+
+
+Overfull \hbox (1.23994pt too wide) detected at line 149
+ []\T1/LibreBskvl-LF/regular/n/10 149
+ []
+
+
+Overfull \hbox (0.48994pt too wide) detected at line 150
+ []\T1/LibreBskvl-LF/regular/n/10 154
+ []
+
+
+Overfull \hbox (0.31995pt too wide) detected at line 151
+ []\T1/LibreBskvl-LF/regular/n/10 155
+ []
+
+
+Overfull \hbox (0.31995pt too wide) detected at line 152
+ []\T1/LibreBskvl-LF/regular/n/10 155
  []
 
 )
@@ -1435,8 +1492,8 @@ LaTeX Font Warning: Font shape `T1/cmss/bx/n' in size <13> not available
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/m/n' aliased to
 (Font)              `T1/LibreBskvl-LF/regular/n' on input line 6.
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/regular/n' will be
-(Font)              scaled to size 6.0pt on input line 6.
-<images/unlabeledMap.png, id=450, 489.32813pt x 489.32813pt>
+(Font)              scaled to size 7.0pt on input line 6.
+<images/unlabeledMap.png, id=510, 489.32813pt x 489.32813pt>
 File: images/unlabeledMap.png Graphic file (type png)
 <use images/unlabeledMap.png>
 Package pdftex.def Info: images/unlabeledMap.png  used on input line 15.
@@ -1445,15 +1502,11 @@ LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/m/n' aliased to
 (Font)              `T1/LibreBskvl-LF/regular/n' on input line 15.
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/regular/n' will be
 (Font)              scaled to size 8.0pt on input line 15.
-<images/labeledMap.png, id=452, 489.32813pt x 489.32813pt>
+<images/labeledMap.png, id=512, 489.32813pt x 489.32813pt>
 File: images/labeledMap.png Graphic file (type png)
 <use images/labeledMap.png>
 Package pdftex.def Info: images/labeledMap.png  used on input line 17.
 (pdftex.def)             Requested size: 170.71652pt x 170.71487pt.
-LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/m/n' aliased to
-(Font)              `T1/LibreBskvl-LF/regular/n' on input line 18.
-LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/regular/n' will be
-(Font)              scaled to size 7.0pt on input line 18.
 LaTeX Font Info:    Trying to load font information for TS1+LibreBskvl-LF on in
 put line 18.
 
@@ -1472,7 +1525,7 @@ LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/regular/n' will be
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/b/n' aliased to
 (Font)              `T1/LibreBskvl-LF/bold/n' on input line 54.
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/bold/n' will be
-(Font)              scaled to size 6.0pt on input line 54.
+(Font)              scaled to size 7.0pt on input line 54.
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/b/n' aliased to
 (Font)              `T1/LibreBskvl-LF/bold/n' on input line 54.
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/bold/n' will be
@@ -1488,7 +1541,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.1
                    \relax 
 l.121                 \subfloat
                                [\centering Example of Google Maps' GUI]{{\in...
-<images/googleMapExample.png, id=484, 963.6pt x 693.34032pt>
+<images/googleMapExample.png, id=542, 963.6pt x 693.34032pt>
 File: images/googleMapExample.png Graphic file (type png)
 <use images/googleMapExample.png>
 Package pdftex.def Info: images/googleMapExample.png  used on input line 121.
@@ -1501,114 +1554,96 @@ LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/m/n' aliased to
 (Font)              `TS1/LibreBskvl-LF/regular/n' on input line 122.
 LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/regular/n' will be
 (Font)              scaled to size 5.0pt on input line 122.
-
+[6 <./images/googleMapExample.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.141                 \subfloat
                                [\centering Example of Bing Maps' GUI]{{\incl...
-<images/bingMapExample.png, id=485, 963.6pt x 693.34032pt>
+<images/bingMapExample.png, id=552, 963.6pt x 693.34032pt>
 File: images/bingMapExample.png Graphic file (type png)
 <use images/bingMapExample.png>
 Package pdftex.def Info: images/bingMapExample.png  used on input line 141.
 (pdftex.def)             Requested size: 213.39566pt x 153.54039pt.
-[6 <./images/googleMapExample.png>]
-<images/osMapExample.png, id=493, 963.6pt x 693.34032pt>
+<images/osMapExample.png, id=553, 963.6pt x 693.34032pt>
 File: images/osMapExample.png Graphic file (type png)
 <use images/osMapExample.png>
 Package pdftex.def Info: images/osMapExample.png  used on input line 160.
 (pdftex.def)             Requested size: 213.39566pt x 153.54039pt.
- [7 <./images/bingMapExample.png> <./images/osMapExample.png>]
-LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/m/it' aliased to
-(Font)              `T1/LibreBskvl-LF/regular/it' on input line 184.
-LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/regular/it' will be
-(Font)              scaled to size 9.0pt on input line 184.
- [8] [9] [10]
+[7 <./images/bingMapExample.png>] [8 <./images/osMapExample.png>] [9] [10]
+[11]
 LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/m/n' aliased to
 (Font)              `TS1/LibreBskvl-LF/regular/n' on input line 371.
 LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/regular/n' will be
-(Font)              scaled to size 9.0pt on input line 371.
- [11]
-<images/kernelExamples/wrap.png, id=539, 344.78813pt x 149.8097pt>
+(Font)              scaled to size 10.0pt on input line 371.
+ [12]
+<images/kernelExamples/wrap.png, id=603, 344.78813pt x 149.8097pt>
 File: images/kernelExamples/wrap.png Graphic file (type png)
 <use images/kernelExamples/wrap.png>
 Package pdftex.def Info: images/kernelExamples/wrap.png  used on input line 392
 .
 (pdftex.def)             Requested size: 128.0374pt x 55.63216pt.
-<images/kernelExamples/mirror.png, id=540, 344.78813pt x 149.8097pt>
+<images/kernelExamples/mirror.png, id=604, 344.78813pt x 149.8097pt>
 File: images/kernelExamples/mirror.png Graphic file (type png)
 <use images/kernelExamples/mirror.png>
 Package pdftex.def Info: images/kernelExamples/mirror.png  used on input line 3
 94.
 (pdftex.def)             Requested size: 128.0374pt x 55.63216pt.
-<images/kernelExamples/extend.png, id=541, 229.60782pt x 225.09094pt>
+<images/kernelExamples/extend.png, id=605, 229.60782pt x 225.09094pt>
 File: images/kernelExamples/extend.png Graphic file (type png)
 <use images/kernelExamples/extend.png>
 Package pdftex.def Info: images/kernelExamples/extend.png  used on input line 3
 97.
 (pdftex.def)             Requested size: 71.13188pt x 69.7328pt.
-<images/kernelExamples/constant.png, id=542, 229.60782pt x 225.09094pt>
+<images/kernelExamples/constant.png, id=606, 229.60782pt x 225.09094pt>
 File: images/kernelExamples/constant.png Graphic file (type png)
 <use images/kernelExamples/constant.png>
 Package pdftex.def Info: images/kernelExamples/constant.png  used on input line
  399.
 (pdftex.def)             Requested size: 71.13188pt x 69.7328pt.
-<images/kernelExamples/clone.png, id=543, 229.60782pt x 225.09094pt>
+<images/kernelExamples/clone.png, id=607, 229.60782pt x 225.09094pt>
 File: images/kernelExamples/clone.png Graphic file (type png)
 <use images/kernelExamples/clone.png>
 Package pdftex.def Info: images/kernelExamples/clone.png  used on input line 40
 1.
 (pdftex.def)             Requested size: 71.13188pt x 69.7328pt.
-<images/edgeDetectionPrototype/in.jpg, id=544, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/in.jpg, id=608, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/in.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/in.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/in.jpg  used on input li
 ne 409.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
- [12 <./images/kernelExamples/wrap.png> <./images/kernelExamples/mirror.png> <.
+ [13 <./images/kernelExamples/wrap.png> <./images/kernelExamples/mirror.png> <.
 /images/kernelExamples/extend.png> <./images/kernelExamples/constant.png> <./im
 ages/kernelExamples/clone.png>]
 \openout4 = `main.pyg'.
 
-
-(_minted-main/default.pygstyle)
+ (_minted-main/default.pygstyle)
 (_minted-main/656C6A182A1A98A3F4235BFF507F423CBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex
-LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/m/n' aliased to
-(Font)              `T1/LibreBskvl-LF/regular/n' on input line 1.
-LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/regular/n' will be
-(Font)              scaled to size 7.50002pt on input line 1.
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 .
 
 (C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-
-LaTeX Font Warning: Font shape `T1/cmtt/m/n' in size <7.50002> not available
-(Font)              size <8> substituted on input line 1.
-
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <7.50002> not available
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <8> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
-
-LaTeX Font Warning: Font shape `T1/cmtt/m/n' in size <7.50002> not available
-(Font)              size <8> substituted on input line 2.
-
 )
-<images/edgeDetectionPrototype/a.jpg, id=567, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/a.jpg, id=630, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/a.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/a.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/a.jpg  used on input lin
 e 442.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
- [13 <./images/edgeDetectionPrototype/in.jpg>]
+[14 <./images/edgeDetectionPrototype/in.jpg>]
 \openout4 = `main.pyg'.
 
 
 (_minted-main/5F0F0DCDBF6CD1F1279AC03DC2AADA23BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [14 <./images/edgeDetectionPrototype/a.jpg>])
-<images/edgeDetectionPrototype/b.jpg, id=580, 745.28438pt x 855.195pt>
+pygtex [15 <./images/edgeDetectionPrototype/a.jpg>])
+<images/edgeDetectionPrototype/b.jpg, id=643, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/b.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/b.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/b.jpg  used on input lin
@@ -1618,38 +1653,40 @@ e 499.
 
 
 (_minted-main/AA04E7DC3BE073534EBDF2C0CFD0E189BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [15 <./images/edgeDetectionPrototype/b.jpg>])
-<images/edgeDetectionPrototype/c.jpg, id=587, 745.28438pt x 855.195pt>
+pygtex [16 <./images/edgeDetectionPrototype/b.jpg>])
+<images/edgeDetectionPrototype/c.jpg, id=650, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/c.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/c.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/c.jpg  used on input lin
 e 540.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
-<images/edgeDetectionPrototype/d.jpg, id=588, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/d.jpg, id=651, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/d.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/d.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/d.jpg  used on input lin
 e 543.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
-<images/edgeDetectionPrototype/e.jpg, id=589, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/e.jpg, id=652, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/e.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/e.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/e.jpg  used on input lin
 e 551.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
- [16 <./images/edgeDetectionPrototype/c.jpg> <./images/edgeDetectionPrototype/d
-.jpg> <./images/edgeDetectionPrototype/e.jpg>]
+ [17 <./images/edgeDetectionPrototype/c.jpg> <./images/edgeDetectionPrototype/d
+.jpg>]
 \openout4 = `main.pyg'.
 
 
 (_minted-main/A67F50EE0225B6220F14308B316004F8BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
-<images/edgeDetectionPrototype/f.jpg, id=601, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/f.jpg, id=662, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/f.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/f.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/f.jpg  used on input lin
 e 571.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
+ [18 <./images/edgeDetectionPrototype/e.jpg> <./images/edgeDetectionPrototype/f
+.jpg>]
 \openout4 = `main.pyg'.
 
 
@@ -1660,30 +1697,30 @@ File: images/edgeDetectionPrototype/f.jpg Graphic file (type jpg)
 Package pdftex.def Info: images/edgeDetectionPrototype/f.jpg  used on input lin
 e 592.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
- [17 <./images/edgeDetectionPrototype/f.jpg>]
 \openout4 = `main.pyg'.
 
 
 (_minted-main/8EB0E74B496CDAF8D1992A9C708B952BBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [18])
-<images/edgeDetectionPrototype/g.jpg, id=617, 745.28438pt x 855.195pt>
+pygtex [19])
+<images/edgeDetectionPrototype/g.jpg, id=680, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/g.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/g.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/g.jpg  used on input lin
 e 652.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
+ [20 <./images/edgeDetectionPrototype/g.jpg>]
 \openout4 = `main.pyg'.
 
 
 (_minted-main/7B6B93B34F23A9A43D4119F3739C398BBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
-<images/edgeDetectionPrototype/h.jpg, id=618, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/h.jpg, id=687, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/h.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/h.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/h.jpg  used on input lin
 e 687.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
- [19 <./images/edgeDetectionPrototype/g.jpg>]
+ [21 <./images/edgeDetectionPrototype/h.jpg>]
 \openout4 = `main.pyg'.
 
 
@@ -1694,26 +1731,26 @@ File: images/edgeDetectionPrototype/in.jpg Graphic file (type jpg)
 Package pdftex.def Info: images/edgeDetectionPrototype/in.jpg  used on input li
 ne 733.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
-<images/edgeDetectionPrototype/i.jpg, id=625, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/i.jpg, id=694, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/i.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/i.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/i.jpg  used on input lin
 e 736.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
- [20 <./images/edgeDetectionPrototype/h.jpg>]
+ [22 <./images/edgeDetectionPrototype/i.jpg>]
 \openout4 = `main.pyg'.
 
 
 (_minted-main/7D6A941DA03E684619043CEF6BFAE8CDBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
-<images/edgeDetectionPrototype/j.jpg, id=632, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/j.jpg, id=703, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/j.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/j.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/j.jpg  used on input lin
 e 784.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
- [21 <./images/edgeDetectionPrototype/i.jpg>]
-<images/edgeDetectionPrototype/k.jpg, id=641, 745.28438pt x 855.195pt>
+ [23 <./images/edgeDetectionPrototype/j.jpg>]
+<images/edgeDetectionPrototype/k.jpg, id=710, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/k.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/k.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/k.jpg  used on input lin
@@ -1723,9 +1760,8 @@ e 794.
 
 
 (_minted-main/7D5F121F1C6DD4F6A5391EBAEDE88D0ABFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [22 <./images/edgeDetectionPrototype/j.jpg> <./images/edgeDetectionProto
-type/k.jpg>])
-<images/graphClassDiagram.png, id=650, 397.485pt x 294.8616pt>
+pygtex) [24 <./images/edgeDetectionPrototype/k.jpg>]
+<images/graphClassDiagram.png, id=719, 397.485pt x 294.8616pt>
 File: images/graphClassDiagram.png Graphic file (type png)
 <use images/graphClassDiagram.png>
 Package pdftex.def Info: images/graphClassDiagram.png  used on input line 862.
@@ -1734,22 +1770,17 @@ Package pdftex.def Info: images/graphClassDiagram.png  used on input line 862.
 
 
 (_minted-main/35A61BA301D18BE32A0FB386F466C031BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [23 <./images/graphClassDiagram.png>])
+pygtex [25 <./images/graphClassDiagram.png>])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/796FB987E41A909C824E96D7405DEDA1BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex
-
-LaTeX Font Warning: Font shape `T1/cmtt/m/it' in size <7.50002> not available
-(Font)              size <8> substituted on input line 9.
-
-[24])
+pygtex [26])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/CDF22D473D825B438353524DED729EEFBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [25] [26]) [27]
+pygtex [27] [28]) [29]
 
 ! LaTeX Error: Something's wrong--perhaps a missing \item.
 
@@ -1762,7 +1793,7 @@ l.1162                 \end{enumerate}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[28] [29]) [30]
+[30] [31]) [32]
 \openout2 = `pages/design.aux'.
 
  (pages/design.tex
@@ -1798,22 +1829,22 @@ I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-<images/HighLevelOverview.png, id=784, 1733.47626pt x 828.09375pt>
+<images/HighLevelOverview.png, id=851, 1733.47626pt x 828.09375pt>
 File: images/HighLevelOverview.png Graphic file (type png)
 <use images/HighLevelOverview.png>
 Package pdftex.def Info: images/HighLevelOverview.png  used on input line 35.
 (pdftex.def)             Requested size: 489.38731pt x 233.77266pt.
-[31
+[33
 
 
 
 ]
-<images/UML/Backend.png, id=789, 1556.81625pt x 1054.94125pt>
+<images/UML/Backend.png, id=856, 1556.81625pt x 1054.94125pt>
 File: images/UML/Backend.png Graphic file (type png)
 <use images/UML/Backend.png>
 Package pdftex.def Info: images/UML/Backend.png  used on input line 49.
 (pdftex.def)             Requested size: 489.38731pt x 331.61607pt.
- [32 <./images/HighLevelOverview.png>]
+ [34 <./images/HighLevelOverview.png>]
 
 ! LaTeX Error: There's no line here to end.
 
@@ -1827,8 +1858,8 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[33 <./images/UML/Backend.png (PNG copy)>]
-<images/design/consoleMock.png, id=807, 445.665pt x 254.45062pt>
+[35 <./images/UML/Backend.png (PNG copy)>]
+<images/design/consoleMock.png, id=874, 445.665pt x 254.45062pt>
 File: images/design/consoleMock.png Graphic file (type png)
 <use images/design/consoleMock.png>
 Package pdftex.def Info: images/design/consoleMock.png  used on input line 71.
@@ -1847,6 +1878,11 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+<images/design/terminal.png, id=875, 1927.2pt x 1084.05pt>
+File: images/design/terminal.png Graphic file (type png)
+<use images/design/terminal.png>
+Package pdftex.def Info: images/design/terminal.png  used on input line 82.
+(pdftex.def)             Requested size: 355.65944pt x 200.04987pt.
 
 ! LaTeX Error: There's no line here to end.
 
@@ -1854,8 +1890,63 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.80     \\
-            \BK
+l.83     \end{figure}\\
+                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[36 <./images/design/consoleMock.png>]
+<images/design/confirmWindow.jpeg, id=884, 1927.2pt x 1084.05pt>
+File: images/design/confirmWindow.jpeg Graphic file (type jpg)
+<use images/design/confirmWindow.jpeg>
+Package pdftex.def Info: images/design/confirmWindow.jpeg  used on input line 9
+2.
+(pdftex.def)             Requested size: 355.65944pt x 200.04987pt.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.93     \end{figure}\\
+                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<images/design/pathfindWindow.png, id=885, 1927.2pt x 1084.05pt>
+File: images/design/pathfindWindow.png Graphic file (type png)
+<use images/design/pathfindWindow.png>
+Package pdftex.def Info: images/design/pathfindWindow.png  used on input line 9
+7.
+(pdftex.def)             Requested size: 355.65944pt x 200.04987pt.
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.98     \end{figure}\\
+                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[37 <./images/design/terminal.png (PNG copy)> <./images/design/confirmWindow.jp
+eg>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.100     \\
+             \BK
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -1867,12 +1958,884 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.87     \\
-            \bk
+l.103     \\
+             \bk
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/b/it' aliased to
+(Font)              `T1/LibreBskvl-LF/bold/it' on input line 109.
+LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/bold/it' will be
+(Font)              scaled to size 10.0pt on input line 109.
+<images/UML/CannyEdgeDetection.png, id=894, 873.2625pt x 406.51875pt>
+File: images/UML/CannyEdgeDetection.png Graphic file (type png)
+<use images/UML/CannyEdgeDetection.png>
+Package pdftex.def Info: images/UML/CannyEdgeDetection.png  used on input line 
+113.
+(pdftex.def)             Requested size: 355.65944pt x 165.56343pt.
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.114     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<images/UML/Extensions.png, id=895, 602.25pt x 221.82875pt>
+File: images/UML/Extensions.png Graphic file (type png)
+<use images/UML/Extensions.png>
+Package pdftex.def Info: images/UML/Extensions.png  used on input line 122.
+(pdftex.def)             Requested size: 355.65944pt x 131.00644pt.
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.123     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[38 <./images/design/pathfindWindow.png (PNG copy)> <./images/UML/CannyEdgeDete
+ction.png (PNG copy)>]
+<images/UML/Graph.png, id=905, 390.45876pt x 252.945pt>
+File: images/UML/Graph.png Graphic file (type png)
+<use images/UML/Graph.png>
+Package pdftex.def Info: images/UML/Graph.png  used on input line 131.
+(pdftex.def)             Requested size: 355.65944pt x 230.41188pt.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.132     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<images/UML/GraphException.png, id=906, 386.44376pt x 221.82875pt>
+File: images/UML/GraphException.png Graphic file (type png)
+<use images/UML/GraphException.png>
+Package pdftex.def Info: images/UML/GraphException.png  used on input line 140.
+
+(pdftex.def)             Requested size: 355.65944pt x 204.15936pt.
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[39 <./images/UML/Extensions.png (PNG copy)> <./images/UML/Graph.png (PNG copy)
+>]
+<images/UML/IHandler.png, id=915, 339.2675pt x 221.82875pt>
+File: images/UML/IHandler.png Graphic file (type png)
+<use images/UML/IHandler.png>
+Package pdftex.def Info: images/UML/IHandler.png  used on input line 149.
+(pdftex.def)             Requested size: 355.65944pt x 232.5547pt.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.150     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<images/UML/Kernel.png, id=916, 501.875pt x 221.82875pt>
+File: images/UML/Kernel.png Graphic file (type png)
+<use images/UML/Kernel.png>
+Package pdftex.def Info: images/UML/Kernel.png  used on input line 158.
+(pdftex.def)             Requested size: 355.65944pt x 157.2084pt.
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.159     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[40 <./images/UML/GraphException.png (PNG copy)> <./images/UML/IHandler.png (PN
+G copy)>]
+<images/UML/KernelException.png, id=925, 501.875pt x 188.705pt>
+File: images/UML/KernelException.png Graphic file (type png)
+<use images/UML/KernelException.png>
+Package pdftex.def Info: images/UML/KernelException.png  used on input line 168
+.
+(pdftex.def)             Requested size: 355.65944pt x 133.73384pt.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.169     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<images/UML/Logger.png, id=926, 602.25pt x 270.00874pt>
+File: images/UML/Logger.png Graphic file (type png)
+<use images/UML/Logger.png>
+Package pdftex.def Info: images/UML/Logger.png  used on input line 177.
+(pdftex.def)             Requested size: 355.65944pt x 159.46033pt.
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<images/UML/LoggerException.png, id=927, 501.875pt x 221.82875pt>
+File: images/UML/LoggerException.png Graphic file (type png)
+<use images/UML/LoggerException.png>
+Package pdftex.def Info: images/UML/LoggerException.png  used on input line 186
+.
+(pdftex.def)             Requested size: 355.65944pt x 157.2084pt.
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.187     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[41 <./images/UML/Kernel.png (PNG copy)> <./images/UML/KernelException.png (PNG
+ copy)> <./images/UML/Logger.png (PNG copy)>]
+<images/UML/MapFileException.png, id=938, 501.875pt x 221.82875pt>
+File: images/UML/MapFileException.png Graphic file (type png)
+<use images/UML/MapFileException.png>
+Package pdftex.def Info: images/UML/MapFileException.png  used on input line 19
+5.
+(pdftex.def)             Requested size: 355.65944pt x 157.2084pt.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.196     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<images/UML/Matrix.png, id=939, 455.7025pt x 304.13625pt>
+File: images/UML/Matrix.png Graphic file (type png)
+<use images/UML/Matrix.png>
+Package pdftex.def Info: images/UML/Matrix.png  used on input line 204.
+(pdftex.def)             Requested size: 355.65944pt x 237.37381pt.
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.205     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[42 <./images/UML/LoggerException.png (PNG copy)> <./images/UML/MapFileExceptio
+n.png (PNG copy)>]
+<images/UML/MatrixException.png, id=949, 455.7025pt x 221.82875pt>
+File: images/UML/MatrixException.png Graphic file (type png)
+<use images/UML/MatrixException.png>
+Package pdftex.def Info: images/UML/MatrixException.png  used on input line 213
+.
+(pdftex.def)             Requested size: 355.65944pt x 173.13402pt.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.214     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<images/UML/MaxPriorityQueue.png, id=950, 386.44376pt x 406.51875pt>
+File: images/UML/MaxPriorityQueue.png Graphic file (type png)
+<use images/UML/MaxPriorityQueue.png>
+Package pdftex.def Info: images/UML/MaxPriorityQueue.png  used on input line 22
+3.
+(pdftex.def)             Requested size: 355.65944pt x 374.13824pt.
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.224     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[43 <./images/UML/Matrix.png (PNG copy)> <./images/UML/MatrixException.png (PNG
+ copy)>]
+<images/UML/MinPriorityQueue.png, id=959, 390.45876pt x 321.2pt>
+File: images/UML/MinPriorityQueue.png Graphic file (type png)
+<use images/UML/MinPriorityQueue.png>
+Package pdftex.def Info: images/UML/MinPriorityQueue.png  used on input line 23
+3.
+(pdftex.def)             Requested size: 355.65944pt x 292.58652pt.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.234     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[44 <./images/UML/MaxPriorityQueue.png (PNG copy)>]
+<images/UML/Pathfinder.png, id=966, 448.67625pt x 221.82875pt>
+File: images/UML/Pathfinder.png Graphic file (type png)
+<use images/UML/Pathfinder.png>
+Package pdftex.def Info: images/UML/Pathfinder.png  used on input line 242.
+(pdftex.def)             Requested size: 355.65944pt x 175.84528pt.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.243     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<images/UML/PathfindImageForm.png, id=967, 629.35126pt x 696.6025pt>
+File: images/UML/PathfindImageForm.png Graphic file (type png)
+<use images/UML/PathfindImageForm.png>
+Package pdftex.def Info: images/UML/PathfindImageForm.png  used on input line 2
+51.
+(pdftex.def)             Requested size: 355.65944pt x 393.66618pt.
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.252     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[45 <./images/UML/MinPriorityQueue.png (PNG copy)> <./images/UML/Pathfinder.png
+ (PNG copy)>]
+<images/UML/Post.png, id=976, 390.45876pt x 221.82875pt>
+File: images/UML/Post.png Graphic file (type png)
+<use images/UML/Post.png>
+Package pdftex.def Info: images/UML/Post.png  used on input line 260.
+(pdftex.def)             Requested size: 355.65944pt x 202.06755pt.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.261     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[46 <./images/UML/PathfindImageForm.png (PNG copy)> <./images/UML/Post.png (PNG
+ copy)>]
+<images/UML/PreprocessingException.png, id=985, 602.25pt x 221.82875pt>
+File: images/UML/PreprocessingException.png Graphic file (type png)
+<use images/UML/PreprocessingException.png>
+Package pdftex.def Info: images/UML/PreprocessingException.png  used on input l
+ine 269.
+(pdftex.def)             Requested size: 355.65944pt x 131.00644pt.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.270     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<images/UML/Program.png, id=986, 629.35126pt x 221.82875pt>
+File: images/UML/Program.png Graphic file (type png)
+<use images/UML/Program.png>
+Package pdftex.def Info: images/UML/Program.png  used on input line 278.
+(pdftex.def)             Requested size: 355.65944pt x 125.36053pt.
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.279     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<images/UML/Queue.png, id=987, 501.875pt x 221.82875pt>
+File: images/UML/Queue.png Graphic file (type png)
+<use images/UML/Queue.png>
+Package pdftex.def Info: images/UML/Queue.png  used on input line 287.
+(pdftex.def)             Requested size: 355.65944pt x 157.2084pt.
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.288     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<images/UML/RoadDetection.png, id=988, 501.875pt x 270.00874pt>
+File: images/UML/RoadDetection.png Graphic file (type png)
+<use images/UML/RoadDetection.png>
+Package pdftex.def Info: images/UML/RoadDetection.png  used on input line 296.
+(pdftex.def)             Requested size: 355.65944pt x 191.35321pt.
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.296 ...h=12.5cm]{images/UML/RoadDetection.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.296 ...h=12.5cm]{images/UML/RoadDetection.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.296 ...h=12.5cm]{images/UML/RoadDetection.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.296 ...h=12.5cm]{images/UML/RoadDetection.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.297     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[47 <./images/UML/PreprocessingException.png (PNG copy)> <./images/UML/Program.
+png (PNG copy)> <./images/UML/Queue.png (PNG copy)>]
+<images/UML/SettingsException.png, id=999, 455.7025pt x 221.82875pt>
+File: images/UML/SettingsException.png Graphic file (type png)
+<use images/UML/SettingsException.png>
+Package pdftex.def Info: images/UML/SettingsException.png  used on input line 3
+05.
+(pdftex.def)             Requested size: 355.65944pt x 173.13402pt.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.305 ....5cm]{images/UML/SettingsException.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.305 ....5cm]{images/UML/SettingsException.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.305 ....5cm]{images/UML/SettingsException.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.305 ....5cm]{images/UML/SettingsException.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.306     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<images/UML/Stack.png, id=1000, 390.45876pt x 235.88126pt>
+File: images/UML/Stack.png Graphic file (type png)
+<use images/UML/Stack.png>
+Package pdftex.def Info: images/UML/Stack.png  used on input line 314.
+(pdftex.def)             Requested size: 355.65944pt x 214.86823pt.
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.314 ...ics[width=12.5cm]{images/UML/Stack.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.314 ...ics[width=12.5cm]{images/UML/Stack.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.314 ...ics[width=12.5cm]{images/UML/Stack.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.314 ...ics[width=12.5cm]{images/UML/Stack.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.315     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[48 <./images/UML/RoadDetection.png (PNG copy)> <./images/UML/SettingsException
+.png (PNG copy)>]
+<images/UML/TextWall.png, id=1010, 448.67625pt x 221.82875pt>
+File: images/UML/TextWall.png Graphic file (type png)
+<use images/UML/TextWall.png>
+Package pdftex.def Info: images/UML/TextWall.png  used on input line 323.
+(pdftex.def)             Requested size: 355.65944pt x 175.84528pt.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.323 ...[width=12.5cm]{images/UML/TextWall.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.323 ...[width=12.5cm]{images/UML/TextWall.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.323 ...[width=12.5cm]{images/UML/TextWall.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.323 ...[width=12.5cm]{images/UML/TextWall.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.324     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<images/UML/Traversal.png, id=1011, 501.875pt x 221.82875pt>
+File: images/UML/Traversal.png Graphic file (type png)
+<use images/UML/Traversal.png>
+Package pdftex.def Info: images/UML/Traversal.png  used on input line 332.
+(pdftex.def)             Requested size: 355.65944pt x 157.2084pt.
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.332 ...width=12.5cm]{images/UML/Traversal.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.332 ...width=12.5cm]{images/UML/Traversal.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.332 ...width=12.5cm]{images/UML/Traversal.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.332 ...width=12.5cm]{images/UML/Traversal.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.333     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[49 <./images/UML/Stack.png (PNG copy)> <./images/UML/TextWall.png (PNG copy)>]
+<images/UML/Utility.png, id=1020, 602.25pt x 406.51875pt>
+File: images/UML/Utility.png Graphic file (type png)
+<use images/UML/Utility.png>
+Package pdftex.def Info: images/UML/Utility.png  used on input line 341.
+(pdftex.def)             Requested size: 355.65944pt x 240.07968pt.
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.341 ...s[width=12.5cm]{images/UML/Utility.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.341 ...s[width=12.5cm]{images/UML/Utility.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.341 ...s[width=12.5cm]{images/UML/Utility.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.341 ...s[width=12.5cm]{images/UML/Utility.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.342     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<images/UML/ViewImageForm.png, id=1021, 448.67625pt x 270.00874pt>
+File: images/UML/ViewImageForm.png Graphic file (type png)
+<use images/UML/ViewImageForm.png>
+Package pdftex.def Info: images/UML/ViewImageForm.png  used on input line 350.
+(pdftex.def)             Requested size: 355.65944pt x 214.03792pt.
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.350 ...h=12.5cm]{images/UML/ViewImageForm.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.350 ...h=12.5cm]{images/UML/ViewImageForm.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.350 ...h=12.5cm]{images/UML/ViewImageForm.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.350 ...h=12.5cm]{images/UML/ViewImageForm.png}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.351     \end{figure}\\
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[50 <./images/UML/Traversal.png (PNG copy)> <./images/UML/Utility.png (PNG copy
+)>]
 
 ! LaTeX Error: \begin{enumerate} on input line 56 ended by \end{flushleft}.
 
@@ -1880,13 +2843,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.89 \end{flushleft}
-                    
+l.364 \end{flushleft}
+                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) [34 <./images/design/consoleMock.png>]
+) [51 <./images/UML/ViewImageForm.png (PNG copy)>]
 \openout2 = `pages/testing.aux'.
 
  (pages/testing.tex
@@ -1894,21 +2857,69 @@ Overfull \hbox (12.20384pt too wide) in alignment at lines 65--123
  [] [] [] [] [] [] 
  []
 
-[35
+[52
 
 
 
-] [36]
-Overfull \hbox (12.20384pt too wide) in alignment at lines 131--153
+] [53] [54]
+Overfull \hbox (32.09196pt too wide) in alignment at lines 131--153
  [] [] [] [] [] [] 
  []
 
-[37]
-<images/cannyTestImage.jpg, id=869, 1023.825pt x 722.7pt>
+[55]
+<images/cannyTestImage.jpg, id=1094, 1023.825pt x 722.7pt>
 File: images/cannyTestImage.jpg Graphic file (type jpg)
 <use images/cannyTestImage.jpg>
 Package pdftex.def Info: images/cannyTestImage.jpg  used on input line 160.
 (pdftex.def)             Requested size: 213.39566pt x 150.62462pt.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.160 ...width=7.5cm]{images/cannyTestImage.jpg}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.160 ...width=7.5cm]{images/cannyTestImage.jpg}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.160 ...width=7.5cm]{images/cannyTestImage.jpg}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Counter too large.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.160 ...width=7.5cm]{images/cannyTestImage.jpg}}}
+                                                  
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
 ! LaTeX Error: Something's wrong--perhaps a missing \item.
@@ -1922,49 +2933,49 @@ l.163         }
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[38]
-<images/cannyTesting/Canny_Walkthrough_0_Black_White_Filter.jpg, id=876, 1023.8
-25pt x 722.7pt>
+[56]
+<images/cannyTesting/Canny_Walkthrough_0_Black_White_Filter.jpg, id=1101, 1023.
+825pt x 722.7pt>
 File: images/cannyTesting/Canny_Walkthrough_0_Black_White_Filter.jpg Graphic fi
 le (type jpg)
 <use images/cannyTesting/Canny_Walkthrough_0_Black_White_Filter.jpg>
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_0_Black_White_Fi
 lter.jpg  used on input line 174.
 (pdftex.def)             Requested size: 128.0374pt x 90.37035pt.
-<images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png, id=877, 803.0pt x 5
-67.11874pt>
+<images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png, id=1102, 803.0pt x 
+567.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png Graphic file (t
 ype png)
 <use images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png>
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.
 png  used on input line 176.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png, id=878, 803.0p
-t x 567.11874pt>
+<images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png, id=1103, 803.0
+pt x 567.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png Graphic fi
 le (type png)
 <use images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png>
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_2_Intensity_Grad
 ient.png  used on input line 178.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png, id=879, 8
-03.0pt x 567.11874pt>
+<images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png, id=1104, 
+803.0pt x 567.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png Graph
 ic file (type png)
 <use images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png>
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_3_Non-maximum_su
 ppression.png  used on input line 182.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png, id=880, 803.0pt 
-x 567.11874pt>
+<images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png, id=1105, 803.0pt
+ x 567.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png Graphic file
  (type png)
 <use images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png>
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_4_Double_Thresho
 ld.png  used on input line 184.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png, id=881, 1023.825pt x 7
-22.7pt>
+<images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png, id=1106, 1023.825pt x 
+722.7pt>
 File: images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png Graphic file (type
  png)
 <use images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png>
@@ -1982,22 +2993,22 @@ Overfull \hbox (12.20384pt too wide) in alignment at lines 168--190
  [] [] [] [] [] [] 
  []
 
-[39 <./images/cannyTestImage.jpg> <./images/cannyTesting/Canny_Walkthrough_0_Bl
+[57 <./images/cannyTestImage.jpg> <./images/cannyTesting/Canny_Walkthrough_0_Bl
 ack_White_Filter.jpg> <./images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.
 png (PNG copy)> <./images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.p
 ng (PNG copy)>]
-<images/roadExamples/comb.png, id=890, 644.4075pt x 385.44pt>
+<images/roadExamples/comb.png, id=1115, 644.4075pt x 385.44pt>
 File: images/roadExamples/comb.png Graphic file (type png)
 <use images/roadExamples/comb.png>
 Package pdftex.def Info: images/roadExamples/comb.png  used on input line 208.
 (pdftex.def)             Requested size: 128.0374pt x 76.58083pt.
-<images/roadExamples/white.png, id=891, 75.28125pt x 75.28125pt>
+<images/roadExamples/white.png, id=1116, 75.28125pt x 75.28125pt>
 File: images/roadExamples/white.png Graphic file (type png)
 <use images/roadExamples/white.png>
 Package pdftex.def Info: images/roadExamples/white.png  used on input line 220.
 
 (pdftex.def)             Requested size: 128.0374pt x 128.06256pt.
-<images/roadExamples/quadsFilledExample.png, id=892, 150.5625pt x 150.5625pt>
+<images/roadExamples/quadsFilledExample.png, id=1117, 150.5625pt x 150.5625pt>
 File: images/roadExamples/quadsFilledExample.png Graphic file (type png)
 <use images/roadExamples/quadsFilledExample.png>
 Package pdftex.def Info: images/roadExamples/quadsFilledExample.png  used on in
@@ -2008,7 +3019,7 @@ Overfull \hbox (12.20384pt too wide) in alignment at lines 201--227
  [] [] [] [] [] [] 
  []
 
-[40 <./images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png (PNG
+[58 <./images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png (PNG
  copy)> <./images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png (PNG co
 py)> <./images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png> <./images/roadE
 xamples/comb.png>]
@@ -2016,46 +3027,68 @@ Overfull \hbox (12.20384pt too wide) in alignment at lines 234--238
  [] [] [] [] [] [] 
  []
 
-
-Overfull \hbox (12.20384pt too wide) in alignment at lines 241--275
+[59 <./images/roadExamples/white.png> <./images/roadExamples/quadsFilledExample
+.png>]
+Overfull \hbox (46.05193pt too wide) in alignment at lines 241--275
  [] [] [] [] [] [] 
  []
 
-[41 <./images/roadExamples/white.png> <./images/roadExamples/quadsFilledExample
-.png>] [42]
+[60]
 Overfull \hbox (12.20384pt too wide) in alignment at lines 282--346
  [] [] [] [] [] [] 
  []
 
-[43] [44]
+[61] [62] [63]
 Overfull \hbox (12.20384pt too wide) in alignment at lines 353--439
  [] [] [] [] [] [] 
  []
 
-[45] [46]
+[64] [65]
 Overfull \hbox (12.20384pt too wide) in alignment at lines 441--460
  [] [] [] [] [] [] 
  []
 
-[47] 
+[66] 
 
 <QR code requested for "https://youtu.be/cJqFovg27Bo" in version 0-M.>
 <Error-correction level increased from M to Q at no cost.>
 
 <Copying the QR code for "https://youtu.be/cJqFovg27Bo" in version 3-Q as previ
 ously calculated.>
+! Undefined control sequence.
+<recently read> \normalsizeer 
+                              
+l.472             \normalsizeer
+                               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/m/it' aliased to
 (Font)              `T1/LibreBskvl-LF/regular/it' on input line 473.
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 473.
-) [48]
+(Font)              scaled to size 12.0pt on input line 473.
+! Undefined control sequence.
+<recently read> \normalsizeer 
+                              
+l.476             \normalsizeer
+                               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+) [67]
 \openout2 = `pages/solution.tex.aux'.
 
 
 No file pages/solution.tex.tex.
 \openout2 = `pages/evaluation.aux'.
 
-(pages/evaluation.tex) [49
+(pages/evaluation.tex) [68
 
 
 
@@ -2070,51 +3103,51 @@ No file pages/solution.tex.tex.
 
 
 (_minted-main/0B71B649FF06EBB80BE2FCE42F2A530DBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [50
+pygtex [69
 
 
 
-] [51] [52] [53] [54] [55] [56] [57] [58])
+] [70] [71] [72] [73] [74] [75] [76] [77] [78])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/3B8E81F35E50E389B33AEE9804A5ADF9BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [59] [60] [61] [62])
+pygtex [79] [80] [81])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/BD5076E27BAB48FBAC5B1A82A0C4383FBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [63] [64])
+pygtex [82] [83] [84])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/DDCD38AE71671326F34979C0439946C2BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [65] [66] [67])
+pygtex [85] [86])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/78EC761638FAE7F6CB61A445E5A5E2A6BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex)
+pygtex [87])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/58378F5D102BBE967D75A358E05998A7BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [68] [69])
+pygtex [88] [89])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/F42492C9E9C0D651D76DBE2C3B627766BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [70])
+pygtex [90])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/22C2EA1D524062832D06E44E6E724448BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [71] [72])
+pygtex [91] [92])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/F2115DA59D3E17CDC60DD9B1E771AD00BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [73])
+pygtex [93])
 \openout4 = `main.pyg'.
 
 
@@ -2124,12 +3157,12 @@ pygtex)
 
 
 (_minted-main/B05422CB9E381707650235C73840FB4CBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex)
+pygtex [94])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/DA2C731E153C321C8E4743DD9B26E695BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [74])
+pygtex)
 \openout4 = `main.pyg'.
 
 
@@ -2139,12 +3172,12 @@ pygtex)
 
 
 (_minted-main/A5D82F2EBC72C13D923263097E3E4225BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex)
+pygtex [95])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/77367F640EBE28CD01399CD9AE1F0243BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [75])
+pygtex)
 \openout4 = `main.pyg'.
 
 
@@ -2154,7 +3187,7 @@ pygtex)
 
 
 (_minted-main/E6A2D3A7B2B1DE5EC7472FF73DA9AFBABFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [76])
+pygtex [96])
 \openout4 = `main.pyg'.
 
 
@@ -2164,83 +3197,78 @@ pygtex)
 
 
 (_minted-main/3B4587E3AED7DA8EE961D82D2743DCF3BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [77] [78] [79] [80])
+pygtex [97] [98] [99] [100] [101])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/1E84FCB86847C9E39703F2F777F0B9A5BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [81])
+pygtex [102])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/461C46D35C2033A1DAFA7A07FF556DFBBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [82] [83])
+pygtex [103])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/FF597AACDA46313334702FF1BB99DFF3BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [84] [85])
+pygtex [104] [105])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/E7A590883443A110F6FF9DA2F7DFB15ABFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [86])
+pygtex [106] [107])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/DB4DFB219DAF97CD9D87576C58F1AF44BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [87] [88])
+pygtex [108] [109])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/03A0E264AB69255B1EEE08914EDCC13BBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [89])
+pygtex [110])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/6F75D9ACC6A50C7126EF5B7608E22219BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [90])
+pygtex [111])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/BA5456BFB812B8A614A69F8E7F2C743EBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [91]
+pygtex [112]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
 25.
 
 (C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
-)
-
-LaTeX Font Warning: Font shape `TS1/cmtt/m/n' in size <7.50002> not available
-(Font)              size <8> substituted on input line 25.
-
-[92] [93])
+) [113] [114])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/E4E55830D0980D389DA0035F696A6F14BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [94])
+pygtex [115] [116])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/CEBDB23E10697D1B4D77F46A67FDBC77BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [95])
+pygtex)
 \openout4 = `main.pyg'.
 
 
 (_minted-main/F6DF11F9D3CD42BE797093676F5BCAADBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [96] [97])
+pygtex [117] [118])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/5C0B17821ACF3ECDD660AE66F863FEE2BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [98] [99] [100] [101])
+pygtex [119] [120] [121] [122] [123])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/8B197BCBBED051C71A5CC3151795AD63BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [102] [103])
+pygtex [124] [125])
 \openout4 = `main.pyg'.
 
 
@@ -2298,57 +3326,57 @@ l.20 ...G{l+s+sc}{\PYGZsq{}─\PYGZsq{}}\PYG{p}{;}
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[104] [105] [106] [107])
+[126] [127] [128] [129])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/19646387968408637BED5D26C3977A65BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [108] [109])
+pygtex [130] [131])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/E1B5A19BE62D684B83C548BFFCE0DD21BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [110] [111])
+pygtex [132] [133])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/3A7E48EEEBF57DFB7812C80FCCBB8547BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [112])
+pygtex [134])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/F45B71325D3DC9946E81C0FBF097636ABFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [113] [114] [115] [116] [117])
+pygtex [135] [136] [137] [138] [139] [140])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/2E7E690CD39525D960852124E37371C3BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [118])
+pygtex)
 \openout4 = `main.pyg'.
 
 
 (_minted-main/F9ABAEE54B064121D26F0C32BBBBBE79BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [119] [120])
+pygtex [141] [142])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/77DD73A8FF1916D21C6B9ED58B4D1D40BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [121] [122] [123] [124] [125])
+pygtex [143] [144] [145] [146] [147] [148])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/68D0D720ECA166E8406578198DF41DB7BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [126] [127] [128] [129] [130])
+pygtex [149] [150] [151] [152] [153])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/AD42BCF487B063530F70EBA5B884AF95BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [131])
+pygtex [154])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/2698A8B73DD278098DB41996C579BD6EBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [132] [133] [134] [135] [136])) [137]
+pygtex [155] [156] [157] [158] [159] [160])) [161]
 
 ! LaTeX Error: \begin{flushleft} on input line 2 ended by \end{document}.
 
@@ -2371,7 +3399,7 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 206A63FCD53561DED9D715BC6C2016F3;9098.
+(rerunfilecheck)             Checksum: 6370E86B752C0B670357F140D07D1EEE;9234.
 runsystem(del main.pyg)...executed.
 
  )
@@ -2380,44 +3408,45 @@ runsystem(del main.pyg)...executed.
 ### semi simple group (level 1) entered at line 2 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 33946 strings out of 476406
- 715362 string characters out of 2786228
- 1934787 words of memory out of 3000000
- 52948 multiletter control sequences out of 15000+600000
- 831998 words of font info for 102 fonts, out of 8000000 for 9000
+ 34255 strings out of 476406
+ 722820 string characters out of 2786228
+ 1930787 words of memory out of 3000000
+ 53118 multiletter control sequences out of 15000+600000
+ 782686 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  100i,18n,133p,1248b,1412s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Rubens Pirie\AppData\Local\MiKTeX\fonts/pk/ljfour/jk
 nappen/ec/dpi600\tctt0800.pk> <C:\Users\Rubens Pirie\AppData\Local\MiKTeX\fonts
 /pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\Rubens Pirie\AppData\Local
-\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Rubens Pirie\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit0800.pk> <C:\Users\
-Rubens Pirie\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0800.p
-k>{C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/librebas
-kerville/lbskvl_uf5aa7.enc}{C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX
+\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk>{C:/Users/Rubens Pirie/A
+ppData/Local/Programs/MiKTeX/fonts/enc/dvips/librebaskerville/lbskvl_uf5aa7.enc
+} <C:\Users\Rubens Pirie\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecit0800.pk> <C:\Users\Rubens Pirie\AppData\Local\MiKTeX\fonts/pk/ljfour/jkna
+ppen/ec/dpi600\ectt0800.pk>{C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX
 /fonts/enc/dvips/librebaskerville/lbskvl_6hj2ra.enc} <C:\Users\Rubens Pirie\App
 Data\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1095.pk> <C:\Users\Rub
 ens Pirie\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1200.pk> 
 <C:\Users\Rubens Pirie\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
 ecsx1728.pk><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/im
 pallari/librebaskerville/LibreBskvl-Bold.pfb><C:/Users/Rubens Pirie/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/impallari/librebaskerville/LibreBskvl-Italic.pfb
-><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/impallari/lib
-rebaskerville/LibreBskvl-Regular.pfb><C:/Users/Rubens Pirie/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><C:/Users/Rubens Pirie
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Use
-rs/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-mi6.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmmi9.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Rubens Pirie/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Rubens Pirie/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Rub
-ens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pf
-b><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmsy9.pfb>
-Output written on main.pdf (138 pages, 12342928 bytes).
+al/Programs/MiKTeX/fonts/type1/impallari/librebaskerville/LibreBskvl-BoldItalic
+.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/impallari
+/librebaskerville/LibreBskvl-Italic.pfb><C:/Users/Rubens Pirie/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/impallari/librebaskerville/LibreBskvl-Regular.pfb><C:
+/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmex10.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi10.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Rubens Pirie/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Rubens Pir
+ie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/U
+sers/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmr7.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Rubens Pirie/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on main.pdf (162 pages, 14121619 bytes).
 PDF statistics:
- 1835 PDF objects out of 2073 (max. 8388607)
- 479 named destinations out of 1000 (max. 500000)
- 665 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2113 PDF objects out of 2487 (max. 8388607)
+ 591 named destinations out of 1000 (max. 500000)
+ 823 words of extra memory for PDF output out of 10000 (max. 10000000)
 
