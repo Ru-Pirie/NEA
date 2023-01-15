@@ -135,17 +135,92 @@
         \subfloat[\centering Canny Edge Detection Class Diagram]{{\includegraphics[width=16cm]{images/UML/CannyEdgeDetection.png}}}
     \end{figure}\\
 
-    This class is located in the backend library portion of my project, its main function is to house the methods which contain the maths to perf
+    This class is located in the backend library portion of my project, its main function is to house the methods which contain the maths to perform the canny edge detection. Since this method is in the backend library of my project there is no user input here however in many of the methods an action is passed in, this is used to update the progress bar on the front end without having the two intrinsically integrated. \\ \bk
+
+    The first set of methods shown in the class diagram are in essence properties on the class which are used in the various calculations. The reason that I will go with getter and setter variables is that if at some point in the future I wish to restrict access to the properties on the class or perhaps mutate the way in which they are stored this could be easily done without the need to change many different things. \\ \bk
+
+    The first method and subsequently the first stage in canny edge detection is the black and white filter. The default behaviour is that it uses the industry standard for getting a single value from a RGB pixel which is as follows $$ Y' = 0.299R' + 0.587G' + 0.114B' $$.  It will perform the same calculation for every pixel in the supplied image causing it to be converted to black and white. This is used since if the detection was run on each colour chanel seperatly this would not give one unified result and could be very inaccurate.\\ 
+
+    \\ \bk
+
+    The next method in this class is the Gaussian Filter this will pass over the image and apply a Gaussian Filter kernel to each pixel. This is mainly used in order to make sure that any noise in the image is suppressed to avoid false edges. The maths for the kernel implementation and matrix convolutions are covered in their respective classes as well as the gaussian equation. A rough approximation for the gaussian kernel is as follows:\\
+
+    \begin{gather*}
+        \frac{1}{159}\begin{pmatrix}
+            2 & 4 & 5 & 4 & 2 \\
+            4 & 9 & 12 & 9 & 4 \\
+            5 & 12 & 15 & 12 & 5 \\
+            4 & 9 & 12 & 9 & 4 \\
+            2 & 4 & 5 & 4 & 2
+        \end{pmatrix}
+    \end{gather*} \\
+
+    It is stated that the larger the kernel is the less effect noise will have on the result however it will impact the performance of the detector, for this reason the Canny Edge Detection class defaults to a kernel size of 5x5. \\ \bk
+
+    The next stage of canny edge detection involve calculating gradients and gradient angles and for this reason I will be combining the CalculateGradients, CalculateGradientX and CalculateGradientY into one. Again another way in which I will optimise the canny edge detection is by using threading. In order to calculate the gradient direction I will need to use Atan2, this requires an X and Y component which are independent of each other, a perfect use of threading. When a image gets to this point it will be processed at the same time by each method. The process completed by each method is vastly the same they will just be applying different image kernels, both are the sobel edge kernels keeping with the scheme of canny edge detection. \\ \bk   
+
+    \begin{center}
+        
+        $
+        M_x = \begin{pmatrix}
+            +1 & +2 & +1 \\
+            0 & 0 & 0 \\
+            -1 & -2 & -1
+        \end{pmatrix}
+    $ 
+    and $ M_y = \begin{pmatrix}
+            +1 & 0 & -1 \\
+            +2 & 0 & -2 \\
+            +1 & 0 & -1 
+        \end{pmatrix}
+    $
+    \end{center} \\
+ 
+    \bk
+
+    Once the gradient magnitudes in each dimension have been calculated the result of these can be fed into the CombineGradients method. This method will finally extract the usefully data which has been created from applying the two sobel gradient kernels. The first of these is working out the combined gradient magnitudes which is simply calculated with the equation: \\
+    
+    \begin{gather*}
+        G = \sqrt{G_x^2 + G_y^2}
+    \end{gather*} \\
+    
+    We then also want to calculate the direction in which the gradient is travelling to work out if it is extreme enough to quantify an edge. This is achieved though the use of Atan2 as follows:\\
+    
+    \begin{gather*}
+        \Theta = \text{Atan2}(G_x, G_y)
+    \end{gather*} \\ 
 
     \bk
 
+    The next stage in canny edge detection is gradient magnitude threshold's, this is a method of removing lines which would not be "thick enough" to be a propped edge. This is accomplished by the use of the MagnitudeThreshold method and the bullet point description: \\ 
+    
+    At every pixel N in a given image, it will be suppressed (removed) if,
+    \begin{itemize}
+        \item the rounded gradient angle is 0° (i.e. the edge is in the north-south direction) the point will be considered to be on the edge if its gradient magnitude is greater than the magnitudes at pixels in the east and west directions.
+        \item the rounded gradient angle is 90° (i.e. the edge is in the east-west direction) the point will be considered to be on the edge if its gradient magnitude is greater than the magnitudes at pixels in the north and south directions.
+        \item the rounded gradient angle is 135° (i.e. the edge is in the northeast-southwest direction) the point will be considered to be on the edge if its gradient magnitude is greater than the magnitudes at pixels in the north-west and south-east directions.
+        \item the rounded gradient angle is 45° (i.e. the edge is in the northwest-southeast direction) the point will be considered to be on the edge if its gradient magnitude is greater than the magnitudes at pixels in the north-east and south-west directions.
 
-    \paragraph{Canny Result \textit{(Class)}} \mbox{} \\
+    \end{itemize}
+    
+    \\ \bk
+
+    The penultimate method call is to Double Threshold suppression. After the magnitude threshold, remaining edge pixels provide a more accurate representation of real edges in an image. However, some edge pixels remain that are caused by noise and color variation which didn't get removed by the gaussian filter stage. To account for these spurious responses, it is essential to filter out edge pixels with a weak gradient value and preserve edge pixels with a high gradient value. \\
+
+    The way in which this is implemented is that a user threshold from the beginning is used and if the pixel is greater than the threshold then it is included, if it is below the max threshold but greater than the min then it is set to a strong pixel and retains its value. In any other case it is removed and its value is set to 0. \\ \bk
+
+    Finally edge tracking by hysteresis is used, to track the edge connection, blob analysis is applied by looking at a weak edge pixel and its 8-connected neighbourhood pixels. As long as there is one strong edge pixel that is involved in the blob, that weak edge point can be identified as one that should be preserved. These weak edge pixels become strong edges that can then cause their neighbouring weak edge pixels to be preserved otherwise they are not preserved and are removed. After each of these sages canny edge detection is complete. \\ \bk    
+    \bk
+
+
+    \paragraph{Canny Result \textit{(Structure)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Canny Result Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/CannyResult.png}}}
+        \subfloat[\centering Canny Result Class Diagram]{{\includegraphics[width=8cm]{images/UML/CannyResult.png}}}
     \end{figure}\\
+
+    This is contained within the static class of structures in the backend library. There is no methods or functions contained within this class since it is in fact a structure. Its main function is to contain any relevant data from Canny Edge Detection.
 
     \bk
 
@@ -153,8 +228,10 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Coord Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Coord.png}}}
+        \subfloat[\centering Coord Class Diagram]{{\includegraphics[width=13cm]{images/UML/Coord.png}}}
     \end{figure}\\
+
+    Similar to above this is contained within the static class of structures. It is used to represent a coordinate, and unlike the canny result structure, it does contain methods. The main of which are the operator overloads. This allows me to directly compare two different coordinates instead of constantly comparing each dimensions. The other hash codes and alike are used when a dictionary is required in order for them to be converted into a hash code. Finally the ToString method is mainly used during testing however it can also be used to inform the user of a coordinate that they are interacting with.
 
     \bk
 
@@ -162,8 +239,10 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Extensions Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Extensions.png}}}
+        \subfloat[\centering Extensions Class Diagram]{{\includegraphics[width=13cm]{images/UML/Extensions.png}}}
     \end{figure}\\
+
+    This class is responsible for altering the default behavior of
 
     \bk
 
@@ -171,7 +250,7 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Gradients Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Gradients.png}}}
+        \subfloat[\centering Gradients Class Diagram]{{\includegraphics[width=8cm]{images/UML/Gradients.png}}}
     \end{figure}\\
 
     \bk
@@ -181,7 +260,7 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Graph Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Graph.png}}}
+        \subfloat[\centering Graph Class Diagram]{{\includegraphics[width=8cm]{images/UML/Graph.png}}}
     \end{figure}\\
 
     \bk

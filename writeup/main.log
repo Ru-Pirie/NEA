@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8) (preloaded format=pdflatex 2023.1.1)  15 JAN 2023 15:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.1.5)  15 JAN 2023 18:44
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
 **./main.tex
 (main.tex
-LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-08-05>
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
-Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
-File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2022-12-17>
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@section=\count186
@@ -19,18 +19,20 @@ File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 \c@subparagraph=\count190
 \c@figure=\count191
 \c@table=\count192
-\abovecaptionskip=\skip47
-\belowcaptionskip=\skip48
-\bibindent=\dimen138
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2e.sty
-Package: ragged2e 2021/12/15 v3.1 ragged2e Package
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2
+e.sty
+Package: ragged2e 2022/11/13 v3.2 ragged2e Package
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/footmisc\footmisc.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/footmisc\footmis
+c.sty
 Package: footmisc 2022/03/08 v6.0d a miscellany of footnote facilities
 \FN@temptoken=\toks16
-\footnotemargin=\dimen139
-\@outputbox@depth=\dimen140
+\footnotemargin=\dimen141
+\@outputbox@depth=\dimen142
 Package footmisc Info: Declaring symbol style bringhurst on input line 695.
 Package footmisc Info: Declaring symbol style chicago on input line 703.
 Package footmisc Info: Declaring symbol style wiley on input line 712.
@@ -40,60 +42,69 @@ Package footmisc Info: Declaring symbol style lamport* on input line 743.
 Package footmisc Info: Declaring symbol style lamport*-robust on input line 764
 .
 )
-\CenteringLeftskip=\skip49
-\RaggedLeftLeftskip=\skip50
-\RaggedRightLeftskip=\skip51
-\CenteringRightskip=\skip52
-\RaggedLeftRightskip=\skip53
-\RaggedRightRightskip=\skip54
-\CenteringParfillskip=\skip55
-\RaggedLeftParfillskip=\skip56
-\RaggedRightParfillskip=\skip57
-\JustifyingParfillskip=\skip58
-\CenteringParindent=\skip59
-\RaggedLeftParindent=\skip60
-\RaggedRightParindent=\skip61
-\JustifyingParindent=\skip62
-) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+\CenteringLeftskip=\skip50
+\RaggedLeftLeftskip=\skip51
+\RaggedRightLeftskip=\skip52
+\CenteringRightskip=\skip53
+\RaggedLeftRightskip=\skip54
+\RaggedRightRightskip=\skip55
+\CenteringParfillskip=\skip56
+\RaggedLeftParfillskip=\skip57
+\RaggedRightParfillskip=\skip58
+\JustifyingParfillskip=\skip59
+\CenteringParindent=\skip60
+\RaggedLeftParindent=\skip61
+\RaggedRightParindent=\skip62
+\JustifyingParindent=\skip63
+)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometr
+y.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.
+sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.s
+ty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.st
+y
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
 \Gm@cnth=\count193
 \Gm@cntv=\count194
 \c@Gm@tempcnt=\count195
-\Gm@bindingoffset=\dimen141
-\Gm@wd@mp=\dimen142
-\Gm@odd@mp=\dimen143
-\Gm@even@mp=\dimen144
-\Gm@layoutwidth=\dimen145
-\Gm@layoutheight=\dimen146
-\Gm@layouthoffset=\dimen147
-\Gm@layoutvoffset=\dimen148
+\Gm@bindingoffset=\dimen143
+\Gm@wd@mp=\dimen144
+\Gm@odd@mp=\dimen145
+\Gm@even@mp=\dimen146
+\Gm@layoutwidth=\dimen147
+\Gm@layoutheight=\dimen148
+\Gm@layouthoffset=\dimen149
+\Gm@layoutvoffset=\dimen150
 \Gm@dimlist=\toks18
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometr
+y.cfg))
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.st
+y
 Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\col
+or.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 227.
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdf
+tex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex-dev/graphics\mathcolor.
-ltx)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcol
+or.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
 Package xcolor Info: Model `RGB' extended on input line 1369.
@@ -103,37 +114,46 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
-) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/librebaskerville\libreb
-askerville.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/librebaskerville
+\librebaskerville.sty
 Package: librebaskerville 2022/09/17 (Bob Tennent) Supports LibreBaskerville fo
 nts for all LaTeX engines. 
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifxetex.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifxetex.
+sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex
+.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.st
+y
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.
+sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyva
+l.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvuti
+ls.tex
 \XKV@toks=\toks19
 \XKV@tempa@toks=\toks20
 )
 \XKV@depth=\count196
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+))
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/fontaxes\fontaxes.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/fontaxes\fontaxe
+s.sty
 Package: fontaxes 2020/07/21 v1.0e Font selection axes
 LaTeX Info: Redefining \upshape on input line 29.
 LaTeX Info: Redefining \itshape on input line 31.
@@ -145,109 +165,118 @@ LaTeX Info: Redefining \ulcshape on input line 41.
 LaTeX Info: Redefining \textsw on input line 47.
 LaTeX Info: Redefining \textssc on input line 48.
 LaTeX Info: Redefining \textulc on input line 49.
-)) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.st
-y
-Package: fancyhdr 2022/05/18 v4.0.3 Extensive control of page headers and foote
-rs
-\f@nch@headwidth=\skip63
-\f@nch@O@elh=\skip64
-\f@nch@O@erh=\skip65
-\f@nch@O@olh=\skip66
-\f@nch@O@orh=\skip67
-\f@nch@O@elf=\skip68
-\f@nch@O@erf=\skip69
-\f@nch@O@olf=\skip70
-\f@nch@O@orf=\skip71
-) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.sty
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l3k
-eys2e.sty
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
-Package: expl3 2022-08-05 L3 programming layer (loader) 
+))
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhd
+r.sty
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
-tex.def
-File: l3backend-pdftex.def 2022-08-05 L3 backend support: PDF output (pdfTeX)
+\f@nch@headwidth=\skip64
+\f@nch@O@elh=\skip65
+\f@nch@O@erh=\skip66
+\f@nch@O@olh=\skip67
+\f@nch@O@orh=\skip68
+\f@nch@O@elf=\skip69
+\f@nch@O@erf=\skip70
+\f@nch@O@olf=\skip71
+\f@nch@O@orf=\skip72
+)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.st
+y
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3key
+s2e\l3keys2e.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.s
+ty
+Package: expl3 2022-12-17 L3 programming layer (loader) 
+
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3back
+end-pdftex.def
+File: l3backend-pdftex.def 2022-10-26 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count197
 \l__pdf_internal_box=\box51
 ))
-Package: l3keys2e 2022-06-22 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2022-12-17 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \g__lipsum_par_int=\count198
 \l__lipsum_a_int=\count199
 \l__lipsum_b_int=\count266
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex))
-
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
-sty
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.st
-y
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
--common.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.lt
+d.tex))
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlaye
+r\tikz.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\p
+gf.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pg
+frcs.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
+pgfutil-common.tex
 \pgfutil@everybye=\toks21
-\pgfutil@tempdima=\dimen149
-\pgfutil@tempdimb=\dimen150
+\pgfutil@tempdima=\dimen151
+\pgfutil@tempdimb=\dimen152
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
--common-lists.tex))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
--latex.def
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
+pgfutil-common-lists.tex))
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
+pgfutil-latex.def
 \pgfutil@abb=\box52
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.
-code.tex
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
+pgfrcs.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revisi
+on.tex)
 Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
 ))
 Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.
-sty
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\p
+gfcore.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphic
+x.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphic
+s.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.st
+y
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
-fg
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\gra
+phics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\Gin@req@height=\dimen151
-\Gin@req@width=\dimen152
+\Gin@req@height=\dimen153
+\Gin@req@width=\dimen154
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.
-sty
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
-s.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\
+pgfsys.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlaye
+r\pgfsys.code.tex
 Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
-.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
+pgfkeys.code.tex
 \pgfkeys@pathtoks=\toks22
 \pgfkeys@temptoks=\toks23
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
-filtered.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
+pgfkeysfiltered.code.tex
 \pgfkeys@tmptoks=\toks24
 ))
-\pgf@x=\dimen153
-\pgf@y=\dimen154
-\pgf@xa=\dimen155
-\pgf@ya=\dimen156
-\pgf@xb=\dimen157
-\pgf@yb=\dimen158
-\pgf@xc=\dimen159
-\pgf@yc=\dimen160
-\pgf@xd=\dimen161
-\pgf@yd=\dimen162
+\pgf@x=\dimen155
+\pgf@y=\dimen156
+\pgf@xa=\dimen157
+\pgf@ya=\dimen158
+\pgf@xb=\dimen159
+\pgf@yb=\dimen160
+\pgf@xc=\dimen161
+\pgf@yc=\dimen162
+\pgf@xd=\dimen163
+\pgf@yd=\dimen164
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
 \c@pgf@counta=\count267
@@ -259,229 +288,230 @@ filtered.code.tex
 \t@pgf@tokc=\toks27
 \pgf@sys@id@count=\count271
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
-fg
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlaye
+r\pgf.cfg
 File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
 )
 Driver file for pgf: pgfsys-pdftex.def
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
-s-pdftex.def
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlaye
+r\pgfsys-pdftex.def
 File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
-s-common-pdf.def
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlaye
+r\pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 )))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
-ssoftpath.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlaye
+r\pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfsyssoftpath@smallbuffer@items=\count272
 \pgfsyssoftpath@bigbuffer@items=\count273
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
-sprotocol.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlaye
+r\pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-e.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcore.code.tex
 Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
-.tex
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.
-code.tex
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.
-code.tex)
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
-r.code.tex
-\pgfmath@dimen=\dimen163
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+th.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+thcalc.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+thutil.code.tex)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+thparser.code.tex
+\pgfmath@dimen=\dimen165
 \pgfmath@count=\count274
 \pgfmath@box=\box53
 \pgfmath@toks=\toks28
 \pgfmath@stack@operand=\toks29
 \pgfmath@stack@operation=\toks30
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
-ions.code.tex
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
-ions.basic.code.tex)
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
-ions.trigonometric.code.tex)
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
-ions.random.code.tex)
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
-ions.comparison.code.tex)
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
-ions.base.code.tex)
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
-ions.round.code.tex)
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
-ions.misc.code.tex)
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
-ions.integerarithmetics.code.tex)))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
-.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+thfunctions.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+thfunctions.basic.code.tex)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+thfunctions.trigonometric.code.tex)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+thfunctions.random.code.tex)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+thfunctions.comparison.code.tex)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+thfunctions.base.code.tex)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+thfunctions.round.code.tex)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+thfunctions.misc.code.tex)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+thfunctions.integerarithmetics.code.tex)))
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+thfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count275
 ))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
-tex)
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-epoints.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfin
+t.code.tex)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@picminx=\dimen164
-\pgf@picmaxx=\dimen165
-\pgf@picminy=\dimen166
-\pgf@picmaxy=\dimen167
-\pgf@pathminx=\dimen168
-\pgf@pathmaxx=\dimen169
-\pgf@pathminy=\dimen170
-\pgf@pathmaxy=\dimen171
-\pgf@xx=\dimen172
-\pgf@xy=\dimen173
-\pgf@yx=\dimen174
-\pgf@yy=\dimen175
-\pgf@zx=\dimen176
-\pgf@zy=\dimen177
+\pgf@picminx=\dimen166
+\pgf@picmaxx=\dimen167
+\pgf@picminy=\dimen168
+\pgf@picmaxy=\dimen169
+\pgf@pathminx=\dimen170
+\pgf@pathmaxx=\dimen171
+\pgf@pathminy=\dimen172
+\pgf@pathmaxy=\dimen173
+\pgf@xx=\dimen174
+\pgf@xy=\dimen175
+\pgf@yx=\dimen176
+\pgf@yy=\dimen177
+\pgf@zx=\dimen178
+\pgf@zy=\dimen179
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-epathconstruct.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@path@lastx=\dimen178
-\pgf@path@lasty=\dimen179
+\pgf@path@lastx=\dimen180
+\pgf@path@lasty=\dimen181
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-epathusage.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@shorten@end@additional=\dimen180
-\pgf@shorten@start@additional=\dimen181
+\pgf@shorten@end@additional=\dimen182
+\pgf@shorten@start@additional=\dimen183
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-escopes.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfpic=\box54
 \pgf@hbox=\box55
 \pgf@layerbox@main=\box56
 \pgf@picture@serial@count=\count276
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-egraphicstate.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgflinewidth=\dimen182
+\pgflinewidth=\dimen184
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-etransformations.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@pt@x=\dimen183
-\pgf@pt@y=\dimen184
-\pgf@pt@temp=\dimen185
+\pgf@pt@x=\dimen185
+\pgf@pt@y=\dimen186
+\pgf@pt@temp=\dimen187
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-equick.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-eobjects.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcoreobjects.code.tex
 File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-epathprocessing.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcorepathprocessing.code.tex
 File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-earrows.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfarrowsep=\dimen186
+\pgfarrowsep=\dimen188
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-eshade.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@max=\dimen187
+\pgf@max=\dimen189
 \pgf@sys@shading@range@num=\count277
 \pgf@shadingcount=\count278
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-eimage.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-eexternal.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfexternal@startupbox=\box57
 ))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-elayers.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-etransparency.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcoretransparency.code.tex
 File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-epatterns.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcorepatterns.code.tex
 File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
-erdf.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer
+\pgfcorerdf.code.tex
 File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
-shapes.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pg
+fmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfnodeparttextbox=\box58
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
-plot.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pg
+fmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
-mp-version-0-65.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibilit
+y\pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@nodesepstart=\dimen188
-\pgf@nodesepend=\dimen189
+\pgf@nodesepstart=\dimen190
+\pgf@nodesepend=\dimen191
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
-mp-version-1-18.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibilit
+y\pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
 ))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.st
-y
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.s
-ty
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
-.code.tex))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
-.tex))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.
-code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pg
+ffor.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pg
+fkeys.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
+pgfkeys.code.tex))
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath
+.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+th.code.tex))
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\
+pgffor.code.tex
 Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
-.tex)
-\pgffor@iter=\dimen190
-\pgffor@skip=\dimen191
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfma
+th.code.tex)
+\pgffor@iter=\dimen192
+\pgffor@skip=\dimen193
 \pgffor@stack=\toks31
 \pgffor@toks=\toks32
 ))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z\tikz.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz\tikz.code.tex
 Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
-aryplothandlers.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\
+pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@plot@mark@count=\count279
-\pgfplotmarksize=\dimen192
+\pgfplotmarksize=\dimen194
 )
-\tikz@lastx=\dimen193
-\tikz@lasty=\dimen194
-\tikz@lastxsaved=\dimen195
-\tikz@lastysaved=\dimen196
-\tikz@lastmovetox=\dimen197
-\tikz@lastmovetoy=\dimen198
-\tikzleveldistance=\dimen199
-\tikzsiblingdistance=\dimen256
+\tikz@lastx=\dimen195
+\tikz@lasty=\dimen196
+\tikz@lastxsaved=\dimen197
+\tikz@lastysaved=\dimen198
+\tikz@lastmovetox=\dimen199
+\tikz@lastmovetoy=\dimen256
+\tikzleveldistance=\dimen257
+\tikzsiblingdistance=\dimen258
 \tikz@figbox=\box59
 \tikz@figbox@bg=\box60
 \tikz@tempbox=\box61
@@ -491,8 +521,8 @@ File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \tikznumberofcurrentchild=\count282
 \tikz@fig@count=\count283
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
-matrix.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pg
+fmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfmatrixcurrentrow=\count284
 \pgfmatrixcurrentcolumn=\count285
@@ -500,18 +530,20 @@ File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
 \tikz@expandcount=\count287
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibrarytopaths.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multiro
+w.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip72
+\multirow@colwidth=\skip73
 \multirow@cntb=\count288
-\multirow@dima=\skip73
-\bigstrutjot=\dimen257
+\multirow@dima=\skip74
+\bigstrutjot=\dimen259
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/qrcode\qrcode.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/qrcode\qrcode.st
+y
 Package: qrcode 2015/01/08 v1.51 QR code generation
 \c@qr@i=\count289
 \c@qr@j=\count290
@@ -525,9 +557,9 @@ Package: qrcode 2015/01/08 v1.51 QR code generation
 \qr@for@step=\count298
 \qr@newforcount=\count299
 \qr@newforcount=\count300
-\qr@desiredheight=\skip74
-\qr@modulesize=\skip75
-\qr@minipagewidth=\skip76
+\qr@desiredheight=\skip75
+\qr@modulesize=\skip76
+\qr@minipagewidth=\skip77
 \c@maski=\count301
 \c@maskj=\count302
 \c@totalones=\count303
@@ -539,78 +571,91 @@ Package: qrcode 2015/01/08 v1.51 QR code generation
 \qr@newforcount=\count309
 \c@qr@divisionsremaining=\count310
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumite
+m.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
-\labelindent=\skip77
-\enit@outerparindent=\dimen258
+\labelindent=\skip78
+\enit@outerparindent=\dimen260
 \enit@toks=\toks33
 \enit@inbox=\box63
 \enit@count@id=\count311
 \enitdp@description=\count312
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/subfig\subfig.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/subfig\subfig.st
+y
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.
+sty
 Package: caption 2022/03/01 v3.6b Customizing captions (AR)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3
+.sty
 Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
-\caption@tempdima=\dimen259
-\captionmargin=\dimen260
-\caption@leftmargin=\dimen261
-\caption@rightmargin=\dimen262
-\caption@width=\dimen263
-\caption@indent=\dimen264
-\caption@parindent=\dimen265
-\caption@hangindent=\dimen266
+\caption@tempdima=\dimen261
+\captionmargin=\dimen262
+\caption@leftmargin=\dimen263
+\caption@rightmargin=\dimen264
+\caption@width=\dimen265
+\caption@indent=\dimen266
+\caption@parindent=\dimen267
+\caption@hangindent=\dimen268
 Package caption Info: Standard document class detected.
 )
 \c@caption@flags=\count313
 \c@continuedfloat=\count314
 )
 \c@KVtest=\count315
-\sf@farskip=\skip78
-\sf@captopadj=\dimen267
-\sf@capskip=\skip79
-\sf@nearskip=\skip80
+\sf@farskip=\skip79
+\sf@captopadj=\dimen269
+\sf@capskip=\skip80
+\sf@nearskip=\skip81
 \c@subfigure=\count316
 \c@subfigure@save=\count317
 \c@lofdepth=\count318
 \c@subtable=\count319
 \c@subtable@save=\count320
 \c@lotdepth=\count321
-\sf@top=\skip81
-\sf@bottom=\skip82
-) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+\sf@top=\skip82
+\sf@bottom=\skip83
+)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlese
+c.sty
 Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \ttl@box=\box64
-\beforetitleunit=\skip83
-\aftertitleunit=\skip84
-\ttl@plus=\dimen268
-\ttl@minus=\dimen269
+\beforetitleunit=\skip84
+\aftertitleunit=\skip85
+\ttl@plus=\dimen270
+\ttl@minus=\dimen271
 \ttl@toksa=\toks34
-\titlewidth=\dimen270
-\titlewidthlast=\dimen271
-\titlewidthfirst=\dimen272
-) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+\titlewidth=\dimen272
+\titlewidthlast=\dimen273
+\titlewidthfirst=\dimen274
+)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.
+sty
 Package: amsmath 2022/04/08 v2.17n AMS math features
-\@mathmargin=\skip85
+\@mathmargin=\skip86
 
 For additional information on amsmath, use the `?' option.
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.
+sty
 Package: amstext 2021/08/26 v2.01 AMS text
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.s
+ty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks35
-\ex@=\dimen273
+\ex@=\dimen275
 ))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.s
+ty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen274
+\pmbraise@=\dimen276
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.s
+ty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count322
@@ -630,7 +675,7 @@ LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen275
+\big@size=\dimen277
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \macc@depth=\count327
@@ -648,49 +693,53 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \column@=\count332
 \maxfields@=\count333
 \andhelp@=\toks37
-\eqnshift@=\dimen276
-\alignsep@=\dimen277
-\tagshift@=\dimen278
-\tagwidth@=\dimen279
-\totwidth@=\dimen280
-\lineht@=\dimen281
+\eqnshift@=\dimen278
+\alignsep@=\dimen279
+\tagshift@=\dimen280
+\tagwidth@=\dimen281
+\totwidth@=\dimen282
+\lineht@=\dimen283
 \@envbody=\toks38
-\multlinegap=\skip86
-\multlinetaggap=\skip87
+\multlinegap=\skip87
+\multlinetaggap=\skip88
 \mathdisplay@stack=\toks39
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathto
+ols.sty
 Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count334
 \calc@Bcount=\count335
-\calc@Adimen=\dimen282
-\calc@Bdimen=\dimen283
-\calc@Askip=\skip88
-\calc@Bskip=\skip89
+\calc@Adimen=\dimen284
+\calc@Bdimen=\dimen285
+\calc@Askip=\skip89
+\calc@Bskip=\skip90
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count336
-\calc@Cskip=\skip90
+\calc@Cskip=\skip91
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetu
+p.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
 \g_MT_multlinerow_int=\count337
-\l_MT_multwidth_dim=\dimen284
-\origjot=\skip91
-\l_MT_shortvdotswithinadjustabove_dim=\dimen285
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen286
-\l_MT_above_intertext_sep=\dimen287
-\l_MT_below_intertext_sep=\dimen288
-\l_MT_above_shortintertext_sep=\dimen289
-\l_MT_below_shortintertext_sep=\dimen290
+\l_MT_multwidth_dim=\dimen286
+\origjot=\skip92
+\l_MT_shortvdotswithinadjustabove_dim=\dimen287
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen288
+\l_MT_above_intertext_sep=\dimen289
+\l_MT_below_intertext_sep=\dimen290
+\l_MT_above_shortintertext_sep=\dimen291
+\l_MT_below_shortintertext_sep=\dimen292
 \xmathstrut@box=\box67
-\xmathstrut@dim=\dimen291
-) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+\xmathstrut@dim=\dimen293
+)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count338
 \float@exts=\toks40
@@ -698,88 +747,105 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks41
 \@floatcapt=\box69
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.
+sty
 Package: relsize 2013/03/29 ver 4.1
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
-\wrapoverhang=\dimen292
-\WF@size=\dimen293
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.
+sty
+\wrapoverhang=\dimen294
+\WF@size=\dimen295
 \c@WF@wrappedlines=\count339
 \WF@box=\box70
 \WF@everypar=\toks42
 Package: wrapfig 2003/01/31  v 3.6
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2022-06-20 v7.00s Hypertext links for LaTeX
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperre
+f.sty
+Package: hyperref 2022-11-13 v7.00u Hypertext links for LaTeX
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmd
+s.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
-.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdf
+texcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
-ty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infw
+arerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/kvsetkeys\kvsetkeys.s
-ty
-Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetk
+eys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
-keys.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\k
+vdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
-ty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfe
+scape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.
+sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
-.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letl
+txmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.
+sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref
+.sty
 Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcoun
+t.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
-lestring.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring
+\gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvopti
+ons.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count340
 )
-\@linkdim=\dimen294
+\@linkdim=\dimen296
 \Hy@linkcounter=\count341
 \Hy@pagecounter=\count342
- (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2022-06-20 v7.00s Hyperref: PDFDocEncoding definition (HO)
+
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.
+def
+File: pd1enc.def 2022-11-13 v7.00u Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcal
+c.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexc
+mds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count343
- (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
-File: puenc.def 2022-06-20 v7.00s Hyperref: PDF Unicode definition (HO)
+
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.d
+ef
+File: puenc.def 2022-11-13 v7.00u Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
@@ -789,36 +855,37 @@ Package hyperref Info: Hyper index ON on input line 4170.
 Package hyperref Info: Plain pages OFF on input line 4177.
 Package hyperref Info: Backreferencing OFF on input line 4182.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4408.
+Package hyperref Info: Bookmarks ON on input line 4410.
 \c@Hy@tempcnt=\count344
-
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+ (C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4746.
-\XeTeXLinkMargin=\dimen295
+LaTeX Info: Redefining \url on input line 4748.
+\XeTeXLinkMargin=\dimen297
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.
+sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
-.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\big
+intcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count345
-\Field@Width=\dimen296
-\Fld@charsize=\dimen297
-Package hyperref Info: Hyper figures OFF on input line 6024.
-Package hyperref Info: Link nesting OFF on input line 6029.
-Package hyperref Info: Hyper index ON on input line 6032.
-Package hyperref Info: backreferencing OFF on input line 6039.
-Package hyperref Info: Link coloring OFF on input line 6044.
-Package hyperref Info: Link coloring with OCG OFF on input line 6049.
-Package hyperref Info: PDF/A mode OFF on input line 6054.
+\Field@Width=\dimen298
+\Fld@charsize=\dimen299
+Package hyperref Info: Hyper figures OFF on input line 6027.
+Package hyperref Info: Link nesting OFF on input line 6032.
+Package hyperref Info: Hyper index ON on input line 6035.
+Package hyperref Info: backreferencing OFF on input line 6042.
+Package hyperref Info: Link coloring OFF on input line 6047.
+Package hyperref Info: Link coloring with OCG OFF on input line 6052.
+Package hyperref Info: PDF/A mode OFF on input line 6057.
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-lt
+x.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
@@ -827,10 +894,13 @@ package with kernel methods
 \c@Hfootnote=\count348
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2022-06-20 v7.00s Hyperref driver for pdfTeX
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex
+.def
+File: hpdftex.def 2022-11-13 v7.00u Hyperref driver for pdfTeX
+
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-l
+tx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
@@ -838,48 +908,50 @@ with kernel methods
 \Fld@listcount=\count349
 \c@bookmark@seq@number=\count350
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
-echeck.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\r
+erunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
-ounter.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\
+uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
 )
-\Hy@SectionHShift=\skip92
+\Hy@SectionHShift=\skip93
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.s
+ty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
-Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
-\col@sep=\dimen298
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen300
 \ar@mcellbox=\box71
-\extrarowheight=\dimen299
+\extrarowheight=\dimen301
 \NC@list=\toks43
-\extratabsurround=\skip93
-\backup@length=\skip94
+\extratabsurround=\skip94
+\backup@length=\skip95
 \ar@cellbox=\box72
 )
-\TX@col@width=\dimen300
-\TX@old@table=\dimen301
-\TX@old@col=\dimen302
-\TX@target=\dimen303
-\TX@delta=\dimen304
+\TX@col@width=\dimen302
+\TX@old@table=\dimen303
+\TX@old@col=\dimen304
+\TX@target=\dimen305
+\TX@delta=\dimen306
 \TX@cols=\count351
 \TX@ftn=\toks44
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.
+sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
-\LTleft=\skip95
-\LTright=\skip96
-\LTpre=\skip97
-\LTpost=\skip98
+\LTleft=\skip96
+\LTright=\skip97
+\LTpre=\skip98
+\LTpost=\skip99
 \LTchunksize=\count352
-\LTcapwidth=\dimen305
+\LTcapwidth=\dimen307
 \LT@head=\box73
 \LT@firsthead=\box74
 \LT@foot=\box75
@@ -891,20 +963,21 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \c@LT@chunks=\count356
 \LT@p@ftn=\toks45
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/minted\minted.sty
-Package: minted 2021/12/24 v2.6 Yet another Pygments shim for LaTeX
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/minted\minted.st
+y
+Package: minted 2022/12/12 v2.7 Yet another Pygments shim for LaTeX
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/fvextra\fvextra.sty
-Package: fvextra 2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/fvextra\fvextra.
+sty
+Package: fvextra 2022/11/30 v1.5 fvextra - extensions and patches for fancyvrb
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
-Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
-)
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbo
+x.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count357
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvrb.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvr
+b.sty
 Package: fancyvrb 2022/06/06 4.5 verbatim text (tvz,hv)
 \FV@CodeLineNo=\count358
 \FV@InFile=\read3
@@ -913,138 +986,150 @@ Package: fancyvrb 2022/06/06 4.5 verbatim text (tvz,hv)
 \FV@StepNumber=\count360
 \FV@OutFile=\write4
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.
+sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/lineno\lineno.sty
-Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/lineno\lineno.st
+y
+Package: lineno 2022/07/30 line numbers on paragraphs v5.0
 \linenopenalty=\count361
 \output=\toks46
 \linenoprevgraf=\count362
-\linenumbersep=\dimen306
-\linenumberwidth=\dimen307
+\linenumbersep=\dimen308
+\linenumberwidth=\dimen309
 \c@linenumber=\count363
 \c@pagewiselinenumber=\count364
 \c@LN@truepage=\count365
 \c@internallinenumber=\count366
 \c@internallinenumbers=\count367
-\quotelinenumbersep=\dimen308
-\bframerule=\dimen309
-\bframesep=\dimen310
+\quotelinenumbersep=\dimen310
+\bframerule=\dimen311
+\bframesep=\dimen312
 \bframebox=\box79
-LaTeX Info: Redefining \\ on input line 3056.
+\linenoamsmath@ams@eqpen=\count368
+LaTeX Info: Redefining \\ on input line 3114.
 )
-\c@FV@TrueTabGroupLevel=\count368
-\c@FV@TrueTabCounter=\count369
+\c@FV@TrueTabGroupLevel=\count369
+\c@FV@TrueTabCounter=\count370
 \FV@TabBox@Group=\box80
-\FV@TmpLength=\skip99
-\c@FV@HighlightLinesStart=\count370
-\c@FV@HighlightLinesStop=\count371
-\FV@LoopCount=\count372
+\FV@TmpLength=\skip100
+\c@FV@HighlightLinesStart=\count371
+\c@FV@HighlightLinesStop=\count372
+\FV@LoopCount=\count373
 \FV@NCharsBox=\box81
-\FV@BreakIndent=\dimen311
-\FV@BreakIndentNChars=\count373
-\FV@BreakSymbolSepLeft=\dimen312
-\FV@BreakSymbolSepLeftNChars=\count374
-\FV@BreakSymbolSepRight=\dimen313
-\FV@BreakSymbolSepRightNChars=\count375
-\FV@BreakSymbolIndentLeft=\dimen314
-\FV@BreakSymbolIndentLeftNChars=\count376
-\FV@BreakSymbolIndentRight=\dimen315
-\FV@BreakSymbolIndentRightNChars=\count377
-\c@FancyVerbLineBreakLast=\count378
+\FV@BreakIndent=\dimen313
+\FV@BreakIndentNChars=\count374
+\FV@BreakSymbolSepLeft=\dimen314
+\FV@BreakSymbolSepLeftNChars=\count375
+\FV@BreakSymbolSepRight=\dimen315
+\FV@BreakSymbolSepRightNChars=\count376
+\FV@BreakSymbolIndentLeft=\dimen316
+\FV@BreakSymbolIndentLeftNChars=\count377
+\FV@BreakSymbolIndentRight=\dimen317
+\FV@BreakSymbolIndentRightNChars=\count378
+\c@FancyVerbLineBreakLast=\count379
 \FV@LineBox=\box82
 \FV@LineIndentBox=\box83
-\FV@LineWidth=\dimen316
+\c@FV@BreakBufferDepth=\count380
+\FV@LineWidth=\dimen318
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.s
+ty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
 Package shellesc Info: Unrestricted shell escape enabled on input line 75.
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/ifplatform\ifplatform.s
-ty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/ifplatform\ifpla
+tform.sty
 Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/catchfile\catchfile.s
-ty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/catchfile\catc
+hfile.sty
 Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
 ))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.sty
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstring.tex
-\integerpart=\count379
-\decimalpart=\count380
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.
+sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstrin
+g.tex
+\integerpart=\count381
+\decimalpart=\count382
 )
 Package: xstring 2021/07/21 v1.84 String manipulations (CT)
-) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/framed\framed.sty
+)
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/framed\framed.st
+y
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip100
-\fb@frw=\dimen317
-\fb@frh=\dimen318
-\FrameRule=\dimen319
-\FrameSep=\dimen320
+\OuterFrameSep=\skip101
+\fb@frw=\dimen319
+\fb@frh=\dimen320
+\FrameRule=\dimen321
+\FrameSep=\dimen322
 )
 \minted@appexistsfile=\read4
 \minted@bgbox=\box84
 \minted@code=\write5
-\c@minted@FancyVerbLineTemp=\count381
-\c@minted@pygmentizecounter=\count382
+\c@minted@FancyVerbLineTemp=\count383
+\c@minted@pygmentizecounter=\count384
 \@float@every@listing=\toks47
-\c@listing=\count383
+\c@listing=\count385
 )
 runsystem(if not exist _minted-main mkdir _minted-main)...executed.
 
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibrarymatrix.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibrarymatrix.code.tex
 File: tikzlibrarymatrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibraryshapes.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibraryshapes.code.tex
 File: tikzlibraryshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibraryshapes.geometric.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibraryshapes.geometric.code.tex
 File: tikzlibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
-pgflibraryshapes.geometric.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/
+shapes\pgflibraryshapes.geometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibraryshapes.misc.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibraryshapes.misc.code.tex
 File: tikzlibraryshapes.misc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
-pgflibraryshapes.misc.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/
+shapes\pgflibraryshapes.misc.code.tex
 File: pgflibraryshapes.misc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibraryshapes.symbols.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibraryshapes.symbols.code.tex
 File: tikzlibraryshapes.symbols.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
-pgflibraryshapes.symbols.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/
+shapes\pgflibraryshapes.symbols.code.tex
 File: pgflibraryshapes.symbols.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibraryshapes.arrows.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibraryshapes.arrows.code.tex
 File: tikzlibraryshapes.arrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
-pgflibraryshapes.arrows.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/
+shapes\pgflibraryshapes.arrows.code.tex
 File: pgflibraryshapes.arrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibraryshapes.callouts.code.tex
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
-pgflibraryshapes.callouts.code.tex))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibraryshapes.multipart.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibraryshapes.callouts.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/
+shapes\pgflibraryshapes.callouts.code.tex))
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibraryshapes.multipart.code.tex
 File: tikzlibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
-pgflibraryshapes.multipart.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/
+shapes\pgflibraryshapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfnodepartlowerbox=\box85
 \pgfnodeparttwobox=\box86
@@ -1067,85 +1152,85 @@ File: pgflibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfnodepartsixbox=\box103
 \pgfnodepartfivebox=\box104
 )))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibraryarrows.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibraryarrows.code.tex
 File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
-aryarrows.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\
+pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\arrowsize=\dimen321
+\arrowsize=\dimen323
 ))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibrarypositioning.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibrarychains.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibrarychains.code.tex
 File: tikzlibrarychains.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibrarydecorations.code.tex
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
-decorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen322
-\pgfdecoratedremainingdistance=\dimen323
-\pgfdecoratedinputsegmentcompleteddistance=\dimen324
-\pgfdecoratedinputsegmentremainingdistance=\dimen325
-\pgf@decorate@distancetomove=\dimen326
-\pgf@decorate@repeatstate=\count384
-\pgfdecorationsegmentamplitude=\dimen327
-\pgfdecorationsegmentlength=\dimen328
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibrarydecorations.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pg
+fmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen324
+\pgfdecoratedremainingdistance=\dimen325
+\pgfdecoratedinputsegmentcompleteddistance=\dimen326
+\pgfdecoratedinputsegmentremainingdistance=\dimen327
+\pgf@decorate@distancetomove=\dimen328
+\pgf@decorate@repeatstate=\count386
+\pgfdecorationsegmentamplitude=\dimen329
+\pgfdecorationsegmentlength=\dimen330
 )
 \tikz@lib@dec@box=\box105
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibraryautomata.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibraryautomata.code.tex
 File: tikzlibraryautomata.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibrarybackgrounds.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@layerbox@background=\box106
 \pgf@layerboxsaved@background=\box107
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibrarypetri.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibrarypetri.code.tex
 File: tikzlibrarypetri.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibrarybending.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibrarybending.code.tex
 File: tikzlibrarybending.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
-bending.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pg
+fmodulebending.code.tex
 File: pgfmodulebending.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
-nonlineartransformations.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pg
+fmodulenonlineartransformations.code.tex
 File: pgfmodulenonlineartransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgftransformnonlinearflatness=\dimen329
+\pgftransformnonlinearflatness=\dimen331
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
-arycurvilinear.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\
+pgflibrarycurvilinear.code.tex
 File: pgflibrarycurvilinear.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@curvilinear@time@a=\dimen330
-\pgf@curvilinear@length@a=\dimen331
-\pgf@curvilinear@length@b=\dimen332
-\pgf@curvilinear@length@c=\dimen333
-\pgf@curvilinear@length@d=\dimen334
+\pgf@curvilinear@time@a=\dimen332
+\pgf@curvilinear@length@a=\dimen333
+\pgf@curvilinear@length@b=\dimen334
+\pgf@curvilinear@length@c=\dimen335
+\pgf@curvilinear@length@d=\dimen336
 )
-\pgf@arrows@the@rigidity=\dimen335
+\pgf@arrows@the@rigidity=\dimen337
 ))
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
-z/libraries\tikzlibrarypatterns.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibrarypatterns.code.tex
 File: tikzlibrarypatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
-arypatterns.code.tex
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\
+pgflibrarypatterns.code.tex
 File: pgflibrarypatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))
-\c@subsubsubsection=\count385
+\c@subsubsubsection=\count387
 
 
 ! LaTeX Error: Command \thesubfigure{0} undefined.
@@ -1159,7 +1244,7 @@ l.89 ...command{\thesubfigure{\arabic{subfigure}}}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-\c@magicrownumbers=\count386
+\c@magicrownumbers=\count388
 runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > ma
 in.aex <nul: /p x=^%~$PATH:i>> main.aex)...executed.
 
@@ -1168,8 +1253,8 @@ runsystem(del main.aex)...executed.
 LaTeX Font Info:    Trying to load font information for T1+LibreBskvl-LF on inp
 ut line 111.
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/librebaskerville\t1libr
-ebskvl-lf.fd
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/librebaskerville
+\t1librebskvl-lf.fd
 File: T1LibreBskvl-LF.fd 2020/07/27 (autoinst) Font definitions for T1/LibreBsk
 vl-LF.
 )
@@ -1239,47 +1324,47 @@ Package ragged2e Info: ABD: executing \RaggedRight on input line 111.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
-ii
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp
+-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count387
-\scratchdimen=\dimen336
+\scratchcounter=\count389
+\scratchdimen=\dimen338
 \scratchbox=\box108
-\nofMPsegments=\count388
-\nofMParguments=\count389
+\nofMPsegments=\count390
+\nofMParguments=\count391
 \everyMPshowfont=\toks48
-\MPscratchCnt=\count390
-\MPscratchDim=\dimen337
-\MPnumerator=\count391
-\makeMPintoPDFobject=\count392
+\MPscratchCnt=\count392
+\MPscratchDim=\dimen339
+\MPnumerator=\count393
+\makeMPintoPDFobject=\count394
 \everyMPtoPDFconversion=\toks49
 )
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
-ase.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\eps
+topdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
-fg
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopd
+f-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@mv@tabular=\count393
-\c@mv@boldtabular=\count394
+\c@mv@tabular=\count395
+\c@mv@boldtabular=\count396
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaptio
+n.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 111.
-
-(main.out) (main.out)
+ (main.out) (main.out)
 \@outlinefile=\write6
 \openout6 = `main.out'.
 
@@ -1305,12 +1390,12 @@ LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/bold/n' will be
 (Font)              scaled to size 12.0pt on input line 122.
  [1
 
-{C:/Users/ruben/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+{C:/Users/Rubens Pirie/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
 40.
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmss.fd
-File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmss.fd
+File: t1cmss.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <16> not available
@@ -1337,193 +1422,198 @@ LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/m/it' aliased to
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/regular/it' will be
 (Font)              scaled to size 10.0pt on input line 55.
  [2]
-Overfull \hbox (3.23993pt too wide) detected at line 127
- []\T1/LibreBskvl-LF/regular/n/10 100
+Overfull \hbox (0.55994pt too wide) detected at line 127
+ []\T1/LibreBskvl-LF/regular/n/10 101
  []
 
 
 Overfull \hbox (2.25993pt too wide) detected at line 128
- []\T1/LibreBskvl-LF/regular/n/10 102
- []
-
-
-Overfull \hbox (2.25993pt too wide) detected at line 129
  []\T1/LibreBskvl-LF/regular/n/10 103
  []
 
 
-Overfull \hbox (1.94994pt too wide) detected at line 130
+Overfull \hbox (1.94994pt too wide) detected at line 129
  []\T1/LibreBskvl-LF/regular/n/10 104
  []
 
 
-Overfull \hbox (1.94994pt too wide) detected at line 131
- []\T1/LibreBskvl-LF/regular/n/10 104
- []
-
-
-Overfull \hbox (1.94994pt too wide) detected at line 132
- []\T1/LibreBskvl-LF/regular/n/10 104
- []
-
-
-Overfull \hbox (1.77994pt too wide) detected at line 133
+Overfull \hbox (1.77994pt too wide) detected at line 130
  []\T1/LibreBskvl-LF/regular/n/10 105
  []
 
 
-Overfull \hbox (1.77994pt too wide) detected at line 134
+Overfull \hbox (1.77994pt too wide) detected at line 131
  []\T1/LibreBskvl-LF/regular/n/10 105
  []
 
 
-Overfull \hbox (1.77994pt too wide) detected at line 135
+Overfull \hbox (1.77994pt too wide) detected at line 132
  []\T1/LibreBskvl-LF/regular/n/10 105
  []
 
 
-Overfull \hbox (2.52994pt too wide) detected at line 136
+Overfull \hbox (2.52994pt too wide) detected at line 133
  []\T1/LibreBskvl-LF/regular/n/10 106
  []
 
 
-Overfull \hbox (2.52994pt too wide) detected at line 137
+Overfull \hbox (2.52994pt too wide) detected at line 134
  []\T1/LibreBskvl-LF/regular/n/10 106
  []
 
 
-Overfull \hbox (1.11993pt too wide) detected at line 138
+Overfull \hbox (2.52994pt too wide) detected at line 135
+ []\T1/LibreBskvl-LF/regular/n/10 106
+ []
+
+
+Overfull \hbox (1.11993pt too wide) detected at line 136
  []\T1/LibreBskvl-LF/regular/n/10 107
  []
 
 
-Overfull \hbox (1.11993pt too wide) detected at line 139
+Overfull \hbox (1.11993pt too wide) detected at line 137
  []\T1/LibreBskvl-LF/regular/n/10 107
  []
 
 
-Overfull \hbox (1.11993pt too wide) detected at line 140
- []\T1/LibreBskvl-LF/regular/n/10 107
+Overfull \hbox (2.15994pt too wide) detected at line 138
+ []\T1/LibreBskvl-LF/regular/n/10 108
  []
 
 
-Overfull \hbox (1.11993pt too wide) detected at line 141
- []\T1/LibreBskvl-LF/regular/n/10 107
+Overfull \hbox (2.15994pt too wide) detected at line 139
+ []\T1/LibreBskvl-LF/regular/n/10 108
  []
 
 
-Overfull \hbox (1.11993pt too wide) detected at line 142
- []\T1/LibreBskvl-LF/regular/n/10 107
+Overfull \hbox (2.15994pt too wide) detected at line 140
+ []\T1/LibreBskvl-LF/regular/n/10 108
  []
 
 
-Overfull \hbox (2.25993pt too wide) detected at line 149
- []\T1/LibreBskvl-LF/regular/n/10 120
+Overfull \hbox (2.15994pt too wide) detected at line 141
+ []\T1/LibreBskvl-LF/regular/n/10 108
  []
 
 
-Overfull \hbox (1.27994pt too wide) detected at line 151
+Overfull \hbox (2.15994pt too wide) detected at line 142
+ []\T1/LibreBskvl-LF/regular/n/10 108
+ []
+
+
+Overfull \hbox (1.27994pt too wide) detected at line 150
  []\T1/LibreBskvl-LF/regular/n/10 122
  []
 
 
-Overfull \hbox (0.79994pt too wide) detected at line 152
- []\T1/LibreBskvl-LF/regular/n/10 125
+Overfull \hbox (1.27994pt too wide) detected at line 151
+ []\T1/LibreBskvl-LF/regular/n/10 123
  []
 
 
-Overfull \hbox (0.79994pt too wide) detected at line 153
- []\T1/LibreBskvl-LF/regular/n/10 125
+Overfull \hbox (1.54994pt too wide) detected at line 152
+ []\T1/LibreBskvl-LF/regular/n/10 126
  []
 
 
-Overfull \hbox (0.79994pt too wide) detected at line 154
- []\T1/LibreBskvl-LF/regular/n/10 125
+Overfull \hbox (1.54994pt too wide) detected at line 153
+ []\T1/LibreBskvl-LF/regular/n/10 126
  []
 
 
-Overfull \hbox (0.13994pt too wide) detected at line 155
- []\T1/LibreBskvl-LF/regular/n/10 127
+Overfull \hbox (1.54994pt too wide) detected at line 154
+ []\T1/LibreBskvl-LF/regular/n/10 126
  []
 
 
-Overfull \hbox (0.13994pt too wide) detected at line 156
- []\T1/LibreBskvl-LF/regular/n/10 127
+Overfull \hbox (1.17995pt too wide) detected at line 155
+ []\T1/LibreBskvl-LF/regular/n/10 128
  []
 
 
-Overfull \hbox (1.54994pt too wide) detected at line 157
- []\T1/LibreBskvl-LF/regular/n/10 129
+Overfull \hbox (1.17995pt too wide) detected at line 156
+ []\T1/LibreBskvl-LF/regular/n/10 128
  []
 
 
-Overfull \hbox (1.54994pt too wide) detected at line 158
- []\T1/LibreBskvl-LF/regular/n/10 129
+Overfull \hbox (2.25993pt too wide) detected at line 157
+ []\T1/LibreBskvl-LF/regular/n/10 130
  []
 
 
-Overfull \hbox (0.96994pt too wide) detected at line 159
- []\T1/LibreBskvl-LF/regular/n/10 134
+Overfull \hbox (2.25993pt too wide) detected at line 158
+ []\T1/LibreBskvl-LF/regular/n/10 130
  []
 
 
-Overfull \hbox (1.54994pt too wide) detected at line 160
- []\T1/LibreBskvl-LF/regular/n/10 136
+Overfull \hbox (0.79994pt too wide) detected at line 159
+ []\T1/LibreBskvl-LF/regular/n/10 135
  []
 
 
-Overfull \hbox (1.94994pt too wide) detected at line 161
- []\T1/LibreBskvl-LF/regular/n/10 140
+Overfull \hbox (0.13994pt too wide) detected at line 160
+ []\T1/LibreBskvl-LF/regular/n/10 137
  []
 
 
 Overfull \hbox (0.96994pt too wide) detected at line 162
- []\T1/LibreBskvl-LF/regular/n/10 142
+ []\T1/LibreBskvl-LF/regular/n/10 143
  []
 
 
-Overfull \hbox (0.65994pt too wide) detected at line 163
- []\T1/LibreBskvl-LF/regular/n/10 144
- []
-
-
-Overfull \hbox (0.48994pt too wide) detected at line 164
+Overfull \hbox (0.48994pt too wide) detected at line 163
  []\T1/LibreBskvl-LF/regular/n/10 145
  []
 
 
-Overfull \hbox (0.48994pt too wide) detected at line 165
- []\T1/LibreBskvl-LF/regular/n/10 145
+Overfull \hbox (1.23994pt too wide) detected at line 164
+ []\T1/LibreBskvl-LF/regular/n/10 146
+ []
+
+
+Overfull \hbox (1.23994pt too wide) detected at line 165
+ []\T1/LibreBskvl-LF/regular/n/10 146
  []
 
 [3]
-Overfull \hbox (0.79994pt too wide) detected at line 168
- []\T1/LibreBskvl-LF/regular/n/10 153
+Overfull \hbox (0.79994pt too wide) detected at line 166
+ []\T1/LibreBskvl-LF/regular/n/10 152
  []
 
 
-Overfull \hbox (1.06995pt too wide) detected at line 169
- []\T1/LibreBskvl-LF/regular/n/10 159
+Overfull \hbox (0.79994pt too wide) detected at line 167
+ []\T1/LibreBskvl-LF/regular/n/10 152
  []
 
 
-Overfull \hbox (1.06995pt too wide) detected at line 170
- []\T1/LibreBskvl-LF/regular/n/10 159
+Overfull \hbox (0.48994pt too wide) detected at line 168
+ []\T1/LibreBskvl-LF/regular/n/10 154
  []
 
 
-Overfull \hbox (1.23994pt too wide) detected at line 171
- []\T1/LibreBskvl-LF/regular/n/10 164
+Overfull \hbox (2.52994pt too wide) detected at line 169
+ []\T1/LibreBskvl-LF/regular/n/10 160
  []
 
 
-Overfull \hbox (1.06995pt too wide) detected at line 172
+Overfull \hbox (2.52994pt too wide) detected at line 170
+ []\T1/LibreBskvl-LF/regular/n/10 160
+ []
+
+
+Overfull \hbox (1.06995pt too wide) detected at line 171
  []\T1/LibreBskvl-LF/regular/n/10 165
  []
 
 
-Overfull \hbox (1.06995pt too wide) detected at line 173
- []\T1/LibreBskvl-LF/regular/n/10 165
+Overfull \hbox (1.81995pt too wide) detected at line 172
+ []\T1/LibreBskvl-LF/regular/n/10 166
+ []
+
+
+Overfull \hbox (1.81995pt too wide) detected at line 173
+ []\T1/LibreBskvl-LF/regular/n/10 166
  []
 
 )
@@ -1575,8 +1665,8 @@ Package pdftex.def Info: images/labeledMap.png  used on input line 17.
 LaTeX Font Info:    Trying to load font information for TS1+LibreBskvl-LF on in
 put line 18.
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/librebaskerville\ts1lib
-rebskvl-lf.fd
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/librebaskerville
+\ts1librebskvl-lf.fd
 File: TS1LibreBskvl-LF.fd 2020/07/27 (autoinst) Font definitions for TS1/LibreB
 skvl-LF.
 )
@@ -1601,8 +1691,8 @@ LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/bold/n' will be
 (Font)              scaled to size 5.0pt on input line 54.
 
 Overfull \hbox (8.02199pt too wide) in paragraph at lines 69--70
-[]\T1/LibreBskvl-LF/regular/n/10 They are quite help-ful though as we used to h
-ave to buy a new road map ev-ery year, whereas 
+\T1/LibreBskvl-LF/regular/n/10 They are quite help-ful though as we used to hav
+e to buy a new road map ev-ery year, whereas 
  []
 
 [6]
@@ -1612,7 +1702,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.1
                    \relax 
 l.121                 \subfloat
                                [\centering Example of Google Maps' GUI]{{\in...
-<images/googleMapExample.png, id=588, 963.6pt x 693.34032pt>
+<images/googleMapExample.png, id=589, 963.6pt x 693.34032pt>
 File: images/googleMapExample.png Graphic file (type png)
 <use images/googleMapExample.png>
 Package pdftex.def Info: images/googleMapExample.png  used on input line 121.
@@ -1625,25 +1715,24 @@ LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/m/n' aliased to
 (Font)              `TS1/LibreBskvl-LF/regular/n' on input line 122.
 LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/regular/n' will be
 (Font)              scaled to size 5.0pt on input line 122.
-[7]
+[7 <./images/googleMapExample.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.141                 \subfloat
                                [\centering Example of Bing Maps' GUI]{{\incl...
-<images/bingMapExample.png, id=596, 963.6pt x 693.34032pt>
+<images/bingMapExample.png, id=598, 963.6pt x 693.34032pt>
 File: images/bingMapExample.png Graphic file (type png)
 <use images/bingMapExample.png>
 Package pdftex.def Info: images/bingMapExample.png  used on input line 141.
 (pdftex.def)             Requested size: 213.39566pt x 153.54039pt.
-[8 <./images/googleMapExample.png> <./images/bingMapExample.png>]
-<images/osMapExample.png, id=605, 963.6pt x 693.34032pt>
+<images/osMapExample.png, id=599, 963.6pt x 693.34032pt>
 File: images/osMapExample.png Graphic file (type png)
 <use images/osMapExample.png>
 Package pdftex.def Info: images/osMapExample.png  used on input line 160.
 (pdftex.def)             Requested size: 213.39566pt x 153.54039pt.
-
+[8 <./images/bingMapExample.png>]
 Overfull \hbox (6.82997pt too wide) in paragraph at lines 183--185
 \T1/LibreBskvl-LF/regular/n/10 age. In or-der to mit-i-gate this there are smoo
 th-ing al-go-rithms that can be used to blur and smooth 
@@ -1657,8 +1746,8 @@ ed im-age. This could prove to be an is-sue as it would
 
 
 Overfull \hbox (1.33188pt too wide) in paragraph at lines 221--221
-[]\T1/LibreBskvl-LF/regular/n/10 Regardless of which one I choose I will con-du
-ct some form of test-ing where I will al-low, through 
+\T1/LibreBskvl-LF/regular/n/10 Regardless of which one I choose I will con-duct
+ some form of test-ing where I will al-low, through 
  []
 
 [10]
@@ -1667,11 +1756,12 @@ Overfull \hbox (5.34184pt too wide) in paragraph at lines 247--248
 ke-away from this is that when I am re-fer-ring to a Rout- 
  []
 
-[11] [12] [13]
+[11] [12]
 LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/m/n' aliased to
 (Font)              `TS1/LibreBskvl-LF/regular/n' on input line 371.
 LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/regular/n' will be
 (Font)              scaled to size 10.0pt on input line 371.
+ [13]
 <images/kernelExamples/wrap.png, id=649, 344.78813pt x 149.8097pt>
 File: images/kernelExamples/wrap.png Graphic file (type png)
 <use images/kernelExamples/wrap.png>
@@ -1714,12 +1804,13 @@ ages/kernelExamples/clone.png>]
 \openout4 = `main.pyg'.
 
  (_minted-main/default.pygstyle)
-(_minted-main/656C6A182A1A98A3F4235BFF507F423C6A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/656C6A182A1A98A3F4235BFF507F423CBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 .
- (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
-File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <8> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
@@ -1734,7 +1825,7 @@ e 442.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/5F0F0DCDBF6CD1F1279AC03DC2AADA236A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/5F0F0DCDBF6CD1F1279AC03DC2AADA23BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [16 <./images/edgeDetectionPrototype/a.jpg>])
 <images/edgeDetectionPrototype/b.jpg, id=689, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/b.jpg Graphic file (type jpg)
@@ -1751,7 +1842,7 @@ der to achieve this two more ker-nels are used. They
 \openout4 = `main.pyg'.
 
 
-(_minted-main/AA04E7DC3BE073534EBDF2C0CFD0E1896A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/AA04E7DC3BE073534EBDF2C0CFD0E189BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [17 <./images/edgeDetectionPrototype/b.jpg>])
 <images/edgeDetectionPrototype/c.jpg, id=696, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/c.jpg Graphic file (type jpg)
@@ -1776,7 +1867,7 @@ e 551.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/A67F50EE0225B6220F14308B316004F86A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/A67F50EE0225B6220F14308B316004F8BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
 <images/edgeDetectionPrototype/f.jpg, id=709, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/f.jpg Graphic file (type jpg)
@@ -1789,7 +1880,7 @@ e 571.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/42C0FB5521F11DF0EFB12DB3100EB1946A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/42C0FB5521F11DF0EFB12DB3100EB194BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
 File: images/edgeDetectionPrototype/f.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/f.jpg>
@@ -1799,7 +1890,7 @@ e 592.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/8EB0E74B496CDAF8D1992A9C708B952B6A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/8EB0E74B496CDAF8D1992A9C708B952BBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [20])
 <images/edgeDetectionPrototype/g.jpg, id=726, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/g.jpg Graphic file (type jpg)
@@ -1811,7 +1902,7 @@ e 652.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/7B6B93B34F23A9A43D4119F3739C398B6A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/7B6B93B34F23A9A43D4119F3739C398BBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
 <images/edgeDetectionPrototype/h.jpg, id=733, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/h.jpg Graphic file (type jpg)
@@ -1823,7 +1914,7 @@ e 687.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/101232C9544DFA133CCFC37EC5BE3D236A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/101232C9544DFA133CCFC37EC5BE3D23BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
 File: images/edgeDetectionPrototype/in.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/in.jpg>
@@ -1846,7 +1937,7 @@ ps this is where I came up with a ex-tra cou-ple of steps.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/7D6A941DA03E684619043CEF6BFAE8CD6A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/7D6A941DA03E684619043CEF6BFAE8CDBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
 <images/edgeDetectionPrototype/j.jpg, id=749, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/j.jpg Graphic file (type jpg)
@@ -1869,7 +1960,7 @@ e 794.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/7D5F121F1C6DD4F6A5391EBAEDE88D0A6A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/7D5F121F1C6DD4F6A5391EBAEDE88D0ABFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex) [25 <./images/edgeDetectionPrototype/k.jpg>]
 <images/graphClassDiagram.png, id=765, 397.485pt x 294.8616pt>
 File: images/graphClassDiagram.png Graphic file (type png)
@@ -1879,17 +1970,17 @@ Package pdftex.def Info: images/graphClassDiagram.png  used on input line 862.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/35A61BA301D18BE32A0FB386F466C0316A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/35A61BA301D18BE32A0FB386F466C031BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [26 <./images/graphClassDiagram.png>])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/796FB987E41A909C824E96D7405DEDA16A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/796FB987E41A909C824E96D7405DEDA1BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [27])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/CDF22D473D825B438353524DED729EEF6A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/CDF22D473D825B438353524DED729EEFBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [28] [29])
 Overfull \hbox (2.24205pt too wide) in paragraph at lines 1117--1119
 \T1/LibreBskvl-LF/regular/n/10 After con-duct-ing the ini-tial and sec-ond in-t
@@ -2028,8 +2119,8 @@ Overfull \hbox (3.34004pt too wide) in paragraph at lines 76--76
 
 
 Overfull \hbox (12.31203pt too wide) in paragraph at lines 78--78
-[]\T1/LibreBskvl-LF/regular/n/10 At the bot-tom of the con-sole in the sec-tion
- la-belled "Area for Cur-rent Page and Time Elapsed" 
+\T1/LibreBskvl-LF/regular/n/10 At the bot-tom of the con-sole in the sec-tion l
+a-belled "Area for Cur-rent Page and Time Elapsed" 
  []
 
 <images/design/terminal.png, id=922, 1927.2pt x 1084.05pt>
@@ -2144,8 +2235,8 @@ or  <return>  to continue without it.
 [39 <./images/design/pathfindWindow.png (PNG copy)> <./images/UML/AsyncEdgeDete
 ction.png (PNG copy)>]
 Overfull \hbox (3.68213pt too wide) in paragraph at lines 124--124
-[]\T1/LibreBskvl-LF/regular/n/10 The main dif-fer-en-tia-tor be-tween this asyn
--chronously method and the syn-chronous method 
+\T1/LibreBskvl-LF/regular/n/10 The main dif-fer-en-tia-tor be-tween this asyn-c
+hronously method and the syn-chronous method 
  []
 
 <images/UML/CannyEdgeDetection.png, id=950, 873.2625pt x 406.51875pt>
@@ -2167,11 +2258,64 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/CannyResult.png, id=951, 582.175pt x 331.2375pt>
+[40 <./images/UML/CannyEdgeDetection.png (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.144     \\ \bk
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 
+      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[41]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.206     \\ \bk
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (5.15196pt too wide) in paragraph at lines 210--210
+\T1/LibreBskvl-LF/regular/n/10 and if the pixel is greater than the thresh-old 
+then it is in-cluded, if it is be-low the max thresh- 
+ []
+
+
+Overfull \hbox (1.19pt too wide) in paragraph at lines 210--210
+\T1/LibreBskvl-LF/regular/n/10 old but greater than the min then it is set to a
+ strong pixel and re-tains its value. In any other 
+ []
+
+<images/UML/CannyResult.png, id=961, 582.175pt x 331.2375pt>
 File: images/UML/CannyResult.png Graphic file (type png)
 <use images/UML/CannyResult.png>
-Package pdftex.def Info: images/UML/CannyResult.png  used on input line 147.
-(pdftex.def)             Requested size: 355.65944pt x 202.36288pt.
+Package pdftex.def Info: images/UML/CannyResult.png  used on input line 220.
+(pdftex.def)             Requested size: 227.62204pt x 129.50557pt.
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2179,18 +2323,24 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.149 
+l.222 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[40 <./images/UML/CannyEdgeDetection.png (PNG copy)>]
-<images/UML/Coord.png, id=958, 938.50626pt x 331.2375pt>
+
+Overfull \hbox (2.57008pt too wide) in paragraph at lines 223--224
+\T1/LibreBskvl-LF/regular/n/10 meth-ods or func-tions con-tained within this cl
+ass since it is in fact a struc-ture. Its main func- 
+ []
+
+[42 <./images/UML/CannyResult.png (PNG copy)>]
+<images/UML/Coord.png, id=969, 938.50626pt x 331.2375pt>
 File: images/UML/Coord.png Graphic file (type png)
 <use images/UML/Coord.png>
-Package pdftex.def Info: images/UML/Coord.png  used on input line 156.
-(pdftex.def)             Requested size: 355.65944pt x 125.5228pt.
+Package pdftex.def Info: images/UML/Coord.png  used on input line 231.
+(pdftex.def)             Requested size: 369.88582pt x 130.54675pt.
 
 
 ! LaTeX Error: There's no line here to end.
@@ -2199,17 +2349,17 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.158 
+l.233 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Extensions.png, id=959, 602.25pt x 221.82875pt>
+<images/UML/Extensions.png, id=970, 602.25pt x 221.82875pt>
 File: images/UML/Extensions.png Graphic file (type png)
 <use images/UML/Extensions.png>
-Package pdftex.def Info: images/UML/Extensions.png  used on input line 165.
-(pdftex.def)             Requested size: 355.65944pt x 131.00644pt.
+Package pdftex.def Info: images/UML/Extensions.png  used on input line 242.
+(pdftex.def)             Requested size: 369.88582pt x 136.24615pt.
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2217,17 +2367,17 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.167 
+l.244 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Gradients.png, id=960, 583.17876pt x 332.24126pt>
+<images/UML/Gradients.png, id=971, 583.17876pt x 332.24126pt>
 File: images/UML/Gradients.png Graphic file (type png)
 <use images/UML/Gradients.png>
-Package pdftex.def Info: images/UML/Gradients.png  used on input line 174.
-(pdftex.def)             Requested size: 355.65944pt x 202.6263pt.
+Package pdftex.def Info: images/UML/Gradients.png  used on input line 251.
+(pdftex.def)             Requested size: 227.62204pt x 129.67496pt.
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2235,18 +2385,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.176 
+l.253 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[41 <./images/UML/CannyResult.png (PNG copy)> <./images/UML/Coord.png (PNG copy
-)> <./images/UML/Extensions.png (PNG copy)>]
-<images/UML/Graph.png, id=971, 390.45876pt x 252.945pt>
+[43 <./images/UML/Coord.png (PNG copy)> <./images/UML/Extensions.png (PNG copy)
+> <./images/UML/Gradients.png (PNG copy)>]
+<images/UML/Graph.png, id=982, 390.45876pt x 252.945pt>
 File: images/UML/Graph.png Graphic file (type png)
 <use images/UML/Graph.png>
-Package pdftex.def Info: images/UML/Graph.png  used on input line 184.
+Package pdftex.def Info: images/UML/Graph.png  used on input line 261.
 (pdftex.def)             Requested size: 355.65944pt x 230.41188pt.
 
 
@@ -2256,16 +2406,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.186 
+l.263 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/GraphException.png, id=972, 386.44376pt x 221.82875pt>
+<images/UML/GraphException.png, id=983, 386.44376pt x 221.82875pt>
 File: images/UML/GraphException.png Graphic file (type png)
 <use images/UML/GraphException.png>
-Package pdftex.def Info: images/UML/GraphException.png  used on input line 193.
+Package pdftex.def Info: images/UML/GraphException.png  used on input line 270.
 
 (pdftex.def)             Requested size: 355.65944pt x 204.15936pt.
 
@@ -2275,59 +2425,56 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.195 
+l.272 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[42 <./images/UML/Gradients.png (PNG copy)> <./images/UML/Graph.png (PNG copy)>
-]
-<images/UML/IHandler.png, id=982, 339.2675pt x 221.82875pt>
+<images/UML/IHandler.png, id=984, 339.2675pt x 221.82875pt>
 File: images/UML/IHandler.png Graphic file (type png)
 <use images/UML/IHandler.png>
-Package pdftex.def Info: images/UML/IHandler.png  used on input line 202.
+Package pdftex.def Info: images/UML/IHandler.png  used on input line 279.
 (pdftex.def)             Requested size: 355.65944pt x 232.5547pt.
 
-
 ! LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.204 
+l.281 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Input.png, id=983, 1368.11125pt x 404.51125pt>
+[44 <./images/UML/Graph.png (PNG copy)> <./images/UML/GraphException.png (PNG c
+opy)>]
+<images/UML/Input.png, id=993, 1368.11125pt x 404.51125pt>
 File: images/UML/Input.png Graphic file (type png)
 <use images/UML/Input.png>
-Package pdftex.def Info: images/UML/Input.png  used on input line 212.
+Package pdftex.def Info: images/UML/Input.png  used on input line 289.
 (pdftex.def)             Requested size: 355.65944pt x 105.1581pt.
 
+
 ! LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.214 
+l.291 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[43 <./images/UML/GraphException.png (PNG copy)> <./images/UML/IHandler.png (PN
-G copy)>]
-<images/UML/Kernel.png, id=992, 501.875pt x 221.82875pt>
+<images/UML/Kernel.png, id=994, 501.875pt x 221.82875pt>
 File: images/UML/Kernel.png Graphic file (type png)
 <use images/UML/Kernel.png>
-Package pdftex.def Info: images/UML/Kernel.png  used on input line 222.
+Package pdftex.def Info: images/UML/Kernel.png  used on input line 299.
 (pdftex.def)             Requested size: 355.65944pt x 157.2084pt.
-
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2335,35 +2482,38 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.224 
+l.301 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/KernelException.png, id=993, 501.875pt x 188.705pt>
+[45 <./images/UML/IHandler.png (PNG copy)> <./images/UML/Input.png (PNG copy)> 
+<./images/UML/Kernel.png (PNG copy)>]
+<images/UML/KernelException.png, id=1005, 501.875pt x 188.705pt>
 File: images/UML/KernelException.png Graphic file (type png)
 <use images/UML/KernelException.png>
-Package pdftex.def Info: images/UML/KernelException.png  used on input line 232
+Package pdftex.def Info: images/UML/KernelException.png  used on input line 309
 .
 (pdftex.def)             Requested size: 355.65944pt x 133.73384pt.
 
+
 ! LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.234 
+l.311 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Log.png, id=994, 740.7675pt x 736.7525pt>
+<images/UML/Log.png, id=1006, 740.7675pt x 736.7525pt>
 File: images/UML/Log.png Graphic file (type png)
 <use images/UML/Log.png>
-Package pdftex.def Info: images/UML/Log.png  used on input line 241.
+Package pdftex.def Info: images/UML/Log.png  used on input line 318.
 (pdftex.def)             Requested size: 355.65944pt x 353.73836pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2372,20 +2522,17 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.243 
+l.320 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[44 <./images/UML/Input.png (PNG copy)> <./images/UML/Kernel.png (PNG copy)> <.
-/images/UML/KernelException.png (PNG copy)>]
-<images/UML/Logger.png, id=1005, 602.25pt x 270.00874pt>
+<images/UML/Logger.png, id=1007, 602.25pt x 270.00874pt>
 File: images/UML/Logger.png Graphic file (type png)
 <use images/UML/Logger.png>
-Package pdftex.def Info: images/UML/Logger.png  used on input line 250.
+Package pdftex.def Info: images/UML/Logger.png  used on input line 327.
 (pdftex.def)             Requested size: 355.65944pt x 159.46033pt.
-
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2393,78 +2540,79 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.252 
+l.329 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/LoggerException.png, id=1006, 501.875pt x 221.82875pt>
+[46 <./images/UML/KernelException.png (PNG copy)> <./images/UML/Log.png (PNG co
+py)>]
+<images/UML/LoggerException.png, id=1016, 501.875pt x 221.82875pt>
 File: images/UML/LoggerException.png Graphic file (type png)
 <use images/UML/LoggerException.png>
-Package pdftex.def Info: images/UML/LoggerException.png  used on input line 259
+Package pdftex.def Info: images/UML/LoggerException.png  used on input line 336
 .
 (pdftex.def)             Requested size: 355.65944pt x 157.2084pt.
 
+
 ! LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.261 
+l.338 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[45 <./images/UML/Log.png (PNG copy)> <./images/UML/Logger.png (PNG copy)>]
-<images/UML/MapFile.png, id=1015, 937.5025pt x 532.99126pt>
+<images/UML/MapFile.png, id=1017, 937.5025pt x 532.99126pt>
 File: images/UML/MapFile.png Graphic file (type png)
 <use images/UML/MapFile.png>
-Package pdftex.def Info: images/UML/MapFile.png  used on input line 268.
+Package pdftex.def Info: images/UML/MapFile.png  used on input line 345.
 (pdftex.def)             Requested size: 355.65944pt x 202.1972pt.
 
-
 ! LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.270 
+l.347 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/MapFileException.png, id=1016, 501.875pt x 221.82875pt>
+[47 <./images/UML/Logger.png (PNG copy)> <./images/UML/LoggerException.png (PNG
+ copy)> <./images/UML/MapFile.png (PNG copy)>]
+<images/UML/MapFileException.png, id=1028, 501.875pt x 221.82875pt>
 File: images/UML/MapFileException.png Graphic file (type png)
 <use images/UML/MapFileException.png>
-Package pdftex.def Info: images/UML/MapFileException.png  used on input line 27
-8.
+Package pdftex.def Info: images/UML/MapFileException.png  used on input line 35
+5.
 (pdftex.def)             Requested size: 355.65944pt x 157.2084pt.
 
+
 ! LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.280 
+l.357 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[46 <./images/UML/LoggerException.png (PNG copy)> <./images/UML/MapFile.png (PN
-G copy)> <./images/UML/MapFileException.png (PNG copy)>]
-<images/UML/Matrix.png, id=1027, 455.7025pt x 304.13625pt>
+<images/UML/Matrix.png, id=1029, 455.7025pt x 304.13625pt>
 File: images/UML/Matrix.png Graphic file (type png)
 <use images/UML/Matrix.png>
-Package pdftex.def Info: images/UML/Matrix.png  used on input line 287.
+Package pdftex.def Info: images/UML/Matrix.png  used on input line 364.
 (pdftex.def)             Requested size: 355.65944pt x 237.37381pt.
-
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2472,16 +2620,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.289 
+l.366 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/MatrixException.png, id=1028, 455.7025pt x 221.82875pt>
+<images/UML/MatrixException.png, id=1030, 455.7025pt x 221.82875pt>
 File: images/UML/MatrixException.png Graphic file (type png)
 <use images/UML/MatrixException.png>
-Package pdftex.def Info: images/UML/MatrixException.png  used on input line 296
+Package pdftex.def Info: images/UML/MatrixException.png  used on input line 373
 .
 (pdftex.def)             Requested size: 355.65944pt x 173.13402pt.
 
@@ -2491,39 +2639,39 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.298 
+l.375 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/MaxPriorityQueue.png, id=1029, 386.44376pt x 406.51875pt>
+[48 <./images/UML/MapFileException.png (PNG copy)> <./images/UML/Matrix.png (PN
+G copy)>]
+<images/UML/MaxPriorityQueue.png, id=1040, 386.44376pt x 406.51875pt>
 File: images/UML/MaxPriorityQueue.png Graphic file (type png)
 <use images/UML/MaxPriorityQueue.png>
-Package pdftex.def Info: images/UML/MaxPriorityQueue.png  used on input line 30
-6.
+Package pdftex.def Info: images/UML/MaxPriorityQueue.png  used on input line 38
+3.
 (pdftex.def)             Requested size: 355.65944pt x 374.13824pt.
 
+
 ! LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.308 
+l.385 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[47 <./images/UML/Matrix.png (PNG copy)> <./images/UML/MatrixException.png (PNG
- copy)>]
-<images/UML/Menu.png, id=1038, 739.76375pt x 661.47125pt>
+<images/UML/Menu.png, id=1041, 739.76375pt x 661.47125pt>
 File: images/UML/Menu.png Graphic file (type png)
 <use images/UML/Menu.png>
-Package pdftex.def Info: images/UML/Menu.png  used on input line 315.
+Package pdftex.def Info: images/UML/Menu.png  used on input line 392.
 (pdftex.def)             Requested size: 355.65944pt x 318.01735pt.
-
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2531,18 +2679,19 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.317 
+l.394 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[48 <./images/UML/MaxPriorityQueue.png (PNG copy)>]
-<images/UML/MinPriorityQueue.png, id=1046, 390.45876pt x 321.2pt>
+[49 <./images/UML/MatrixException.png (PNG copy)> <./images/UML/MaxPriorityQueu
+e.png (PNG copy)>]
+<images/UML/MinPriorityQueue.png, id=1050, 390.45876pt x 321.2pt>
 File: images/UML/MinPriorityQueue.png Graphic file (type png)
 <use images/UML/MinPriorityQueue.png>
-Package pdftex.def Info: images/UML/MinPriorityQueue.png  used on input line 32
-4.
+Package pdftex.def Info: images/UML/MinPriorityQueue.png  used on input line 40
+1.
 (pdftex.def)             Requested size: 355.65944pt x 292.58652pt.
 
 
@@ -2552,17 +2701,17 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.326 
+l.403 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[49 <./images/UML/Menu.png (PNG copy)>]
-<images/UML/NewImage.png, id=1053, 741.77126pt x 332.24126pt>
+[50 <./images/UML/Menu.png (PNG copy)>]
+<images/UML/NewImage.png, id=1057, 741.77126pt x 332.24126pt>
 File: images/UML/NewImage.png Graphic file (type png)
 <use images/UML/NewImage.png>
-Package pdftex.def Info: images/UML/NewImage.png  used on input line 333.
+Package pdftex.def Info: images/UML/NewImage.png  used on input line 410.
 (pdftex.def)             Requested size: 355.65944pt x 159.30162pt.
 
 
@@ -2572,16 +2721,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.335 
+l.412 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Pathfinder.png, id=1054, 448.67625pt x 221.82875pt>
+<images/UML/Pathfinder.png, id=1058, 448.67625pt x 221.82875pt>
 File: images/UML/Pathfinder.png Graphic file (type png)
 <use images/UML/Pathfinder.png>
-Package pdftex.def Info: images/UML/Pathfinder.png  used on input line 342.
+Package pdftex.def Info: images/UML/Pathfinder.png  used on input line 419.
 (pdftex.def)             Requested size: 355.65944pt x 175.84528pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2590,19 +2739,19 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.344 
+l.421 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[50 <./images/UML/MinPriorityQueue.png (PNG copy)> <./images/UML/NewImage.png (
+[51 <./images/UML/MinPriorityQueue.png (PNG copy)> <./images/UML/NewImage.png (
 PNG copy)>]
-<images/UML/PathfindImageForm.png, id=1063, 629.35126pt x 696.6025pt>
+<images/UML/PathfindImageForm.png, id=1067, 629.35126pt x 696.6025pt>
 File: images/UML/PathfindImageForm.png Graphic file (type png)
 <use images/UML/PathfindImageForm.png>
-Package pdftex.def Info: images/UML/PathfindImageForm.png  used on input line 3
-51.
+Package pdftex.def Info: images/UML/PathfindImageForm.png  used on input line 4
+28.
 (pdftex.def)             Requested size: 355.65944pt x 393.66618pt.
 
 
@@ -2612,19 +2761,20 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.353 
+l.430 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Post.png, id=1064, 390.45876pt x 221.82875pt>
+[52 <./images/UML/Pathfinder.png (PNG copy)> <./images/UML/PathfindImageForm.pn
+g (PNG copy)>]
+<images/UML/Post.png, id=1076, 390.45876pt x 221.82875pt>
 File: images/UML/Post.png Graphic file (type png)
 <use images/UML/Post.png>
-Package pdftex.def Info: images/UML/Post.png  used on input line 360.
+Package pdftex.def Info: images/UML/Post.png  used on input line 437.
 (pdftex.def)             Requested size: 355.65944pt x 202.06755pt.
-[51 <./images/UML/Pathfinder.png (PNG copy)> <./images/UML/PathfindImageForm.pn
-g (PNG copy)>]
+
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2632,16 +2782,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.362 
+l.439 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Pre.png, id=1073, 937.5025pt x 380.42125pt>
+<images/UML/Pre.png, id=1077, 937.5025pt x 380.42125pt>
 File: images/UML/Pre.png Graphic file (type png)
 <use images/UML/Pre.png>
-Package pdftex.def Info: images/UML/Pre.png  used on input line 369.
+Package pdftex.def Info: images/UML/Pre.png  used on input line 446.
 (pdftex.def)             Requested size: 355.65944pt x 144.31776pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2650,17 +2800,17 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.371 
+l.448 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/PreprocessingException.png, id=1074, 602.25pt x 221.82875pt>
+<images/UML/PreprocessingException.png, id=1078, 602.25pt x 221.82875pt>
 File: images/UML/PreprocessingException.png Graphic file (type png)
 <use images/UML/PreprocessingException.png>
 Package pdftex.def Info: images/UML/PreprocessingException.png  used on input l
-ine 378.
+ine 455.
 (pdftex.def)             Requested size: 355.65944pt x 131.00644pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2669,19 +2819,20 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.380 
+l.457 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Program.png, id=1075, 629.35126pt x 221.82875pt>
+[53 <./images/UML/Post.png (PNG copy)> <./images/UML/Pre.png (PNG copy)> <./ima
+ges/UML/PreprocessingException.png (PNG copy)>]
+<images/UML/Program.png, id=1089, 629.35126pt x 221.82875pt>
 File: images/UML/Program.png Graphic file (type png)
 <use images/UML/Program.png>
-Package pdftex.def Info: images/UML/Program.png  used on input line 387.
+Package pdftex.def Info: images/UML/Program.png  used on input line 464.
 (pdftex.def)             Requested size: 355.65944pt x 125.36053pt.
-[52 <./images/UML/Post.png (PNG copy)> <./images/UML/Pre.png (PNG copy)> <./ima
-ges/UML/PreprocessingException.png (PNG copy)>]
+
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2689,16 +2840,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.389 
+l.466 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/ProgressBar.png, id=1086, 739.76375pt x 378.41376pt>
+<images/UML/ProgressBar.png, id=1090, 739.76375pt x 378.41376pt>
 File: images/UML/ProgressBar.png Graphic file (type png)
 <use images/UML/ProgressBar.png>
-Package pdftex.def Info: images/UML/ProgressBar.png  used on input line 396.
+Package pdftex.def Info: images/UML/ProgressBar.png  used on input line 473.
 (pdftex.def)             Requested size: 355.65944pt x 181.93102pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2707,16 +2858,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.398 
+l.475 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Queue.png, id=1087, 501.875pt x 221.82875pt>
+<images/UML/Queue.png, id=1091, 501.875pt x 221.82875pt>
 File: images/UML/Queue.png Graphic file (type png)
 <use images/UML/Queue.png>
-Package pdftex.def Info: images/UML/Queue.png  used on input line 405.
+Package pdftex.def Info: images/UML/Queue.png  used on input line 482.
 (pdftex.def)             Requested size: 355.65944pt x 157.2084pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2725,19 +2876,20 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.407 
+l.484 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/RawImage.png, id=1088, 583.17876pt x 333.245pt>
+[54 <./images/UML/Program.png (PNG copy)> <./images/UML/ProgressBar.png (PNG co
+py)> <./images/UML/Queue.png (PNG copy)>]
+<images/UML/RawImage.png, id=1103, 583.17876pt x 333.245pt>
 File: images/UML/RawImage.png Graphic file (type png)
 <use images/UML/RawImage.png>
-Package pdftex.def Info: images/UML/RawImage.png  used on input line 414.
+Package pdftex.def Info: images/UML/RawImage.png  used on input line 491.
 (pdftex.def)             Requested size: 355.65944pt x 203.23846pt.
-[53 <./images/UML/Program.png (PNG copy)> <./images/UML/ProgressBar.png (PNG co
-py)> <./images/UML/Queue.png (PNG copy)>]
+
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2745,16 +2897,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.416 
+l.493 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/RGB.png, id=1099, 582.175pt x 332.24126pt>
+<images/UML/RGB.png, id=1104, 582.175pt x 332.24126pt>
 File: images/UML/RGB.png Graphic file (type png)
 <use images/UML/RGB.png>
-Package pdftex.def Info: images/UML/RGB.png  used on input line 423.
+Package pdftex.def Info: images/UML/RGB.png  used on input line 500.
 (pdftex.def)             Requested size: 355.65944pt x 202.9761pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2763,16 +2915,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.425 
+l.502 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/RoadDetection.png, id=1100, 501.875pt x 270.00874pt>
+<images/UML/RoadDetection.png, id=1105, 501.875pt x 270.00874pt>
 File: images/UML/RoadDetection.png Graphic file (type png)
 <use images/UML/RoadDetection.png>
-Package pdftex.def Info: images/UML/RoadDetection.png  used on input line 432.
+Package pdftex.def Info: images/UML/RoadDetection.png  used on input line 509.
 (pdftex.def)             Requested size: 355.65944pt x 191.35321pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2781,17 +2933,17 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.434 
+l.511 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[54 <./images/UML/RawImage.png (PNG copy)> <./images/UML/RGB.png (PNG copy)>]
-<images/UML/RoadResult.png, id=1110, 582.175pt x 333.245pt>
+[55 <./images/UML/RawImage.png (PNG copy)> <./images/UML/RGB.png (PNG copy)>]
+<images/UML/RoadResult.png, id=1114, 582.175pt x 333.245pt>
 File: images/UML/RoadResult.png Graphic file (type png)
 <use images/UML/RoadResult.png>
-Package pdftex.def Info: images/UML/RoadResult.png  used on input line 441.
+Package pdftex.def Info: images/UML/RoadResult.png  used on input line 518.
 (pdftex.def)             Requested size: 355.65944pt x 203.58932pt.
 
 
@@ -2801,16 +2953,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.443 
+l.520 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/RoadSequence.png, id=1111, 1369.115pt x 404.51125pt>
+<images/UML/RoadSequence.png, id=1115, 1369.115pt x 404.51125pt>
 File: images/UML/RoadSequence.png Graphic file (type png)
 <use images/UML/RoadSequence.png>
-Package pdftex.def Info: images/UML/RoadSequence.png  used on input line 450.
+Package pdftex.def Info: images/UML/RoadSequence.png  used on input line 527.
 (pdftex.def)             Requested size: 355.65944pt x 105.07785pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2819,19 +2971,20 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.452 
+l.529 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/SaveFile.png, id=1112, 740.7675pt x 332.24126pt>
+[56 <./images/UML/RoadDetection.png (PNG copy)> <./images/UML/RoadResult.png (P
+NG copy)> <./images/UML/RoadSequence.png (PNG copy)>]
+<images/UML/SaveFile.png, id=1126, 740.7675pt x 332.24126pt>
 File: images/UML/SaveFile.png Graphic file (type png)
 <use images/UML/SaveFile.png>
-Package pdftex.def Info: images/UML/SaveFile.png  used on input line 460.
+Package pdftex.def Info: images/UML/SaveFile.png  used on input line 537.
 (pdftex.def)             Requested size: 355.65944pt x 159.5196pt.
-[55 <./images/UML/RoadDetection.png (PNG copy)> <./images/UML/RoadResult.png (P
-NG copy)> <./images/UML/RoadSequence.png (PNG copy)>]
+
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2839,16 +2992,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.462 
+l.539 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Settings.png, id=1123, 1368.11125pt x 531.9875pt>
+<images/UML/Settings.png, id=1127, 1368.11125pt x 531.9875pt>
 File: images/UML/Settings.png Graphic file (type png)
 <use images/UML/Settings.png>
-Package pdftex.def Info: images/UML/Settings.png  used on input line 470.
+Package pdftex.def Info: images/UML/Settings.png  used on input line 547.
 (pdftex.def)             Requested size: 355.65944pt x 138.29724pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2857,16 +3010,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.472 
+l.549 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/SettingsControl.png, id=1124, 740.7675pt x 379.4175pt>
+<images/UML/SettingsControl.png, id=1128, 740.7675pt x 379.4175pt>
 File: images/UML/SettingsControl.png Graphic file (type png)
 <use images/UML/SettingsControl.png>
-Package pdftex.def Info: images/UML/SettingsControl.png  used on input line 479
+Package pdftex.def Info: images/UML/SettingsControl.png  used on input line 556
 .
 (pdftex.def)             Requested size: 355.65944pt x 182.17043pt.
 
@@ -2876,20 +3029,21 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.481 
+l.558 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/SettingsException.png, id=1125, 455.7025pt x 221.82875pt>
+[57 <./images/UML/SaveFile.png (PNG copy)> <./images/UML/Settings.png (PNG copy
+)> <./images/UML/SettingsControl.png (PNG copy)>]
+<images/UML/SettingsException.png, id=1139, 455.7025pt x 221.82875pt>
 File: images/UML/SettingsException.png Graphic file (type png)
 <use images/UML/SettingsException.png>
-Package pdftex.def Info: images/UML/SettingsException.png  used on input line 4
-88.
+Package pdftex.def Info: images/UML/SettingsException.png  used on input line 5
+65.
 (pdftex.def)             Requested size: 355.65944pt x 173.13402pt.
-[56 <./images/UML/SaveFile.png (PNG copy)> <./images/UML/Settings.png (PNG copy
-)> <./images/UML/SettingsControl.png (PNG copy)>]
+
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2897,16 +3051,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.490 
+l.567 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Stack.png, id=1136, 390.45876pt x 235.88126pt>
+<images/UML/Stack.png, id=1140, 390.45876pt x 235.88126pt>
 File: images/UML/Stack.png Graphic file (type png)
 <use images/UML/Stack.png>
-Package pdftex.def Info: images/UML/Stack.png  used on input line 497.
+Package pdftex.def Info: images/UML/Stack.png  used on input line 574.
 (pdftex.def)             Requested size: 355.65944pt x 214.86823pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2915,16 +3069,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.499 
+l.576 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Structures.png, id=1137, 582.175pt x 331.2375pt>
+<images/UML/Structures.png, id=1141, 582.175pt x 331.2375pt>
 File: images/UML/Structures.png Graphic file (type png)
 <use images/UML/Structures.png>
-Package pdftex.def Info: images/UML/Structures.png  used on input line 506.
+Package pdftex.def Info: images/UML/Structures.png  used on input line 583.
 (pdftex.def)             Requested size: 355.65944pt x 202.36288pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2933,19 +3087,19 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.508 
+l.585 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[57 <./images/UML/SettingsException.png (PNG copy)> <./images/UML/Stack.png (PN
+[58 <./images/UML/SettingsException.png (PNG copy)> <./images/UML/Stack.png (PN
 G copy)>]
-<images/UML/SyncEdgeDetection.png, id=1146, 740.7675pt x 534.99875pt>
+<images/UML/SyncEdgeDetection.png, id=1150, 740.7675pt x 534.99875pt>
 File: images/UML/SyncEdgeDetection.png Graphic file (type png)
 <use images/UML/SyncEdgeDetection.png>
 Package pdftex.def Info: images/UML/SyncEdgeDetection.png  used on input line 5
-15.
+92.
 (pdftex.def)             Requested size: 355.65944pt x 256.86995pt.
 
 
@@ -2955,16 +3109,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.517 
+l.594 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/TextWall.png, id=1147, 448.67625pt x 221.82875pt>
+<images/UML/TextWall.png, id=1151, 448.67625pt x 221.82875pt>
 File: images/UML/TextWall.png Graphic file (type png)
 <use images/UML/TextWall.png>
-Package pdftex.def Info: images/UML/TextWall.png  used on input line 525.
+Package pdftex.def Info: images/UML/TextWall.png  used on input line 602.
 (pdftex.def)             Requested size: 355.65944pt x 175.84528pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2973,18 +3127,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.527 
+l.604 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[58 <./images/UML/Structures.png (PNG copy)> <./images/UML/SyncEdgeDetection.pn
+[59 <./images/UML/Structures.png (PNG copy)> <./images/UML/SyncEdgeDetection.pn
 g (PNG copy)>]
-<images/UML/ThresholdPixel.png, id=1156, 582.175pt x 332.24126pt>
+<images/UML/ThresholdPixel.png, id=1160, 582.175pt x 332.24126pt>
 File: images/UML/ThresholdPixel.png Graphic file (type png)
 <use images/UML/ThresholdPixel.png>
-Package pdftex.def Info: images/UML/ThresholdPixel.png  used on input line 534.
+Package pdftex.def Info: images/UML/ThresholdPixel.png  used on input line 611.
 
 (pdftex.def)             Requested size: 355.65944pt x 202.9761pt.
 
@@ -2995,16 +3149,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.536 
+l.613 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Traversal.png, id=1157, 501.875pt x 221.82875pt>
+<images/UML/Traversal.png, id=1161, 501.875pt x 221.82875pt>
 File: images/UML/Traversal.png Graphic file (type png)
 <use images/UML/Traversal.png>
-Package pdftex.def Info: images/UML/Traversal.png  used on input line 543.
+Package pdftex.def Info: images/UML/Traversal.png  used on input line 620.
 (pdftex.def)             Requested size: 355.65944pt x 157.2084pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -3013,18 +3167,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.545 
+l.622 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[59 <./images/UML/TextWall.png (PNG copy)> <./images/UML/ThresholdPixel.png (PN
+[60 <./images/UML/TextWall.png (PNG copy)> <./images/UML/ThresholdPixel.png (PN
 G copy)>]
-<images/UML/Utility.png, id=1166, 602.25pt x 406.51875pt>
+<images/UML/Utility.png, id=1171, 602.25pt x 406.51875pt>
 File: images/UML/Utility.png Graphic file (type png)
 <use images/UML/Utility.png>
-Package pdftex.def Info: images/UML/Utility.png  used on input line 552.
+Package pdftex.def Info: images/UML/Utility.png  used on input line 629.
 (pdftex.def)             Requested size: 355.65944pt x 240.07968pt.
 
 
@@ -3034,16 +3188,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.554 
+l.631 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/ViewImageForm.png, id=1167, 448.67625pt x 270.00874pt>
+<images/UML/ViewImageForm.png, id=1172, 448.67625pt x 270.00874pt>
 File: images/UML/ViewImageForm.png Graphic file (type png)
 <use images/UML/ViewImageForm.png>
-Package pdftex.def Info: images/UML/ViewImageForm.png  used on input line 561.
+Package pdftex.def Info: images/UML/ViewImageForm.png  used on input line 638.
 (pdftex.def)             Requested size: 355.65944pt x 214.03792pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -3052,13 +3206,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.563 
+l.640 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[60 <./images/UML/Traversal.png (PNG copy)> <./images/UML/Utility.png (PNG copy
+[61 <./images/UML/Traversal.png (PNG copy)> <./images/UML/Utility.png (PNG copy
 )>]
 
 ! LaTeX Error: \begin{enumerate} on input line 56 ended by \end{flushleft}.
@@ -3067,13 +3221,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.575 \end{flushleft}
+l.652 \end{flushleft}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) [61 <./images/UML/ViewImageForm.png (PNG copy)>]
+) [62 <./images/UML/ViewImageForm.png (PNG copy)>]
 \openout2 = `pages/testing.aux'.
 
  (pages/testing.tex
@@ -3081,17 +3235,17 @@ Overfull \hbox (12.20384pt too wide) in alignment at lines 65--123
  [] [] [] [] [] [] 
  []
 
-[62
+[63
 
 
 
-] [63] [64]
+] [64] [65]
 Overfull \hbox (32.09196pt too wide) in alignment at lines 131--153
  [] [] [] [] [] [] 
  []
 
-[65]
-<images/cannyTestImage.jpg, id=1240, 1023.825pt x 722.7pt>
+[66]
+<images/cannyTestImage.jpg, id=1245, 1023.825pt x 722.7pt>
 File: images/cannyTestImage.jpg Graphic file (type jpg)
 <use images/cannyTestImage.jpg>
 Package pdftex.def Info: images/cannyTestImage.jpg  used on input line 160.
@@ -3109,8 +3263,8 @@ l.163         }
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[66]
-<images/cannyTesting/Canny_Walkthrough_0_Black_White_Filter.jpg, id=1248, 1023.
+[67]
+<images/cannyTesting/Canny_Walkthrough_0_Black_White_Filter.jpg, id=1252, 1023.
 825pt x 722.7pt>
 File: images/cannyTesting/Canny_Walkthrough_0_Black_White_Filter.jpg Graphic fi
 le (type jpg)
@@ -3118,7 +3272,7 @@ le (type jpg)
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_0_Black_White_Fi
 lter.jpg  used on input line 174.
 (pdftex.def)             Requested size: 128.0374pt x 90.37035pt.
-<images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png, id=1249, 803.0pt x 
+<images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png, id=1253, 803.0pt x 
 567.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png Graphic file (t
 ype png)
@@ -3126,7 +3280,7 @@ ype png)
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.
 png  used on input line 176.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png, id=1250, 803.0
+<images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png, id=1254, 803.0
 pt x 567.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png Graphic fi
 le (type png)
@@ -3134,7 +3288,7 @@ le (type png)
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_2_Intensity_Grad
 ient.png  used on input line 178.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png, id=1251, 
+<images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png, id=1255, 
 803.0pt x 567.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png Graph
 ic file (type png)
@@ -3142,7 +3296,7 @@ ic file (type png)
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_3_Non-maximum_su
 ppression.png  used on input line 182.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png, id=1252, 803.0pt
+<images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png, id=1256, 803.0pt
  x 567.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png Graphic file
  (type png)
@@ -3150,7 +3304,7 @@ File: images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png Graphic file
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_4_Double_Thresho
 ld.png  used on input line 184.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png, id=1253, 1023.825pt x 
+<images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png, id=1257, 1023.825pt x 
 722.7pt>
 File: images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png Graphic file (type
  png)
@@ -3169,22 +3323,22 @@ Overfull \hbox (12.20384pt too wide) in alignment at lines 168--190
  [] [] [] [] [] [] 
  []
 
-[67 <./images/cannyTestImage.jpg> <./images/cannyTesting/Canny_Walkthrough_0_Bl
+[68 <./images/cannyTestImage.jpg> <./images/cannyTesting/Canny_Walkthrough_0_Bl
 ack_White_Filter.jpg> <./images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.
 png (PNG copy)> <./images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.p
 ng (PNG copy)>]
-<images/roadExamples/comb.png, id=1262, 644.4075pt x 385.44pt>
+<images/roadExamples/comb.png, id=1266, 644.4075pt x 385.44pt>
 File: images/roadExamples/comb.png Graphic file (type png)
 <use images/roadExamples/comb.png>
 Package pdftex.def Info: images/roadExamples/comb.png  used on input line 208.
 (pdftex.def)             Requested size: 128.0374pt x 76.58083pt.
-<images/roadExamples/white.png, id=1263, 75.28125pt x 75.28125pt>
+<images/roadExamples/white.png, id=1267, 75.28125pt x 75.28125pt>
 File: images/roadExamples/white.png Graphic file (type png)
 <use images/roadExamples/white.png>
 Package pdftex.def Info: images/roadExamples/white.png  used on input line 220.
 
 (pdftex.def)             Requested size: 128.0374pt x 128.06256pt.
-<images/roadExamples/quadsFilledExample.png, id=1264, 150.5625pt x 150.5625pt>
+<images/roadExamples/quadsFilledExample.png, id=1268, 150.5625pt x 150.5625pt>
 File: images/roadExamples/quadsFilledExample.png Graphic file (type png)
 <use images/roadExamples/quadsFilledExample.png>
 Package pdftex.def Info: images/roadExamples/quadsFilledExample.png  used on in
@@ -3195,7 +3349,7 @@ Overfull \hbox (12.20384pt too wide) in alignment at lines 201--227
  [] [] [] [] [] [] 
  []
 
-[68 <./images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png (PNG
+[69 <./images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png (PNG
  copy)> <./images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png (PNG co
 py)> <./images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png> <./images/roadE
 xamples/comb.png>]
@@ -3203,28 +3357,28 @@ Overfull \hbox (12.20384pt too wide) in alignment at lines 234--238
  [] [] [] [] [] [] 
  []
 
-[69 <./images/roadExamples/white.png> <./images/roadExamples/quadsFilledExample
+[70 <./images/roadExamples/white.png> <./images/roadExamples/quadsFilledExample
 .png>]
 Overfull \hbox (46.05193pt too wide) in alignment at lines 241--275
  [] [] [] [] [] [] 
  []
 
-[70]
+[71]
 Overfull \hbox (12.20384pt too wide) in alignment at lines 282--346
  [] [] [] [] [] [] 
  []
 
-[71] [72] [73]
+[72] [73] [74]
 Overfull \hbox (12.20384pt too wide) in alignment at lines 353--439
  [] [] [] [] [] [] 
  []
 
-[74] [75]
+[75] [76]
 Overfull \hbox (12.20384pt too wide) in alignment at lines 441--460
  [] [] [] [] [] [] 
  []
 
-[76] 
+[77] 
 
 <QR code requested for "https://youtu.be/cJqFovg27Bo" in version 0-M.>
 <Error-correction level increased from M to Q at no cost.>
@@ -3270,7 +3424,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) [77]
+) [78]
 \openout2 = `pages/solution.tex.aux'.
 
 
@@ -3291,7 +3445,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) [78
+) [79
 
 
 
@@ -3305,178 +3459,177 @@ or  <return>  to continue without it.
 \openout4 = `main.pyg'.
 
 
-(_minted-main/0B71B649FF06EBB80BE2FCE42F2A530D6A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [79
+(_minted-main/0B71B649FF06EBB80BE2FCE42F2A530DBFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [80
 
 
 
-] [80] [81] [82] [83] [84] [85] [86] [87] [88])
+] [81] [82] [83] [84] [85] [86] [87] [88] [89])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/3B8E81F35E50E389B33AEE9804A5ADF96A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [89] [90] [91])
+(_minted-main/3B8E81F35E50E389B33AEE9804A5ADF9BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [90] [91] [92])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/BD5076E27BAB48FBAC5B1A82A0C4383F6A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [92] [93] [94])
+(_minted-main/BD5076E27BAB48FBAC5B1A82A0C4383FBFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [93] [94] [95])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/DDCD38AE71671326F34979C0439946C26A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [95] [96])
+(_minted-main/DDCD38AE71671326F34979C0439946C2BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [96] [97])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/78EC761638FAE7F6CB61A445E5A5E2A66A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [97])
+(_minted-main/78EC761638FAE7F6CB61A445E5A5E2A6BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [98])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/58378F5D102BBE967D75A358E05998A76A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [98] [99])
+(_minted-main/58378F5D102BBE967D75A358E05998A7BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [99] [100])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/F42492C9E9C0D651D76DBE2C3B6277666A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [100])
+(_minted-main/F42492C9E9C0D651D76DBE2C3B627766BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [101])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/22C2EA1D524062832D06E44E6E7244486A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [101] [102])
+(_minted-main/22C2EA1D524062832D06E44E6E724448BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [102] [103])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/F2115DA59D3E17CDC60DD9B1E771AD006A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [103])
-\openout4 = `main.pyg'.
-
-
-(_minted-main/AB4013B0CCDC95D47B8352BB718FD48D6A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex)
-\openout4 = `main.pyg'.
-
-
-(_minted-main/B05422CB9E381707650235C73840FB4C6A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/F2115DA59D3E17CDC60DD9B1E771AD00BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [104])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/DA2C731E153C321C8E4743DD9B26E6956A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/AB4013B0CCDC95D47B8352BB718FD48DBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
 \openout4 = `main.pyg'.
 
 
-(_minted-main/CB356A6843270BD849CBB01066EC718C6A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex)
-\openout4 = `main.pyg'.
-
-
-(_minted-main/A5D82F2EBC72C13D923263097E3E42256A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/B05422CB9E381707650235C73840FB4CBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [105])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/77367F640EBE28CD01399CD9AE1F02436A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/DA2C731E153C321C8E4743DD9B26E695BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
 \openout4 = `main.pyg'.
 
 
-(_minted-main/D74BF6CFB8FF0988234A0F0189CDC9246A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/CB356A6843270BD849CBB01066EC718CBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
 \openout4 = `main.pyg'.
 
 
-(_minted-main/E6A2D3A7B2B1DE5EC7472FF73DA9AFBA6A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/A5D82F2EBC72C13D923263097E3E4225BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [106])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/E49B3667CD5019289A45E1302285E0496A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/77367F640EBE28CD01399CD9AE1F0243BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
 \openout4 = `main.pyg'.
 
 
-(_minted-main/3B4587E3AED7DA8EE961D82D2743DCF36A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [107] [108] [109] [110] [111])
+(_minted-main/D74BF6CFB8FF0988234A0F0189CDC924BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex)
 \openout4 = `main.pyg'.
 
 
-(_minted-main/1E84FCB86847C9E39703F2F777F0B9A56A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [112])
+(_minted-main/E6A2D3A7B2B1DE5EC7472FF73DA9AFBABFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [107])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/461C46D35C2033A1DAFA7A07FF556DFB6A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/E49B3667CD5019289A45E1302285E049BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex)
+\openout4 = `main.pyg'.
+
+
+(_minted-main/3B4587E3AED7DA8EE961D82D2743DCF3BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [108] [109] [110] [111] [112])
+\openout4 = `main.pyg'.
+
+
+(_minted-main/1E84FCB86847C9E39703F2F777F0B9A5BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [113])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/FF597AACDA46313334702FF1BB99DFF36A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [114] [115])
+(_minted-main/461C46D35C2033A1DAFA7A07FF556DFBBFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [114])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/E7A590883443A110F6FF9DA2F7DFB15A6A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [116] [117])
+(_minted-main/FF597AACDA46313334702FF1BB99DFF3BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [115] [116])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/DB4DFB219DAF97CD9D87576C58F1AF446A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [118] [119])
+(_minted-main/E7A590883443A110F6FF9DA2F7DFB15ABFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [117] [118])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/03A0E264AB69255B1EEE08914EDCC13B6A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [120])
+(_minted-main/DB4DFB219DAF97CD9D87576C58F1AF44BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [119] [120])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/6F75D9ACC6A50C7126EF5B7608E222196A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/03A0E264AB69255B1EEE08914EDCC13BBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex [121])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/BA5456BFB812B8A614A69F8E7F2C743E6A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [122]
+(_minted-main/6F75D9ACC6A50C7126EF5B7608E22219BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [122])
+\openout4 = `main.pyg'.
+
+
+(_minted-main/BA5456BFB812B8A614A69F8E7F2C743EBFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [123]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
 25.
 
-(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
-File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-[123] [124])
+(C:\Users\Rubens Pirie\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
+File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+) [124] [125])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/E4E55830D0980D389DA0035F696A6F146A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [125] [126])
+(_minted-main/E4E55830D0980D389DA0035F696A6F14BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [126] [127])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/CEBDB23E10697D1B4D77F46A67FDBC776A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/CEBDB23E10697D1B4D77F46A67FDBC77BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
 \openout4 = `main.pyg'.
 
 
-(_minted-main/F6DF11F9D3CD42BE797093676F5BCAAD6A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [127] [128])
+(_minted-main/F6DF11F9D3CD42BE797093676F5BCAADBFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [128] [129])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/5C0B17821ACF3ECDD660AE66F863FEE26A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [129] [130] [131] [132] [133])
+(_minted-main/5C0B17821ACF3ECDD660AE66F863FEE2BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [130] [131] [132] [133] [134])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/8B197BCBBED051C71A5CC3151795AD636A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [134] [135])
+(_minted-main/8B197BCBBED051C71A5CC3151795AD63BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [135] [136])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/BDDB0FE7C6946DABC042CFB456C5681B6A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/BDDB0FE7C6946DABC042CFB456C5681BBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex
 
 ! LaTeX Error: Unicode character │ (U+2502)
@@ -3530,57 +3683,57 @@ l.20 ...G{l+s+sc}{\PYGZsq{}─\PYGZsq{}}\PYG{p}{;}
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[136] [137] [138] [139])
+[137] [138] [139] [140])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/19646387968408637BED5D26C3977A656A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [140] [141])
+(_minted-main/19646387968408637BED5D26C3977A65BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [141] [142])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/E1B5A19BE62D684B83C548BFFCE0DD216A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [142] [143])
+(_minted-main/E1B5A19BE62D684B83C548BFFCE0DD21BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [143] [144])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/3A7E48EEEBF57DFB7812C80FCCBB85476A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [144])
+(_minted-main/3A7E48EEEBF57DFB7812C80FCCBB8547BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [145])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/F45B71325D3DC9946E81C0FBF097636A6A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [145] [146] [147] [148] [149] [150])
+(_minted-main/F45B71325D3DC9946E81C0FBF097636ABFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [146] [147] [148] [149] [150] [151])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/2E7E690CD39525D960852124E37371C36A8AE5FAD709ACE6B4074555FF19DB7D.
+(_minted-main/2E7E690CD39525D960852124E37371C3BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
 \openout4 = `main.pyg'.
 
 
-(_minted-main/F9ABAEE54B064121D26F0C32BBBBBE796A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [151] [152])
+(_minted-main/F9ABAEE54B064121D26F0C32BBBBBE79BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [152] [153])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/77DD73A8FF1916D21C6B9ED58B4D1D406A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [153] [154] [155] [156] [157] [158])
+(_minted-main/77DD73A8FF1916D21C6B9ED58B4D1D40BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [154] [155] [156] [157] [158] [159])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/68D0D720ECA166E8406578198DF41DB76A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [159] [160] [161] [162] [163])
+(_minted-main/68D0D720ECA166E8406578198DF41DB7BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [160] [161] [162] [163] [164])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/AD42BCF487B063530F70EBA5B884AF956A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [164])
+(_minted-main/AD42BCF487B063530F70EBA5B884AF95BFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [165])
 \openout4 = `main.pyg'.
 
 
-(_minted-main/2698A8B73DD278098DB41996C579BD6E6A8AE5FAD709ACE6B4074555FF19DB7D.
-pygtex [165] [166] [167] [168] [169])) [170]
+(_minted-main/2698A8B73DD278098DB41996C579BD6EBFA2CFDC5BD54279ABD95FFD29AE2971.
+pygtex [166] [167] [168] [169] [170] [171])) [172]
 
 ! LaTeX Error: \begin{FlushLeft} on input line 2 ended by \end{document}.
 
@@ -3612,43 +3765,45 @@ runsystem(del main.pyg)...executed.
 ### semi simple group (level 1) entered at line 2 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 34606 strings out of 477992
- 723631 string characters out of 2827467
- 1166819 words of memory out of 3000000
- 51785 multiletter control sequences out of 15000+600000
- 739658 words of font info for 90 fonts, out of 8000000 for 9000
+ 34696 strings out of 476406
+ 732395 string characters out of 2786228
+ 1931787 words of memory out of 3000000
+ 53456 multiletter control sequences out of 15000+600000
+ 782686 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,18n,133p,1230b,1389s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/
-ec/dpi600\tctt0800.pk> <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
-appen/ec/dpi600\ectt1200.pk> <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfo
-ur/jknappen/ec/dpi600\ectt1000.pk>{C:/Users/ruben/AppData/Local/Programs/MiKTeX
-/fonts/enc/dvips/librebaskerville/lbskvl_uf5aa7.enc} <C:\Users\ruben\AppData\Lo
-cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit0800.pk> <C:\Users\ruben\AppD
-ata\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0800.pk>{C:/Users/ruben
-/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/librebaskerville/lbskvl_6hj2ra.e
-nc} <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecs
-x1095.pk> <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi6
-00\ecsx1200.pk> <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
-c/dpi600\ecsx1728.pk><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/
-impallari/librebaskerville/LibreBskvl-Bold.pfb><C:/Users/ruben/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/impallari/librebaskerville/LibreBskvl-BoldItalic.pfb>
-<C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/impallari/librebasker
-ville/LibreBskvl-Italic.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts
-/type1/impallari/librebaskerville/LibreBskvl-Regular.pfb><C:/Users/ruben/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/rub
-en/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/
-Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.
-pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmmi7.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmr10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmr7.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/ruben/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (171 pages, 14991943 bytes).
+ 100i,18n,133p,1248b,1410s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\Rubens Pirie\AppData\Local\MiKTeX\fonts/pk/ljfour/jk
+nappen/ec/dpi600\tctt0800.pk> <C:\Users\Rubens Pirie\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\Rubens Pirie\AppData\Local
+\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk>{C:/Users/Rubens Pirie/A
+ppData/Local/Programs/MiKTeX/fonts/enc/dvips/librebaskerville/lbskvl_uf5aa7.enc
+} <C:\Users\Rubens Pirie\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecit0800.pk> <C:\Users\Rubens Pirie\AppData\Local\MiKTeX\fonts/pk/ljfour/jkna
+ppen/ec/dpi600\ectt0800.pk>{C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX
+/fonts/enc/dvips/librebaskerville/lbskvl_6hj2ra.enc} <C:\Users\Rubens Pirie\App
+Data\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1095.pk> <C:\Users\Rub
+ens Pirie\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1200.pk> 
+<C:\Users\Rubens Pirie\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
+ecsx1728.pk><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/im
+pallari/librebaskerville/LibreBskvl-Bold.pfb><C:/Users/Rubens Pirie/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/impallari/librebaskerville/LibreBskvl-BoldItalic
+.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/impallari
+/librebaskerville/LibreBskvl-Italic.pfb><C:/Users/Rubens Pirie/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/impallari/librebaskerville/LibreBskvl-Regular.pfb><C:
+/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmex10.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi10.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Rubens Pirie/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Rubens Pir
+ie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/U
+sers/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmr7.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Rubens Pirie/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on main.pdf (173 pages, 15003954 bytes).
 PDF statistics:
- 2271 PDF objects out of 2487 (max. 8388607)
- 663 named destinations out of 1000 (max. 500000)
+ 2279 PDF objects out of 2487 (max. 8388607)
+ 665 named destinations out of 1000 (max. 500000)
  928 words of extra memory for PDF output out of 10000 (max. 10000000)
 
