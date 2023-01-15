@@ -1,5 +1,5 @@
 \normalsize
-\begin{flushleft}
+\begin{FlushLeft}
     \section{Technical Design}
 
     \subsection{Programming Language Selection and Libraries Used}
@@ -110,8 +110,20 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Async Edge Detection Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/AsyncEdgeDetection.png}}}
+        \subfloat[\centering Async Edge Detection Class Diagram]{{\includegraphics[width=16cm]{images/UML/AsyncEdgeDetection.png}}}
     \end{figure}\\
+
+    This class is located in the front end section of my application, its main function is to coordinate the method calls of the Canny Edge Detection class. Due to the separated nature of my program I did not want there to be any user inputs in the accrual processing section. In order to do this I needed to have a separate hander on the local application side which would ask the user for their inputs and handel all of the validation of them. \\ \bk
+
+    This class also implements the IHandler interface, this is to allow the main front end application to switch between the Async version and the Synchronous version of the edge detection without having a mess of IF statements. Part of the IHandler interface means that this class must contain the methods, Start() and Result(). What these methods do is what they say in the name. The start methods begins the process of getting user inputs and then starting the edge detection. The Result method will, as the name suggests return the result of the edge detection. \\ \bk
+
+    The PostProcessImage method in the class is responsible for the custom embossing which runs through the result of the canny edge detection and fills in any gaps that may have appeared. It also applies an embossing kernel on the image to embolden the lines. It will also prompt the user to enter the amount of times they want to run the embossing process. \\ \bk
+    
+    The GetDetectorMethod is used to get the variables for the canny edge detector. This section handles all of the validation and checking that the values supplied are valid. The result of this method is that a new Canny Edge Detector object is created with the user inputted variables, this is then passed down the chain to be used in processing each quadrant. \\ \bk
+
+    The main differentiator between this asynchronously method and the synchronous method is that this one will split the input image into 4 distinct quadrants, this will allow the program to run each at the same time using threading. Through my prototyping stage I found that using this method of threading greatly improves the speed even on lower specification computers. \\ \bk
+    
+    Finally the Preset method is used in the front end application in the eventuality of the user selecting preset values. An example of this is that when it gets to the selection of the edge detection method they select the "Photograph" method, the async method will be used due to its speed however instead of prompting the user it will run the various stages with predefined values. \\
 
     \bk
 
@@ -120,8 +132,10 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Canny Edge Detection Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/CannyEdgeDetection.png}}}
+        \subfloat[\centering Canny Edge Detection Class Diagram]{{\includegraphics[width=16cm]{images/UML/CannyEdgeDetection.png}}}
     \end{figure}\\
+
+    This class is located in the backend library portion of my project, its main function is to house the methods which contain the maths to perf
 
     \bk
 
@@ -220,6 +234,15 @@
 
     \bk
 
+    \paragraph{Log \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Log Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Log.png}}}
+    \end{figure}\\
+
+    \bk
+
     \paragraph{Logger \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -237,6 +260,16 @@
     \end{figure}\\
 
     \bk
+
+    \paragraph{Map File \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Map File Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/MapFile.png}}}
+    \end{figure}\\
+
+    \bk
+
 
     \paragraph{Map File Exception \textit{(Exception)}} \mbox{} \\
 
@@ -275,12 +308,29 @@
 
     \bk
 
+    \paragraph{Menu \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Menu Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Menu.png}}}
+    \end{figure}\\
+
+    \bk
     
     \paragraph{Min Priority Queue \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
         \subfloat[\centering Min Priority Queue Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/MinPriorityQueue.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{New Image \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering New Image Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/NewImage.png}}}
     \end{figure}\\
 
     \bk
@@ -312,6 +362,15 @@
 
     \bk
 
+    \paragraph{Pre \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Pre Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Pre.png}}}
+    \end{figure}\\
+
+    \bk
+
     \paragraph{Preprocessing Exception \textit{(Exception)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -330,6 +389,15 @@
 
     \bk
 
+    \paragraph{Progress Bar \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Progress Bar Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/ProgressBar.png}}}
+    \end{figure}\\
+
+    \bk
+
     \paragraph{Queue \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -339,11 +407,76 @@
 
     \bk
 
+    \paragraph{Raw Image \textit{(Structure)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Raw Image Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/RawImage.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{RGB \textit{(Structure)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering RGB Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/RGB.png}}}
+    \end{figure}\\
+
+    \bk
+
     \paragraph{Road Detection \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
         \subfloat[\centering Road Detection Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/RoadDetection.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Road Result \textit{(Structure)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Road Result Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/RoadResult.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Road Sequence \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Road Sequence Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/RoadSequence.png}}}
+    \end{figure}\\
+
+    \bk
+
+    
+    \paragraph{Save File \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Save File Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/SaveFile.png}}}
+    \end{figure}\\
+
+    \bk
+
+    
+    \paragraph{Settings \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Settings Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Settings.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Settings Control \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Settings Control Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/SettingsControl.png}}}
     \end{figure}\\
 
     \bk
@@ -366,11 +499,39 @@
 
     \bk
 
+    \paragraph{Structures \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Structures Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Structures.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Sync Edge Detection \textit{(Class)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Sync Edge Detection Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/SyncEdgeDetection.png}}}
+    \end{figure}\\
+
+    \bk
+
+
     \paragraph{Text Wall \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
         \subfloat[\centering Text Wall Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/TextWall.png}}}
+    \end{figure}\\
+
+    \bk
+
+    \paragraph{Threshold Pixel \textit{(Structure)}} \mbox{} \\
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Threshold Pixel Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/ThresholdPixel.png}}}
     \end{figure}\\
 
     \bk

@@ -1,5 +1,6 @@
 % Set up Document
 \documentclass{article}
+\usepackage[document]{ragged2e}
 \usepackage[a4paper]{geometry}
 
 \geometry{a4paper, left=19mm, right=19mm, top=20mm}
@@ -85,7 +86,7 @@
 \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
 \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
 \renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
-
+\renewcommand{\thesubfigure{\arabic{subfigure}}}
 
 \title{Computer Science NEA}
 \author{Rubens Pirie}
