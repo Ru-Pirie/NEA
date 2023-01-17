@@ -242,7 +242,23 @@
         \subfloat[\centering Extensions Class Diagram]{{\includegraphics[width=13cm]{images/UML/Extensions.png}}}
     \end{figure}\\
 
-    This class is responsible for altering the default behavior of
+    This class is responsible for altering the default behaviors of certain inbuilt classes in C# as well as extending functionality to make it easier to maintain my code. The way in which this is achieved is through the use of the this keyword. It will allow me for example to be to .ToBitmap on a 2D array speeding up the process instead of calling separate methods.\\ \bk
+
+    The first of the extensions that will be implemented is the ToBitmap extension. As stated above it allows me to call ToBitmap on any given 2D double array, it then converts it to a bitmap and returns said bitmap. It does this through taking each pixel in turn and then using the Utility method to bound them within the allowed range of a pixel. \\ \bk
+
+    Another of the extensions contained within this class is the ToDoubles extension which is essentially the inverse of the ToBitmap extension. This acts upon a Bitmap to convert it to a 2D double array. This extension however requires a method to be passed in which is then used to work out how to get the values of the pixel to a single 0 -> 255 value. The function which is passed in must take a Color object and return a single double value. \\ \bk
+
+    The third extension contained is essentially a clone of the first one however this acts upon the EGB structure. This is important due to the fact that the RGB structure contains more than 1 value which means that using it I can reconstruct the original image using the R, G and B channels in the structure. Apart from this difference the two extensions are the same. \\ \bk
+
+    The ToGraph extension contained within this class is very important as it is how after the canny edge detection I will convert the result to a graph which can then have a traversal algorithm used upon it. This extension acts upon a 2D double array. In order to gain the pixels around a given pixel in a double array the GetKernel function is used, this is explained in the Kernel class. Once the kernel of the pixel is created we can work out the relative coordinates through the use of modulus arithmetic.
+
+    \begin{gather*}
+        \text{Where } X = x + (i \% 3) -1 \text{ and } Y = y + (i / 3) - 1 \\
+    \end{gather*} \\ 
+
+    Once this has been calculated more maths is done however this is contained within the graph class so see there for more information. \\ \bk
+
+    The next two structures go hand in hand so I will talk about both of them together, due to the image processing and the way in which I am accessing the arrays which contain the data I feel that it would be easier if I could alter my RGB[,] and directly access it with the .setPixel and .getPixel methods since this is how it is used in the bitmap class. Therefore it would make it easier to use the two interchangeably instead of accessing it using direct accessing then changing the value. The way in which they both work is that in the function call an x and y coordinate is passed as well as a colour if it is the set pixel version. Then it changes or returns the value.\\    
 
     \bk
 
@@ -252,6 +268,8 @@
         \centering
         \subfloat[\centering Gradients Class Diagram]{{\includegraphics[width=8cm]{images/UML/Gradients.png}}}
     \end{figure}\\
+
+    This is a structure located in the back end library of my project, its main function in the program is store the result of the gradient calculations. As with many of my structures in this code, there is no methods contained within. 
 
     \bk
 
