@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.1.5)  17 JAN 2023 11:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.1.5)  19 JAN 2023 12:48
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -3241,7 +3241,7 @@ or  <return>  to continue without it.
 \openout2 = `pages/testing.aux'.
 
  (pages/testing.tex
-Overfull \hbox (12.20384pt too wide) in alignment at lines 65--123
+Overfull \hbox (12.20384pt too wide) in alignment at lines 64--122
  [] [] [] [] [] [] 
  []
 
@@ -3250,7 +3250,7 @@ Overfull \hbox (12.20384pt too wide) in alignment at lines 65--123
 
 
 ] [65] [66]
-Overfull \hbox (32.09196pt too wide) in alignment at lines 131--153
+Overfull \hbox (32.09196pt too wide) in alignment at lines 130--152
  [] [] [] [] [] [] 
  []
 
@@ -3258,7 +3258,7 @@ Overfull \hbox (32.09196pt too wide) in alignment at lines 131--153
 <images/cannyTestImage.jpg, id=1249, 1023.825pt x 722.7pt>
 File: images/cannyTestImage.jpg Graphic file (type jpg)
 <use images/cannyTestImage.jpg>
-Package pdftex.def Info: images/cannyTestImage.jpg  used on input line 160.
+Package pdftex.def Info: images/cannyTestImage.jpg  used on input line 159.
 (pdftex.def)             Requested size: 213.39566pt x 150.62462pt.
 
 
@@ -3268,7 +3268,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.163         }
+l.162         }
                
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3280,7 +3280,7 @@ File: images/cannyTesting/Canny_Walkthrough_0_Black_White_Filter.jpg Graphic fi
 le (type jpg)
 <use images/cannyTesting/Canny_Walkthrough_0_Black_White_Filter.jpg>
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_0_Black_White_Fi
-lter.jpg  used on input line 174.
+lter.jpg  used on input line 173.
 (pdftex.def)             Requested size: 128.0374pt x 90.37035pt.
 <images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png, id=1257, 803.0pt x 
 567.11874pt>
@@ -3288,7 +3288,7 @@ File: images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png Graphic file (t
 ype png)
 <use images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png>
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.
-png  used on input line 176.
+png  used on input line 175.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
 <images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png, id=1258, 803.0
 pt x 567.11874pt>
@@ -3296,7 +3296,7 @@ File: images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png Graphic fi
 le (type png)
 <use images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png>
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_2_Intensity_Grad
-ient.png  used on input line 178.
+ient.png  used on input line 177.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
 <images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png, id=1259, 
 803.0pt x 567.11874pt>
@@ -3304,7 +3304,7 @@ File: images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png Graph
 ic file (type png)
 <use images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png>
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_3_Non-maximum_su
-ppression.png  used on input line 182.
+ppression.png  used on input line 181.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
 <images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png, id=1260, 803.0pt
  x 567.11874pt>
@@ -3312,7 +3312,7 @@ File: images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png Graphic file
  (type png)
 <use images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png>
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_4_Double_Thresho
-ld.png  used on input line 184.
+ld.png  used on input line 183.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
 <images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png, id=1261, 1023.825pt x 
 722.7pt>
@@ -3320,16 +3320,16 @@ File: images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png Graphic file (type
  png)
 <use images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png>
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png
-  used on input line 186.
+  used on input line 185.
 (pdftex.def)             Requested size: 128.0374pt x 90.37035pt.
 File: images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png Graphic file (type
  png)
 <use images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png>
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png
-  used on input line 188.
+  used on input line 187.
 (pdftex.def)             Requested size: 128.0374pt x 90.37035pt.
 
-Overfull \hbox (12.20384pt too wide) in alignment at lines 168--190
+Overfull \hbox (12.20384pt too wide) in alignment at lines 167--189
  [] [] [] [] [] [] 
  []
 
@@ -3340,22 +3340,22 @@ ng (PNG copy)>]
 <images/roadExamples/comb.png, id=1270, 644.4075pt x 385.44pt>
 File: images/roadExamples/comb.png Graphic file (type png)
 <use images/roadExamples/comb.png>
-Package pdftex.def Info: images/roadExamples/comb.png  used on input line 208.
+Package pdftex.def Info: images/roadExamples/comb.png  used on input line 203.
 (pdftex.def)             Requested size: 128.0374pt x 76.58083pt.
 <images/roadExamples/white.png, id=1271, 75.28125pt x 75.28125pt>
 File: images/roadExamples/white.png Graphic file (type png)
 <use images/roadExamples/white.png>
-Package pdftex.def Info: images/roadExamples/white.png  used on input line 220.
+Package pdftex.def Info: images/roadExamples/white.png  used on input line 215.
 
 (pdftex.def)             Requested size: 128.0374pt x 128.06256pt.
 <images/roadExamples/quadsFilledExample.png, id=1272, 150.5625pt x 150.5625pt>
 File: images/roadExamples/quadsFilledExample.png Graphic file (type png)
 <use images/roadExamples/quadsFilledExample.png>
 Package pdftex.def Info: images/roadExamples/quadsFilledExample.png  used on in
-put line 224.
+put line 219.
 (pdftex.def)             Requested size: 128.0374pt x 128.04993pt.
 
-Overfull \hbox (12.20384pt too wide) in alignment at lines 201--227
+Overfull \hbox (12.20384pt too wide) in alignment at lines 196--222
  [] [] [] [] [] [] 
  []
 
@@ -3363,28 +3363,28 @@ Overfull \hbox (12.20384pt too wide) in alignment at lines 201--227
  copy)> <./images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png (PNG co
 py)> <./images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png> <./images/roadE
 xamples/comb.png>]
-Overfull \hbox (12.20384pt too wide) in alignment at lines 234--238
+Overfull \hbox (12.20384pt too wide) in alignment at lines 229--233
  [] [] [] [] [] [] 
  []
 
 [71 <./images/roadExamples/white.png> <./images/roadExamples/quadsFilledExample
 .png>]
-Overfull \hbox (46.05193pt too wide) in alignment at lines 241--275
+Overfull \hbox (46.05193pt too wide) in alignment at lines 236--270
  [] [] [] [] [] [] 
  []
 
 [72]
-Overfull \hbox (12.20384pt too wide) in alignment at lines 282--346
+Overfull \hbox (12.20384pt too wide) in alignment at lines 277--340
  [] [] [] [] [] [] 
  []
 
 [73] [74] [75]
-Overfull \hbox (12.20384pt too wide) in alignment at lines 353--439
+Overfull \hbox (12.20384pt too wide) in alignment at lines 347--433
  [] [] [] [] [] [] 
  []
 
 [76] [77]
-Overfull \hbox (12.20384pt too wide) in alignment at lines 441--460
+Overfull \hbox (12.20384pt too wide) in alignment at lines 435--454
  [] [] [] [] [] [] 
  []
 
@@ -3398,7 +3398,7 @@ ously calculated.>
 ! Undefined control sequence.
 <recently read> \normalsizeer 
                               
-l.472             \normalsizeer
+l.466             \normalsizeer
                                
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3407,13 +3407,13 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/m/it' aliased to
-(Font)              `T1/LibreBskvl-LF/regular/it' on input line 473.
+(Font)              `T1/LibreBskvl-LF/regular/it' on input line 467.
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/regular/it' will be
-(Font)              scaled to size 12.0pt on input line 473.
+(Font)              scaled to size 12.0pt on input line 467.
 ! Undefined control sequence.
 <recently read> \normalsizeer 
                               
-l.476             \normalsizeer
+l.470             \normalsizeer
                                
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3428,7 +3428,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.479 \end{flushleft}
+l.473 \end{flushleft}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3811,7 +3811,7 @@ cmr7.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmsy10.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Rubens Pirie/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (174 pages, 15008069 bytes).
+Output written on main.pdf (174 pages, 15008113 bytes).
 PDF statistics:
  2283 PDF objects out of 2487 (max. 8388607)
  666 named destinations out of 1000 (max. 500000)

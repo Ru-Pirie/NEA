@@ -54,7 +54,6 @@
     \bk
 
     It should be noted that in the following tests do not explicitly test objective 5 however it can be seen through out the Video: that this objective has been met. From the icon being clear to the user interface clearing. I believe this combined and the constant evidence shown through the Video: allows me to come to the conclusion that objective 5 has been met.
-    
 
     \bk
     \setlength\LTpre{0pt}
@@ -92,9 +91,9 @@
     \hline  
     \rn  & Entering an Local Path & The test described described here would consist of a path in the form "../../image.png" for example. & The program should be able to process this path and show the image to the user in the "Preview Image" form. & Pass & Video: 1:52 \\
     \hline
-    \rn  & Entering a Valid Save Path & A valid save file path should be entered, use the test image save "save.vmap". & the program should accept this input and show the "Recalled Image" options. & Pass & TODO \\
+    \rn  & Entering a Valid Save Path & A valid save file path should be entered, use the test image save "save.vmap". & the program should accept this input and show the "Recalled Image" options. & Pass & 12:16 \\
     \hline
-    \rn  & Entering an Invalid Save Path & An invalid save file path should be entered. This can be any path ending with "/<something>.vmap" & The program should error and instruct the user how to fix the issue. & Pass & TODO \\   
+    \rn  & Entering an Invalid Save Path & An invalid save file path should be entered. This can be any path ending with "/<something>.vmap" & The program should error and instruct the user how to fix the issue. & Pass & 13:05 \\   
     \hline
     \rn  & Try to Escape Bounds of Option Selector & When in the main menu attempt to go out of bounds of the menu and then select a non existent element. & The option function should not allow the user to go out of the options presented. & Pass & Video: 2:11 \\
     \hline
@@ -183,16 +182,12 @@
     \hline
     \rn  & Hysteresis Method & Canny Edge Detection method should be run with the output of the previous step, the gradient calculation methods. After this test the image will be in its final edge detected form. & \mbox{}{\includegraphics[width=4.5cm]{images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png }} & Pass & Video: 4:38 \\
     \hline
-    \rn  & Run Full Custom Run (Quick) & Using the "RunQuadrant" method in order to quickly process an image. The default values should be used and the result file should be compared to the image to the right. & \mbox{}{\includegraphics[width=4.5cm]{images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png }} & Pass & TODO \\
+    \rn  & Run Full Custom Run (Quick) & Using the "RunQuadrant" method in order to quickly process an image. The default values should be used and the result file should be compared to the image to the right. & \mbox{}{\includegraphics[width=4.5cm]{images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png }} & Pass & 11:15 \\
     \hline
     \rn  & Run Full Custom Run (Slow) & The slow single threaded version should be used, this should allow the user to change and go back on variables if they do not like the output. The final expected result is seen to the left. At each stage however the processed images should be shown. & \mbox{}{\includegraphics[width=4.5cm]{images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png }} & Pass & Video: 3:57 \\
     \hline
     \end{longtable}
     \BK
-
-
-
-
 
     \setcounter{magicrownumbers}{0}
     \subsubsection{Road Detection and Graph Conversion Testing Table}
@@ -270,7 +265,7 @@
     \multicolumn{6}{| l |}{\textbf{4.1.1.2}  This includes A* (a specialised Dijkstra)}
     \\
     \hline
-    \rn  & Run A* Image & Two nodees should be placed on points on the graph, then the "Pathfind" button should be clicked. & The algorithm will run the A* algorithm which using a heuristic algorithm will more efficiently find a path to the end node. It should run faster than Dijkstra's. & Pass & 8:05 \\
+    \rn  & Run A* Image & Two nodes should be placed on points on the graph, then the "Pathfind" button should be clicked. & The algorithm will run the A* algorithm which using a heuristic algorithm will more efficiently find a path to the end node. It should run faster than Dijkstra's. & Pass & 8:05 \\
     \hline
     \end{longtable}
     \BK
@@ -285,31 +280,31 @@
     \hline\hline
     \multicolumn{6}{| l |}{\textbf{8} The program should have re-callable settings} \\
     \hline
-    \rn  & Read Normal Settings File & Start the program and navigate to "Settings" & No error should occur and settings should be able to be changed. & Pass & TODO \\
+    \rn  & Read Normal Settings File & Start the program and navigate to "Settings" & No error should occur and settings should be able to be changed. & Pass & 8:27 \\
     \hline   
-    \rn  & Read Corrupt Settings File & Remove and rename sections of settings file. Then as above. & The program should error and instruct the user how to correct the fault. & Pass & TODO \\ 
+    \rn  & Read Corrupt Settings File & Remove and rename sections of settings file. Then as above. & The program should error and instruct the user how to correct the fault. & Pass & 8:47 \\ 
     \hline
-    \rn  & Programmatically Alter Normal Settings File & Navigate to "Settings" and change settings in each sub menu and show altered settings.conf & settings.conf should show the changed settings. Before and after should be shown side by side. & Pass & TODO \\
+    \rn  & Programmatically Alter Normal Settings File & Navigate to "Settings" and change settings in each sub menu and show altered settings.conf & settings.conf should show the changed settings. Before and after should be shown side by side. & Pass & 8:35, 9:14 \\
     \hline
-    \rn  & Programmatically Alter Corrupt Settings File & Remove entry from settings then attempt to alter settings similar to above. & The program should error and instruct the user how to correct the fault. & Pass & TODO \\
+    \rn  & Programmatically Alter Corrupt Settings File & Remove entry from settings then attempt to alter settings similar to above. & The program should error and instruct the user how to correct the fault. & Pass & 8:47 \\
     \hline
-    \rn  & Save Corrupt Settings File & Attempt to enter the settings menu, alter a setting and the exit. Upon the "exit" condition the file will be saved. & The program should not let the user alter the settings and should error and instruct the user how to proceed. & Pass & TODO \\
+    \rn  & Save Corrupt Settings File & Attempt to enter the settings menu, alter a setting and the exit. Upon the "exit" condition the file will be saved. & The program should not let the user alter the settings and should error and instruct the user how to proceed. & Pass & 8:47 \\
     \hline
-    \rn  & Save Normal Settings File & Enter the settings menu, alter a setting and then exit. Upon the "exit" condition the file will be saved. & The file should save without issue and a side by side of the programmatically altered file should be shown. & Pass & TODO \\
+    \rn  & Save Normal Settings File & Enter the settings menu, alter a setting and then exit. Upon the "exit" condition the file will be saved. & The file should save without issue and a side by side of the programmatically altered file should be shown. & Pass & 8:44 \\
     \hline
-    \rn  & Manually Alter Settings File & Open the settings.conf file and change settings values then save and restart the program. Once the program has been restarted check the settings in the menu to see if they have been changed. & The changed settings state should be mirrored in the settings menu. & Pass & TODO \\
+    \rn  & Manually Alter Settings File & Open the settings.conf file and change settings values then save and restart the program. Once the program has been restarted check the settings in the menu to see if they have been changed. & The changed settings state should be mirrored in the settings menu. & Pass & 9:24 \\
     \hline
     \multicolumn{6}{| l |}{\textbf{9 / 10}  The program settings / save files should be easily movable. } \\
     \hline
-    \rn  & Run Program Fresh & Run the executable of the program. & In the file directory 3 folders should be created. Runs, Saves, Logs. And inside of the log file there should be a file called master.txt Inside the master log a startup message should be recorded. There should also be a config file created. & Pass & TODO \\
+    \rn  & Run Program Fresh & Run the executable of the program. & In the file directory 3 folders should be created. Runs, Saves, Logs. And inside of the log file there should be a file called master.txt Inside the master log a startup message should be recorded. There should also be a config file created. & Pass & 10:00 \\
     \hline
-    \rn  & Re-run Program & Close the program which was just started. Then run the executable. & No files should be created or deleted however there should be a new entry in the master.log & Pass & TODO \\
+    \rn  & Re-run Program & Close the program which was just started. Then run the executable. & No files should be created or deleted however there should be a new entry in the master.log & Pass & 10:07 \\
     \hline
-    \rn  & Delete Some Folders and Re-run & In the directory where the program file is contained the programatically created folders should be deleted. Not all but some. & When the program is restarted the files should be recreated & Pass & TODO \\
+    \rn  & Delete Some Folders and Re-run & In the directory where the program file is contained the programmatically created folders should be deleted. Not all but some. & When the program is restarted the files should be recreated & Pass & 10:10 \\
     \hline
-    \rn  & Full Run and Check Master Log & After the previous tests have been completed (ones involving a raw image being processed) the master.log should be checked & when checking the master log there should be a message saying that a run has started and that it ends. Furthermore it should contain the ID of the run. & Pass & TODO \\
+    \rn  & Full Run and Check Master Log & After the previous tests have been completed (ones involving a raw image being processed) the master.log should be checked & when checking the master log there should be a message saying that a run has started and that it ends. Furthermore it should contain the ID of the run. & Pass & 10:19 \\
     \hline
-    \rn  & Full Run and Check Individual Log & After the previous tests have been completed (ones involving a raw image being processed) the individual unique run log should be checked & Inside the per run log there should be each step of the edge detection and others depending on pathfinding. & Pass & TODO \\
+    \rn  & Full Run and Check Individual Log & After the previous tests have been completed (ones involving a raw image being processed) the individual unique run log should be checked & Inside the per run log there should be each step of the edge detection and others depending on pathfinding. & Pass & 11:08 \\
     \hline
     \rn  & Cause Error and Check Log & Check the log after one of the input validation tests. & There should be a line in the master file referencing the error. & Pass & TODO \\
     \hline
@@ -318,30 +313,29 @@
     \multicolumn{6}{| l |}{\textbf{7.2} The saved images from the processing of the map should be able to be saved in a  } \\
     \multicolumn{6}{| l |}{ compressed format. } \\
     \hline
-    \rn  & Full Run with Save To Zip & Process a whole image asking for it to be saved. The setting "zipOnComplete" enabled. This will ensure that after the processing the file is saved. & After the run has completed in the root directory a zip file will be created containing any partial images, save file and logs. & Pass & TODO \\
+    \rn  & Full Run with Save To Zip & Process a whole image asking for it to be saved. The setting "zipOnComplete" enabled. This will ensure that after the processing the file is saved. & After the run has completed in the root directory a zip file will be created containing any partial images, save file and logs. & Pass & 11:18 \\
     \hline
-    \rn  & Run with Detailed Logging & Enable the setting "detailedLogging" and run through a full process of map recognition. & To the side of the main screen during the process detailed log messages of what exactly is going on should be shown. & Pass & TODO \\
+    \rn  & Run with Detailed Logging & Enable the setting "detailedLogging" and run through a full process of map recognition. & To the side of the main screen during the process detailed log messages of what exactly is going on should be shown. & Pass & 11:18 \\
     \hline
-
-    \rn  & View Save File From Program & Using the test image save attempt to read it into the program. & The program should accept the test image save and take the user to the save image file. & Pass & TODO \\
+    \rn  & View Save File From Program & Using the test image save attempt to read it into the program. & The program should accept the test image save and take the user to the save image file. & Pass & 12:16 \\
     \hline
     \multicolumn{6}{| l |}{\textbf{7.6} The saved binary file should be able to be have its description changed } \\
     \hline
-    \rn  & Change Save File Information & First the file information should be viewed by selecting "View File Information" then once what you know what you wish to change the "Change File Information". Then any of the details may be changed. & Once a change has been made the program should create a copy of the save file with the new info contained within and the rest of the old data. & Pass & TODO \\
+    \rn  & Change Save File Information & First the file information should be viewed by selecting "View File Information" then once what you know what you wish to change the "Change File Information". Then any of the details may be changed. & Once a change has been made the program should create a copy of the save file with the new info contained within and the rest of the old data. & Pass & 13:21 \\
     \hline
     \multicolumn{6}{| l |}{\textbf{7.3} The saved binary file should be able to be cloned } \\
     \hline
-    \rn  & Clone Save File & On the save file info page select "Clone" & The program should create a copy of the save file with all of its details exactly the same. & Pass & TODO \\
+    \rn  & Clone Save File & On the save file info page select "Clone" & The program should create a copy of the save file with all of its details exactly the same. & Pass & 12:25 \\
     \hline
     \multicolumn{6}{| l |}{\textbf{7.5} The saved binary file should be able to be renamed } \\
     \hline
-    \rn  & Rename Save File & In the save file menu, "Rename" should be selected. A new name should be entered. & The program will be renamed to the value which the user entered. & Pass & TODO \\
+    \rn  & Rename Save File & In the save file menu, "Rename" should be selected. A new name should be entered. & The program will be renamed to the value which the user entered. & Pass & 12:36 \\
     \hline
     \multicolumn{6}{| l |}{\textbf{7.7} The saved binary file should be able to be able to be deleted } \\
 \hline
-    \rn  & Delete Save File & As above select "Delete" and then follow the prompts to delete the file. & Once the user has navigated to the confirm button the program will delete the save file. & Pass & TODO \\
+    \rn  & Delete Save File & As above select "Delete" and then follow the prompts to delete the file. & Once the user has navigated to the confirm button the program will delete the save file. & Pass & 12:51 \\
     \hline
-    \rn  & Recall to Pathfind Save File & In the recalled options select the pathfind option. & When this option is selected the program will turn over to the pathfinding image form. From there the user can perform graph traversal on it. & Pass & TODO \\
+    \rn  & Recall to Pathfind Save File & In the recalled options select the pathfind option. & When this option is selected the program will turn over to the pathfinding image form. From there the user can perform graph traversal on it. & Pass & 13:09 \\
     \hline
     \end{longtable}
     \BK
@@ -443,17 +437,17 @@
     \multicolumn{6}{| l |}{\textbf{5} | The Program must have a Clear and Simplistic GUI.} \\
     \multicolumn{6}{| l |} {\textbf{5} | (The following show that it is easy to use and hard to break the user inputs.)} \\
     \hline
-    \rn  & Select No Nodes & Neither left or right mouse buttons should be clicked and then the "Pathfind" button should be clicked. & The program should not run and instantly go back to waiting for input. & Pass & TODO \\
+    \rn  & Select No Nodes & Neither left or right mouse buttons should be clicked and then the "Pathfind" button should be clicked. & The program should not run and instantly go back to waiting for input. & Pass & 13:53 \\
     \hline
-    \rn  & Select One Node & Only one left or right mouse button should be clicked and then the "Pathfind" button should be clicked. & The program should not run and instantly go back to waiting for input. & Pass & TODO \\ 
+    \rn  & Select One Node & Only one left or right mouse button should be clicked and then the "Pathfind" button should be clicked. & The program should not run and instantly go back to waiting for input. & Pass & 13:57 \\ 
     \hline
-    \rn  & Select Two Nodes & Neither left or right mouse buttons should be clicked and then the "Pathfind" button should be clicked. & The program should run and after some time should then wait for input. & Pass & TODO \\
+    \rn  & Select Two Nodes & Neither left or right mouse buttons should be clicked and then the "Pathfind" button should be clicked. & The program should run and after some time should then wait for input. & Pass & 14:00 \\
     \hline
-    \rn  & Select One Node Off Path & First the "snapToGrid" setting to false. Set one node off the path and one on and then click the "Pathfind" button. & The program should not run and instantly go back to waiting for input. & Pass & TODO \\
+    \rn  & Select One Node Off Path & First the "snapToGrid" setting to false. Set one node off the path and one on and then click the "Pathfind" button. & The program should not run and instantly go back to waiting for input. & Pass & 14:08 \\
     \hline
-    \rn  & Select Two Nodes Off Path & First the "snapToGrid" setting to false. Set both nodes off the path and then click the "Pathfind" button. & The program should not run and instantly go back to waiting for input. & Pass & TODO \\
+    \rn  & Select Two Nodes Off Path & First the "snapToGrid" setting to false. Set both nodes off the path and then click the "Pathfind" button. & The program should not run and instantly go back to waiting for input. & Pass & 14:23 \\
     \hline
-    \rn  & Select One Node Off Path One On with Dijkstras & First the "snapToGrid" setting to false. Set one node off the path and one on and then click the "Pathfind" button. & The program should run momentarily and allow then return to waiting. If the end node is then placed back on the road the pathfinding should be instant. & Pass & TODO \\
+    \rn  & Select One Node Off Path One On with Dijkstras & First the "snapToGrid" setting to false. Set one node off the path and one on and then click the "Pathfind" button. & The program should run momentarily and allow then return to waiting. If the end node is then placed back on the road the pathfinding should be instant. & Pass & 14:33 \\
     \hline
     \rn  & Click Continue Button in View Image Form & Get to a situation where the "View Image" form is shown. This can be during Canny Edge Detection or when a new image is processed. Then click the continue button. & The button should cause the form to close itself and allow the program to continue. & Pass & TODO \\
     \hline
