@@ -1,11 +1,11 @@
 \begin{FlushLeft}
-% this is all about reflection on how successful the project has been
-% no real excuse to not get full marks
-% Section on overall effectiveness of the system, what went well what went wrong, be detialed
-% Section on the objcetives, judge how effectivly it has been met also comment on how the solition might be inproved. Can refer back to testing
-% End user feedback, the end user needs to feedback to how effective the solution is. Needs to be a critical evaluation. Has to be critasizms, what needs to be improved, but also what went well. D E T A I L
-% My insight into their feedback is what gets the marks not their feedback on its own.
-% System improvements, explain the outline how you might go about making improvments based on the evaluation and objective completeion and end user feedback. Be honest.
+    % this is all about reflection on how successful the project has been
+    % no real excuse to not get full marks
+    % Section on overall effectiveness of the system, what went well what went wrong, be detialed
+    % Section on the objcetives, judge how effectivly it has been met also comment on how the solition might be inproved. Can refer back to testing
+    % End user feedback, the end user needs to feedback to how effective the solution is. Needs to be a critical evaluation. Has to be critasizms, what needs to be improved, but also what went well. D E T A I L
+    % My insight into their feedback is what gets the marks not their feedback on its own.
+    % System improvements, explain the outline how you might go about making improvments based on the evaluation and objective completeion and end user feedback. Be honest.
     \section{Evaluation}
 
     \subsection{Objective Completion}
@@ -38,15 +38,77 @@
         \hline
         4.1 & The user can change the map traversal algorithm in the program settings in order to change the behaviour of the algorithms used, two algorithms are . \\
         \hline
-        4.2 & 
-
+        4.2 & Depending on the algorithm which the user has selected to use, when the program reaches the pathfinding windows form, the details about that specific algorithm are displayed. Examples incudes the complexity and amount of nodes processed. \\
+        \hline
+        \hline
+        5.1 & At the bottom of the user interface there is a small window title telling the user exactly at what stage they are. As well as this the title of the window also updates dynamically depending on which stage the user is at. \\ 
+        \hline 
+        5.2 & There are only two forms in the final version of my program. The soul purpose of the first form is to display images to the user, it contains nothing but the image itself and a continue button. The second form is used to allows the user to interact with the image and click on points to pathfind from one to another. \\ 
+        \hline
+        5.3 & In the settings, should the user chose to select it there is the option for logging to be shown to the user as it is generated or to be hidden. \\
+        \hline
+        5.4 & Every time that the user moves to the next stage there is a screen clear meaning that no data is left behind to clutter up the GUI \\
+        \hline
+        \hline
+        6.1 & In order for the Canny edge detection to work the program must be able to perform matrix operations. The matrix class can perform all of the operations outlined in this objective. \\
+        \hline
+        6.2 & The program implements the graph class and it is heavily used in the pathfinding image form where it has pathfinding algorithms performed on it. It is seen to work due to paths being able to be drawn on the image. \\
+        \hline
+        \hline
+        7.x & As outlined in all the sub objectives the program should be able to save the map as a binary file. This is seen where if the user choses so a .vmap file will be produced containing all the information related to the pathfinding and processing of said image. There are also options within the program such as deletion and renaming as required by the extension objectives.\\
+        \hline
+        \hline
+        8.x & There is a save file which contains all the information relating to settings inside the program. This file persists over program instances and also can be moved manuals to a new version of the program. As stated in the objectives it contains settings for all the functions listed and more. \\
+        \hline
+        \hline
+        9 & As stated above the settings file is a normal windows file and therefore can be moved manuals or even the text inside it copied to another settings file.\\
+        \hline
+        \hline
+        10 & All save files are stored in a .vmap file which is a custom binary file. This means that they can be emailed, put on a USB or any other method of transporting files.\\
         \hline
         \end{longtable}
     \BK
+    \pagebreak
 
-    \subsection
 
     \subsection{End User Feedback}
+    \begin{enumerate}
+        \item What do you think about the overall program? \\ \bk
+        "
+        The overall program is very impressive with the given examples, when it comes down to the core features I would want from a program like this it comes away with all of them. Some things do feel slightly rough around the edges and if this where to be a tool I would recommend it would need ot be a little more modern, perhaps a website. \\ \bk
+
+        From an ease of use stand point I think that this program excels at making it easy for a user to tell where they are in the whole process. The addition of the small page title at the bottom of the screen makes it intuitive and easy to work out whats going on. The addition of user settings is also nice since it allows me to change various aspects of the program without having to be an expert. \\ \bk
+
+        I really like the way in which when there is a visual thing the program seamlessly floats to the front and lets you see the image. The one thing which is not amazing about it is that by default it forces itself to the front. This makes it very difficult to do other things while it is processing. There is a setting to change this however it is not easily accessible. What might be nice is a minimise button on the window. \\ \bk
+
+        Finally, the way in which I can move the files around from one folder to another is very useful. The nice thing about the program in particular is how I can just click and drag a file from file explorer into the program.
+        " \\ \BK
+
+
+        \item What do you think of the pathfinding aspect of the program? \\\bk
+        "
+        I think that this has been pulled off perfectly, the way in which the points will jump to the roads on the map makes it easy to 
+        " \\ \BK
+    
+        \item Do you believe that my program accomplished my objectives? \\\bk
+        "
+        I believe that all of the objectives that you outlined in your objectives chapter have been completed. I also feel that in some aspects the program you have made has exceeded expectations. However there are some things which I mentioned in the initial interview which you did not manage to incorporate. However on the whole I feel that this program meets and exceeds all of the written objectives. As well as this I feel that this program
+        " \\ \BK
+
+        \item What could be better about the program what are your Criticisms/Improvements? \\\bk
+        "
+        Firstly the lack of a scale on the routing section is a shame. It is something that I know that I would use and I have a feeling that it would benefit many people. The reason which I feel that it is acceptable in this case is that this is not a fully fledged product and this was not one of the main features that was outlined at the beginning. \\ \bk
+
+        Secondly, when it comes down to the user settings it would be nice if there was a small description to go along with them. While the names are very self explanatory and make logical sense, to someone who just wants to use it as a tool it could be a little of putting. What I suggest is that you make it so that the descriptions pop up in the side part of the screen where it displays the rest of the information.  \\ \bk
+
+        Penultimately, \\ \bk
+        
+        Finally, \\ \bk
+
+
+        " \\ \BK 
+
+    \end{enumerate}
     \BK
 
     \subsection{Reflection on Feedback}
@@ -54,10 +116,10 @@
     \subsection {System Improvements}
     I believe that there are several areas to improve upon including some which where not outlined in the end user feedback. \\ \bk
 
-    \paragraph{Graph Traversal} \mbox{}
+    \paragraph*{Graph Traversal} \mbox{}
     When it came down to the ways in which the user could use the map and then traverse it the program did work and achieved the objectives however it is not always what is wanted. I believe that if I could improve the system more I would implement a better system to select the traversal algorithm. As well as this I believe that I would
     
     \BK
 
 
-\end{flushleft}
+\end{FlushLeft}
