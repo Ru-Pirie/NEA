@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.1.5)  30 JAN 2023 12:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.1.5)  2 FEB 2023 12:34
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1415,234 +1415,229 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.55 ...ection \textit {(Class)}}{39}{section*.49}
+l.55 ... {2.3}Class Overviews}{38}{subsection.2.3}
                                                   % [1]
-LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/m/it' aliased to
-(Font)              `T1/LibreBskvl-LF/regular/it' on input line 55.
-LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 55.
- [2]
-Overfull \hbox (0.55994pt too wide) detected at line 129
+Overfull \hbox (0.55994pt too wide) detected at line 93
  []\T1/LibreBskvl-LF/regular/n/10 101
  []
 
 
-Overfull \hbox (0.55994pt too wide) detected at line 130
+Overfull \hbox (0.55994pt too wide) detected at line 94
  []\T1/LibreBskvl-LF/regular/n/10 101
  []
 
 
-Overfull \hbox (0.55994pt too wide) detected at line 131
+Overfull \hbox (0.55994pt too wide) detected at line 95
  []\T1/LibreBskvl-LF/regular/n/10 101
  []
 
 
-Overfull \hbox (2.25993pt too wide) detected at line 132
+Overfull \hbox (2.25993pt too wide) detected at line 96
  []\T1/LibreBskvl-LF/regular/n/10 103
  []
 
 
-Overfull \hbox (1.77994pt too wide) detected at line 133
+Overfull \hbox (1.77994pt too wide) detected at line 97
  []\T1/LibreBskvl-LF/regular/n/10 105
  []
 
 
-Overfull \hbox (2.52994pt too wide) detected at line 134
+Overfull \hbox (2.52994pt too wide) detected at line 98
  []\T1/LibreBskvl-LF/regular/n/10 106
  []
 
 
-Overfull \hbox (1.11993pt too wide) detected at line 135
+Overfull \hbox (1.11993pt too wide) detected at line 99
  []\T1/LibreBskvl-LF/regular/n/10 107
  []
 
 
-Overfull \hbox (1.11993pt too wide) detected at line 136
+Overfull \hbox (1.11993pt too wide) detected at line 100
  []\T1/LibreBskvl-LF/regular/n/10 107
  []
 
 
-Overfull \hbox (1.11993pt too wide) detected at line 137
+Overfull \hbox (1.11993pt too wide) detected at line 101
  []\T1/LibreBskvl-LF/regular/n/10 107
  []
 
 
-Overfull \hbox (2.15994pt too wide) detected at line 138
+Overfull \hbox (2.15994pt too wide) detected at line 102
  []\T1/LibreBskvl-LF/regular/n/10 108
  []
 
 
-Overfull \hbox (2.15994pt too wide) detected at line 139
+Overfull \hbox (2.15994pt too wide) detected at line 103
  []\T1/LibreBskvl-LF/regular/n/10 108
  []
 
 
-Overfull \hbox (2.15994pt too wide) detected at line 140
+Overfull \hbox (2.15994pt too wide) detected at line 104
  []\T1/LibreBskvl-LF/regular/n/10 108
  []
 
 
-Overfull \hbox (2.52994pt too wide) detected at line 141
+Overfull \hbox (2.52994pt too wide) detected at line 105
  []\T1/LibreBskvl-LF/regular/n/10 109
  []
 
 
-Overfull \hbox (2.52994pt too wide) detected at line 142
+Overfull \hbox (2.52994pt too wide) detected at line 106
  []\T1/LibreBskvl-LF/regular/n/10 109
  []
 
 
-Overfull \hbox (0.55994pt too wide) detected at line 143
+Overfull \hbox (0.55994pt too wide) detected at line 107
  []\T1/LibreBskvl-LF/regular/n/10 110
  []
 
 
-Overfull \hbox (0.55994pt too wide) detected at line 144
+Overfull \hbox (0.55994pt too wide) detected at line 108
+ []\T1/LibreBskvl-LF/regular/n/10 110
+ []
+
+[2]
+Overfull \hbox (0.55994pt too wide) detected at line 109
  []\T1/LibreBskvl-LF/regular/n/10 110
  []
 
 
-Overfull \hbox (0.55994pt too wide) detected at line 145
+Overfull \hbox (0.55994pt too wide) detected at line 110
  []\T1/LibreBskvl-LF/regular/n/10 110
  []
 
 
-Overfull \hbox (0.55994pt too wide) detected at line 146
+Overfull \hbox (0.55994pt too wide) detected at line 111
  []\T1/LibreBskvl-LF/regular/n/10 110
  []
 
 
-Overfull \hbox (0.55994pt too wide) detected at line 147
- []\T1/LibreBskvl-LF/regular/n/10 110
- []
-
-
-Overfull \hbox (2.25993pt too wide) detected at line 151
+Overfull \hbox (2.25993pt too wide) detected at line 115
  []\T1/LibreBskvl-LF/regular/n/10 120
  []
 
 
-Overfull \hbox (2.25993pt too wide) detected at line 152
+Overfull \hbox (2.25993pt too wide) detected at line 116
  []\T1/LibreBskvl-LF/regular/n/10 120
  []
 
 
-Overfull \hbox (1.27994pt too wide) detected at line 154
+Overfull \hbox (1.27994pt too wide) detected at line 118
  []\T1/LibreBskvl-LF/regular/n/10 123
  []
 
 
-Overfull \hbox (0.96994pt too wide) detected at line 155
+Overfull \hbox (0.96994pt too wide) detected at line 119
  []\T1/LibreBskvl-LF/regular/n/10 124
  []
 
 
-Overfull \hbox (0.79994pt too wide) detected at line 156
+Overfull \hbox (0.79994pt too wide) detected at line 120
  []\T1/LibreBskvl-LF/regular/n/10 125
  []
 
 
-Overfull \hbox (1.17995pt too wide) detected at line 157
+Overfull \hbox (1.17995pt too wide) detected at line 121
  []\T1/LibreBskvl-LF/regular/n/10 128
  []
 
 
-Overfull \hbox (1.17995pt too wide) detected at line 158
+Overfull \hbox (1.17995pt too wide) detected at line 122
  []\T1/LibreBskvl-LF/regular/n/10 128
  []
 
 
-Overfull \hbox (1.17995pt too wide) detected at line 159
+Overfull \hbox (1.17995pt too wide) detected at line 123
  []\T1/LibreBskvl-LF/regular/n/10 128
  []
 
 
-Overfull \hbox (2.25993pt too wide) detected at line 160
+Overfull \hbox (2.25993pt too wide) detected at line 124
  []\T1/LibreBskvl-LF/regular/n/10 130
  []
 
 
-Overfull \hbox (2.25993pt too wide) detected at line 161
+Overfull \hbox (2.25993pt too wide) detected at line 125
  []\T1/LibreBskvl-LF/regular/n/10 130
  []
 
 
-Overfull \hbox (1.27994pt too wide) detected at line 162
+Overfull \hbox (1.27994pt too wide) detected at line 126
  []\T1/LibreBskvl-LF/regular/n/10 132
  []
 
 
-Overfull \hbox (1.27994pt too wide) detected at line 163
+Overfull \hbox (1.27994pt too wide) detected at line 127
  []\T1/LibreBskvl-LF/regular/n/10 132
  []
 
 
-Overfull \hbox (0.13994pt too wide) detected at line 164
+Overfull \hbox (0.13994pt too wide) detected at line 128
  []\T1/LibreBskvl-LF/regular/n/10 137
  []
 
 
-Overfull \hbox (1.54994pt too wide) detected at line 165
+Overfull \hbox (1.54994pt too wide) detected at line 129
  []\T1/LibreBskvl-LF/regular/n/10 139
  []
 
-[3]
-Overfull \hbox (0.96994pt too wide) detected at line 166
+
+Overfull \hbox (0.96994pt too wide) detected at line 130
  []\T1/LibreBskvl-LF/regular/n/10 143
  []
 
 
-Overfull \hbox (0.48994pt too wide) detected at line 167
+Overfull \hbox (0.48994pt too wide) detected at line 131
  []\T1/LibreBskvl-LF/regular/n/10 145
  []
 
 
-Overfull \hbox (0.86995pt too wide) detected at line 169
+Overfull \hbox (0.86995pt too wide) detected at line 133
  []\T1/LibreBskvl-LF/regular/n/10 148
  []
 
 
-Overfull \hbox (0.86995pt too wide) detected at line 170
+Overfull \hbox (0.86995pt too wide) detected at line 134
  []\T1/LibreBskvl-LF/regular/n/10 148
  []
 
 
-Overfull \hbox (0.48994pt too wide) detected at line 171
+Overfull \hbox (0.48994pt too wide) detected at line 135
  []\T1/LibreBskvl-LF/regular/n/10 154
  []
 
 
-Overfull \hbox (0.48994pt too wide) detected at line 172
+Overfull \hbox (0.48994pt too wide) detected at line 136
  []\T1/LibreBskvl-LF/regular/n/10 154
  []
 
 
-Overfull \hbox (1.06995pt too wide) detected at line 173
+Overfull \hbox (1.06995pt too wide) detected at line 137
  []\T1/LibreBskvl-LF/regular/n/10 156
  []
 
 
-Overfull \hbox (1.54994pt too wide) detected at line 174
+Overfull \hbox (1.54994pt too wide) detected at line 138
  []\T1/LibreBskvl-LF/regular/n/10 162
  []
 
 
-Overfull \hbox (1.54994pt too wide) detected at line 175
+Overfull \hbox (1.54994pt too wide) detected at line 139
  []\T1/LibreBskvl-LF/regular/n/10 162
  []
 
 
-Overfull \hbox (0.40994pt too wide) detected at line 176
+Overfull \hbox (0.40994pt too wide) detected at line 140
  []\T1/LibreBskvl-LF/regular/n/10 167
  []
 
 
-Overfull \hbox (1.44995pt too wide) detected at line 177
+Overfull \hbox (1.44995pt too wide) detected at line 141
  []\T1/LibreBskvl-LF/regular/n/10 168
  []
 
 
-Overfull \hbox (1.44995pt too wide) detected at line 178
+Overfull \hbox (1.44995pt too wide) detected at line 142
  []\T1/LibreBskvl-LF/regular/n/10 168
  []
 
@@ -1650,7 +1645,7 @@ Overfull \hbox (1.44995pt too wide) detected at line 178
 \tf@toc=\write7
 \openout7 = `main.toc'.
 
- [4]
+ [3]
 \openout2 = `pages/analysis.aux'.
 
  (pages/analysis.tex
@@ -1678,7 +1673,7 @@ Overfull \hbox (10.56996pt too wide) in paragraph at lines 6--11
 find-ing. Cur-rently not all roads and paths are logged 
  []
 
-<images/unlabeledMap.png, id=578, 489.32813pt x 489.32813pt>
+<images/unlabeledMap.png, id=537, 489.32813pt x 489.32813pt>
 File: images/unlabeledMap.png Graphic file (type png)
 <use images/unlabeledMap.png>
 Package pdftex.def Info: images/unlabeledMap.png  used on input line 15.
@@ -1687,7 +1682,7 @@ LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/m/n' aliased to
 (Font)              `T1/LibreBskvl-LF/regular/n' on input line 15.
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/regular/n' will be
 (Font)              scaled to size 8.0pt on input line 15.
-<images/labeledMap.png, id=580, 489.32813pt x 489.32813pt>
+<images/labeledMap.png, id=539, 489.32813pt x 489.32813pt>
 File: images/labeledMap.png Graphic file (type png)
 <use images/labeledMap.png>
 Package pdftex.def Info: images/labeledMap.png  used on input line 17.
@@ -1704,7 +1699,7 @@ LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/m/n' aliased to
 (Font)              `TS1/LibreBskvl-LF/regular/n' on input line 18.
 LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/regular/n' will be
 (Font)              scaled to size 7.0pt on input line 18.
- [5
+ [4
 
  <./images/unlabeledMap.png> <./images/labeledMap.png>]
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/b/n' aliased to
@@ -1725,14 +1720,14 @@ Overfull \hbox (8.02199pt too wide) in paragraph at lines 69--70
 e to buy a new road map ev-ery year, whereas 
  []
 
-[6]
+[5]
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.121                 \subfloat
                                [\centering Example of Google Maps' GUI]{{\in...
-<images/googleMapExample.png, id=611, 963.6pt x 693.34032pt>
+<images/googleMapExample.png, id=569, 963.6pt x 693.34032pt>
 File: images/googleMapExample.png Graphic file (type png)
 <use images/googleMapExample.png>
 Package pdftex.def Info: images/googleMapExample.png  used on input line 121.
@@ -1745,30 +1740,35 @@ LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/m/n' aliased to
 (Font)              `TS1/LibreBskvl-LF/regular/n' on input line 122.
 LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/regular/n' will be
 (Font)              scaled to size 5.0pt on input line 122.
-[7 <./images/googleMapExample.png>]
+[6 <./images/googleMapExample.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.141                 \subfloat
                                [\centering Example of Bing Maps' GUI]{{\incl...
-<images/bingMapExample.png, id=620, 963.6pt x 693.34032pt>
+<images/bingMapExample.png, id=579, 963.6pt x 693.34032pt>
 File: images/bingMapExample.png Graphic file (type png)
 <use images/bingMapExample.png>
 Package pdftex.def Info: images/bingMapExample.png  used on input line 141.
 (pdftex.def)             Requested size: 213.39566pt x 153.54039pt.
-<images/osMapExample.png, id=621, 963.6pt x 693.34032pt>
+<images/osMapExample.png, id=580, 963.6pt x 693.34032pt>
 File: images/osMapExample.png Graphic file (type png)
 <use images/osMapExample.png>
 Package pdftex.def Info: images/osMapExample.png  used on input line 160.
 (pdftex.def)             Requested size: 213.39566pt x 153.54039pt.
-[8 <./images/bingMapExample.png>]
+[7 <./images/bingMapExample.png>]
+LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/m/it' aliased to
+(Font)              `T1/LibreBskvl-LF/regular/it' on input line 184.
+LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/regular/it' will be
+(Font)              scaled to size 10.0pt on input line 184.
+
 Overfull \hbox (6.82997pt too wide) in paragraph at lines 183--185
 \T1/LibreBskvl-LF/regular/n/10 age. In or-der to mit-i-gate this there are smoo
 th-ing al-go-rithms that can be used to blur and smooth 
  []
 
-[9 <./images/osMapExample.png>]
+[8 <./images/osMapExample.png>]
 Overfull \hbox (6.64001pt too wide) in paragraph at lines 196--197
 \T1/LibreBskvl-LF/regular/n/10 edge de-tec-tion does not yield a fully con-nect
 ed im-age. This could prove to be an is-sue as it would 
@@ -1780,55 +1780,55 @@ Overfull \hbox (1.33188pt too wide) in paragraph at lines 221--221
  some form of test-ing where I will al-low, through 
  []
 
-[10]
+[9]
 Overfull \hbox (5.34184pt too wide) in paragraph at lines 247--248
 []\T1/LibreBskvl-LF/regular/n/10 The dif-fer-ence is slight how-ever the key ta
 ke-away from this is that when I am re-fer-ring to a Rout- 
  []
 
-[11] [12]
+[10] [11]
 LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/m/n' aliased to
 (Font)              `TS1/LibreBskvl-LF/regular/n' on input line 371.
 LaTeX Font Info:    Font shape `TS1/LibreBskvl-LF/regular/n' will be
 (Font)              scaled to size 10.0pt on input line 371.
- [13]
-<images/kernelExamples/wrap.png, id=671, 344.78813pt x 149.8097pt>
+ [12]
+<images/kernelExamples/wrap.png, id=631, 344.78813pt x 149.8097pt>
 File: images/kernelExamples/wrap.png Graphic file (type png)
 <use images/kernelExamples/wrap.png>
 Package pdftex.def Info: images/kernelExamples/wrap.png  used on input line 392
 .
 (pdftex.def)             Requested size: 128.0374pt x 55.63216pt.
-<images/kernelExamples/mirror.png, id=672, 344.78813pt x 149.8097pt>
+<images/kernelExamples/mirror.png, id=632, 344.78813pt x 149.8097pt>
 File: images/kernelExamples/mirror.png Graphic file (type png)
 <use images/kernelExamples/mirror.png>
 Package pdftex.def Info: images/kernelExamples/mirror.png  used on input line 3
 94.
 (pdftex.def)             Requested size: 128.0374pt x 55.63216pt.
-<images/kernelExamples/extend.png, id=673, 229.60782pt x 225.09094pt>
+<images/kernelExamples/extend.png, id=633, 229.60782pt x 225.09094pt>
 File: images/kernelExamples/extend.png Graphic file (type png)
 <use images/kernelExamples/extend.png>
 Package pdftex.def Info: images/kernelExamples/extend.png  used on input line 3
 97.
 (pdftex.def)             Requested size: 71.13188pt x 69.7328pt.
-<images/kernelExamples/constant.png, id=674, 229.60782pt x 225.09094pt>
+<images/kernelExamples/constant.png, id=634, 229.60782pt x 225.09094pt>
 File: images/kernelExamples/constant.png Graphic file (type png)
 <use images/kernelExamples/constant.png>
 Package pdftex.def Info: images/kernelExamples/constant.png  used on input line
  399.
 (pdftex.def)             Requested size: 71.13188pt x 69.7328pt.
-<images/kernelExamples/clone.png, id=675, 229.60782pt x 225.09094pt>
+<images/kernelExamples/clone.png, id=635, 229.60782pt x 225.09094pt>
 File: images/kernelExamples/clone.png Graphic file (type png)
 <use images/kernelExamples/clone.png>
 Package pdftex.def Info: images/kernelExamples/clone.png  used on input line 40
 1.
 (pdftex.def)             Requested size: 71.13188pt x 69.7328pt.
-<images/edgeDetectionPrototype/in.jpg, id=676, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/in.jpg, id=636, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/in.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/in.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/in.jpg  used on input li
 ne 409.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
- [14 <./images/kernelExamples/wrap.png> <./images/kernelExamples/mirror.png> <.
+ [13 <./images/kernelExamples/wrap.png> <./images/kernelExamples/mirror.png> <.
 /images/kernelExamples/extend.png> <./images/kernelExamples/constant.png> <./im
 ages/kernelExamples/clone.png>]
 \openout4 = `main.pyg'.
@@ -1845,19 +1845,19 @@ File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <8> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
 )
-<images/edgeDetectionPrototype/a.jpg, id=698, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/a.jpg, id=658, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/a.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/a.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/a.jpg  used on input lin
 e 442.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
-[15 <./images/edgeDetectionPrototype/in.jpg>]
+[14 <./images/edgeDetectionPrototype/in.jpg>]
 \openout4 = `main.pyg'.
 
 
 (_minted-main/5F0F0DCDBF6CD1F1279AC03DC2AADA23BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [16 <./images/edgeDetectionPrototype/a.jpg>])
-<images/edgeDetectionPrototype/b.jpg, id=711, 745.28438pt x 855.195pt>
+pygtex [15 <./images/edgeDetectionPrototype/a.jpg>])
+<images/edgeDetectionPrototype/b.jpg, id=671, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/b.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/b.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/b.jpg  used on input lin
@@ -1873,39 +1873,39 @@ der to achieve this two more ker-nels are used. They
 
 
 (_minted-main/AA04E7DC3BE073534EBDF2C0CFD0E189BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [17 <./images/edgeDetectionPrototype/b.jpg>])
-<images/edgeDetectionPrototype/c.jpg, id=718, 745.28438pt x 855.195pt>
+pygtex [16 <./images/edgeDetectionPrototype/b.jpg>])
+<images/edgeDetectionPrototype/c.jpg, id=678, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/c.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/c.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/c.jpg  used on input lin
 e 540.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
-<images/edgeDetectionPrototype/d.jpg, id=719, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/d.jpg, id=679, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/d.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/d.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/d.jpg  used on input lin
 e 543.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
-<images/edgeDetectionPrototype/e.jpg, id=720, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/e.jpg, id=680, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/e.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/e.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/e.jpg  used on input lin
 e 551.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
- [18 <./images/edgeDetectionPrototype/c.jpg> <./images/edgeDetectionPrototype/d
+ [17 <./images/edgeDetectionPrototype/c.jpg> <./images/edgeDetectionPrototype/d
 .jpg>]
 \openout4 = `main.pyg'.
 
 
 (_minted-main/A67F50EE0225B6220F14308B316004F8BFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
-<images/edgeDetectionPrototype/f.jpg, id=731, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/f.jpg, id=690, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/f.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/f.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/f.jpg  used on input lin
 e 571.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
- [19 <./images/edgeDetectionPrototype/e.jpg> <./images/edgeDetectionPrototype/f
+ [18 <./images/edgeDetectionPrototype/e.jpg> <./images/edgeDetectionPrototype/f
 .jpg>]
 \openout4 = `main.pyg'.
 
@@ -1921,26 +1921,26 @@ e 592.
 
 
 (_minted-main/8EB0E74B496CDAF8D1992A9C708B952BBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [20])
-<images/edgeDetectionPrototype/g.jpg, id=748, 745.28438pt x 855.195pt>
+pygtex [19])
+<images/edgeDetectionPrototype/g.jpg, id=708, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/g.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/g.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/g.jpg  used on input lin
 e 652.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
- [21 <./images/edgeDetectionPrototype/g.jpg>]
+ [20 <./images/edgeDetectionPrototype/g.jpg>]
 \openout4 = `main.pyg'.
 
 
 (_minted-main/7B6B93B34F23A9A43D4119F3739C398BBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
-<images/edgeDetectionPrototype/h.jpg, id=755, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/h.jpg, id=715, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/h.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/h.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/h.jpg  used on input lin
 e 687.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
- [22 <./images/edgeDetectionPrototype/h.jpg>]
+ [21 <./images/edgeDetectionPrototype/h.jpg>]
 \openout4 = `main.pyg'.
 
 
@@ -1951,7 +1951,7 @@ File: images/edgeDetectionPrototype/in.jpg Graphic file (type jpg)
 Package pdftex.def Info: images/edgeDetectionPrototype/in.jpg  used on input li
 ne 733.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
-<images/edgeDetectionPrototype/i.jpg, id=762, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/i.jpg, id=722, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/i.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/i.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/i.jpg  used on input lin
@@ -1963,25 +1963,25 @@ Overfull \hbox (4.87991pt too wide) in paragraph at lines 740--741
 ps this is where I came up with a ex-tra cou-ple of steps. 
  []
 
-[23 <./images/edgeDetectionPrototype/i.jpg>]
+[22 <./images/edgeDetectionPrototype/i.jpg>]
 \openout4 = `main.pyg'.
 
 
 (_minted-main/7D6A941DA03E684619043CEF6BFAE8CDBFA2CFDC5BD54279ABD95FFD29AE2971.
 pygtex)
-<images/edgeDetectionPrototype/j.jpg, id=771, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/j.jpg, id=731, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/j.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/j.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/j.jpg  used on input lin
 e 784.
 (pdftex.def)             Requested size: 142.26378pt x 163.23254pt.
- [24 <./images/edgeDetectionPrototype/j.jpg>]
+ [23 <./images/edgeDetectionPrototype/j.jpg>]
 Overfull \hbox (3.26196pt too wide) in paragraph at lines 790--791
 []\T1/LibreBskvl-LF/regular/n/10 Now that the lines of the im-age have been in-
 creased then the only step which re-mains is to make 
  []
 
-<images/edgeDetectionPrototype/k.jpg, id=779, 745.28438pt x 855.195pt>
+<images/edgeDetectionPrototype/k.jpg, id=738, 745.28438pt x 855.195pt>
 File: images/edgeDetectionPrototype/k.jpg Graphic file (type jpg)
 <use images/edgeDetectionPrototype/k.jpg>
 Package pdftex.def Info: images/edgeDetectionPrototype/k.jpg  used on input lin
@@ -1991,8 +1991,8 @@ e 794.
 
 
 (_minted-main/7D5F121F1C6DD4F6A5391EBAEDE88D0ABFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex) [25 <./images/edgeDetectionPrototype/k.jpg>]
-<images/graphClassDiagram.png, id=787, 397.485pt x 294.8616pt>
+pygtex) [24 <./images/edgeDetectionPrototype/k.jpg>]
+<images/graphClassDiagram.png, id=747, 397.485pt x 294.8616pt>
 File: images/graphClassDiagram.png Graphic file (type png)
 <use images/graphClassDiagram.png>
 Package pdftex.def Info: images/graphClassDiagram.png  used on input line 862.
@@ -2001,23 +2001,23 @@ Package pdftex.def Info: images/graphClassDiagram.png  used on input line 862.
 
 
 (_minted-main/35A61BA301D18BE32A0FB386F466C031BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [26 <./images/graphClassDiagram.png>])
+pygtex [25 <./images/graphClassDiagram.png>])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/796FB987E41A909C824E96D7405DEDA1BFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [27])
+pygtex [26])
 \openout4 = `main.pyg'.
 
 
 (_minted-main/CDF22D473D825B438353524DED729EEFBFA2CFDC5BD54279ABD95FFD29AE2971.
-pygtex [28] [29])
+pygtex [27] [28])
 Overfull \hbox (2.24205pt too wide) in paragraph at lines 1117--1119
 \T1/LibreBskvl-LF/regular/n/10 After con-duct-ing the ini-tial and sec-ond in-t
 er-views and re-flect-ing upon the re-sults of my re-search 
  []
 
-[30]
+[29]
 
 ! LaTeX Error: Something's wrong--perhaps a missing \item.
 
@@ -2030,7 +2030,7 @@ l.1162                 \end{enumerate}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[31] [32]
+[30] [31]
 
 ! LaTeX Error: \begin{FlushLeft} on input line 1 ended by \end{flushleft}.
 
@@ -2044,7 +2044,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) [33]
+) [32]
 \openout2 = `pages/design.aux'.
 
  (pages/design.tex
@@ -2080,22 +2080,22 @@ I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-<images/HighLevelOverview.png, id=919, 1733.47626pt x 828.09375pt>
+<images/HighLevelOverview.png, id=879, 1733.47626pt x 828.09375pt>
 File: images/HighLevelOverview.png Graphic file (type png)
 <use images/HighLevelOverview.png>
 Package pdftex.def Info: images/HighLevelOverview.png  used on input line 35.
 (pdftex.def)             Requested size: 489.38731pt x 233.77266pt.
-[34
+[33
 
 
 
 ]
-<images/UML/Backend.png, id=924, 1556.81625pt x 1054.94125pt>
+<images/UML/Backend.png, id=884, 1556.81625pt x 1054.94125pt>
 File: images/UML/Backend.png Graphic file (type png)
 <use images/UML/Backend.png>
 Package pdftex.def Info: images/UML/Backend.png  used on input line 49.
 (pdftex.def)             Requested size: 489.38731pt x 331.61607pt.
- [35 <./images/HighLevelOverview.png>]
+ [34 <./images/HighLevelOverview.png>]
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2121,8 +2121,8 @@ Overfull \hbox (3.15999pt too wide) in paragraph at lines 59--60
 ary is a col-lec-tion of classes. It means that should 
  []
 
-[36 <./images/UML/Backend.png (PNG copy)>]
-<images/design/consoleMock.png, id=943, 445.665pt x 254.45062pt>
+[35 <./images/UML/Backend.png (PNG copy)>]
+<images/design/consoleMock.png, id=902, 445.665pt x 254.45062pt>
 File: images/design/consoleMock.png Graphic file (type png)
 <use images/design/consoleMock.png>
 Package pdftex.def Info: images/design/consoleMock.png  used on input line 71.
@@ -2153,7 +2153,7 @@ Overfull \hbox (12.31203pt too wide) in paragraph at lines 78--78
 a-belled "Area for Cur-rent Page and Time Elapsed" 
  []
 
-<images/design/terminal.png, id=944, 1927.2pt x 1084.05pt>
+<images/design/terminal.png, id=903, 1927.2pt x 1084.05pt>
 File: images/design/terminal.png Graphic file (type png)
 <use images/design/terminal.png>
 Package pdftex.def Info: images/design/terminal.png  used on input line 82.
@@ -2171,8 +2171,8 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[37 <./images/design/consoleMock.png>]
-<images/design/confirmWindow.jpeg, id=952, 1927.2pt x 1084.05pt>
+[36 <./images/design/consoleMock.png>]
+<images/design/confirmWindow.jpeg, id=912, 1927.2pt x 1084.05pt>
 File: images/design/confirmWindow.jpeg Graphic file (type jpg)
 <use images/design/confirmWindow.jpeg>
 Package pdftex.def Info: images/design/confirmWindow.jpeg  used on input line 9
@@ -2192,7 +2192,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/design/pathfindWindow.png, id=953, 1927.2pt x 1084.05pt>
+<images/design/pathfindWindow.png, id=913, 1927.2pt x 1084.05pt>
 File: images/design/pathfindWindow.png Graphic file (type png)
 <use images/design/pathfindWindow.png>
 Package pdftex.def Info: images/design/pathfindWindow.png  used on input line 9
@@ -2211,7 +2211,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[38 <./images/design/terminal.png (PNG copy)> <./images/design/confirmWindow.jp
+[37 <./images/design/terminal.png (PNG copy)> <./images/design/confirmWindow.jp
 eg>]
 
 ! LaTeX Error: There's no line here to end.
@@ -2233,21 +2233,21 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.103     \\ \bk
+l.106     \\ \bk
                 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/b/it' aliased to
-(Font)              `T1/LibreBskvl-LF/bold/it' on input line 109.
+(Font)              `T1/LibreBskvl-LF/bold/it' on input line 112.
 LaTeX Font Info:    Font shape `T1/LibreBskvl-LF/bold/it' will be
-(Font)              scaled to size 10.0pt on input line 109.
-<images/UML/AsyncEdgeDetection.png, id=962, 1369.115pt x 430.60875pt>
+(Font)              scaled to size 10.0pt on input line 112.
+<images/UML/AsyncEdgeDetection.png, id=922, 1369.115pt x 430.60875pt>
 File: images/UML/AsyncEdgeDetection.png Graphic file (type png)
 <use images/UML/AsyncEdgeDetection.png>
 Package pdftex.def Info: images/UML/AsyncEdgeDetection.png  used on input line 
-113.
+116.
 (pdftex.def)             Requested size: 455.24408pt x 143.17888pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2256,24 +2256,24 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.115 
+l.118 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[39 <./images/design/pathfindWindow.png (PNG copy)> <./images/UML/AsyncEdgeDete
+[38 <./images/design/pathfindWindow.png (PNG copy)> <./images/UML/AsyncEdgeDete
 ction.png (PNG copy)>]
-Overfull \hbox (3.68213pt too wide) in paragraph at lines 124--124
+Overfull \hbox (3.68213pt too wide) in paragraph at lines 127--127
 \T1/LibreBskvl-LF/regular/n/10 The main dif-fer-en-tia-tor be-tween this asyn-c
 hronously method and the syn-chronous method 
  []
 
-<images/UML/CannyEdgeDetection.png, id=972, 873.2625pt x 406.51875pt>
+<images/UML/CannyEdgeDetection.png, id=933, 873.2625pt x 406.51875pt>
 File: images/UML/CannyEdgeDetection.png Graphic file (type png)
 <use images/UML/CannyEdgeDetection.png>
 Package pdftex.def Info: images/UML/CannyEdgeDetection.png  used on input line 
-135.
+138.
 (pdftex.def)             Requested size: 455.24408pt x 211.92441pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2282,13 +2282,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.137 
+l.140 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[40 <./images/UML/CannyEdgeDetection.png (PNG copy)>]
+[39 <./images/UML/CannyEdgeDetection.png (PNG copy)>]
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2296,7 +2296,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.144     \\ \bk
+l.147     \\ \bk
                 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2309,13 +2309,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.178 
+l.181 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[41]
+[40]
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2323,28 +2323,28 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.206     \\ \bk
+l.209     \\ \bk
                 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (5.15196pt too wide) in paragraph at lines 210--210
+Overfull \hbox (5.15196pt too wide) in paragraph at lines 213--213
 \T1/LibreBskvl-LF/regular/n/10 and if the pixel is greater than the thresh-old 
 then it is in-cluded, if it is be-low the max thresh- 
  []
 
 
-Overfull \hbox (1.19pt too wide) in paragraph at lines 210--210
+Overfull \hbox (1.19pt too wide) in paragraph at lines 213--213
 \T1/LibreBskvl-LF/regular/n/10 old but greater than the min then it is set to a
  strong pixel and re-tains its value. In any other 
  []
 
-<images/UML/CannyResult.png, id=983, 582.175pt x 331.2375pt>
+<images/UML/CannyResult.png, id=945, 582.175pt x 331.2375pt>
 File: images/UML/CannyResult.png Graphic file (type png)
 <use images/UML/CannyResult.png>
-Package pdftex.def Info: images/UML/CannyResult.png  used on input line 220.
+Package pdftex.def Info: images/UML/CannyResult.png  used on input line 223.
 (pdftex.def)             Requested size: 227.62204pt x 129.50557pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2353,23 +2353,23 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.222 
+l.225 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (2.57008pt too wide) in paragraph at lines 223--224
+Overfull \hbox (2.57008pt too wide) in paragraph at lines 226--227
 \T1/LibreBskvl-LF/regular/n/10 meth-ods or func-tions con-tained within this cl
 ass since it is in fact a struc-ture. Its main func- 
  []
 
-[42 <./images/UML/CannyResult.png (PNG copy)>]
-<images/UML/Coord.png, id=991, 938.50626pt x 331.2375pt>
+[41 <./images/UML/CannyResult.png (PNG copy)>]
+<images/UML/Coord.png, id=953, 938.50626pt x 331.2375pt>
 File: images/UML/Coord.png Graphic file (type png)
 <use images/UML/Coord.png>
-Package pdftex.def Info: images/UML/Coord.png  used on input line 231.
+Package pdftex.def Info: images/UML/Coord.png  used on input line 234.
 (pdftex.def)             Requested size: 369.88582pt x 130.54675pt.
 
 
@@ -2379,16 +2379,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.233 
+l.236 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Extensions.png, id=992, 602.25pt x 221.82875pt>
+<images/UML/Extensions.png, id=954, 602.25pt x 221.82875pt>
 File: images/UML/Extensions.png Graphic file (type png)
 <use images/UML/Extensions.png>
-Package pdftex.def Info: images/UML/Extensions.png  used on input line 242.
+Package pdftex.def Info: images/UML/Extensions.png  used on input line 245.
 (pdftex.def)             Requested size: 369.88582pt x 136.24615pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2397,26 +2397,26 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.244 
+l.247 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! You can't use `macro parameter character #' in horizontal mode.
-l.245 ...ehaviors of certain inbuilt classes in C#
+l.248 ...ehaviors of certain inbuilt classes in C#
                                                    as well as extending func...
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-[43 <./images/UML/Coord.png (PNG copy)> <./images/UML/Extensions.png (PNG copy)
+[42 <./images/UML/Coord.png (PNG copy)> <./images/UML/Extensions.png (PNG copy)
 >]
-<images/UML/Gradients.png, id=1001, 583.17876pt x 332.24126pt>
+<images/UML/Gradients.png, id=966, 583.17876pt x 332.24126pt>
 File: images/UML/Gradients.png Graphic file (type png)
 <use images/UML/Gradients.png>
-Package pdftex.def Info: images/UML/Gradients.png  used on input line 269.
+Package pdftex.def Info: images/UML/Gradients.png  used on input line 272.
 (pdftex.def)             Requested size: 227.62204pt x 129.67496pt.
 
 
@@ -2426,16 +2426,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.271 
+l.274 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Graph.png, id=1002, 390.45876pt x 252.945pt>
+<images/UML/Graph.png, id=967, 390.45876pt x 252.945pt>
 File: images/UML/Graph.png Graphic file (type png)
 <use images/UML/Graph.png>
-Package pdftex.def Info: images/UML/Graph.png  used on input line 281.
+Package pdftex.def Info: images/UML/Graph.png  used on input line 284.
 (pdftex.def)             Requested size: 227.62204pt x 147.45697pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2444,17 +2444,17 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.283 
+l.286 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[44 <./images/UML/Gradients.png (PNG copy)>]
-<images/UML/GraphException.png, id=1009, 386.44376pt x 221.82875pt>
+[43 <./images/UML/Gradients.png (PNG copy)>]
+<images/UML/GraphException.png, id=976, 386.44376pt x 221.82875pt>
 File: images/UML/GraphException.png Graphic file (type png)
 <use images/UML/GraphException.png>
-Package pdftex.def Info: images/UML/GraphException.png  used on input line 290.
+Package pdftex.def Info: images/UML/GraphException.png  used on input line 293.
 
 (pdftex.def)             Requested size: 355.65944pt x 204.15936pt.
 
@@ -2465,16 +2465,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.292 
+l.295 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/IHandler.png, id=1010, 339.2675pt x 221.82875pt>
+<images/UML/IHandler.png, id=977, 339.2675pt x 221.82875pt>
 File: images/UML/IHandler.png Graphic file (type png)
 <use images/UML/IHandler.png>
-Package pdftex.def Info: images/UML/IHandler.png  used on input line 299.
+Package pdftex.def Info: images/UML/IHandler.png  used on input line 302.
 (pdftex.def)             Requested size: 355.65944pt x 232.5547pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2483,18 +2483,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.301 
+l.304 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[45 <./images/UML/Graph.png (PNG copy)> <./images/UML/GraphException.png (PNG c
+[44 <./images/UML/Graph.png (PNG copy)> <./images/UML/GraphException.png (PNG c
 opy)>]
-<images/UML/Input.png, id=1019, 1368.11125pt x 404.51125pt>
+<images/UML/Input.png, id=988, 1368.11125pt x 404.51125pt>
 File: images/UML/Input.png Graphic file (type png)
 <use images/UML/Input.png>
-Package pdftex.def Info: images/UML/Input.png  used on input line 309.
+Package pdftex.def Info: images/UML/Input.png  used on input line 312.
 (pdftex.def)             Requested size: 355.65944pt x 105.1581pt.
 
 
@@ -2504,16 +2504,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.311 
+l.314 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Kernel.png, id=1020, 501.875pt x 221.82875pt>
+<images/UML/Kernel.png, id=989, 501.875pt x 221.82875pt>
 File: images/UML/Kernel.png Graphic file (type png)
 <use images/UML/Kernel.png>
-Package pdftex.def Info: images/UML/Kernel.png  used on input line 319.
+Package pdftex.def Info: images/UML/Kernel.png  used on input line 322.
 (pdftex.def)             Requested size: 355.65944pt x 157.2084pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2522,18 +2522,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.321 
+l.324 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[46 <./images/UML/IHandler.png (PNG copy)> <./images/UML/Input.png (PNG copy)> 
+[45 <./images/UML/IHandler.png (PNG copy)> <./images/UML/Input.png (PNG copy)> 
 <./images/UML/Kernel.png (PNG copy)>]
-<images/UML/KernelException.png, id=1031, 501.875pt x 188.705pt>
+<images/UML/KernelException.png, id=1002, 501.875pt x 188.705pt>
 File: images/UML/KernelException.png Graphic file (type png)
 <use images/UML/KernelException.png>
-Package pdftex.def Info: images/UML/KernelException.png  used on input line 329
+Package pdftex.def Info: images/UML/KernelException.png  used on input line 332
 .
 (pdftex.def)             Requested size: 355.65944pt x 133.73384pt.
 
@@ -2544,16 +2544,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.331 
+l.334 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Log.png, id=1032, 740.7675pt x 736.7525pt>
+<images/UML/Log.png, id=1003, 740.7675pt x 736.7525pt>
 File: images/UML/Log.png Graphic file (type png)
 <use images/UML/Log.png>
-Package pdftex.def Info: images/UML/Log.png  used on input line 338.
+Package pdftex.def Info: images/UML/Log.png  used on input line 341.
 (pdftex.def)             Requested size: 355.65944pt x 353.73836pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2562,16 +2562,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.340 
+l.343 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Logger.png, id=1033, 602.25pt x 270.00874pt>
+<images/UML/Logger.png, id=1004, 602.25pt x 270.00874pt>
 File: images/UML/Logger.png Graphic file (type png)
 <use images/UML/Logger.png>
-Package pdftex.def Info: images/UML/Logger.png  used on input line 347.
+Package pdftex.def Info: images/UML/Logger.png  used on input line 350.
 (pdftex.def)             Requested size: 355.65944pt x 159.46033pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2580,18 +2580,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.349 
+l.352 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[47 <./images/UML/KernelException.png (PNG copy)> <./images/UML/Log.png (PNG co
+[46 <./images/UML/KernelException.png (PNG copy)> <./images/UML/Log.png (PNG co
 py)>]
-<images/UML/LoggerException.png, id=1042, 501.875pt x 221.82875pt>
+<images/UML/LoggerException.png, id=1016, 501.875pt x 221.82875pt>
 File: images/UML/LoggerException.png Graphic file (type png)
 <use images/UML/LoggerException.png>
-Package pdftex.def Info: images/UML/LoggerException.png  used on input line 356
+Package pdftex.def Info: images/UML/LoggerException.png  used on input line 359
 .
 (pdftex.def)             Requested size: 355.65944pt x 157.2084pt.
 
@@ -2602,16 +2602,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.358 
+l.361 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/MapFile.png, id=1043, 937.5025pt x 532.99126pt>
+<images/UML/MapFile.png, id=1017, 937.5025pt x 532.99126pt>
 File: images/UML/MapFile.png Graphic file (type png)
 <use images/UML/MapFile.png>
-Package pdftex.def Info: images/UML/MapFile.png  used on input line 365.
+Package pdftex.def Info: images/UML/MapFile.png  used on input line 368.
 (pdftex.def)             Requested size: 355.65944pt x 202.1972pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2620,19 +2620,19 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.367 
+l.370 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[48 <./images/UML/Logger.png (PNG copy)> <./images/UML/LoggerException.png (PNG
+[47 <./images/UML/Logger.png (PNG copy)> <./images/UML/LoggerException.png (PNG
  copy)> <./images/UML/MapFile.png (PNG copy)>]
-<images/UML/MapFileException.png, id=1055, 501.875pt x 221.82875pt>
+<images/UML/MapFileException.png, id=1030, 501.875pt x 221.82875pt>
 File: images/UML/MapFileException.png Graphic file (type png)
 <use images/UML/MapFileException.png>
 Package pdftex.def Info: images/UML/MapFileException.png  used on input line 37
-5.
+8.
 (pdftex.def)             Requested size: 355.65944pt x 157.2084pt.
 
 
@@ -2642,16 +2642,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.377 
+l.380 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Matrix.png, id=1056, 455.7025pt x 304.13625pt>
+<images/UML/Matrix.png, id=1031, 455.7025pt x 304.13625pt>
 File: images/UML/Matrix.png Graphic file (type png)
 <use images/UML/Matrix.png>
-Package pdftex.def Info: images/UML/Matrix.png  used on input line 384.
+Package pdftex.def Info: images/UML/Matrix.png  used on input line 387.
 (pdftex.def)             Requested size: 355.65944pt x 237.37381pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2660,16 +2660,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.386 
+l.389 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/MatrixException.png, id=1057, 455.7025pt x 221.82875pt>
+<images/UML/MatrixException.png, id=1032, 455.7025pt x 221.82875pt>
 File: images/UML/MatrixException.png Graphic file (type png)
 <use images/UML/MatrixException.png>
-Package pdftex.def Info: images/UML/MatrixException.png  used on input line 393
+Package pdftex.def Info: images/UML/MatrixException.png  used on input line 396
 .
 (pdftex.def)             Requested size: 355.65944pt x 173.13402pt.
 
@@ -2679,19 +2679,19 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.395 
+l.398 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[49 <./images/UML/MapFileException.png (PNG copy)> <./images/UML/Matrix.png (PN
+[48 <./images/UML/MapFileException.png (PNG copy)> <./images/UML/Matrix.png (PN
 G copy)>]
-<images/UML/MaxPriorityQueue.png, id=1066, 386.44376pt x 406.51875pt>
+<images/UML/MaxPriorityQueue.png, id=1045, 386.44376pt x 406.51875pt>
 File: images/UML/MaxPriorityQueue.png Graphic file (type png)
 <use images/UML/MaxPriorityQueue.png>
 Package pdftex.def Info: images/UML/MaxPriorityQueue.png  used on input line 40
-3.
+6.
 (pdftex.def)             Requested size: 355.65944pt x 374.13824pt.
 
 
@@ -2701,16 +2701,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.405 
+l.408 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Menu.png, id=1067, 739.76375pt x 661.47125pt>
+<images/UML/Menu.png, id=1046, 739.76375pt x 661.47125pt>
 File: images/UML/Menu.png Graphic file (type png)
 <use images/UML/Menu.png>
-Package pdftex.def Info: images/UML/Menu.png  used on input line 412.
+Package pdftex.def Info: images/UML/Menu.png  used on input line 415.
 (pdftex.def)             Requested size: 355.65944pt x 318.01735pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2719,19 +2719,19 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.414 
+l.417 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[50 <./images/UML/MatrixException.png (PNG copy)> <./images/UML/MaxPriorityQueu
+[49 <./images/UML/MatrixException.png (PNG copy)> <./images/UML/MaxPriorityQueu
 e.png (PNG copy)>]
-<images/UML/MinPriorityQueue.png, id=1076, 390.45876pt x 321.2pt>
+<images/UML/MinPriorityQueue.png, id=1057, 390.45876pt x 321.2pt>
 File: images/UML/MinPriorityQueue.png Graphic file (type png)
 <use images/UML/MinPriorityQueue.png>
 Package pdftex.def Info: images/UML/MinPriorityQueue.png  used on input line 42
-1.
+4.
 (pdftex.def)             Requested size: 355.65944pt x 292.58652pt.
 
 
@@ -2741,17 +2741,17 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.423 
+l.426 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[51 <./images/UML/Menu.png (PNG copy)>]
-<images/UML/NewImage.png, id=1083, 741.77126pt x 332.24126pt>
+[50 <./images/UML/Menu.png (PNG copy)>]
+<images/UML/NewImage.png, id=1065, 741.77126pt x 332.24126pt>
 File: images/UML/NewImage.png Graphic file (type png)
 <use images/UML/NewImage.png>
-Package pdftex.def Info: images/UML/NewImage.png  used on input line 430.
+Package pdftex.def Info: images/UML/NewImage.png  used on input line 433.
 (pdftex.def)             Requested size: 355.65944pt x 159.30162pt.
 
 
@@ -2761,16 +2761,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.432 
+l.435 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Pathfinder.png, id=1084, 448.67625pt x 221.82875pt>
+<images/UML/Pathfinder.png, id=1066, 448.67625pt x 221.82875pt>
 File: images/UML/Pathfinder.png Graphic file (type png)
 <use images/UML/Pathfinder.png>
-Package pdftex.def Info: images/UML/Pathfinder.png  used on input line 439.
+Package pdftex.def Info: images/UML/Pathfinder.png  used on input line 442.
 (pdftex.def)             Requested size: 355.65944pt x 175.84528pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2779,19 +2779,19 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.441 
+l.444 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[52 <./images/UML/MinPriorityQueue.png (PNG copy)> <./images/UML/NewImage.png (
+[51 <./images/UML/MinPriorityQueue.png (PNG copy)> <./images/UML/NewImage.png (
 PNG copy)>]
-<images/UML/PathfindImageForm.png, id=1093, 629.35126pt x 696.6025pt>
+<images/UML/PathfindImageForm.png, id=1077, 629.35126pt x 696.6025pt>
 File: images/UML/PathfindImageForm.png Graphic file (type png)
 <use images/UML/PathfindImageForm.png>
 Package pdftex.def Info: images/UML/PathfindImageForm.png  used on input line 4
-48.
+51.
 (pdftex.def)             Requested size: 355.65944pt x 393.66618pt.
 
 
@@ -2801,18 +2801,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.450 
+l.453 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[53 <./images/UML/Pathfinder.png (PNG copy)> <./images/UML/PathfindImageForm.pn
+[52 <./images/UML/Pathfinder.png (PNG copy)> <./images/UML/PathfindImageForm.pn
 g (PNG copy)>]
-<images/UML/Post.png, id=1102, 390.45876pt x 221.82875pt>
+<images/UML/Post.png, id=1087, 390.45876pt x 221.82875pt>
 File: images/UML/Post.png Graphic file (type png)
 <use images/UML/Post.png>
-Package pdftex.def Info: images/UML/Post.png  used on input line 457.
+Package pdftex.def Info: images/UML/Post.png  used on input line 460.
 (pdftex.def)             Requested size: 355.65944pt x 202.06755pt.
 
 
@@ -2822,16 +2822,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.459 
+l.462 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Pre.png, id=1103, 937.5025pt x 380.42125pt>
+<images/UML/Pre.png, id=1088, 937.5025pt x 380.42125pt>
 File: images/UML/Pre.png Graphic file (type png)
 <use images/UML/Pre.png>
-Package pdftex.def Info: images/UML/Pre.png  used on input line 466.
+Package pdftex.def Info: images/UML/Pre.png  used on input line 469.
 (pdftex.def)             Requested size: 355.65944pt x 144.31776pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2840,17 +2840,17 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.468 
+l.471 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/PreprocessingException.png, id=1104, 602.25pt x 221.82875pt>
+<images/UML/PreprocessingException.png, id=1089, 602.25pt x 221.82875pt>
 File: images/UML/PreprocessingException.png Graphic file (type png)
 <use images/UML/PreprocessingException.png>
 Package pdftex.def Info: images/UML/PreprocessingException.png  used on input l
-ine 475.
+ine 478.
 (pdftex.def)             Requested size: 355.65944pt x 131.00644pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2859,18 +2859,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.477 
+l.480 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[54 <./images/UML/Post.png (PNG copy)> <./images/UML/Pre.png (PNG copy)> <./ima
+[53 <./images/UML/Post.png (PNG copy)> <./images/UML/Pre.png (PNG copy)> <./ima
 ges/UML/PreprocessingException.png (PNG copy)>]
-<images/UML/Program.png, id=1116, 629.35126pt x 221.82875pt>
+<images/UML/Program.png, id=1103, 629.35126pt x 221.82875pt>
 File: images/UML/Program.png Graphic file (type png)
 <use images/UML/Program.png>
-Package pdftex.def Info: images/UML/Program.png  used on input line 484.
+Package pdftex.def Info: images/UML/Program.png  used on input line 487.
 (pdftex.def)             Requested size: 355.65944pt x 125.36053pt.
 
 
@@ -2880,16 +2880,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.486 
+l.489 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/ProgressBar.png, id=1117, 739.76375pt x 378.41376pt>
+<images/UML/ProgressBar.png, id=1104, 739.76375pt x 378.41376pt>
 File: images/UML/ProgressBar.png Graphic file (type png)
 <use images/UML/ProgressBar.png>
-Package pdftex.def Info: images/UML/ProgressBar.png  used on input line 493.
+Package pdftex.def Info: images/UML/ProgressBar.png  used on input line 496.
 (pdftex.def)             Requested size: 355.65944pt x 181.93102pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2898,16 +2898,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.495 
+l.498 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Queue.png, id=1118, 501.875pt x 221.82875pt>
+<images/UML/Queue.png, id=1105, 501.875pt x 221.82875pt>
 File: images/UML/Queue.png Graphic file (type png)
 <use images/UML/Queue.png>
-Package pdftex.def Info: images/UML/Queue.png  used on input line 502.
+Package pdftex.def Info: images/UML/Queue.png  used on input line 505.
 (pdftex.def)             Requested size: 355.65944pt x 157.2084pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2916,18 +2916,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.504 
+l.507 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[55 <./images/UML/Program.png (PNG copy)> <./images/UML/ProgressBar.png (PNG co
+[54 <./images/UML/Program.png (PNG copy)> <./images/UML/ProgressBar.png (PNG co
 py)> <./images/UML/Queue.png (PNG copy)>]
-<images/UML/RawImage.png, id=1129, 583.17876pt x 333.245pt>
+<images/UML/RawImage.png, id=1120, 583.17876pt x 333.245pt>
 File: images/UML/RawImage.png Graphic file (type png)
 <use images/UML/RawImage.png>
-Package pdftex.def Info: images/UML/RawImage.png  used on input line 511.
+Package pdftex.def Info: images/UML/RawImage.png  used on input line 514.
 (pdftex.def)             Requested size: 355.65944pt x 203.23846pt.
 
 
@@ -2937,16 +2937,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.513 
+l.516 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/RGB.png, id=1130, 582.175pt x 332.24126pt>
+<images/UML/RGB.png, id=1121, 582.175pt x 332.24126pt>
 File: images/UML/RGB.png Graphic file (type png)
 <use images/UML/RGB.png>
-Package pdftex.def Info: images/UML/RGB.png  used on input line 520.
+Package pdftex.def Info: images/UML/RGB.png  used on input line 523.
 (pdftex.def)             Requested size: 355.65944pt x 202.9761pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2955,16 +2955,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.522 
+l.525 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/RoadDetection.png, id=1131, 501.875pt x 270.00874pt>
+<images/UML/RoadDetection.png, id=1122, 501.875pt x 270.00874pt>
 File: images/UML/RoadDetection.png Graphic file (type png)
 <use images/UML/RoadDetection.png>
-Package pdftex.def Info: images/UML/RoadDetection.png  used on input line 529.
+Package pdftex.def Info: images/UML/RoadDetection.png  used on input line 532.
 (pdftex.def)             Requested size: 355.65944pt x 191.35321pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2973,17 +2973,17 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.531 
+l.534 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[56 <./images/UML/RawImage.png (PNG copy)> <./images/UML/RGB.png (PNG copy)>]
-<images/UML/RoadResult.png, id=1140, 582.175pt x 333.245pt>
+[55 <./images/UML/RawImage.png (PNG copy)> <./images/UML/RGB.png (PNG copy)>]
+<images/UML/RoadResult.png, id=1134, 582.175pt x 333.245pt>
 File: images/UML/RoadResult.png Graphic file (type png)
 <use images/UML/RoadResult.png>
-Package pdftex.def Info: images/UML/RoadResult.png  used on input line 538.
+Package pdftex.def Info: images/UML/RoadResult.png  used on input line 541.
 (pdftex.def)             Requested size: 355.65944pt x 203.58932pt.
 
 
@@ -2993,16 +2993,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.540 
+l.543 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/RoadSequence.png, id=1141, 1369.115pt x 404.51125pt>
+<images/UML/RoadSequence.png, id=1135, 1369.115pt x 404.51125pt>
 File: images/UML/RoadSequence.png Graphic file (type png)
 <use images/UML/RoadSequence.png>
-Package pdftex.def Info: images/UML/RoadSequence.png  used on input line 547.
+Package pdftex.def Info: images/UML/RoadSequence.png  used on input line 550.
 (pdftex.def)             Requested size: 355.65944pt x 105.07785pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -3011,18 +3011,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.549 
+l.552 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[57 <./images/UML/RoadDetection.png (PNG copy)> <./images/UML/RoadResult.png (P
+[56 <./images/UML/RoadDetection.png (PNG copy)> <./images/UML/RoadResult.png (P
 NG copy)> <./images/UML/RoadSequence.png (PNG copy)>]
-<images/UML/SaveFile.png, id=1152, 740.7675pt x 332.24126pt>
+<images/UML/SaveFile.png, id=1148, 740.7675pt x 332.24126pt>
 File: images/UML/SaveFile.png Graphic file (type png)
 <use images/UML/SaveFile.png>
-Package pdftex.def Info: images/UML/SaveFile.png  used on input line 557.
+Package pdftex.def Info: images/UML/SaveFile.png  used on input line 560.
 (pdftex.def)             Requested size: 355.65944pt x 159.5196pt.
 
 
@@ -3032,16 +3032,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.559 
+l.562 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Settings.png, id=1153, 1368.11125pt x 531.9875pt>
+<images/UML/Settings.png, id=1149, 1368.11125pt x 531.9875pt>
 File: images/UML/Settings.png Graphic file (type png)
 <use images/UML/Settings.png>
-Package pdftex.def Info: images/UML/Settings.png  used on input line 567.
+Package pdftex.def Info: images/UML/Settings.png  used on input line 570.
 (pdftex.def)             Requested size: 355.65944pt x 138.29724pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -3050,16 +3050,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.569 
+l.572 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/SettingsControl.png, id=1154, 740.7675pt x 379.4175pt>
+<images/UML/SettingsControl.png, id=1150, 740.7675pt x 379.4175pt>
 File: images/UML/SettingsControl.png Graphic file (type png)
 <use images/UML/SettingsControl.png>
-Package pdftex.def Info: images/UML/SettingsControl.png  used on input line 576
+Package pdftex.def Info: images/UML/SettingsControl.png  used on input line 579
 .
 (pdftex.def)             Requested size: 355.65944pt x 182.17043pt.
 
@@ -3069,19 +3069,19 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.578 
+l.581 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[58 <./images/UML/SaveFile.png (PNG copy)> <./images/UML/Settings.png (PNG copy
+[57 <./images/UML/SaveFile.png (PNG copy)> <./images/UML/Settings.png (PNG copy
 )> <./images/UML/SettingsControl.png (PNG copy)>]
-<images/UML/SettingsException.png, id=1165, 455.7025pt x 221.82875pt>
+<images/UML/SettingsException.png, id=1164, 455.7025pt x 221.82875pt>
 File: images/UML/SettingsException.png Graphic file (type png)
 <use images/UML/SettingsException.png>
 Package pdftex.def Info: images/UML/SettingsException.png  used on input line 5
-85.
+88.
 (pdftex.def)             Requested size: 355.65944pt x 173.13402pt.
 
 
@@ -3091,16 +3091,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.587 
+l.590 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Stack.png, id=1166, 390.45876pt x 235.88126pt>
+<images/UML/Stack.png, id=1165, 390.45876pt x 235.88126pt>
 File: images/UML/Stack.png Graphic file (type png)
 <use images/UML/Stack.png>
-Package pdftex.def Info: images/UML/Stack.png  used on input line 594.
+Package pdftex.def Info: images/UML/Stack.png  used on input line 597.
 (pdftex.def)             Requested size: 355.65944pt x 214.86823pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -3109,16 +3109,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.596 
+l.599 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Structures.png, id=1167, 582.175pt x 331.2375pt>
+<images/UML/Structures.png, id=1166, 582.175pt x 331.2375pt>
 File: images/UML/Structures.png Graphic file (type png)
 <use images/UML/Structures.png>
-Package pdftex.def Info: images/UML/Structures.png  used on input line 603.
+Package pdftex.def Info: images/UML/Structures.png  used on input line 606.
 (pdftex.def)             Requested size: 355.65944pt x 202.36288pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -3127,19 +3127,19 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.605 
+l.608 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[59 <./images/UML/SettingsException.png (PNG copy)> <./images/UML/Stack.png (PN
+[58 <./images/UML/SettingsException.png (PNG copy)> <./images/UML/Stack.png (PN
 G copy)>]
-<images/UML/SyncEdgeDetection.png, id=1176, 740.7675pt x 534.99875pt>
+<images/UML/SyncEdgeDetection.png, id=1178, 740.7675pt x 534.99875pt>
 File: images/UML/SyncEdgeDetection.png Graphic file (type png)
 <use images/UML/SyncEdgeDetection.png>
 Package pdftex.def Info: images/UML/SyncEdgeDetection.png  used on input line 6
-12.
+15.
 (pdftex.def)             Requested size: 355.65944pt x 256.86995pt.
 
 
@@ -3149,16 +3149,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.614 
+l.617 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/TextWall.png, id=1177, 448.67625pt x 221.82875pt>
+<images/UML/TextWall.png, id=1179, 448.67625pt x 221.82875pt>
 File: images/UML/TextWall.png Graphic file (type png)
 <use images/UML/TextWall.png>
-Package pdftex.def Info: images/UML/TextWall.png  used on input line 622.
+Package pdftex.def Info: images/UML/TextWall.png  used on input line 625.
 (pdftex.def)             Requested size: 355.65944pt x 175.84528pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -3167,18 +3167,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.624 
+l.627 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[60 <./images/UML/Structures.png (PNG copy)> <./images/UML/SyncEdgeDetection.pn
+[59 <./images/UML/Structures.png (PNG copy)> <./images/UML/SyncEdgeDetection.pn
 g (PNG copy)>]
-<images/UML/ThresholdPixel.png, id=1187, 582.175pt x 332.24126pt>
+<images/UML/ThresholdPixel.png, id=1190, 582.175pt x 332.24126pt>
 File: images/UML/ThresholdPixel.png Graphic file (type png)
 <use images/UML/ThresholdPixel.png>
-Package pdftex.def Info: images/UML/ThresholdPixel.png  used on input line 631.
+Package pdftex.def Info: images/UML/ThresholdPixel.png  used on input line 634.
 
 (pdftex.def)             Requested size: 355.65944pt x 202.9761pt.
 
@@ -3189,16 +3189,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.633 
+l.636 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/Traversal.png, id=1188, 501.875pt x 221.82875pt>
+<images/UML/Traversal.png, id=1191, 501.875pt x 221.82875pt>
 File: images/UML/Traversal.png Graphic file (type png)
 <use images/UML/Traversal.png>
-Package pdftex.def Info: images/UML/Traversal.png  used on input line 640.
+Package pdftex.def Info: images/UML/Traversal.png  used on input line 643.
 (pdftex.def)             Requested size: 355.65944pt x 157.2084pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -3207,18 +3207,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.642 
+l.645 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[61 <./images/UML/TextWall.png (PNG copy)> <./images/UML/ThresholdPixel.png (PN
+[60 <./images/UML/TextWall.png (PNG copy)> <./images/UML/ThresholdPixel.png (PN
 G copy)>]
-<images/UML/Utility.png, id=1197, 602.25pt x 406.51875pt>
+<images/UML/Utility.png, id=1203, 602.25pt x 406.51875pt>
 File: images/UML/Utility.png Graphic file (type png)
 <use images/UML/Utility.png>
-Package pdftex.def Info: images/UML/Utility.png  used on input line 649.
+Package pdftex.def Info: images/UML/Utility.png  used on input line 652.
 (pdftex.def)             Requested size: 355.65944pt x 240.07968pt.
 
 
@@ -3228,16 +3228,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.651 
+l.654 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/UML/ViewImageForm.png, id=1198, 448.67625pt x 270.00874pt>
+<images/UML/ViewImageForm.png, id=1204, 448.67625pt x 270.00874pt>
 File: images/UML/ViewImageForm.png Graphic file (type png)
 <use images/UML/ViewImageForm.png>
-Package pdftex.def Info: images/UML/ViewImageForm.png  used on input line 658.
+Package pdftex.def Info: images/UML/ViewImageForm.png  used on input line 661.
 (pdftex.def)             Requested size: 355.65944pt x 214.03792pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -3246,14 +3246,20 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.660 
+l.663 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[62 <./images/UML/Traversal.png (PNG copy)> <./images/UML/Utility.png (PNG copy
+[61 <./images/UML/Traversal.png (PNG copy)> <./images/UML/Utility.png (PNG copy
 )>]
+Overfull \hbox (6.40005pt too wide) in paragraph at lines 678--678
+\T1/LibreBskvl-LF/regular/n/10 port. Here I will ex-plain the gen-eral idea be-
+hind edge de-tec-tion as a whole and what method 
+ []
+
+[62 <./images/UML/ViewImageForm.png (PNG copy)>]
 
 ! LaTeX Error: \begin{enumerate} on input line 56 ended by \end{flushleft}.
 
@@ -3261,13 +3267,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.672 \end{flushleft}
+l.718 \end{flushleft}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) [63 <./images/UML/ViewImageForm.png (PNG copy)>]
+) [63]
 \openout2 = `pages/testing.aux'.
 
  (pages/testing.tex
@@ -3285,7 +3291,7 @@ Overfull \hbox (32.09196pt too wide) in alignment at lines 130--152
  []
 
 [67]
-<images/cannyTestImage.jpg, id=1271, 1023.825pt x 722.7pt>
+<images/cannyTestImage.jpg, id=1283, 1023.825pt x 722.7pt>
 File: images/cannyTestImage.jpg Graphic file (type jpg)
 <use images/cannyTestImage.jpg>
 Package pdftex.def Info: images/cannyTestImage.jpg  used on input line 159.
@@ -3304,7 +3310,7 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [68]
-<images/cannyTesting/Canny_Walkthrough_0_Black_White_Filter.jpg, id=1278, 1023.
+<images/cannyTesting/Canny_Walkthrough_0_Black_White_Filter.jpg, id=1290, 1023.
 825pt x 722.7pt>
 File: images/cannyTesting/Canny_Walkthrough_0_Black_White_Filter.jpg Graphic fi
 le (type jpg)
@@ -3312,7 +3318,7 @@ le (type jpg)
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_0_Black_White_Fi
 lter.jpg  used on input line 173.
 (pdftex.def)             Requested size: 128.0374pt x 90.37035pt.
-<images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png, id=1279, 803.0pt x 
+<images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png, id=1291, 803.0pt x 
 567.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.png Graphic file (t
 ype png)
@@ -3320,7 +3326,7 @@ ype png)
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.
 png  used on input line 175.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png, id=1280, 803.0
+<images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png, id=1292, 803.0
 pt x 567.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png Graphic fi
 le (type png)
@@ -3328,7 +3334,7 @@ le (type png)
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_2_Intensity_Grad
 ient.png  used on input line 177.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png, id=1281, 
+<images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png, id=1293, 
 803.0pt x 567.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png Graph
 ic file (type png)
@@ -3336,7 +3342,7 @@ ic file (type png)
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_3_Non-maximum_su
 ppression.png  used on input line 181.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png, id=1282, 803.0pt
+<images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png, id=1294, 803.0pt
  x 567.11874pt>
 File: images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png Graphic file
  (type png)
@@ -3344,7 +3350,7 @@ File: images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png Graphic file
 Package pdftex.def Info: images/cannyTesting/Canny_Walkthrough_4_Double_Thresho
 ld.png  used on input line 183.
 (pdftex.def)             Requested size: 128.0374pt x 90.42067pt.
-<images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png, id=1283, 1023.825pt x 
+<images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png, id=1295, 1023.825pt x 
 722.7pt>
 File: images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png Graphic file (type
  png)
@@ -3367,18 +3373,18 @@ Overfull \hbox (12.20384pt too wide) in alignment at lines 167--189
 ack_White_Filter.jpg> <./images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.
 png (PNG copy)> <./images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.p
 ng (PNG copy)>]
-<images/roadExamples/comb.png, id=1292, 644.4075pt x 385.44pt>
+<images/roadExamples/comb.png, id=1304, 644.4075pt x 385.44pt>
 File: images/roadExamples/comb.png Graphic file (type png)
 <use images/roadExamples/comb.png>
 Package pdftex.def Info: images/roadExamples/comb.png  used on input line 203.
 (pdftex.def)             Requested size: 128.0374pt x 76.58083pt.
-<images/roadExamples/white.png, id=1293, 75.28125pt x 75.28125pt>
+<images/roadExamples/white.png, id=1305, 75.28125pt x 75.28125pt>
 File: images/roadExamples/white.png Graphic file (type png)
 <use images/roadExamples/white.png>
 Package pdftex.def Info: images/roadExamples/white.png  used on input line 215.
 
 (pdftex.def)             Requested size: 128.0374pt x 128.06256pt.
-<images/roadExamples/quadsFilledExample.png, id=1294, 150.5625pt x 150.5625pt>
+<images/roadExamples/quadsFilledExample.png, id=1306, 150.5625pt x 150.5625pt>
 File: images/roadExamples/quadsFilledExample.png Graphic file (type png)
 <use images/roadExamples/quadsFilledExample.png>
 Package pdftex.def Info: images/roadExamples/quadsFilledExample.png  used on in
@@ -3862,7 +3868,7 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BFD28084F8E602C709BF855AC9B1684E;9874.
+(rerunfilecheck)             Checksum: 283B50845C6EB8A84F2C1B6AB643B964;11820.
 runsystem(del main.pyg)...executed.
 
  )
@@ -3871,10 +3877,10 @@ runsystem(del main.pyg)...executed.
 ### semi simple group (level 1) entered at line 2 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 34683 strings out of 476406
- 731486 string characters out of 2786228
+ 34707 strings out of 476406
+ 731946 string characters out of 2786228
  1931787 words of memory out of 3000000
- 53440 multiletter control sequences out of 15000+600000
+ 53452 multiletter control sequences out of 15000+600000
  782686 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  100i,18n,133p,1248b,1391s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -3907,9 +3913,9 @@ cmr7.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmsy10.pfb><C:/Users/Rubens Pirie/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Rubens Pirie/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (175 pages, 15015127 bytes).
+Output written on main.pdf (175 pages, 15016820 bytes).
 PDF statistics:
- 2314 PDF objects out of 2487 (max. 8388607)
- 673 named destinations out of 1000 (max. 500000)
- 960 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2334 PDF objects out of 2487 (max. 8388607)
+ 685 named destinations out of 1000 (max. 500000)
+ 1056 words of extra memory for PDF output out of 10000 (max. 10000000)
 
