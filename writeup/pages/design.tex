@@ -100,9 +100,8 @@
     \\ \BK
 
     \subsubsection{Entire Class Diagram}
-    % TODO
-
-
+    \includepdf{FullUML.pdf}
+        
     \\ \bk
 
     \subsection{Class Overviews}
@@ -692,7 +691,9 @@
     \subsubsection{Refinement Algorithm (Custom)}
     This is part of the processing the map into a a computer recognisable form. The stage after this will be filling the image. In order to do this the program must have a closed shape in which it can fill. In order to do this I needed to take the output of the edge detection and make sure that all of the roads where enclosed. \\ \bk
 
-    I have been unable to find a 
+    I have been unable to find a suitable existing algorithm to complete this for me. There are several different types of filling algorithm which will be explained soon. What I did come across in my research is that there are many different types of image kernel and how they can be used to alter image properties. One useful one which I came across was was the embossing kernel. This goes over the images and essentially "bolds" all of the lines in the image. \\ \bk
+
+    With these "bolded lines" it can cause gaps which previously existed 
     \bk
 
     \subsubsection{Flood Fill}
