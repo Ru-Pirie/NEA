@@ -53,11 +53,12 @@
 
     As can be seen form the class diagram of the backend library, there is very little dependency within the library itself. This allows the backend to function independently of the program which is using it. This allows the backend to be split out and moved to another program if needed. Summarised there are four main reasons to do this:
 
-    \begin{enumerate}
+    \begin{itemize}
         \item \textbf{Modularity} - By separating the backend from the frontend one is able to be built without the other. This means that when working on my project I can take time to perfect one without impacting the other.
         \item \textbf{Reusability} - As previously stated being able to be reused is a large reason as to why to separating the elements is a good idea. Since if I wanted to expand this project for example and make a web interface for it, I could take the maths of the backend and recreate the front end in a web framework like Razor Pages.
         \item \textbf{Maintainability} - It is allot easier to maintain code when it has been organised into classes and by extension into libraries where a library is a collection of classes. It means that should something throw an error in the backend I would be able to easily isolate the issue and be able to fix it.
         \item \textbf{Testability} - In a similar vain to the Maintainability of the program being modular also means that it is very easy to implement testing. This means that as I go thorough making my program it will make it allot easier to separate variables and make isolated testing conditions. Furthermore it means that I can test the maths of the Canny Detection without having to worry about making an interface to it using the UI.
+    \end{itemize}
     \\ \BK
 
     \subsubsection{Local Application}
@@ -517,7 +518,7 @@
 
     \paragraph*{RGB \textit{(Structure)}} \mbox{} \\
 
-    \begin{figure}[H]j68888888888888888888888888888
+    \begin{figure}[H]
         \centering
         \subfloat[\centering RGB Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/RGB.png}}}
     \end{figure}\\
@@ -693,22 +694,79 @@
 
     I have been unable to find a suitable existing algorithm to complete this for me. There are several different types of filling algorithm which will be explained soon. What I did come across in my research is that there are many different types of image kernel and how they can be used to alter image properties. One useful one which I came across was was the embossing kernel. This goes over the images and essentially "bolds" all of the lines in the image. \\ \bk
 
-    With these "bolded lines" it can cause gaps which previously existed 
+    With these "bolded lines" it can cause gaps which previously existed to be filled. However there is one final issue which is where the lines have been connected there are intermittent black pixels which haven't been fixed by the embossing kernel. In order to remedy this I will employ a similar method as the hysteresis algorithm in canny edge detection. \\ \bk
+    
+    The solution I have come up with is to run over every pixel in the edge map. If there are more than a set number of white "strong" pixels around a black pixel then the black will be replaced with white. What this accomplishes is a "filling" the black pot holes. Overall this does not accomplish much however it means that if an image needs more than one pass of this "fortification" algorithm then this makes the result more reliable in the long run. \\ \bk
+
+    I have also decided that this will need to have the option of being run more than once. I found that during the testing if there where large gaps then the embossing would need to occurs more than once.\\
     \bk
 
     \subsubsection{Flood Fill}
+    This is an algorithm as old as time, I decided to go with th 8 direction flood fill. The premise behind the flood filling algorithm is to start from a seed point in the image and then spread the fill color to all connected pixels in the same region. The algorithm uses a queue to store the pixels that need to be filled, and it works by visiting each pixel in the queue, checking its 8 neighbouring pixels, and adding any unvisited pixels that belong to the same region to the queue. This process continues until all pixels in the region have been visited and filled. \\ \bk
+
+    The algorithm can be implemented in a variety of ways, and it is often used as a building block for more complex image processing, as is being used in this case, algorithms, such as object recognition, image segmentation, and feature extraction. It is also commonly used in video games and user interface design to fill shapes and create smooth animations. \\ \bk
+
+    In my version the other advantage to using the flood fill colours is that it can be shown to the user to clearly outline where the regions where which would allow them to change the thresholds and behaviour of the filling algorithm. Certain things that can be changed are the method of storing the pixels. Either in a queue of a stack. \\ 
     \bk
 
     \subsubsection{Area Rectification (Custom)}
     \bk
 
-    \subsubsection{Graph Conversion}
+    \subsubsection{Graph Conversion (Custom)}
     \bk
 
     \subsubsection{Dijkstra's Search Algorithm}
+    Dijkstra's search algorithm is a graph search algorithm that is commonly used to find the shortest path between two nodes in a graph. It was first proposed by the Dutch computer scientist Edsger W. Dijkstra in 1956, and it is widely used in computer science, especially in the fields of computer networking, transportation systems, and geographic information systems (similar to my program here). \\ \bk
+
+    The algorithm works by maintaining a priority queue of nodes that have been visited and continually updating the distance to the nearest unvisited node until the destination node has been reached. The algorithm operates as follows:\\
+
+    \begin{itemize}
+    \item Start at the source node and set the distance to the source node to zero.
+
+    \item Visit the neighbors of the current node and update their distances based on the distance to the current node and the edge weight between the current node and the neighbors.
+
+    \item Choose the node with the smallest distance as the next node to visit, and mark it as visited. Repeat the process until the destination node has been reached or all nodes have been visited.
+    \end{itemize}
+
+    Dijkstra's algorithm is guaranteed to find the shortest path between two nodes in a graph if there are no negative edge weights. The algorithm is efficient and can be implemented in a variety of programming languages, including C#.\\ \bk
+
+    In this map processing project, Dijkstra's algorithm can be used to find the shortest path between two points on a map, which can be useful for navigation, route planning, and other applications. The algorithm can be adapted to work with different types of maps, such as road networks or public transportation systems, by representing the map as a graph and defining the edge weights between nodes based on the specific requirements of this application. \\ \bk
+
+    As I mentioned really usefully for this application because if I could expand the application to work out the weights of different roads based on width. \\ 
     \bk
     
     \subsubsection{A-Star Search Algorithm}
+    A* is a graph search algorithm that is commonly used to find the shortest path between two nodes in a graph. It was first proposed by Peter Hart, Nils Nilsson, and Bertram Raphael in 1968 and is considered an extension of Dijkstra's algorithm. \\ \bk
+
+    Like Dijkstra's algorithm, A* operates by maintaining a priority queue of nodes that have been visited, and it continually updates the distance to the nearest unvisited node until the destination node has been reached. The key difference between A* and Dijkstra's is that A* incorporates a heuristic function to estimate the remaining distance from a node to the destination node. This heuristic function allows A* to prioritize nodes that are likely to be closer to the destination node, making it more efficient than Dijkstra's algorithm in many cases. \\ \bk
+
+    The algorithm operates as follows:
+    \begin{itemize}
+        \item Start at the source node and set the distance to the source node to zero.
+        \item Visit the neighbors of the current node and update their distances based on the distance to the current node, the edge weight between the current node and the neighbors, and the estimated remaining distance to the destination node.
+        \item Choose the node with the smallest estimated total distance (the sum of the distance to the current node and the estimated remaining distance to the destination node) as the next node to visit, and mark it as visited. Repeat the process until the destination node has been reached or all nodes have been visited.
+    \end{itemize}
+
+    A* is often used in computer science and engineering applications that require finding the shortest path between two nodes in a graph, such as computer graphics, video game development, robotics, and artificial intelligence. In this map processing project, A* can be used to find the shortest path between two points on a map, taking into account factors such as road conditions, traffic, and elevation, to provide an optimal route for navigation and route planning which adapts to given conditions. \\ \bk
+
+    Then overriding main reason which I am choosing to go with a validation of A* with cartesian distance is that it is significantly faster and more efficient than Dijkstra's. Although Dijkstra has the advantage of post routing meaning that as long as the start node is the same the route can be found instantly. 
+    \bk
+
+    \subsubsection{Binary Heap Min Priority Queue}
+    A binary heap is a type of data structure that can be used to implement a priority queue, where elements are kept in order based on their priority. A binary heap can be either a min-heap or a max-heap, depending on whether the smallest or largest element is considered to have the highest priority. In a min-heap, the parent node of the heap has a value that is less than or equal to the values of its children.\\ \bk
+
+    A binary heap is implemented as a complete binary tree, where all levels of the tree are filled except possibly the last one, which is filled from left to right. In a min-heap, the smallest element is stored at the root of the tree, and the two children of a node with a smaller value are stored in the left and right child nodes of that node.\\ \bk
+    
+    To implement a min-priority queue using a binary heap, we can use the following operations;\\ \bk
+
+    Insertion: To insert an element into the binary heap, it is added to the next available position in the last level of the tree, and then "bubbled up" the tree by swapping it with its parent until the min-heap property is restored.\\ \bk
+    
+    Extraction of minimum element: To extract the minimum element from the binary heap, we remove the root node and replace it with the last element in the tree. The new root node is then "sunk down" the tree by swapping it with its smaller child until the min-heap property is restored.\\ \bk
+    
+    Decrease key: To decrease the priority of an element in the binary heap, we first find the element and update its value, and then "bubble up" the node by swapping it with its parent until the min-heap property is restored.\\ \bk
+    
+    Binary heaps are used in many algorithms, such as Dijkstra's shortest path algorithm and the A* algorithm which happen to be the exact algorithms I am using, because they have the property of being able to efficiently maintain a priority queue in a sorted order. They have a time complexity of O(log n) for inserting and extracting elements, which makes them a fast and efficient data structure for implementing priority queues, keeping the delay of processing low.\\ \bk
+
     \bk
 
 
