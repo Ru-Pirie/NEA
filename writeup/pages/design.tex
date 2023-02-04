@@ -666,8 +666,29 @@
     \subsection{File Structure}
     % TODO
     \subsubsection{Program Files}
+    I have taken the decision of splitting my project into a front end and a back end. This came from the interview talking to my end user. They felt that having multiple different ways of interacting with the program. In order to do this I will separate the front end and the back end processing. 
+
     \bk
+
     \subsubsection{Generated Files}
+    When the program is run there will need to be certain directories created in order to store the outputs of the files. The requirement for this will need to be every time the program runs it will check to see if the directories and files exist, if they do not then it will create them. If they do then it will not create one or override the existing files. \\ \bk
+
+    The directory structure will be as follows:
+    \begin{pseudocode}
+    .
+    └── Program/
+        ├── saves/
+        │   └── <run-id>
+        ├── runs/
+        │   └── <run-id>/
+        │       └── image(s).png
+        ├── logs/
+        │   ├── <run-id>.log
+        │   └── master.log
+        └── settings.conf
+    \end{pseudocode}
+
+
     \bk
 
     \BK
@@ -710,9 +731,36 @@
     \bk
 
     \subsubsection{Area Rectification (Custom)}
+    This came about due to an issue with the flood filling, the issue with the flood fill is that it fills every single area that there is in the chance that the user will pathfind within a pond marked on the map for example. The solution which I have arrived to to solve this is to take the two extremes of every filled area. \\ \bk
+
+    Using these two extremes we can calculate the square boundary of the filled area.
+
+    $$
+        (X_{max} - X_{min}) * (Y_{max} - Y_{min}) = \text{Square Area} 
+    $$
+
+    \\ \bk
+
+    With this area we can take the actual filled area of the shape and work out the ratio of one to the other by doing
+
+    $$
+        \frac{\text{Actual Area}}{\text{Calculated Area}} = \text{Area Ratio}
+    $$
+    \\ \bk
+
+    The user will then enter a ratio and if the ratio is greater than the calculated ratio then the area us rejected as not a road. The reason that this works is roads are characteristic's long and winding which means that they will have a small ratio making it easy to single them out. The one downside is that this can produce false positives if there is a thick straight road however in testing this did not seem to be an issue. \\
+
+
     \bk
 
     \subsubsection{Graph Conversion (Custom)}
+    This is not an algorithm as such but more of a method to complete a goal. Once the image has been processed to the fullest degree, this is after the road detection and area rectification has taken place.  \\ \bk
+
+    The way that this algorithm functions is that it takes the corrected filled image, it will pass over the entire image converting all "non white" pixels to white and keeping black ones black. After it has done this the program will iterate over all of the pixels in the image and if it is white it will take all of the neighbors and add a connection. \\ \bk
+
+    As an optimisation step I took the decision to only add nodes to the graph which "exist", this cuts down on the nodes in the image drastically. This is because without making this optimisation the amount of neighbors nodes are always 8 which causes the program complexity to drastically increase. Therefore I am making the decision to remove all of those nodes from the graph in the first place. \\ \bk
+
+    The identifier of the nodes will be a Coordinate object which contains the X and Y. These are the references which are stored as the node's children which can then be used to edit the final image to show the user the path.
     \bk
 
     \subsubsection{Dijkstra's Search Algorithm}
