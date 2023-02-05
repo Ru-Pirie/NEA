@@ -81,19 +81,20 @@
 
         I really like the way in which when there is a visual thing the program seamlessly floats to the front and lets you see the image. The one thing which is not amazing about it is that by default it forces itself to the front. This makes it very difficult to do other things while it is processing. There is a setting to change this however it is not easily accessible. What might be nice is a minimise button on the window. \\ \bk
 
-        Finally, the way in which I can move the files around from one folder to another is very useful. The nice thing about the program in particular is how I can just click and drag a file from file explorer into the program.
-        " \\ \BK
-
+        Finally, the way in which I can move the files around from one folder to another is very useful. The nice thing about the program in particular is how I can just click and drag a file from file explorer into the program, it makes it intuitive as to how to use the program.
+        "
 
         \item What do you think of the pathfinding aspect of the program? \\\bk
         "
-        I think that this has been pulled off perfectly, the way in which the points will jump to the roads on the map makes it easy to 
-        " \\ \BK
+        I think that this has been pulled off perfectly, the way in which the points will jump to the roads on the map makes it easy to just click and not risk it being not on the road if you get what I mean. The way in which the pathfinding works by drawing the line makes it easy to see where it is going. \\
+
+        Furthermore if the Dijkstra one is used it lets me test lots of different places which is really useful.
+        " 
     
         \item Do you believe that my program accomplished my objectives? \\\bk
         "
-        I believe that all of the objectives that you outlined in your objectives chapter have been completed. I also feel that in some aspects the program you have made has exceeded expectations. However there are some things which I mentioned in the initial interview which you did not manage to incorporate. However on the whole I feel that this program meets and exceeds all of the written objectives. As well as this I feel that this program
-        " \\ \BK
+        I believe that all of the objectives that you outlined in your objectives chapter have been completed. I also feel that in some aspects the program you have made has exceeded expectations. However there are some things which I mentioned in the initial interview which you did not manage to incorporate. However on the whole I feel that this program meets and exceeds all of the written objectives.
+        " 
 
         \item What could be better about the program what are your Criticisms/Improvements? \\\bk
         "
@@ -101,23 +102,42 @@
 
         Secondly, when it comes down to the user settings it would be nice if there was a small description to go along with them. While the names are very self explanatory and make logical sense, to someone who just wants to use it as a tool it could be a little of putting. What I suggest is that you make it so that the descriptions pop up in the side part of the screen where it displays the rest of the information.  \\ \bk
 
-        Penultimately, \\ \bk
-        
-        Finally, \\ \bk
-
-
-        " \\ \BK 
-
+        Finally, a way to stop the Dijkstra algorithm, it was frustrating when I made a mistake and clicked in the wrong point and had to wait for it to finish before I could click another. It would be nice if there was a STOP button somewhere.        "
     \end{enumerate}
     \BK
 
     \subsection{Reflection on Feedback}
+    From what the end user has said I feel that most of the improvements are relating to the user interface and not the actual function of the program itself. The most interesting piece of feedback for me is the request of being able to have a selector for the type of algorithm to use when doing the pathfinding. This was not something that I had imagined when making the program, however looking at it form a less technical perspective I can see how this would be useful. \\ \bk
+
+    The way in which I could see this being implemented is through the use of a dropdown menu in the pathfinding menu. In there would be the options for which algorithm to use. Once a user has selected one it could give them a quick description to allow them to see how it differs to the first one. \\ \bk
+
+    The second piece of key feedback that I saw was adding descriptions of the settings when the user clicks on them. I think this is a great idea and during development had considered it. The main issue was how to show the user what the description of the settings was. I think the way that I would do it is have the settings contained within a form again. Similar to above the advantage to forms is that it requires less skill to navigate, most final users will be coming from phones or computers where the default way of interacting with devices is through clicking on a GUI. \\ \bk
+
+    Adding a stop button is defiantly worth adding to the dijkstra's as I feel this is a rather large limitation of my current program. This is when you run the program it will, not crash, but hang and do nothing else while it is pathfinding, this is especially an issue where the algorithm cannot find the end node since it will then run the entire map. The main issue with implementing this is that it would have to send messages across threads which can cause other issues. Overall I think that this is something to come back to. \\ \bk
+
+    As for not being able to show a scale on the map, since this was not an objective I still feel that it was not crucial that it was incorporated however it would be a nice feature to have. I would end up with a setting where the user could enter the scale of the map at the beginning and then that data be carried through the data flow of the program. \\ \bk
+
+    \bk
 
     \subsection {System Improvements}
     I believe that there are several areas to improve upon including some which where not outlined in the end user feedback. \\ \bk
 
-    \paragraph*{Graph Traversal} \mbox{}
-    When it came down to the ways in which the user could use the map and then traverse it the program did work and achieved the objectives however it is not always what is wanted. I believe that if I could improve the system more I would implement a better system to select the traversal algorithm. As well as this I believe that I would
+    \paragraph{Graph Traversal} \mbox{}\\
+    When it came down to the ways in which the user could use the map and then traverse it the program did work and achieved the objectives however it is not always what is wanted. I believe that if I could improve the system more I would implement a better system to select the traversal algorithm. Perhaps if the user could select which one they wanted at the time rather than having to do it before hand could relieve some of the irritation when the user goes to pathfind through the map and then cant choose the algorithm they want. \\ \bk
+
+    A little more on the visual side of the graph traversal, I feel that if I could improve more I would add an option to change the way the path is drawn on the image. This is from feedback from testing my program is that if you have an image which is rather dark then it can be hard to pick out the line. Whilst the purple colour is pretty good having the option to make it thicker or change its colour I think would be a valid feature. \\ \bk
+
+    \paragraph{User Settings} \mbox{}\\
+    Looking at my end users feedback on the user settings I understand what they are saying with regard to the settings interface. While it serves its purpose and allows the user to change the functionality of the program it is not the most user friendly interface and could be daunting to someone trying to use it. One way I can think of overcoming this is perhaps turning it into a windows form meaning that it would be more intuitive to use. \\ \bk
+
+    More on the adding descriptions to the settings, I feels that this is a great idea and was overlooked in the initial design of the program and how the user interface functions itself. The issue with adding descriptions to settings however is that these descriptions would have to be added somehow into the config file while keeping that user editable. Either that or the settings be hard coded which I feel would be a mistake.\\ \bk    
+    
+    \paragraph{What I would do differently next time} \mbox{} \\
+    If I where to write this program again I would use a pre made user interface. This is because of the massive hea ache that came half way through making the program which was the update to windows 11. This caused my program to stop working because it replied on the API of windows framework. The way in which I overcame this was manual calculations of the window dimensions. However I feel that I could have avoided all of this if I had just used windows forms or some other similar UI framework. The main reason that I did not in the first place was that I wanted to keep this project as simple as possible in terms of the user interface however in my aim to do this you could argue that it had the opposite effect. \\ \bk
+
+    The only other real thing I would change is the class layout. This is not so much of a user interface decision however even with my best efforts this first iteration of the program still has a significant amount of class coupling which could cause issues if I where to make it into a web application. \\ \bk
+
+    Overall, there is very little in terms of the core principles of the program I would change, the main downfall is the design of the user interface and even then I believe it was designed well and accomplished its goal.
     
     \BK
 

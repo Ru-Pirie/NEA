@@ -325,44 +325,6 @@
             \bk
             The simplest way of thinking of this is that you are performing matrix multiplication on a two matrices except one of them has been flipped both vertically and horizontally. Mapping the point [2, 2] to [0, 0].
 
-            \subsubsection{Second Interview}
-            \normalsize
-            Now that I have done some more research into the various ways there are to complete this task I have formed some more questions to ask my end user to get a solid and
-            defined list of objectives for the program. AI will couple this with my research to form a complete plan to form said objectives. As well as this however the second interview
-            will allow me to correct any inaccurate questions that where asked in the initial interview. This is because after I received my initial responses I realised that I
-            needed to be more clear with what I was asking and the information that I wanted back. \\
-            \bk
-
-            HAS BEEN ASKED WAITING FOR RESPONSES
-            \begin{enumerate}
-                \item {\bf{Bobbert?}} \\
-                \bk
-                bobbert.
-                \item {\bf{Cobbert?}} \\
-                \bk
-                cobbert.
-                \item {\bf{Dobbert?}} \\
-                \bk
-                dobbert.
-                \item {\bf{Fobbert?}} \\
-                \bk
-                Fobbert.
-                \item {\bf{Norbert?}} \\
-                \bk
-                norbert
-                \item {\bf{Dilbert?}} \\
-                \bk
-                dilbert.
-                \item {\bf{Bobbert?}} \\
-                \bk
-                bobbert.
-            \end{enumerate}
-
-            \subsubsection{Evaluation of Second Interview}
-            After conducting this second interview I feel I now have a firm understanding of what I need to achieve with this program. I will also take this opportunity to create a prototype of the 
-            the different parts of the program to gauge the difficulty of the program and any problems I may encounter before moving onto the final solution. \\ \bk
-            Apart from that however I feel the interview went\dots % add to this
-
         \subsection{Prototyping}
         \subsubsection{Prototype Objectives} 
         Before I begin the creation of my prototypes I will create a list of sections I wish to complete by the end. This will allow me to keep perspective and make sure that the prototype remains on track. I have decided that the parts of my final solution are:
@@ -822,7 +784,6 @@ public double[,] FillImage(double[,] imageArray)
 }
         \end{cscode}
 
-
         \subsubsection{Graph Class and Graph Traversal}
         The graph data structure is well documented and has two main ways of being represented. One of which is a Adjacency List and the other is an Adjacency Matrix, each have their advantages and disadvantages so I will start with those.
 
@@ -1102,7 +1063,11 @@ public partial class ShowImage : Form
 }
         \end{cscode}
 
-        These two partial classes come together to form the final form. One thing which I learned from this prototype is that there are several ways that the image can be made to fill the text box and that needs to be carefully considered.
+        \subsubsection{Analysis of Prototype}
+
+        These two partial classes come together to form the final form. One thing which I learned from this prototype is that there are several ways that the image can be made to fill the text box and that needs to be carefully considered. I also learned from these prototypes, especially with the edge detection is that if they are not optimised they can cause a computer to really slow down and become unresponsive. This was evident with the multithreaded version which cause the computer to run out of ram and crash. This turned out to be an object reference issue where the bitmap images where being recreated every ime instead fo transferring the reference. This caused the memory to fill and slow down the program. \\ \bk
+
+        The forms prototype was very interesting since it showed me how I could go about getting th euler inputs from when they clicked on an image. This will allow me in the main program to pathfind from point to point with minimal knowledge of the program. This is because otherwise I will have to have the user put in coordinates of points on th map. \\
             
 
         \subsection{Objectives}
@@ -1114,7 +1079,7 @@ public partial class ShowImage : Form
         % 2. Don't mention programming techniques
         % 3. Objectives for the program not the programmer
         
-        After conducting the initial and second interviews and reflecting upon the results of my research I have formed a list of objectives that the program must meet to be considered 
+        After conducting the initial interview and reflecting upon the results of my research I have formed a list of objectives that the program must meet to be considered 
         complete. As well as the base objectives I have also, with help from my end user, come up with extensions which will increase the effectiveness of my solution overall. \\
         \bk
         
@@ -1300,8 +1265,16 @@ public partial class ShowImage : Form
         % not all modeling needs to go in this section
         % class diagram and equations to be used
         % mockup of the interface (less vital)
-        % \subsection{Modelling}
-        %     TODO
+        \subsection{Modelling}
+            \subsubsection{General Overview of Structure}
+            \BK
+
+            \subsubsection{User Interface}
+            \BK
+
+            \subsubsection{File Storage}
+            \BK
+            % TODO
         \bk
 
 \end{FlushLeft}
