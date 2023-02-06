@@ -219,7 +219,7 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Canny Result Class Diagram]{{\includegraphics[width=8cm]{images/UML/CannyResult.png}}}
+        \subfloat[\centering Canny Result Class Diagram]{{\includegraphics[width=10cm]{images/UML/CannyResult.png}}}
     \end{figure}\\
 
     This is contained within the static class of structures in the backend library. There is no methods or functions contained within this class since it is in fact a structure. Its main function is to contain any relevant data from Canny Edge Detection.
@@ -268,7 +268,7 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Gradients Class Diagram]{{\includegraphics[width=8cm]{images/UML/Gradients.png}}}
+        \subfloat[\centering Gradients Class Diagram]{{\includegraphics[width=10cm]{images/UML/Gradients.png}}}
     \end{figure}\\
 
     This is a structure located in the back end library of my project, its main function in the program is store the result of the gradient calculations. As with many of my structures in this code, there is no methods contained within. 
@@ -280,7 +280,7 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Graph Class Diagram]{{\includegraphics[width=8cm]{images/UML/Graph.png}}}
+        \subfloat[\centering Graph Class Diagram]{{\includegraphics[width=10cm]{images/UML/Graph.png}}}
     \end{figure}\\
 
     The graph class is located in the backend portion of the project. Its responsible for holding all node data corresponding to a graph. The general implementation of this graph class is rather basic however it is responsible for allowing the majority of the program to work. All of the methods inside the class are generics. This means that a graph of any data type can be created. This especially usefully in my case because it allows me to have the nodes as Coordinate structures meaning that I can easily get its corresponding point on a map image. \\ \bk
@@ -302,7 +302,7 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Graph Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/GraphException.png}}}
+        \subfloat[\centering Graph Exception Class Diagram]{{\includegraphics[width=10cm]{images/UML/GraphException.png}}}
     \end{figure}\\
 
     Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
@@ -313,9 +313,12 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering IHandler UML Diagram]{{\includegraphics[width=12.5cm]{images/UML/IHandler.png  }}}
+        \subfloat[\centering IHandler UML Diagram]{{\includegraphics[width=10cm]{images/UML/IHandler.png  }}}
     \end{figure}\\
 
+    This is located in the backend portion of the program. IT itself has no code due to the fact that it is an interface and is soule use is to cut down on code during the selection between async or synchronous edge detection. It requires all child classes to implement the functions, Start and Result. These will be used to as the names suggest start the process and get the result of the process. \\ \bk
+
+    The advantage to using an interface here means that the object can be cast to a simplified version meaning that two different classes can be assigned to the same variable removing the need for guard clauses. \\
     \bk
 
     
@@ -323,8 +326,18 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Input Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Input.png}}}
+        \subfloat[\centering Input Class Diagram]{{\includegraphics[width=15cm]{images/UML/Input.png}}}
     \end{figure}\\
+
+    This is responsible for allowing the user to interact with the program and is an integral part. It is located in the front end of the project due to the fact that it is dealing with the user input. There are several functions in this class which act in different ways. \\ \bk
+
+    One of the integral functions of the program is to be able to get the user to select an option from a list of options. The function works by taking an IEnumerable of strings which are the options. Once the user has selected an option th function returns the 0-indexed reference to the option that was selected. \\ \bk
+
+    The WaitInput method is soul's used for waiting for the ser to press any key to move on. This can be used when waiting for the user to read something without there having to be an arbitrary time delay. \\ \bk
+
+    The OptionSelector method is used in the setting section of the program. This method will take an IEnumerable of tuples which are used for settings. It allows the user to press the enter or space-bar key which changes the boolean value of a string. This can be used to change the "SaveToZip" file. Once the user has completed all of their setting changes and choses to exit the function will return the same IEnumerable with the changed boolean values. \\ \bk
+
+    The following functions GetInput, TryGetInput, TryGetInt, TryGetDouble, GetInt and GetDouble are all used as the name suggests to get user input. The Try version of the methods instead return a boolean if the getting of the input was successful. These echo the double.TryGet in c# however instead they are tied into the custom menu system of the program. The non Try versions will throw an exception if they are unsuccessful in getting the input which will need to be handled further up the call stack.\\ 
 
     \bk
 
@@ -333,9 +346,14 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Kernel Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Kernel.png}}}
+        \subfloat[\centering Kernel Class Diagram]{{\includegraphics[width=10cm]{images/UML/Kernel.png}}}
     \end{figure}\\
 
+    This is the class which is responsible for generating image kernels from a supplied image. This is also writer with generics meaning that the kernel will be able to be generated from and 2D array. This was especially usefully when it came down to using both doubles to represent black and white pixels and Color objects which represent an RGB pixel. \\ \bk
+
+    This class implements two types of fetching the kernel, the first of which is Constant and the second of which is Duplication. The first method, duplication runs the exact same as the second method, it will take in the center of the kernel and the size. It will run a loop over the "area" of the desired kernel if the coordinate is inside the bound of the image then it will use that in the kernel however if it is not in the duplication version it will take the initial kernel and duplicate that. This is explained in more detail in the analysis section when I was investigation this field. The constants version will just use a constant value which in this  case is 128 which is a grey colour in black and white. \\ \bk
+
+    The resulting kernel is then converted into a matrix and retuned in order to be convoluted with the processing kernel. The only exception to this is the gaussian kernel. This does not take in an image, instead it applies the 3D statistical gaussian distribution to a matrix producing a 3D Gaussian distribution matrix of a given size. This is then returned to be used in the Canny edge detection section.\\
     \bk
 
     
@@ -356,14 +374,35 @@
         \subfloat[\centering Log Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Log.png}}}
     \end{figure}\\
 
+    The Log class is located in the front end of the program due to the fact that it is interacting with the user, there is also a Logger class, this is responsible for the outputs and is located back end and is explained below. Most of the methods contained within this class do the same thing by printing a log message however there are two distinct versions. \\ \bk
+
+    The first of are the methods which contain only a message as an argument, these logs are not displayed to the user and are instead sent directly to a save file to be logged. I chose to do this because it will allow me to hide some complexity to the user. \\ \bk
+
+    The second version of the log is the one which if detailed logging is enabled will be shown to the user. There is a case in this method however in which the setting can be overridden. This means that for important messages like the beginning and end will be shown even if the user wants it or not. \\ \bk
+
+    The end success and end error functions are used to end a run which as stated above overrides the logging and forces it to the side. It also saves the outputs and manages all of the file structures. \\ \bk
+
+    There are several static properties of the class these are the ascii colour codes which are used to make the user interface more palatable to the user. The over very important property is the current line, this allows the program to tell how far down the log side it is and to see if it needs to be cleared. It is incremented every time a new line is logged. \\
+
     \bk
 
     \paragraph{Logger \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Logger Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Logger.png}}}
+        \subfloat[\centering Logger Class Diagram]{{\includegraphics[width=14cm]{images/UML/Logger.png}}}
     \end{figure}\\
+
+    This is the part of the code which is responsible for saving all of the users files which have been generated though the program. Since the methods contained within are rather generic in how they could function I will bullet point the general idea behind each one.
+
+    \begin{itemize}
+        \item CreateDirStructure - As the name suggests this creates the desired directly structure for the user depending on how the designer wishes it to be laid out. This checks if the directories exist and if they don't then it creates them. This is not responsible for creating any of the files used in the program like settings.conf or master.log
+        \item CreateRun - The use for this is to create a run, this will create a directory, in this program, inside the runs folder. It also will create a run log file with a random guid. This guid is then returned to be used in the rest of the program and when logging.
+        \item WriteLineToLogFile - Writes a line to a log file given a UUID / Guid. It will locate the file and append it to the end. 
+        \item WriteLineToMaster - This will append a line to the master log file which is located in this case inside the logs directory.
+        \item SaveBitmap - Both the functions here will save a bitmap into a folder given a GUID, if the double array is supplied then it converts to a bitmap then it is saved. If a bitmap is supplied the bitmap is saved.
+        \item Uuid - Returns a new UUID also known as a GUID
+    \end{itemize}
 
     \bk
 
@@ -371,7 +410,7 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Logger Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/LoggerException.png}}}
+        \subfloat[\centering Logger Exception Class Diagram]{{\includegraphics[width=10cm]{images/UML/LoggerException.png}}}
     \end{figure}\\
     Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
     \bk
@@ -380,9 +419,14 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Map File Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/MapFile.png}}}
+        \subfloat[\centering Map File Class Diagram]{{\includegraphics[width=15cm]{images/UML/MapFile.png}}}
     \end{figure}\\
 
+    This is located in the backend library of the project. Its function is to store and create map save files.All of the methods contained within with the suffix { get; set;} are actual properties on the class which are used to store information about the save file. \\ \bk
+
+    The file extension regex is part of the properties is used to validate whether a given file is actually a map file. This comes in usefully when recalling a map from a save file. This is when the method Initialize comes in useful, it takes in the file path, validates it and then according to a set of rules will read in the custom binary file, the actual reading of the map fle is done in the ReadMapFile method. However this is called from within the validate function since we only want this to run if the file is valid. \\ \bk
+
+    If at any point it encounters an error it will throw an exception which tells the user what the issue is. The final function of this class is saving the map file. This is done once all processing has been done, it saves it using a binary file. It is important to me that the file was all in one place and not split up allowing it to be transferred easily. \\ 
     \bk
 
 
@@ -401,6 +445,11 @@
         \centering
         \subfloat[\centering Matrix Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Matrix.png}}}
     \end{figure}\\
+
+    This is located in the backend portion of my program. Again as above the methods of the class which are responsible for storing data to do with the program are denoted with { get; set; }. The X and Y properties of the matrix class denote the dimensions of the matrix. \\ \bk
+    
+    There is a direct array access to the data in the matrix.
+
 
     \bk
 
@@ -618,8 +667,16 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Structures Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Structures.png}}}
+        \subfloat[\centering Structures Class Diagram]{{\includegraphics[width=7.5cm]{images/UML/Structures.png}}}
     \end{figure}\\
+
+    This is located in the backend of the project, this is due to the fact that all it contains is the structures which can be seen written out below. Each of them contains public properties which can then be used in the program to move large amounts of data around without the need for massive tuples.
+
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Structures Class Diagram]{{\includegraphics[width=17cm]{images/UML/Backend.png}}}
+    \end{figure}\\
+
 
     \bk
 
@@ -639,6 +696,8 @@
         \centering
         \subfloat[\centering Text Wall Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/TextWall.png}}}
     \end{figure}\\
+
+    This is located in the front end section of the program. It is used to send blocks of text which may be used more than once to keep the code clean and editable. The functions in here are self explanatory and send messages to the user they are not integral to the function of the program and are just separated for ease of use. \\ 
 
     \bk
 
@@ -673,8 +732,10 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering View Image Form UML Diagram]{{\includegraphics[width=12.5cm]{images/UML/ViewImageForm.png}}}
+        \subfloat[\centering View Image Form UML Diagram]{{\includegraphics[width=11cm]{images/UML/ViewImageForm.png}}}
     \end{figure}\\
+
+    This is located in the front end of the program and is responsible for showing the image to the user. This is all that the form does and has the image on the left and the continue button on the right. Inside the form is code to dynamically resize the elements of the form to fit the screen. The only function written by me is the nextButton which closes the form and resumes the program.
 
     \BK
 

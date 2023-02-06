@@ -1729,11 +1729,6 @@ public class CannyEdgeDetection
         UpperThreshold = upperThreshold;
     }
 
-    /// <summary>
-    /// Convert a given image in the form of a RGB double array will convert it to a single double array of black and white pixels.
-    /// </summary>
-    /// <param name="input">The image to be converted to black and white</param>
-    /// <returns>The processed double array</returns>
     public double[,] BlackWhiteFilter(Structures.RGB[,] input)
     {
         double[,] output = new double[input.GetLength(0), input.GetLength(1)];
@@ -2050,9 +2045,6 @@ public class Pre
         _imagePath = imagePath;
     }
     
-    
-    /// <exception cref="PreprocessingException"></exception>
-    /// <exception cref="Exception"></exception>
     public void Start(Action updateProgressAction)
     {
         updateProgressAction();
@@ -3036,13 +3028,6 @@ public class Input
         _menuInstance = menuInstance;
     }
 
-    /// <summary>
-    /// A function to easily display a menu and get an option from a supplied list.
-    /// </summary>
-    /// <param name="title">Title of the menu to be displayed</param>
-    /// <param name="options">Options to be displayed</param>
-    /// <param name="clear">Clear the screen on function call</param>
-    /// <returns>0 based index for the option which was selected</returns>
     public int GetOption(string title, IEnumerable<string> options, bool clear = true)
     {
         while (Console.KeyAvailable) Console.ReadKey(true);
@@ -3338,11 +3323,7 @@ public class Log
         _ = new Logger(true);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="message"></param>
-    /// <param name="type">0 - Error, 1 - Warning, 2 - Event, 3 - End</param>
+    // 0 - Error, 1 - Warning, 2 - Event, 3 - End
     private void LogParent(Guid runGuid, string message, int type, bool detailed)
     {
         if (!bool.Parse(Settings.UserSettings["detailedLogging"].Item1) && !detailed) return;
