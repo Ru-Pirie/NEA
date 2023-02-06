@@ -1,4 +1,4 @@
-\begin{FlushLeft}
+\begin{flushleft}
     \section{Analysis} 
         \subsection{Statement Of Problem}
         \normalsize  
@@ -298,13 +298,13 @@
             I can afford to remove the $(i - (k + 1))$ section due to the fact that I am not having to calculate the Gaussian distribution at a non-centred location. One notable thing to mention is that in many cases it is not necessary to calculate the Gaussian kernel by hand and an approximation can be used. The example below is the approximation when $\sigma$ has a value of 1. \\ \bk
             
             \begin{gather*}
-                B = \frac{1}{159} \begin{bmatrix} 
+                B = \frac{1}{159} \begin{pmatrix} 
                 2 & 4 & 5 & 4 & 2\\
                 4 & 9 & 12 & 9 & 4\\
                 5 & 12 & 15 & 12 & 5\\
                 4 & 9 & 12 & 9 & 4\\
                 2 & 4 & 5 & 4 & 2
-                \end{bmatrix} * A
+                \end{pmatrix} * A
             \end{gather*}
             \bk
             
@@ -312,13 +312,13 @@
             Convolution is the method at which most image manipulation is achieved. It evolves taking a altering kernel and a kernel of the original image and then combines the two through convolution. The generalised equation for this is as follows. \\ \bk
             
             \begin{gather*}
-            {\displaystyle {\begin{bmatrix}x_{11}&x_{12}&\cdots &x_{1n}\\x_{21}&x_{22}&\cdots &x_{2n}\\\vdots &\vdots &\ddots &\vdots \\x_{m1}&x_{m2}&\cdots &x_{mn}\\\end{bmatrix}}*{\begin{bmatrix}y_{11}&y_{12}&\cdots &y_{1n}\\y_{21}&y_{22}&\cdots &y_{2n}\\\vdots &\vdots &\ddots &\vdots \\y_{m1}&y_{m2}&\cdots &y_{mn}\\\end{bmatrix}}=\sum _{i=0}^{m-1}\sum _{j=0}^{n-1}x_{(m-i)(n-j)}y_{(1+i)(1+j)}}
+            {\displaystyle {\begin{pmatrix}x_{11}&x_{12}&\cdots &x_{1n}\\x_{21}&x_{22}&\cdots &x_{2n}\\\vdots &\vdots &\ddots &\vdots \\x_{m1}&x_{m2}&\cdots &x_{mn}\\\end{pmatrix}}*{\begin{pmatrix}y_{11}&y_{12}&\cdots &y_{1n}\\y_{21}&y_{22}&\cdots &y_{2n}\\\vdots &\vdots &\ddots &\vdots \\y_{m1}&y_{m2}&\cdots &y_{mn}\\\end{pmatrix}}=\sum _{i=0}^{m-1}\sum _{j=0}^{n-1}x_{(m-i)(n-j)}y_{(1+i)(1+j)}}
             \end{gather*} \bk
 
             To give a more comprehensive example this can be simplified down to:
 
             \begin{gather*}
-                \displaystyle \left({\begin{bmatrix}a&b&c\\d&e&f\\g&h&i\end{bmatrix}}*{\begin{bmatrix}1&2&3\\4&5&6\\7&8&9\end{bmatrix}}\right)\\  \\
+                \displaystyle \left({\begin{pmatrix}a&b&c\\d&e&f\\g&h&i\end{pmatrix}}*{\begin{pmatrix}1&2&3\\4&5&6\\7&8&9\end{pmatrix}}\right)\\  \\
                 \rightarrow{} (i\cdot 1)+(h\cdot 2)+(g\cdot 3)+(f\cdot 4)+(e\cdot 5)+(d\cdot 6)+(c\cdot 7)+(b\cdot 8)+(a\cdot 9)
             \end{gather*}
 
@@ -466,7 +466,7 @@ public Matrix GetGaussianKernel(int k, double sigma)
         \paragraph*{3. Calculation of XY Gradients} \mbox{} \\
         The first edge picking stage of canny edge detection is the calculation of the gradients of the image in both the X axis and the Y axis. In order to achieve this two more kernels are used. They are known as the Sobel operators. \\
         \begin{gather*}
-            {\displaystyle M_{y}={\begin{bmatrix}+1&0&-1\\+2&0&-2\\+1&0&-1\end{bmatrix}}\quad {\text{and}}\quad M_{x}={\begin{bmatrix}+1&+2&+1\\0&0&0\\-1&-2&-1\end{bmatrix}}}
+            {\displaystyle M_{y}={\begin{pmatrix}+1&0&-1\\+2&0&-2\\+1&0&-1\end{pmatrix}}\quad {\text{and}}\quad M_{x}={\begin{pmatrix}+1&+2&+1\\0&0&0\\-1&-2&-1\end{pmatrix}}}
         \end{gather*} \bk
         
         The code which is used to perform this section of the canny edge detection is as follows, note that for the gradient in Y the matrix is replaced with the Y matrix and its code can be seen at \textit{5.1.1 Lines 416 through 432}. \\ \bk
@@ -1280,4 +1280,4 @@ public partial class ShowImage : Form
             \BK
         \bk
 
-\end{FlushLeft}
+\end{flushleft}
