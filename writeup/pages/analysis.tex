@@ -1260,21 +1260,24 @@ public partial class ShowImage : Form
 
         \bk
 
-        % sufficiently well modelled ti be of use in subsequent stages
-        % Outline the structure of the program
-        % not all modeling needs to go in this section
-        % class diagram and equations to be used
-        % mockup of the interface (less vital)
         \subsection{Modelling}
+            I believe that most of the modelling has been completed in terms of how the algorithms will be used and how they will function above. Here I will briefly explain how I will structure the program.
+
             \subsubsection{General Overview of Structure}
+            Through research and discussion with other students about how best to aly out the program I have decided to split the front end and the back end of my program into two separate pieces. I am not sure how this will be accomplished at the moment, however there is a way to have a library project and an application project. The other option is that i develop a server version which holds the backend then there are HTML requests between the client and the server which does all of the processing. The main reason I feel a separated structure is vital is that from talking to my end user having multiple ways to use this application would be useful and having a separated back end and front end would mean that the back end could be used in the front end with no modification. 
             \BK
 
             \subsubsection{User Interface}
+            The user interface with the local run portion will be simple. From talking to my end user I have found that something graphical is a necessity. There is the option of using Windows Forms for this however the one downside to using Forms is that it is a legacy technology and can sometimes cause issues when it comes down to scaling. The other drawback which is not an issue in this case is that windows forms only works on windows, this means that this application wouldn't work on anything but a windows computer. This however is not an issue in this project due to it being out of the scope.\\ \bk
+
+            As for the design of the user interface I think that I will go with a console application with a windows form showing when the program gets to the pathfinding stage. I believe that this will give the best ballance between inputs and giving enough information.\\
             \BK
 
             \subsubsection{File Storage}
+            I feel that I will need some way of storing information, in order to do this I will have to find some medium to do this. I have not done any prototyping on this section however I believe that having a basic directory structure with sub files depending on the stuff that needs to be saved. As for the layout of this I am not sure at this time. \\ \bk
+
+            I will be using a custom binary file to store some of the map information, this will be saved somewhere by the program, it may be useful to have this accessible through a normal text editor to allow the user to see whats going. Again this is a bit of a push since this program is not meant for an expert and is just meant to work without any caveats. The allowing the user to edit their own files would open up issues with file validation which is again is out of the scope of this program.
             \BK
-            % TODO
         \bk
 
 \end{FlushLeft}

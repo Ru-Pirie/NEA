@@ -32,10 +32,18 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering High Level Overview Of Program]{{\includegraphics[width=17.2cm]{images/HighLevelOverview.png}}}
+        \subfloat[\centering Data Flow Diagram]{{\includegraphics[width=17.2cm]{images/HighLevelOverview.png}}}
     \end{figure}
 
-    The version of Edge Detection I will be using as previously stated will be Canny Edge Detection, this is as opposed to Sobel Edge Detection. The main version of filling I will be using is flood fill due to it simple nature to implement ad due to the fact that it does not take much memory and can be made recursive so it performs well. The final main algorithm I will need to use is image kernels and convolution, this will allow me to manipulate the inputted image.
+    This is a high level overview of the flow of data through the program, find a more detailed one below.\\ \bk
+
+    The version of Edge Detection I will be using as previously stated will be Canny Edge Detection, this is as opposed to Sobel Edge Detection. The main version of filling I will be using is flood fill due to it simple nature to implement ad due to the fact that it does not take much memory and can be made recursive so it performs well. The final main algorithm I will need to use is image kernels and convolution, this will allow me to manipulate the inputted image. \\
+
+    \subsubsection{Full DFD (Data Flow Diagram)}
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering Full DFD]{{\includegraphics[width=17.2cm]{images/FullDFD.png}}}
+    \end{figure}
 
     \subsubsection{Backend Library}
     For my project to ensure that I conform to the OOP principle of encapsulate what varies. I will accomplish this through the use of classes and encapsulation. Furthermore I have also made the decision to split up my solution into two separate projects, this means that my program will produce two files in order to run, one of these will be the DLL for the backend library and the other will be the executable for the front end. \\ \bk
@@ -740,7 +748,6 @@
     \BK
 
     \subsection{File Structure}
-    % TODO
     \subsubsection{Program Files}
     I have taken the decision of splitting my project into a front end and a back end. This came from the interview talking to my end user. They felt that having multiple different ways of interacting with the program. In order to do this I will separate the front end and the back end processing. This is also considered best practice when writing software since it keeps it maintainable. \\ \bk
     
