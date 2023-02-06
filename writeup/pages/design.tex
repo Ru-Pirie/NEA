@@ -283,7 +283,18 @@
         \subfloat[\centering Graph Class Diagram]{{\includegraphics[width=8cm]{images/UML/Graph.png}}}
     \end{figure}\\
 
-    The graph class is located in the backend portion of the project. Its responsible for holding all node data corresponding to a graph.
+    The graph class is located in the backend portion of the project. Its responsible for holding all node data corresponding to a graph. The general implementation of this graph class is rather basic however it is responsible for allowing the majority of the program to work. All of the methods inside the class are generics. This means that a graph of any data type can be created. This especially usefully in my case because it allows me to have the nodes as Coordinate structures meaning that I can easily get its corresponding point on a map image. \\ \bk
+
+    The methods included in this class are as follows:
+    \begin{itemize}
+        \item AddNode - As the name suggests this is responsible for adding a node to the graph. You cannot add neighbors in the same function, you pass in the node name.
+        \item RemoveNode - This is the partner method to the one above which removes a node from the graph deleting all of its neighbors connections.
+        \item AddConnection - This ties an existing node to the on the graph to an existing node. This allows us to tell where a node can go to from its current one.
+        \item GetNode - This allows the program to fetch a single node from the graph. It will only return connections on the node.
+        \item GetAllNodes - Returns all nodes in the graph including those, if they exist, which have no neighbors.
+        \item ContainsNode - Allows the program to easily check if a node exists, this is an optimisation to allow the program to run faster and at a higher level of abstraction.
+        \item Clear - Clears the node
+    \end{itemize}
 
     \bk
 
@@ -293,6 +304,8 @@
         \centering
         \subfloat[\centering Graph Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/GraphException.png}}}
     \end{figure}\\
+
+    Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
 
     \bk
 
@@ -332,6 +345,7 @@
         \centering
         \subfloat[\centering Kernel Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/KernelException.png}}}
     \end{figure}\\
+    Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
 
     \bk
 
@@ -359,7 +373,7 @@
         \centering
         \subfloat[\centering Logger Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/LoggerException.png}}}
     \end{figure}\\
-
+    Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
     \bk
 
     \paragraph{Map File \textit{(Class)}} \mbox{} \\
@@ -378,7 +392,7 @@
         \centering
         \subfloat[\centering Map File Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/MapFileException.png}}}
     \end{figure}\\
-
+    Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
     \bk
 
     \paragraph{Matrix \textit{(Class)}} \mbox{} \\
@@ -396,7 +410,7 @@
         \centering
         \subfloat[\centering Matrix Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/MatrixException.png}}}
     \end{figure}\\
-
+    Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
     \bk
 
 
@@ -478,7 +492,7 @@
         \centering
         \subfloat[\centering Preprocessing Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/PreprocessingException.png}}}
     \end{figure}\\
-
+    Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
     \bk
 
     \paragraph{Program \textit{(Class)}} \mbox{} \\
@@ -588,7 +602,7 @@
         \centering
         \subfloat[\centering Settings Exception Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/SettingsException.png}}}
     \end{figure}\\
-
+    Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
     \bk
 
     \paragraph{Stack \textit{(Class)}} \mbox{} \\
