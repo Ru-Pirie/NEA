@@ -1,0 +1,1502 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8) (preloaded format=pdflatex.fmt)
+ \write18 enabled.
+entering extended mode
+(main.tex
+LaTeX2e <2022-06-01> patch level 5
+L3 programming layer <2022-08-05>
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2e.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/footmisc\footmisc.sty))
+ (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex-dev/graphics\mathcolor.
+ltx)) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty)
+
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/librebaskerville\libreb
+askerville.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifxetex.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex)
+)) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/fontaxes\fontaxes.sty))
+ (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty)
+ (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l3k
+eys2e.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def)))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex))
+
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
+sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.st
+y
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-common.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-common-lists.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-latex.def)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.
+code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.
+sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg)))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.
+sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+filtered.code.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
+fg)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-pdftex.def
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-common-pdf.def)))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+ssoftpath.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+sprotocol.code.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+e.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.
+code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.
+code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
+r.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.basic.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.trigonometric.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.random.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.comparison.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.base.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.round.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.misc.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.integerarithmetics.code.tex)))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
+.code.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
+tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epoints.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathconstruct.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathusage.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+escopes.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+egraphicstate.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransformations.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+equick.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eobjects.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathprocessing.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+earrows.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eshade.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eimage.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eexternal.code.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+elayers.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransparency.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epatterns.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+erdf.code.tex)))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+shapes.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+plot.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-0-65.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-1-18.sty))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.st
+y
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.s
+ty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.
+code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex)))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z\tikz.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryplothandlers.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+matrix.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarytopaths.code.tex)))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/qrcode\qrcode.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/subfig\subfig.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty)))
+ (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty)
+ (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty))
+ (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/kvsetkeys\kvsetkeys.s
+ty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
+.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+))) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+) (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty)
+
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty)))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/minted\minted.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/fvextra\fvextra.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvrb.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/lineno\lineno.sty))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.sty)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/ifplatform\ifplatform.s
+ty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/catchfile\catchfile.s
+ty))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstring.tex))
+ (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/framed\framed.sty))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarymatrix.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.geometric.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.geometric.code.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.misc.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.misc.code.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.symbols.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.symbols.code.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.arrows.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.arrows.code.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.callouts.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.callouts.code.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.multipart.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.multipart.code.tex)))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryarrows.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryarrows.code.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarypositioning.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarychains.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarydecorations.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+decorations.code.tex))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryautomata.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarybackgrounds.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarypetri.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarybending.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+bending.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+nonlineartransformations.code.tex)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+arycurvilinear.code.tex)))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarypatterns.code.tex
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+arypatterns.code.tex))
+P:\NEA\Writeup>set  /p x=C:\Users\ruben\AppData\Local\Programs\Python\Python310\Scripts\pygmentize.exe 0<nul: 1>>main.aex 
+
+P:\NEA\Writeup>set  /p x= 0<nul: 1>>main.aex 
+
+P:\NEA\Writeup>set  /p x= 0<nul: 1>>main.aex 
+
+
+! LaTeX Error: Command \thesubfigure{0} undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.89 ...command{\thesubfigure{\arabic{subfigure}}}
+                                                  
+
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/librebaskerville\t1libr
+ebskvl-lf.fd) (main.aux (pages/analysis.aux) (pages/design.aux)
+(pages/testing.aux
+<Reading QR code for "https://youtu.be/cJqFovg27Bo" at level 3-Q from aux file.
+>
+) (pages/solution.aux) (pages/evaluation.aux) (pages/code.aux))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg))
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty)
+(main.out) (main.out) [1{C:/Users/ruben/AppData/Local/MiKTeX/fonts/map/pdftex/p
+dftex.map}]
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmss.fd)
+
+LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 140.
+
+
+LaTeX Font Warning: Font shape `T1/cmss/bx/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 140.
+
+(main.toc
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.55 ...ection \textit {(Class)}}{39}{section*.49}
+                                                  % [1] [2]
+Overfull \hbox (3.23993pt too wide) detected at line 130
+ []\T1/LibreBskvl-LF/regular/n/10 100
+
+Overfull \hbox (2.25993pt too wide) detected at line 131
+ []\T1/LibreBskvl-LF/regular/n/10 103
+
+Overfull \hbox (2.25993pt too wide) detected at line 132
+ []\T1/LibreBskvl-LF/regular/n/10 103
+
+Overfull \hbox (2.25993pt too wide) detected at line 133
+ []\T1/LibreBskvl-LF/regular/n/10 103
+
+Overfull \hbox (1.77994pt too wide) detected at line 134
+ []\T1/LibreBskvl-LF/regular/n/10 105
+
+Overfull \hbox (1.11993pt too wide) detected at line 135
+ []\T1/LibreBskvl-LF/regular/n/10 107
+
+Overfull \hbox (2.15994pt too wide) detected at line 136
+ []\T1/LibreBskvl-LF/regular/n/10 108
+
+Overfull \hbox (2.52994pt too wide) detected at line 137
+ []\T1/LibreBskvl-LF/regular/n/10 109
+
+Overfull \hbox (2.52994pt too wide) detected at line 138
+ []\T1/LibreBskvl-LF/regular/n/10 109
+
+Overfull \hbox (2.52994pt too wide) detected at line 139
+ []\T1/LibreBskvl-LF/regular/n/10 109
+
+Overfull \hbox (0.55994pt too wide) detected at line 140
+ []\T1/LibreBskvl-LF/regular/n/10 110
+
+Overfull \hbox (0.55994pt too wide) detected at line 141
+ []\T1/LibreBskvl-LF/regular/n/10 110
+
+Overfull \hbox (0.55994pt too wide) detected at line 142
+ []\T1/LibreBskvl-LF/regular/n/10 110
+
+Overfull \hbox (1.27994pt too wide) detected at line 153
+ []\T1/LibreBskvl-LF/regular/n/10 122
+
+Overfull \hbox (1.27994pt too wide) detected at line 154
+ []\T1/LibreBskvl-LF/regular/n/10 122
+
+Overfull \hbox (1.27994pt too wide) detected at line 155
+ []\T1/LibreBskvl-LF/regular/n/10 123
+
+Overfull \hbox (0.79994pt too wide) detected at line 156
+ []\T1/LibreBskvl-LF/regular/n/10 125
+
+Overfull \hbox (1.54994pt too wide) detected at line 157
+ []\T1/LibreBskvl-LF/regular/n/10 126
+
+Overfull \hbox (0.13994pt too wide) detected at line 158
+ []\T1/LibreBskvl-LF/regular/n/10 127
+
+Overfull \hbox (2.25993pt too wide) detected at line 159
+ []\T1/LibreBskvl-LF/regular/n/10 130
+
+Overfull \hbox (2.25993pt too wide) detected at line 160
+ []\T1/LibreBskvl-LF/regular/n/10 130
+
+Overfull \hbox (2.25993pt too wide) detected at line 161
+ []\T1/LibreBskvl-LF/regular/n/10 130
+
+Overfull \hbox (1.27994pt too wide) detected at line 162
+ []\T1/LibreBskvl-LF/regular/n/10 132
+
+Overfull \hbox (1.27994pt too wide) detected at line 163
+ []\T1/LibreBskvl-LF/regular/n/10 132
+
+Overfull \hbox (0.96994pt too wide) detected at line 164
+ []\T1/LibreBskvl-LF/regular/n/10 134
+[3]
+Overfull \hbox (0.96994pt too wide) detected at line 165
+ []\T1/LibreBskvl-LF/regular/n/10 134
+
+Overfull \hbox (1.54994pt too wide) detected at line 166
+ []\T1/LibreBskvl-LF/regular/n/10 139
+
+Overfull \hbox (0.48994pt too wide) detected at line 168
+ []\T1/LibreBskvl-LF/regular/n/10 145
+
+Overfull \hbox (1.23994pt too wide) detected at line 170
+ []\T1/LibreBskvl-LF/regular/n/10 149
+
+Overfull \hbox (1.77994pt too wide) detected at line 171
+ []\T1/LibreBskvl-LF/regular/n/10 150
+
+Overfull \hbox (1.77994pt too wide) detected at line 172
+ []\T1/LibreBskvl-LF/regular/n/10 150
+
+Overfull \hbox (1.06995pt too wide) detected at line 173
+ []\T1/LibreBskvl-LF/regular/n/10 156
+
+Overfull \hbox (1.06995pt too wide) detected at line 174
+ []\T1/LibreBskvl-LF/regular/n/10 156
+
+Overfull \hbox (0.69995pt too wide) detected at line 175
+ []\T1/LibreBskvl-LF/regular/n/10 158
+
+Overfull \hbox (1.23994pt too wide) detected at line 176
+ []\T1/LibreBskvl-LF/regular/n/10 164
+
+Overfull \hbox (1.23994pt too wide) detected at line 177
+ []\T1/LibreBskvl-LF/regular/n/10 164
+
+Overfull \hbox (1.81995pt too wide) detected at line 178
+ []\T1/LibreBskvl-LF/regular/n/10 169
+
+Overfull \hbox (1.11993pt too wide) detected at line 179
+ []\T1/LibreBskvl-LF/regular/n/10 170
+
+Overfull \hbox (1.11993pt too wide) detected at line 180
+ []\T1/LibreBskvl-LF/regular/n/10 170
+) [4] (pages/analysis.tex
+
+LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <13> not available
+(Font)              size <12> substituted on input line 3.
+
+
+LaTeX Font Warning: Font shape `T1/cmss/bx/n' in size <13> not available
+(Font)              size <12> substituted on input line 3.
+
+
+Overfull \hbox (4.47995pt too wide) in paragraph at lines 6--11
+\T1/LibreBskvl-LF/regular/n/10 have been in con-stant use by peo-ple in their d
+ay to day lives. The more mod-ern ver-sion of maps, 
+
+Overfull \hbox (10.56996pt too wide) in paragraph at lines 6--11
+\T1/LibreBskvl-LF/regular/n/10 lem that I am go-ing to be solv-ing is map path 
+find-ing. Cur-rently not all roads and paths are logged 
+
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/librebaskerville\ts1lib
+rebskvl-lf.fd) [5 <./images/unlabeledMap.png> <./images/labeledMap.png>]
+Overfull \hbox (8.02199pt too wide) in paragraph at lines 69--70
+[]\T1/LibreBskvl-LF/regular/n/10 They are quite help-ful though as we used to h
+ave to buy a new road map ev-ery year, whereas 
+[6]
+pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.121                 \subfloat
+                               [\centering Example of Google Maps' GUI]{{\in...
+[7]
+pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.141                 \subfloat
+                               [\centering Example of Bing Maps' GUI]{{\incl...
+[8 <./images/googleMapExample.png> <./images/bingMapExample.png>]
+Overfull \hbox (6.82997pt too wide) in paragraph at lines 183--185
+\T1/LibreBskvl-LF/regular/n/10 age. In or-der to mit-i-gate this there are smoo
+th-ing al-go-rithms that can be used to blur and smooth 
+[9 <./images/osMapExample.png>]
+Overfull \hbox (6.64001pt too wide) in paragraph at lines 196--197
+\T1/LibreBskvl-LF/regular/n/10 edge de-tec-tion does not yield a fully con-nect
+ed im-age. This could prove to be an is-sue as it would 
+
+Overfull \hbox (1.33188pt too wide) in paragraph at lines 221--221
+[]\T1/LibreBskvl-LF/regular/n/10 Regardless of which one I choose I will con-du
+ct some form of test-ing where I will al-low, through 
+[10]
+Overfull \hbox (5.34184pt too wide) in paragraph at lines 247--248
+[]\T1/LibreBskvl-LF/regular/n/10 The dif-fer-ence is slight how-ever the key ta
+ke-away from this is that when I am re-fer-ring to a Rout- 
+[11] [12] [13] [14 <./images/kernelExamples/wrap.png> <./images/kernelExamples/
+mirror.png> <./images/kernelExamples/extend.png> <./images/kernelExamples/const
+ant.png> <./images/kernelExamples/clone.png>] (_minted-main/default.pygstyle)
+(_minted-main/656C6A182A1A98A3F4235BFF507F423C6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex (C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd))
+[15 <./images/edgeDetectionPrototype/in.jpg>]
+(_minted-main/5F0F0DCDBF6CD1F1279AC03DC2AADA236A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [16 <./images/edgeDetectionPrototype/a.jpg>])
+Overfull \hbox (1.53792pt too wide) in paragraph at lines 505--506
+\T1/LibreBskvl-LF/regular/n/10 im-age in both the X axis and the Y axis. In or-
+der to achieve this two more ker-nels are used. They 
+
+(_minted-main/AA04E7DC3BE073534EBDF2C0CFD0E1896A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [17 <./images/edgeDetectionPrototype/b.jpg>]) [18 <./images/edgeDetectio
+nPrototype/c.jpg> <./images/edgeDetectionPrototype/d.jpg>]
+(_minted-main/A67F50EE0225B6220F14308B316004F86A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex) [19 <./images/edgeDetectionPrototype/e.jpg> <./images/edgeDetectionProt
+otype/f.jpg>]
+(_minted-main/42C0FB5521F11DF0EFB12DB3100EB1946A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex)
+(_minted-main/8EB0E74B496CDAF8D1992A9C708B952B6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [20]) [21 <./images/edgeDetectionPrototype/g.jpg>]
+(_minted-main/7B6B93B34F23A9A43D4119F3739C398B6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex) [22 <./images/edgeDetectionPrototype/h.jpg>]
+(_minted-main/101232C9544DFA133CCFC37EC5BE3D236A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex)
+Overfull \hbox (4.87991pt too wide) in paragraph at lines 740--741
+\T1/LibreBskvl-LF/regular/n/10 lines. As well as this there are oc-ca-sional ga
+ps this is where I came up with a ex-tra cou-ple of steps. 
+[23 <./images/edgeDetectionPrototype/i.jpg>]
+(_minted-main/7D6A941DA03E684619043CEF6BFAE8CD6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex) [24 <./images/edgeDetectionPrototype/j.jpg>]
+Overfull \hbox (3.26196pt too wide) in paragraph at lines 790--791
+[]\T1/LibreBskvl-LF/regular/n/10 Now that the lines of the im-age have been in-
+creased then the only step which re-mains is to make 
+
+(_minted-main/7D5F121F1C6DD4F6A5391EBAEDE88D0A6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex) [25 <./images/edgeDetectionPrototype/k.jpg>]
+(_minted-main/35A61BA301D18BE32A0FB386F466C0316A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [26 <./images/graphClassDiagram.png>])
+(_minted-main/796FB987E41A909C824E96D7405DEDA16A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [27])
+(_minted-main/CDF22D473D825B438353524DED729EEF6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [28] [29])
+Overfull \hbox (2.24205pt too wide) in paragraph at lines 1117--1119
+\T1/LibreBskvl-LF/regular/n/10 After con-duct-ing the ini-tial and sec-ond in-t
+er-views and re-flect-ing upon the re-sults of my re-search 
+[30]
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1162                 \end{enumerate}
+                                      
+[31] [32]) [33] (pages/design.tex
+! You can't use `macro parameter character #' in horizontal mode.
+l.7     I selected C#
+                      as my programming language for several reasons. Curren...
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.7 ...t processing, and found that C, C++, and C#
+                                                   are among the top contend...
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.7 ...peed in this situation, I concluded that C#
+                                                   would be a good fit. Furt...
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.17 ...to take an image as an input. In native C#
+                                                   there is no set way to do...
+
+[34] [35 <./images/HighLevelOverview.png>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.53 
+     
+
+Overfull \hbox (7.29994pt too wide) in paragraph at lines 54--55
+\T1/LibreBskvl-LF/regular/n/10 within the li-brary it-self. This al-lows the ba
+ck-end to func-tion in-de-pen-dently of the pro-gram which 
+
+Overfull \hbox (3.15999pt too wide) in paragraph at lines 59--60
+\T1/LibreBskvl-LF/regular/n/10 and by ex-ten-sion into li-braries where a li-br
+ary is a col-lec-tion of classes. It means that should 
+[36 <./images/UML/Backend.png (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 
+     
+
+Overfull \hbox (3.34004pt too wide) in paragraph at lines 76--76
+\T1/LibreBskvl-LF/regular/n/10 at a glance what is go-ing on and which step you
+ are in. To ac-com-plish this on the right hand 
+
+Overfull \hbox (12.31203pt too wide) in paragraph at lines 78--78
+[]\T1/LibreBskvl-LF/regular/n/10 At the bot-tom of the con-sole in the sec-tion
+ la-belled "Area for Cur-rent Page and Time Elapsed" 
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.84 
+     
+[37 <./images/design/consoleMock.png>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.94 
+     
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.99 
+     
+[38 <./images/design/terminal.png (PNG copy)> <./images/design/confirmWindow.jp
+eg>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.100     \\ \BK
+                
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.103     \\ \bk
+                
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.115 
+      
+[39 <./images/design/pathfindWindow.png (PNG copy)> <./images/UML/AsyncEdgeDete
+ction.png (PNG copy)>]
+Overfull \hbox (3.68213pt too wide) in paragraph at lines 124--124
+[]\T1/LibreBskvl-LF/regular/n/10 The main dif-fer-en-tia-tor be-tween this asyn
+-chronously method and the syn-chronous method 
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.137 
+      
+[40 <./images/UML/CannyEdgeDetection.png (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.144     \\ \bk
+                
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 
+      
+[41]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.206     \\ \bk
+                
+
+Overfull \hbox (5.15196pt too wide) in paragraph at lines 210--210
+\T1/LibreBskvl-LF/regular/n/10 and if the pixel is greater than the thresh-old 
+then it is in-cluded, if it is be-low the max thresh- 
+
+Overfull \hbox (1.19pt too wide) in paragraph at lines 210--210
+\T1/LibreBskvl-LF/regular/n/10 old but greater than the min then it is set to a
+ strong pixel and re-tains its value. In any other 
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.222 
+      
+[42]
+Overfull \hbox (2.57008pt too wide) in paragraph at lines 223--224
+\T1/LibreBskvl-LF/regular/n/10 meth-ods or func-tions con-tained within this cl
+ass since it is in fact a struc-ture. Its main func- 
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.233 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.244 
+      
+! You can't use `macro parameter character #' in horizontal mode.
+l.245 ...ehaviors of certain inbuilt classes in C#
+                                                   as well as extending func...
+
+[43 <./images/UML/CannyResult.png (PNG copy)> <./images/UML/Coord.png (PNG copy
+)> <./images/UML/Extensions.png (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.271 
+      
+[44]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.283 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.292 
+      
+[45 <./images/UML/Gradients.png (PNG copy)> <./images/UML/Graph.png (PNG copy)>
+ <./images/UML/GraphException.png (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.301 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.311 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.321 
+      
+[46 <./images/UML/IHandler.png (PNG copy)> <./images/UML/Input.png (PNG copy)> 
+<./images/UML/Kernel.png (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.331 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.340 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.349 
+      
+[47 <./images/UML/KernelException.png (PNG copy)> <./images/UML/Log.png (PNG co
+py)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.358 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.367 
+      
+[48 <./images/UML/Logger.png (PNG copy)> <./images/UML/LoggerException.png (PNG
+ copy)> <./images/UML/MapFile.png (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.377 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.386 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.395 
+      
+[49 <./images/UML/MapFileException.png (PNG copy)> <./images/UML/Matrix.png (PN
+G copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.405 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.414 
+      
+[50 <./images/UML/MatrixException.png (PNG copy)> <./images/UML/MaxPriorityQueu
+e.png (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.423 
+      
+[51 <./images/UML/Menu.png (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.432 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.441 
+      
+[52 <./images/UML/MinPriorityQueue.png (PNG copy)> <./images/UML/NewImage.png (
+PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.450 
+      
+[53 <./images/UML/Pathfinder.png (PNG copy)> <./images/UML/PathfindImageForm.pn
+g (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.459 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.468 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.477 
+      
+[54 <./images/UML/Post.png (PNG copy)> <./images/UML/Pre.png (PNG copy)> <./ima
+ges/UML/PreprocessingException.png (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.486 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.495 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.504 
+      
+[55 <./images/UML/Program.png (PNG copy)> <./images/UML/ProgressBar.png (PNG co
+py)> <./images/UML/Queue.png (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.513 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.522 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.531 
+      
+[56 <./images/UML/RawImage.png (PNG copy)> <./images/UML/RGB.png (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.540 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.549 
+      
+[57 <./images/UML/RoadDetection.png (PNG copy)> <./images/UML/RoadResult.png (P
+NG copy)> <./images/UML/RoadSequence.png (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.559 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.569 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.578 
+      
+[58 <./images/UML/SaveFile.png (PNG copy)> <./images/UML/Settings.png (PNG copy
+)> <./images/UML/SettingsControl.png (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.587 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.596 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.605 
+      
+[59 <./images/UML/SettingsException.png (PNG copy)> <./images/UML/Stack.png (PN
+G copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.614 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.624 
+      
+[60 <./images/UML/Structures.png (PNG copy)> <./images/UML/SyncEdgeDetection.pn
+g (PNG copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.633 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.642 
+      
+[61 <./images/UML/TextWall.png (PNG copy)> <./images/UML/ThresholdPixel.png (PN
+G copy)>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.651 
+      
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.660 
+      
+[62 <./images/UML/Traversal.png (PNG copy)> <./images/UML/Utility.png (PNG copy
+)>]
+
+! LaTeX Error: \begin{enumerate} on input line 56 ended by \end{flushleft}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.672 \end{flushleft}
+                     
+) [63 <./images/UML/ViewImageForm.png (PNG copy)>] (pages/testing.tex
+Overfull \hbox (12.20384pt too wide) in alignment at lines 64--122
+ [] [] [] [] [] [] 
+[64] [65] [66]
+Overfull \hbox (32.09196pt too wide) in alignment at lines 130--152
+ [] [] [] [] [] [] 
+[67]
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.162         }
+               
+[68]
+Overfull \hbox (12.20384pt too wide) in alignment at lines 167--189
+ [] [] [] [] [] [] 
+[69 <./images/cannyTestImage.jpg> <./images/cannyTesting/Canny_Walkthrough_0_Bl
+ack_White_Filter.jpg> <./images/cannyTesting/Canny_Walkthrough_1_Gaussian_Blur.
+png (PNG copy)> <./images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.p
+ng (PNG copy)>]
+Overfull \hbox (12.20384pt too wide) in alignment at lines 196--222
+ [] [] [] [] [] [] 
+[70 <./images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png (PNG
+ copy)> <./images/cannyTesting/Canny_Walkthrough_4_Double_Threshold.png (PNG co
+py)> <./images/cannyTesting/Canny_Walkthrough_5_Hysteresis.png> <./images/roadE
+xamples/comb.png>]
+Overfull \hbox (12.20384pt too wide) in alignment at lines 229--233
+ [] [] [] [] [] [] 
+[71 <./images/roadExamples/white.png> <./images/roadExamples/quadsFilledExample
+.png>]
+Overfull \hbox (46.05193pt too wide) in alignment at lines 236--270
+ [] [] [] [] [] [] 
+[72]
+Overfull \hbox (12.20384pt too wide) in alignment at lines 277--340
+ [] [] [] [] [] [] 
+[73] [74] [75]
+Overfull \hbox (12.20384pt too wide) in alignment at lines 347--433
+ [] [] [] [] [] [] 
+[76] [77]
+Overfull \hbox (12.20384pt too wide) in alignment at lines 435--454
+ [] [] [] [] [] [] 
+[78] 
+
+<QR code requested for "https://youtu.be/cJqFovg27Bo" in version 0-M.>
+<Error-correction level increased from M to Q at no cost.>
+
+<Copying the QR code for "https://youtu.be/cJqFovg27Bo" in version 3-Q as previ
+ously calculated.>
+! Undefined control sequence.
+<recently read> \normalsizeer 
+                              
+l.466             \normalsizeer
+                               
+! Undefined control sequence.
+<recently read> \normalsizeer 
+                              
+l.470             \normalsizeer
+                               
+) [79] (pages/solution.tex (main.toc)) [80] (pages/evaluation.tex
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \penalty \@M \futurelet \@let@token \LT@@h...
+l.15         \hline
+                   
+! Misplaced \omit.
+\multispan ->\omit 
+                   \@multispan 
+l.16         1
+              .1 & In its current form my program is able to take an image o...
+
+! Extra alignment tab has been changed to \cr.
+<recently read> \endtemplate 
+                             
+l.16         1
+              .1 & In its current form my program is able to take an image o...
+
+[81]
+Runaway argument?
+{
+! Paragraph ended before \ttl@straight@i was complete.
+<to be read again> 
+                   \par 
+l.73 
+     
+! Extra }, or forgotten \endgroup.
+\@xdblarg #1#2->#1[{#2}
+                       ]{#2}
+l.73 
+     
+[82]) [83] (pages/code.tex
+(_minted-main/0B71B649FF06EBB80BE2FCE42F2A530D6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [84] [85] [86] [87] [88] [89] [90] [91] [92] [93])
+(_minted-main/3B8E81F35E50E389B33AEE9804A5ADF96A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [94] [95] [96])
+(_minted-main/BD5076E27BAB48FBAC5B1A82A0C4383F6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [97] [98] [99])
+(_minted-main/DDCD38AE71671326F34979C0439946C26A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [100] [101])
+(_minted-main/78EC761638FAE7F6CB61A445E5A5E2A66A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [102])
+(_minted-main/58378F5D102BBE967D75A358E05998A76A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [103] [104])
+(_minted-main/F42492C9E9C0D651D76DBE2C3B6277666A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [105])
+(_minted-main/22C2EA1D524062832D06E44E6E7244486A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [106] [107])
+(_minted-main/F2115DA59D3E17CDC60DD9B1E771AD006A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [108])
+(_minted-main/AB4013B0CCDC95D47B8352BB718FD48D6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex)
+(_minted-main/B05422CB9E381707650235C73840FB4C6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [109])
+(_minted-main/DA2C731E153C321C8E4743DD9B26E6956A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex)
+(_minted-main/CB356A6843270BD849CBB01066EC718C6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex)
+(_minted-main/A5D82F2EBC72C13D923263097E3E42256A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [110])
+(_minted-main/77367F640EBE28CD01399CD9AE1F02436A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex)
+(_minted-main/D74BF6CFB8FF0988234A0F0189CDC9246A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex)
+(_minted-main/E6A2D3A7B2B1DE5EC7472FF73DA9AFBA6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [111])
+(_minted-main/E49B3667CD5019289A45E1302285E0496A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex)
+(_minted-main/3B4587E3AED7DA8EE961D82D2743DCF36A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [112] [113] [114] [115] [116])
+(_minted-main/1E84FCB86847C9E39703F2F777F0B9A56A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [117])
+(_minted-main/461C46D35C2033A1DAFA7A07FF556DFB6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [118])
+(_minted-main/FF597AACDA46313334702FF1BB99DFF36A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [119] [120])
+(_minted-main/E7A590883443A110F6FF9DA2F7DFB15A6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [121] [122])
+(_minted-main/DB4DFB219DAF97CD9D87576C58F1AF446A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [123] [124])
+(_minted-main/03A0E264AB69255B1EEE08914EDCC13B6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [125])
+(_minted-main/6F75D9ACC6A50C7126EF5B7608E222196A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [126])
+(_minted-main/BA5456BFB812B8A614A69F8E7F2C743E6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [127]
+(C:\Users\ruben\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd)
+[128] [129])
+(_minted-main/E4E55830D0980D389DA0035F696A6F146A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [130] [131])
+(_minted-main/CEBDB23E10697D1B4D77F46A67FDBC776A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex)
+(_minted-main/F6DF11F9D3CD42BE797093676F5BCAAD6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [132] [133])
+(_minted-main/5C0B17821ACF3ECDD660AE66F863FEE26A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [134] [135] [136] [137] [138])
+(_minted-main/8B197BCBBED051C71A5CC3151795AD636A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [139] [140])
+(_minted-main/BDDB0FE7C6946DABC042CFB456C5681B6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex
+
+! LaTeX Error: Unicode character │ (U+2502)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.19 ...G{l+s+sc}{\PYGZsq{}│\PYGZsq{}}\PYG{p}{;}
+                                                  
+
+! LaTeX Error: Unicode character │ (U+2502)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.19 ...G{l+s+sc}{\PYGZsq{}│\PYGZsq{}}\PYG{p}{;}
+                                                  
+
+! LaTeX Error: Unicode character ─ (U+2500)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.20 ...G{l+s+sc}{\PYGZsq{}─\PYGZsq{}}\PYG{p}{;}
+                                                  
+
+! LaTeX Error: Unicode character ─ (U+2500)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.20 ...G{l+s+sc}{\PYGZsq{}─\PYGZsq{}}\PYG{p}{;}
+                                                  
+[141] [142] [143] [144])
+(_minted-main/19646387968408637BED5D26C3977A656A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [145] [146])
+(_minted-main/E1B5A19BE62D684B83C548BFFCE0DD216A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [147] [148])
+(_minted-main/3A7E48EEEBF57DFB7812C80FCCBB85476A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [149])
+(_minted-main/F45B71325D3DC9946E81C0FBF097636A6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [150] [151] [152] [153] [154] [155])
+(_minted-main/2E7E690CD39525D960852124E37371C36A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex)
+(_minted-main/F9ABAEE54B064121D26F0C32BBBBBE796A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [156] [157])
+(_minted-main/77DD73A8FF1916D21C6B9ED58B4D1D406A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [158] [159] [160] [161] [162] [163])
+(_minted-main/68D0D720ECA166E8406578198DF41DB76A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [164] [165] [166] [167] [168])
+(_minted-main/AD42BCF487B063530F70EBA5B884AF956A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [169])
+(_minted-main/2698A8B73DD278098DB41996C579BD6E6A8AE5FAD709ACE6B4074555FF19DB7D.
+pygtex [170] [171] [172] [173] [174])
+
+! LaTeX Error: \begin{flushleft} on input line 1 ended by \end{flushleft}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5395 \end{flushleft}
+                      
+) [175]
+
+! LaTeX Error: \begin{flushleft} on input line 2 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.154 \end{document}
+                    
+(main.aux (pages/analysis.aux) (pages/design.aux) (pages/testing.aux
+<Reading QR code for "https://youtu.be/cJqFovg27Bo" at level 3-Q from aux file.
+>
+) (pages/solution.aux) (pages/evaluation.aux) (pages/code.aux))
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 1.28pt have occurred.
+
+ )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 2 (\begingroup)
+### bottom level
+(see the transcript file for additional information) <C:\Users\ruben\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt0800.pk> <C:\Users\ruben\AppD
+ata\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\rube
+n\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk>{C:/Users
+/ruben/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/librebaskerville/lbskvl_uf
+5aa7.enc} <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi6
+00\ecit0800.pk> <C:\Users\ruben\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\ectt0800.pk>{C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/enc/dv
+ips/librebaskerville/lbskvl_6hj2ra.enc} <C:\Users\ruben\AppData\Local\MiKTeX\fo
+nts/pk/ljfour/jknappen/ec/dpi600\ecsx1095.pk> <C:\Users\ruben\AppData\Local\MiK
+TeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1200.pk> <C:\Users\ruben\AppData\Loc
+al\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1728.pk><C:/Users/ruben/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/impallari/librebaskerville/LibreBskvl-Bold.
+pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/impallari/libreba
+skerville/LibreBskvl-BoldItalic.pfb><C:/Users/ruben/AppData/Local/Programs/MiKT
+eX/fonts/type1/impallari/librebaskerville/LibreBskvl-Italic.pfb><C:/Users/ruben
+/AppData/Local/Programs/MiKTeX/fonts/type1/impallari/librebaskerville/LibreBskv
+l-Regular.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmex10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmmi10.pfb><C:/Users/ruben/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/ruben/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/ruben/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/ruben/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/ruben/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Use
+rs/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb
+><C:/Users/ruben/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+msy7.pfb>
+Output written on main.pdf (176 pages, 15018187 bytes).
+Transcript written on main.log.
