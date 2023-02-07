@@ -619,6 +619,7 @@ namespace MultithreadedEdgeDetection
     }
 }
     \end{cscode}
+\pagebreak
     \subsubsection{Graph Class and DFS / BFS}
     \begin{cscode}
 using System;
@@ -820,6 +821,7 @@ namespace GraphStuff
     }
 }
 \end{cscode}
+\pagebreak
     \subsubsection{Forms Interface}
     \subsection{Final Solution}
     \subsubsection{BackendLib}
@@ -957,6 +959,7 @@ public class MapFile
 }
 
     \end{cscode}
+\pagebreak
     \paragraph{Traversal.cs}
     \begin{cscode}
 public class Traversal<T>
@@ -1123,6 +1126,7 @@ public class Traversal<T>
     }
 }
     \end{cscode}
+\pagebreak
 
     \subsubsubsection{Datatypes}    
     \paragraph{Graph.cs}
@@ -1170,6 +1174,7 @@ public class Graph<T>
     public void Clear() => _data.Clear();
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{Matrix.cs}
     \begin{cscode}
@@ -1264,6 +1269,7 @@ public class Matrix : IEnumerable
 
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{MaxPriorityQueue.cs}
     \begin{cscode}
@@ -1358,6 +1364,7 @@ public class MaxPriorityQueue<T>
     public bool Contains(T neighbor) => _queue.Contains(neighbor);
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{MinPriorityQueue.cs}
     \begin{cscode}
@@ -1469,6 +1476,7 @@ public class MinPriorityQueue<T>
     public bool Contains(T neighbor) => _queue.Contains(neighbor);
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{Queue.cs}
     \begin{cscode}
@@ -1498,6 +1506,7 @@ public class Queue<T>
     public bool Contains(T item) => _queue.Contains(item);
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{Stack.cs}
     \begin{cscode}
@@ -1528,6 +1537,7 @@ public class Stack<T>
     public bool Contains(T item) => _stack.Contains(item);
 }
     \end{cscode}
+\pagebreak
     
     \subsubsubsection{Exceptions}    
     \paragraph{GraphException.cs}
@@ -1552,6 +1562,7 @@ public class GraphException : Exception
     }
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{KernelException.cs}
     \begin{cscode}
@@ -1575,6 +1586,7 @@ public class KernelException : Exception
     }
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{LoggerException.cs}
     \begin{cscode}
@@ -1598,6 +1610,7 @@ public class LoggerException : Exception
     }
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{MapFileException.cs}
     \begin{cscode}
@@ -1621,6 +1634,7 @@ public class MapFileException : Exception
     }
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{MatrixException.cs}
     \begin{cscode}
@@ -1644,6 +1658,7 @@ public class MatrixException : Exception
     }
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{PreprocessingException.cs}
     \begin{cscode}
@@ -1667,6 +1682,7 @@ public class PreprocessingException : Exception
     }
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{SettingsException.cs}
     \begin{cscode}
@@ -1690,6 +1706,7 @@ public class SettingsException : Exception
     }
 }
     \end{cscode}
+\pagebreak
     
     
     \subsubsubsection{Interfaces}    
@@ -1701,6 +1718,7 @@ public interface IHandler
     double[,] Result();
 }
     \end{cscode}
+\pagebreak
     
     
     \subsubsubsection{Processing}
@@ -1962,6 +1980,7 @@ public class CannyEdgeDetection
     }
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{Post.cs}
     \begin{cscode}
@@ -2029,6 +2048,7 @@ public class Post
 
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{Pre.cs}
     \begin{cscode}
@@ -2116,6 +2136,7 @@ public class Pre
     };
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{RoadDetection.cs}
     \begin{cscode}
@@ -2252,6 +2273,7 @@ public class RoadDetection
     };
 }
     \end{cscode}
+\pagebreak
     
     
     \subsubsubsection{Root}    
@@ -2346,6 +2368,7 @@ public static class Extensions
     public static Structures.RGB GetPixel(this Structures.RGB[,] pixels, int x, int y) => pixels[y, x];
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{Kernel.cs}
     \begin{cscode}
@@ -2450,6 +2473,7 @@ public class Kernel<T>
 
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{Logger.cs}
     \begin{cscode}
@@ -2536,6 +2560,7 @@ public class Logger
     public static Guid Uuid() => Guid.NewGuid();
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{Structures.cs}
     \begin{cscode}
@@ -2604,6 +2629,7 @@ public class Structures
 }
 
     \end{cscode}
+\pagebreak
     
     \paragraph{Utility.cs}
     \begin{cscode}
@@ -2775,6 +2801,7 @@ public static class Utility
         Math.Sqrt(Math.Pow(a.X - b.X, 2) + Math.Pow(a.Y - b.Y, 2));
 }
     \end{cscode}
+\pagebreak
     
     
     \subsubsection{LocalApp}
@@ -2852,6 +2879,7 @@ internal class NewImage
     }
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{SaveFile.cs}
     \begin{cscode}
@@ -2902,6 +2930,7 @@ public class SaveFile
 
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{SettingsControl.cs}
     \begin{cscode}
@@ -3014,6 +3043,7 @@ public class SettingsControl
 
 }
     \end{cscode}
+\pagebreak
     
     
     \subsubsubsection{CLI}
@@ -3267,6 +3297,7 @@ public class Input
     public bool TryGetInt(string prompt, out int result) => int.TryParse(GetInput(prompt), out result);
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{Log.cs}
     \begin{cscode}
@@ -3380,6 +3411,7 @@ public class Log
     }
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{Menu.cs}    
     \begin{cscode}
@@ -3664,6 +3696,7 @@ public class Menu
 
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{ProgressBar.cs}
     \begin{cscode}
@@ -3738,6 +3771,7 @@ public class ProgressBar
     }
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{Settings.cs}
     \begin{cscode}
@@ -3895,6 +3929,7 @@ public class Settings
     }
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{TextWall.cs}    
     \begin{cscode}
@@ -3935,6 +3970,7 @@ public static class TextWall
 }
 
     \end{cscode}
+\pagebreak
     
     
     \subsubsubsection{Processes}
@@ -4239,6 +4275,7 @@ public class AsyncEdgeDetection : IHandler
     public double[,] Result() => _resultArray;
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{Pathfinder.cs}
     \begin{cscode}
@@ -4271,6 +4308,7 @@ public class Pathfinder
     }
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{RoadSquence.cs}    
     \begin{cscode}
@@ -4393,6 +4431,7 @@ internal class RoadSequence
     }
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{SyncEdgeDetection.cs}
     \begin{cscode}
@@ -4692,6 +4731,7 @@ internal class SyncEdgeDetection : IHandler
     public double[,] Result() => _resultArray;
 }
     \end{cscode}
+\pagebreak
     
     
     \subsubsubsection{WindowsForms}
@@ -5001,6 +5041,7 @@ public partial class PathfindImageForm : Form
     }
 }
     \end{cscode}
+\pagebreak
     
     \paragraph{ViewImageForm.cs (Partial)}
     \begin{cscode}
@@ -5053,6 +5094,7 @@ public partial class ViewImageForm : Form
     }
 }
     \end{cscode}
+\pagebreak
     
     
     \subsubsubsection{Root}
@@ -5372,5 +5414,6 @@ public class Program
     }
 }
     \end{cscode}
+\pagebreak
     
 \end{flushleft}

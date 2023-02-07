@@ -113,6 +113,14 @@
         
     \\ \bk
 
+    \subsection{Binary File Structure}
+
+    There will be an option during the process of the program for the user to save what they are doing with a binary file. Inside this file will be contained all of the information relating to the map. It will store, the name of the map, description, whether it needed to be inverted, date of creation, type of image, and 3 various versions of the image. \\ \bk
+
+    The program will ask the user if they want to save the image, if they select yes to this then it will go on to ask them what the name of the map should be. A brief description to allow them to remember what it was for, and finally the type of map which can aid in future processing. These are all stored as strings apart from the type of map which is stored as a integer. \\ \bk
+
+    The 3 images which are stored, these are the original image, the path found image, and the combined image which is the path overlays onto the original. These are all stored as bytes, this is to keep the size of the image to a minimum. This does raise the issue of there being no way to tell the size of the image. To overcome this there are two Int32's stored at the very beginning which are the dimensions of all the images meaning that it can be read without any guesswork. This has the effect of compressing all information relating to the images since each image's pixel is only 3 bytes. \\ 
+
     \subsection{Class Overviews}
 
     In this following part of the write up will go briefly over every class in the program first stating its function, which section it is in (backend library or front end application) and finally how it plays a part in the program.
@@ -137,7 +145,7 @@
     Finally the Preset method is used in the front end application in the eventuality of the user selecting preset values. An example of this is that when it gets to the selection of the edge detection method they select the "Photograph" method, the async method will be used due to its speed however instead of prompting the user it will run the various stages with predefined values. \\
 
     \bk
-
+    \pagebreak
     \paragraph{Canny Edge Detection \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -222,7 +230,7 @@
     Finally edge tracking by hysteresis is used, to track the edge connection, blob analysis is applied by looking at a weak edge pixel and its 8-connected neighbourhood pixels. As long as there is one strong edge pixel that is involved in the blob, that weak edge point can be identified as one that should be preserved. These weak edge pixels become strong edges that can then cause their neighbouring weak edge pixels to be preserved otherwise they are not preserved and are removed. After each of these sages canny edge detection is complete. \\ \bk    
     \bk
 
-
+    \pagebreak
     \paragraph{Canny Result \textit{(Structure)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -233,7 +241,7 @@
     This is contained within the static class of structures in the backend library. There is no methods or functions contained within this class since it is in fact a structure. Its main function is to contain any relevant data from Canny Edge Detection.
 
     \bk
-
+    \pagebreak
     \paragraph{Coord \textit{(Structure)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -244,7 +252,7 @@
     Similar to above this is contained within the static class of structures. It is used to represent a coordinate, and unlike the canny result structure, it does contain methods. The main of which are the operator overloads. This allows me to directly compare two different coordinates instead of constantly comparing each dimensions. The other hash codes and alike are used when a dictionary is required in order for them to be converted into a hash code. Finally the ToString method is mainly used during testing however it can also be used to inform the user of a coordinate that they are interacting with.
 
     \bk
-
+    \pagebreak
     \paragraph{Extensions \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -271,7 +279,7 @@
     The next two structures go hand in hand so I will talk about both of them together, due to the image processing and the way in which I am accessing the arrays which contain the data I feel that it would be easier if I could alter my RGB[,] and directly access it with the .setPixel and .getPixel methods since this is how it is used in the bitmap class. Therefore it would make it easier to use the two interchangeably instead of accessing it using direct accessing then changing the value. The way in which they both work is that in the function call an x and y coordinate is passed as well as a colour if it is the set pixel version. Then it changes or returns the value.\\    
 
     \bk
-
+    \pagebreak
     \paragraph{Gradients \textit{(Structure)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -283,7 +291,7 @@
 
     \bk
 
-
+    \pagebreak
     \paragraph{Graph \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -305,7 +313,7 @@
     \end{itemize}
 
     \bk
-
+    \pagebreak
     \paragraph{Graph Exception \textit{(Exception)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -316,7 +324,7 @@
     Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
 
     \bk
-
+    \pagebreak
     \paragraph{IHandler \textit{(Interface)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -329,7 +337,7 @@
     The advantage to using an interface here means that the object can be cast to a simplified version meaning that two different classes can be assigned to the same variable removing the need for guard clauses. \\
     \bk
 
-    
+    \pagebreak
     \paragraph{Input \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -349,7 +357,7 @@
 
     \bk
 
-    
+    \pagebreak
     \paragraph{Kernel \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -364,7 +372,7 @@
     The resulting kernel is then converted into a matrix and retuned in order to be convoluted with the processing kernel. The only exception to this is the gaussian kernel. This does not take in an image, instead it applies the 3D statistical gaussian distribution to a matrix producing a 3D Gaussian distribution matrix of a given size. This is then returned to be used in the Canny edge detection section.\\
     \bk
 
-    
+    \pagebreak
     \paragraph{Kernel Exception \textit{(Exception)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -374,7 +382,7 @@
     Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
 
     \bk
-
+    \pagebreak
     \paragraph{Log \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -393,7 +401,7 @@
     There are several static properties of the class these are the ascii colour codes which are used to make the user interface more palatable to the user. The over very important property is the current line, this allows the program to tell how far down the log side it is and to see if it needs to be cleared. It is incremented every time a new line is logged. \\
 
     \bk
-
+    \pagebreak
     \paragraph{Logger \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -413,7 +421,7 @@
     \end{itemize}
 
     \bk
-
+    \pagebreak
     \paragraph{Logger Exception \textit{(Exception)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -422,7 +430,7 @@
     \end{figure}\\
     Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
     \bk
-
+    \pagebreak
     \paragraph{Map File \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -437,7 +445,7 @@
     If at any point it encounters an error it will throw an exception which tells the user what the issue is. The final function of this class is saving the map file. This is done once all processing has been done, it saves it using a binary file. It is important to me that the file was all in one place and not split up allowing it to be transferred easily. \\ 
     \bk
 
-
+    \pagebreak
     \paragraph{Map File Exception \textit{(Exception)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -446,7 +454,7 @@
     \end{figure}\\
     Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
     \bk
-
+    \pagebreak
     \paragraph{Matrix \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -456,12 +464,35 @@
 
     This is located in the backend portion of my program. Again as above the methods of the class which are responsible for storing data to do with the program are denoted with { get; set; }. The X and Y properties of the matrix class denote the dimensions of the matrix. \\ \bk
     
-    There is a direct array access to the data in the matrix.
+    There is a direct array access to the data in the matrix. This was so that when assigning the gaussian distribution to a new matrix I would have to have stored all of the values in a temporary 2D array just for it to be assigned to a matrix. Therefore I made the decision to allow my program to directly access the cells of the matrix through the [] notation. It is both Get and Set however it could be made internal to keep the library and the front end even more separated. \\ \bk
 
+    There is a rather large amount of operator overloading in this section which perform the various numerical operations of the matrix. These are as follows: \\ \bk
+
+    \textbf{Matrix Addition} \\ \bk
+    {\displaystyle {\begin{aligned}\mathbf {A} +\mathbf {B} &={\begin{bmatrix}a_{11}&a_{12}&\cdots &a_{1n}\\a_{21}&a_{22}&\cdots &a_{2n}\\\vdots &\vdots &\ddots &\vdots \\a_{m1}&a_{m2}&\cdots &a_{mn}\\\end{bmatrix}}+{\begin{bmatrix}b_{11}&b_{12}&\cdots &b_{1n}\\b_{21}&b_{22}&\cdots &b_{2n}\\\vdots &\vdots &\ddots &\vdots \\b_{m1}&b_{m2}&\cdots &b_{mn}\\\end{bmatrix}}&={\begin{bmatrix}a_{11}+b_{11}&a_{12}+b_{12}&\cdots &a_{1n}+b_{1n}\\a_{21}+b_{21}&a_{22}+b_{22}&\cdots &a_{2n}+b_{2n}\\\vdots &\vdots &\ddots &\vdots \\a_{m1}+b_{m1}&a_{m2}+b_{m2}&\cdots &a_{mn}+b_{mn}\\\end{bmatrix}}\\\end{aligned}}\,\!}\BK\BK\bk
+
+    \BK
+    \textbf{Matrix Multiplication} \\ \bk
+    Let 
+    {\displaystyle \mathbf {A} ={\begin{pmatrix}a_{11}&a_{12}&\cdots &a_{1n}\\a_{21}&a_{22}&\cdots &a_{2n}\\\vdots &\vdots &\ddots &\vdots \\a_{m1}&a_{m2}&\cdots &a_{mn}\\\end{pmatrix}},\quad \mathbf {B} ={\begin{pmatrix}b_{11}&b_{12}&\cdots &b_{1p}\\b_{21}&b_{22}&\cdots &b_{2p}\\\vdots &\vdots &\ddots &\vdots \\b_{n1}&b_{n2}&\cdots &b_{np}\\\end{pmatrix}}}
+
+    
+    {\displaystyle \mathbf \therefore {C} ={\begin{pmatrix}a_{11}b_{11}+\cdots +a_{1n}b_{n1}&a_{11}b_{12}+\cdots +a_{1n}b_{n2}&\cdots &a_{11}b_{1p}+\cdots +a_{1n}b_{np}\\a_{21}b_{11}+\cdots +a_{2n}b_{n1}&a_{21}b_{12}+\cdots +a_{2n}b_{n2}&\cdots &a_{21}b_{1p}+\cdots +a_{2n}b_{np}\\\vdots &\vdots &\ddots &\vdots \\a_{m1}b_{11}+\cdots +a_{mn}b_{n1}&a_{m1}b_{12}+\cdots +a_{mn}b_{n2}&\cdots &a_{m1}b_{1p}+\cdots +a_{mn}b_{np}\\\end{pmatrix}}} \BK\BK\bk
+
+    \textbf{Scalar Multiplication} \\ \bk
+    \lambda \mathbf {A} =\lambda {\begin{pmatrix}A_{11}&A_{12}&\cdots &A_{1m}\\A_{21}&A_{22}&\cdots &A_{2m}\\\vdots &\vdots &\ddots &\vdots \\A_{n1}&A_{n2}&\cdots &A_{nm}\\\end{pmatrix}}={\begin{pmatrix}\lambda A_{11}&\lambda A_{12}&\cdots &\lambda A_{1m}\\\lambda A_{21}&\lambda A_{22}&\cdots &\lambda A_{2m}\\\vdots &\vdots &\ddots &\vdots \\\lambda A_{n1}&\lambda A_{n2}&\cdots &\lambda A_{nm}\\\end{pmatrix}} \BK\BK\bk
+
+    \textbf{Matrix Convolution} \\ \bk
+    This is very important for my program since this is the section which allows all of the image processing to function. The general form of matrix convolution is as follows:\\\bk
+
+    {\displaystyle {\begin{bmatrix}x_{11}&x_{12}&\cdots &x_{1n}\\x_{21}&x_{22}&\cdots &x_{2n}\\\vdots &\vdots &\ddots &\vdots \\x_{m1}&x_{m2}&\cdots &x_{mn}\\\end{bmatrix}}*{\begin{bmatrix}y_{11}&y_{12}&\cdots &y_{1n}\\y_{21}&y_{22}&\cdots &y_{2n}\\\vdots &\vdots &\ddots &\vdots \\y_{m1}&y_{m2}&\cdots &y_{mn}\\\end{bmatrix}}=\sum _{i=0}^{m-1}\sum _{j=0}^{n-1}x_{(m-i)(n-j)}y_{(1+i)(1+j)}}\BK\BK\bk
+
+    \textbf{Matrix Minimisation}
 
     \bk
 
-    \paragraph{Matrix Exception \textit{(Exception)}} \mbox{} \\
+    \pagebreak
+\paragraph{Matrix Exception \textit{(Exception)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -471,7 +502,8 @@
     \bk
 
 
-    \paragraph{Max Priority Queue \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Max Priority Queue \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -480,7 +512,8 @@
 
     \bk
 
-    \paragraph{Menu \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Menu \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -489,7 +522,8 @@
 
     \bk
     
-    \paragraph{Min Priority Queue \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Min Priority Queue \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -498,7 +532,8 @@
 
     \bk
 
-    \paragraph{New Image \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{New Image \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -507,7 +542,8 @@
 
     \bk
 
-    \paragraph{Pathfinder \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Pathfinder \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -516,7 +552,8 @@
 
     \bk
 
-    \paragraph{Pathfind Image Form \textit{(Windows Form)}} \mbox{} \\
+    \pagebreak
+\paragraph{Pathfind Image Form \textit{(Windows Form)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -525,7 +562,8 @@
 
     \bk
 
-    \paragraph{Post \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Post \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -534,7 +572,8 @@
 
     \bk
 
-    \paragraph{Pre \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Pre \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -543,7 +582,8 @@
 
     \bk
 
-    \paragraph{Preprocessing Exception \textit{(Exception)}} \mbox{} \\
+    \pagebreak
+\paragraph{Preprocessing Exception \textit{(Exception)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -552,7 +592,8 @@
     Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
     \bk
 
-    \paragraph{Program \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Program \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -561,7 +602,8 @@
 
     \bk
 
-    \paragraph{Progress Bar \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Progress Bar \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -570,7 +612,8 @@
 
     \bk
 
-    \paragraph{Queue \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Queue \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -579,7 +622,8 @@
 
     \bk
 
-    \paragraph{Raw Image \textit{(Structure)}} \mbox{} \\
+    \pagebreak
+\paragraph{Raw Image \textit{(Structure)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -588,7 +632,8 @@
 
     \bk
 
-    \paragraph{RGB \textit{(Structure)}} \mbox{} \\
+    \pagebreak
+\paragraph{RGB \textit{(Structure)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -597,7 +642,8 @@
 
     \bk
 
-    \paragraph{Road Detection \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Road Detection \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -606,7 +652,8 @@
 
     \bk
 
-    \paragraph{Road Result \textit{(Structure)}} \mbox{} \\
+    \pagebreak
+\paragraph{Road Result \textit{(Structure)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -615,7 +662,8 @@
 
     \bk
 
-    \paragraph{Road Sequence \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Road Sequence \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -625,7 +673,8 @@
     \bk
 
     
-    \paragraph{Save File \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Save File \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -635,7 +684,8 @@
     \bk
 
     
-    \paragraph{Settings \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Settings \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -644,7 +694,8 @@
 
     \bk
 
-    \paragraph{Settings Control \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Settings Control \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -653,7 +704,8 @@
 
     \bk
 
-    \paragraph{Settings Exception \textit{(Exception)}} \mbox{} \\
+    \pagebreak
+\paragraph{Settings Exception \textit{(Exception)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -662,7 +714,8 @@
     Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
     \bk
 
-    \paragraph{Stack \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Stack \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -671,7 +724,8 @@
 
     \bk
 
-    \paragraph{Structures \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Structures \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -688,7 +742,8 @@
 
     \bk
 
-    \paragraph{Sync Edge Detection \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Sync Edge Detection \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -698,7 +753,8 @@
     \bk
 
 
-    \paragraph{Text Wall \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Text Wall \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -709,7 +765,8 @@
 
     \bk
 
-    \paragraph{Threshold Pixel \textit{(Structure)}} \mbox{} \\
+    \pagebreak
+\paragraph{Threshold Pixel \textit{(Structure)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -718,7 +775,8 @@
 
     \bk
 
-    \paragraph{Traversal \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Traversal \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -727,7 +785,8 @@
 
     \bk
 
-    \paragraph{Utility \textit{(Class)}} \mbox{} \\
+    \pagebreak
+\paragraph{Utility \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
@@ -736,7 +795,8 @@
 
     \bk
 
-    \paragraph{View Image Form \textit{(Windows Form)}} \mbox{} \\
+    \pagebreak
+\paragraph{View Image Form \textit{(Windows Form)}} \mbox{} \\
 
     \begin{figure}[H]
         \centering
