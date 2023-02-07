@@ -184,9 +184,9 @@
             causing the impact of artifacts to be avoided. The common term when referring to artifacts and erroneous data in an image is \emph{noise}. I believe it will be beneficial to include some of these
             in my solution, this will be something to look into in the \textbf{Further Research} section. \\ \bk
 
-            Taking a quick look at one form of edge detection, Canny Edge detection, it is relatively simple in its implementation. It has only 5 steps, first removing noise with a Gaussian filter then applying
+            Taking a quick look at one form of edge detection, Canny edge detection, it is relatively simple in its implementation. It has only 5 steps, first removing noise with a Gaussian filter then applying
             bounding to the image and finally performing hysteresis threshold. This is the most common form of edge detection that I have come across in my research however there are others. A rather
-            different example of edge detection is Kovalevsky edge detection. Unlike canny edge detection this does not care about the luminosity of the image and goes based of the colour intensity in each
+            different example of edge detection is Kovalevsky edge detection. Unlike Canny edge detection this does not care about the luminosity of the image and goes based of the colour intensity in each
             of the channels. \\ \bk
 
             \paragraph{Graph Forming} \mbox{} \\
@@ -248,7 +248,7 @@
             talking about a searching algorithm this is referring to graph traversal on an unweighted graph. \\ \bk
 
             \paragraph{Black and White Filter}\mbox{} \\
-            In order to allow the program to function, assuming that the canny edge detection was chosen we do not need the colour data of the image. In order to remove this a filter is used, this one is the
+            In order to allow the program to function, assuming that the Canny edge detection was chosen we do not need the colour data of the image. In order to remove this a filter is used, this one is the
             industry standard since it takes into account how prevalent red, green and blue are rather than taking an average which could become non representing of the real case. \\ \bk
             
             \begin{gather*}
@@ -272,7 +272,7 @@
             \paragraph{Gaussian Filter} \mbox{} \\
             This is the first step of 5 in terms of performing Canny Edge Detection. Applying the Gaussian filter to the image will smooth out the image and remove any noise. It does this by taking a section
             of the image, sometimes referred to as a kernel and performing an equation on it. Once it has computed the equation it sets all of the pixels inside the kernel to this value. The following is true 
-            for a kernel size of $(2k + 1) * (2k + 1)$. It takes two changeable parameters $\sigma$ which denotes the amount of blur to apply and $k$ is the kernel size. As well as being one of the key steps in canny edge detection it is also a vital component to most edge detection programs since noise can cause errors in the final image.\\ \bk
+            for a kernel size of $(2k + 1) * (2k + 1)$. It takes two changeable parameters $\sigma$ which denotes the amount of blur to apply and $k$ is the kernel size. As well as being one of the key steps in Canny edge detection it is also a vital component to most edge detection programs since noise can cause errors in the final image.\\ \bk
             
             \begin{gather*}
                 H_{ij} = \frac{1}{
@@ -407,7 +407,7 @@ public double[,] BWFilter(Bitmap image)
         \end{figure} \bk
         
         \paragraph*{2. Gaussian Filter} \mbox{} \\
-        The next step of canny edge detection is applying the Gaussian filter. This is to ensure that any noise that is contained within the image is removed. This is because if there are stray pixels in the center of the image this can cause an edge to form when in fact there isn't one. This is the first operation in edge detection which requires convolution as explained in \textit{1.5.1 Gaussian Filter}. To accomplish this the following code was used: \\ \bk
+        The next step of Canny edge detection is applying the Gaussian filter. This is to ensure that any noise that is contained within the image is removed. This is because if there are stray pixels in the center of the image this can cause an edge to form when in fact there isn't one. This is the first operation in edge detection which requires convolution as explained in \textit{1.5.1 Gaussian Filter}. To accomplish this the following code was used: \\ \bk
         
         \begin{cscode}
 public double[,] GaussianFilter(double sigma, int kernelSize, double[,] imageArray)
@@ -464,12 +464,12 @@ public Matrix GetGaussianKernel(int k, double sigma)
         \end{figure} \bk
         
         \paragraph*{3. Calculation of XY Gradients} \mbox{} \\
-        The first edge picking stage of canny edge detection is the calculation of the gradients of the image in both the X axis and the Y axis. In order to achieve this two more kernels are used. They are known as the Sobel operators. \\
+        The first edge picking stage of Canny edge detection is the calculation of the gradients of the image in both the X axis and the Y axis. In order to achieve this two more kernels are used. They are known as the Sobel operators. \\
         \begin{gather*}
             {\displaystyle M_{y}={\begin{pmatrix}+1&0&-1\\+2&0&-2\\+1&0&-1\end{pmatrix}}\quad {\text{and}}\quad M_{x}={\begin{pmatrix}+1&+2&+1\\0&0&0\\-1&-2&-1\end{pmatrix}}}
         \end{gather*} \bk
         
-        The code which is used to perform this section of the canny edge detection is as follows, note that for the gradient in Y the matrix is replaced with the Y matrix and its code can be seen at \textit{5.1.1 Lines 416 through 432}. \\ \bk
+        The code which is used to perform this section of the Canny edge detection is as follows, note that for the gradient in Y the matrix is replaced with the Y matrix and its code can be seen at \textit{5.1.1 Lines 416 through 432}. \\ \bk
         
         \begin{cscode}
 public double[,] CalculateGradientX(double[,] imageArray)
@@ -617,7 +617,7 @@ public double[,] ApplyGradientMagnitudeThreshold(double[,] angles, double[,] mag
         \end{figure} \bk
 
         \paragraph*{6. Min Max Threshold and Potential Edge Calculations} \mbox{} \\
-        This part of the canny edge detection is also called the double threshold. This is where the image pixels will all be taken and their values considered. This is when it becomes necessary for us to use the black and white version of the image. If we did not then there would be no easy way to perform this. This is because unlike most of he other steps of the edge detection we are not interested yet at the pixels which are surrounding the ones we are looking at. We are just interested in its specific value. The code to perform this is as follows.
+        This part of the Canny edge detection is also called the double threshold. This is where the image pixels will all be taken and their values considered. This is when it becomes necessary for us to use the black and white version of the image. If we did not then there would be no easy way to perform this. This is because unlike most of he other steps of the edge detection we are not interested yet at the pixels which are surrounding the ones we are looking at. We are just interested in its specific value. The code to perform this is as follows.
 
         \begin{cscode}
 public (double, bool)[,] ApplyDoubleThreshold(double l, double h, double[,] gradients)
@@ -654,7 +654,7 @@ public (double, bool)[,] ApplyDoubleThreshold(double l, double h, double[,] grad
         As you can see lots of noise from the scan lines of the image have been removed in this step as they would have been too small to make it past the lower threshold. Now we have an 2D array of pixel values and whether they are considered "strong" or not. If they are strong this is represented by \textbf{true} in the $2\textsuperscript{nd}$ part of the tuple. And \textbf{false} for a "weak" pixel. \\ \bk
 
         \paragraph*{7. Edge tracking by Hysteresis} \mbox{} \\
-        This is the final step of traditional canny edge detection. This will require the 2D array of tuples and will require kernels of the image as it loops over every pixel. This will cause a problem since the usual way fo doing it would default to grey if the kernel overlapped with the edge of the image. So in this case we default to the pixel itself because any other value could cause us to get an erroneous edge. The way that this works is if the pixel is a "strong" pixel then it is defaulted to an edge since it was above the previous threshold. If the pixel is "weak" then it will build a kernel of all of the images around it. If any of the pixels which surround it are "strong" then this pixel is made "strong". The code for this is as follows.
+        This is the final step of traditional Canny edge detection. This will require the 2D array of tuples and will require kernels of the image as it loops over every pixel. This will cause a problem since the usual way fo doing it would default to grey if the kernel overlapped with the edge of the image. So in this case we default to the pixel itself because any other value could cause us to get an erroneous edge. The way that this works is if the pixel is a "strong" pixel then it is defaulted to an edge since it was above the previous threshold. If the pixel is "weak" then it will build a kernel of all of the images around it. If any of the pixels which surround it are "strong" then this pixel is made "strong". The code for this is as follows.
 
         \begin{cscode}
 public double[,] ApplyEdgeTrackingHysteresis((double, bool)[,] arrayOfValues)
@@ -1119,7 +1119,7 @@ public partial class ShowImage : Form
                 \item If any error occurs during the map input process an appropriate error should be displayed and the program should continue to run
             \end{enumerate}
 
-            \item The Program must perform canny edge detection   
+            \item The Program must perform Canny edge detection   
             \begin{enumerate}
                 \item At each stage of the edge detection an image should be produced
                 \begin{enumerate}

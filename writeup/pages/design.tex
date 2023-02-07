@@ -22,7 +22,7 @@
     \subsubsection{Windows Forms}
     In order to complete my objectives my program will need to be easy to use and any user with some degree of technical competency should be able to use it. In order to achieve this objective I though that instead of using some form of console input in order to get a starting and an end location, that it would be better to use some form of GUI. In order to do this I will use Windows Forms. This will allow me to make a simple GUI which will allow the end user to interact with the user and easily understand. \\ 
 
-    The things which I will end up using the windows forms are the map traversal, allowing the user to select a start and an end node with a click instead of having to enter a coordinate. As well as this I will also use forms to show the user the stages of, for example, the canny edge detection.
+    The things which I will end up using the windows forms are the map traversal, allowing the user to select a start and an end node with a click instead of having to enter a coordinate. As well as this I will also use forms to show the user the stages of, for example, the Canny edge detection.
     \\ \bk
 
     \subsection{High Level Overview}
@@ -136,9 +136,9 @@
 
     This class also implements the IHandler interface, this is to allow the main front end application to switch between the Async version and the Synchronous version of the edge detection without having a mess of IF statements. Part of the IHandler interface means that this class must contain the methods, Start() and Result(). What these methods do is what they say in the name. The start methods begins the process of getting user inputs and then starting the edge detection. The Result method will, as the name suggests return the result of the edge detection. \\ \bk
 
-    The PostProcessImage method in the class is responsible for the custom embossing which runs through the result of the canny edge detection and fills in any gaps that may have appeared. It also applies an embossing kernel on the image to embolden the lines. It will also prompt the user to enter the amount of times they want to run the embossing process. \\ \bk
+    The PostProcessImage method in the class is responsible for the custom embossing which runs through the result of the Canny edge detection and fills in any gaps that may have appeared. It also applies an embossing kernel on the image to embolden the lines. It will also prompt the user to enter the amount of times they want to run the embossing process. \\ \bk
     
-    The GetDetectorMethod is used to get the variables for the canny edge detector. This section handles all of the validation and checking that the values supplied are valid. The result of this method is that a new Canny Edge Detector object is created with the user inputted variables, this is then passed down the chain to be used in processing each quadrant. \\ \bk
+    The GetDetectorMethod is used to get the variables for the Canny edge detector. This section handles all of the validation and checking that the values supplied are valid. The result of this method is that a new Canny Edge Detector object is created with the user inputted variables, this is then passed down the chain to be used in processing each quadrant. \\ \bk
 
     The main differentiator between this asynchronously method and the synchronous method is that this one will split the input image into 4 distinct quadrants, this will allow the program to run each at the same time using threading. Through my prototyping stage I found that using this method of threading greatly improves the speed even on lower specification computers. \\ \bk
     
@@ -153,11 +153,11 @@
         \subfloat[\centering Canny Edge Detection Class Diagram]{{\includegraphics[width=16cm]{images/UML/CannyEdgeDetection.png}}}
     \end{figure}\\
 
-    This class is located in the backend library portion of my project, its main function is to house the methods which contain the maths to perform the canny edge detection. Since this method is in the backend library of my project there is no user input here however in many of the methods an action is passed in, this is used to update the progress bar on the front end without having the two intrinsically integrated. \\ \bk
+    This class is located in the backend library portion of my project, its main function is to house the methods which contain the maths to perform the Canny edge detection. Since this method is in the backend library of my project there is no user input here however in many of the methods an action is passed in, this is used to update the progress bar on the front end without having the two intrinsically integrated. \\ \bk
 
     The first set of methods shown in the class diagram are in essence properties on the class which are used in the various calculations. The reason that I will go with getter and setter variables is that if at some point in the future I wish to restrict access to the properties on the class or perhaps mutate the way in which they are stored this could be easily done without the need to change many different things. \\ \bk
 
-    The first method and subsequently the first stage in canny edge detection is the black and white filter. The default behaviour is that it uses the industry standard for getting a single value from a RGB pixel which is as follows $$ Y' = 0.299R' + 0.587G' + 0.114B' $$.  It will perform the same calculation for every pixel in the supplied image causing it to be converted to black and white. This is used since if the detection was run on each colour chanel seperatly this would not give one unified result and could be very inaccurate.\\ 
+    The first method and subsequently the first stage in Canny edge detection is the black and white filter. The default behaviour is that it uses the industry standard for getting a single value from a RGB pixel which is as follows $$ Y' = 0.299R' + 0.587G' + 0.114B' $$.  It will perform the same calculation for every pixel in the supplied image causing it to be converted to black and white. This is used since if the detection was run on each colour chanel seperatly this would not give one unified result and could be very inaccurate.\\ 
 
     \\ \bk
 
@@ -175,7 +175,7 @@
 
     It is stated that the larger the kernel is the less effect noise will have on the result however it will impact the performance of the detector, for this reason the Canny Edge Detection class defaults to a kernel size of 5x5. \\ \bk
 
-    The next stage of canny edge detection involve calculating gradients and gradient angles and for this reason I will be combining the CalculateGradients, CalculateGradientX and CalculateGradientY into one. Again another way in which I will optimise the canny edge detection is by using threading. In order to calculate the gradient direction I will need to use Atan2, this requires an X and Y component which are independent of each other, a perfect use of threading. When a image gets to this point it will be processed at the same time by each method. The process completed by each method is vastly the same they will just be applying different image kernels, both are the sobel edge kernels keeping with the scheme of canny edge detection. \\ \bk   
+    The next stage of Canny edge detection involve calculating gradients and gradient angles and for this reason I will be combining the CalculateGradients, CalculateGradientX and CalculateGradientY into one. Again another way in which I will optimise the Canny edge detection is by using threading. In order to calculate the gradient direction I will need to use Atan2, this requires an X and Y component which are independent of each other, a perfect use of threading. When a image gets to this point it will be processed at the same time by each method. The process completed by each method is vastly the same they will just be applying different image kernels, both are the sobel edge kernels keeping with the scheme of Canny edge detection. \\ \bk   
 
     \begin{center}
         
@@ -210,7 +210,7 @@
 
     \bk
 
-    The next stage in canny edge detection is gradient magnitude threshold's, this is a method of removing lines which would not be "thick enough" to be a propped edge. This is accomplished by the use of the MagnitudeThreshold method and the bullet point description: \\ 
+    The next stage in Canny edge detection is gradient magnitude threshold's, this is a method of removing lines which would not be "thick enough" to be a propped edge. This is accomplished by the use of the MagnitudeThreshold method and the bullet point description: \\ 
     
     At every pixel N in a given image, it will be suppressed (removed) if,
     \begin{itemize}
@@ -227,7 +227,7 @@
 
     The way in which this is implemented is that a user threshold from the beginning is used and if the pixel is greater than the threshold then it is included, if it is below the max threshold but greater than the min then it is set to a strong pixel and retains its value. In any other case it is removed and its value is set to 0. \\ \bk
 
-    Finally edge tracking by hysteresis is used, to track the edge connection, blob analysis is applied by looking at a weak edge pixel and its 8-connected neighbourhood pixels. As long as there is one strong edge pixel that is involved in the blob, that weak edge point can be identified as one that should be preserved. These weak edge pixels become strong edges that can then cause their neighbouring weak edge pixels to be preserved otherwise they are not preserved and are removed. After each of these sages canny edge detection is complete. \\ \bk    
+    Finally edge tracking by hysteresis is used, to track the edge connection, blob analysis is applied by looking at a weak edge pixel and its 8-connected neighbourhood pixels. As long as there is one strong edge pixel that is involved in the blob, that weak edge point can be identified as one that should be preserved. These weak edge pixels become strong edges that can then cause their neighbouring weak edge pixels to be preserved otherwise they are not preserved and are removed. After each of these sages Canny edge detection is complete. \\ \bk    
     \bk
 
     \pagebreak
@@ -249,7 +249,7 @@
         \subfloat[\centering Coord Class Diagram]{{\includegraphics[width=13cm]{images/UML/Coord.png}}}
     \end{figure}\\
 
-    Similar to above this is contained within the static class of structures. It is used to represent a coordinate, and unlike the canny result structure, it does contain methods. The main of which are the operator overloads. This allows me to directly compare two different coordinates instead of constantly comparing each dimensions. The other hash codes and alike are used when a dictionary is required in order for them to be converted into a hash code. Finally the ToString method is mainly used during testing however it can also be used to inform the user of a coordinate that they are interacting with.
+    Similar to above this is contained within the static class of structures. It is used to represent a coordinate, and unlike the Canny result structure, it does contain methods. The main of which are the operator overloads. This allows me to directly compare two different coordinates instead of constantly comparing each dimensions. The other hash codes and alike are used when a dictionary is required in order for them to be converted into a hash code. Finally the ToString method is mainly used during testing however it can also be used to inform the user of a coordinate that they are interacting with.
 
     \bk
     \pagebreak
@@ -268,7 +268,7 @@
 
     The third extension contained is essentially a clone of the first one however this acts upon the EGB structure. This is important due to the fact that the RGB structure contains more than 1 value which means that using it I can reconstruct the original image using the R, G and B channels in the structure. Apart from this difference the two extensions are the same. \\ \bk
 
-    The ToGraph extension contained within this class is very important as it is how after the canny edge detection I will convert the result to a graph which can then have a traversal algorithm used upon it. This extension acts upon a 2D double array. In order to gain the pixels around a given pixel in a double array the GetKernel function is used, this is explained in the Kernel class. Once the kernel of the pixel is created we can work out the relative coordinates through the use of modulus arithmetic.
+    The ToGraph extension contained within this class is very important as it is how after the Canny edge detection I will convert the result to a graph which can then have a traversal algorithm used upon it. This extension acts upon a 2D double array. In order to gain the pixels around a given pixel in a double array the GetKernel function is used, this is explained in the Kernel class. Once the kernel of the pixel is created we can work out the relative coordinates through the use of modulus arithmetic.
 
     \begin{gather*}
         \text{Where } X = x + (i \% 3) -1 \text{ and } Y = y + (i / 3) - 1 \\
@@ -372,7 +372,6 @@
     The resulting kernel is then converted into a matrix and retuned in order to be convoluted with the processing kernel. The only exception to this is the gaussian kernel. This does not take in an image, instead it applies the 3D statistical gaussian distribution to a matrix producing a 3D Gaussian distribution matrix of a given size. This is then returned to be used in the Canny edge detection section.\\
     \bk
 
-    \pagebreak
     \paragraph{Kernel Exception \textit{(Exception)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -487,8 +486,8 @@
 
     {\displaystyle {\begin{bmatrix}x_{11}&x_{12}&\cdots &x_{1n}\\x_{21}&x_{22}&\cdots &x_{2n}\\\vdots &\vdots &\ddots &\vdots \\x_{m1}&x_{m2}&\cdots &x_{mn}\\\end{bmatrix}}*{\begin{bmatrix}y_{11}&y_{12}&\cdots &y_{1n}\\y_{21}&y_{22}&\cdots &y_{2n}\\\vdots &\vdots &\ddots &\vdots \\y_{m1}&y_{m2}&\cdots &y_{mn}\\\end{bmatrix}}=\sum _{i=0}^{m-1}\sum _{j=0}^{n-1}x_{(m-i)(n-j)}y_{(1+i)(1+j)}}\BK\BK\bk
 
-    \textbf{Matrix Minimisation}
-
+    \textbf{Matrix Minimisation} \\ \bk
+    This is more of a custom made algorithm. It runs over every entry in the matrix summing their values together. This is then used to divide every element in the matrix by this sum. This means that all of the elements will sum to zero if added which can help with matrix convolution. \\
     \bk
 
     \pagebreak
@@ -509,6 +508,9 @@
         \centering
         \subfloat[\centering Max Priority Queue Class Diagram]{{\includegraphics[width=9cm]{images/UML/MaxPriorityQueue.png}}}
     \end{figure}\\
+    
+    Again located in the back end library of the project, this is a data type used in the processing and pathfinding of the map. This is identical to the Min priority queue explained below apart from the ordering of the elements in the queue. Both use a binary heap. Please refer to the min priority queue for an explication of the methods involved.
+
 
     \bk
 
@@ -519,6 +521,8 @@
         \centering
         \subfloat[\centering Menu Class Diagram]{{\includegraphics[width=13cm]{images/UML/Menu.png}}}
     \end{figure}\\
+
+    This is located in the front end portion of my project and is responsible for most
 
     \bk
     
@@ -620,6 +624,19 @@
         \subfloat[\centering Queue Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Queue.png}}}
     \end{figure}\\
 
+    This ADT is located in the backend library of my project. The reason which I created my own Queue class is that I needed to be able to directly access parts of it which might not be considered by the inbuilt class. It still contains the same methods as the inbuilt queue:\\ \bk
+
+    \begin{itemize}
+        \item Enqueue: Adds an element to the end of the queue.
+        \item Dequeue: Removes the element from the front of the queue and returns it.
+        \item Peek: Returns the element at the front of the queue without removing it.
+        \item Is Empty: Returns a boolean indicating whether the queue is empty or not.
+        \item Size: Returns the number of elements in the queue.
+        \item Contains: Returns a boolean indicating whether the queue contains an element or not.
+    \end{itemize}
+
+    I allowed the queue to be instantiated with a pre existing enumerable, this allows me to create queues with nodes of a graph for example, this is not possible with the queue which was available to me by default. This is used in the traversal class when performing BFS.\\
+
     \bk
 
     \pagebreak
@@ -629,6 +646,8 @@
         \centering
         \subfloat[\centering Raw Image Class Diagram]{{\includegraphics[width=10cm]{images/UML/RawImage.png}}}
     \end{figure}\\
+
+    This is a structure and therefore located in the backend portion of the project. Its function is to move the results of the image about. It contains the original image which was processed, the string representation of the file path as well as the dimensions of said image. These are included to speed up mathematical calculations. It also contains a RGB 2D array which is a more mutable representation of the image. This allows it to be easily converted into other forms and have various algorithms applied to it. Finally a MapFile can be attached to this structure however in the event that no save is selected this will be null to allow the program to see that no save needs to be made.\\
 
     \bk
 
@@ -640,6 +659,7 @@
         \subfloat[\centering RGB Class Diagram]{{\includegraphics[width=10cm]{images/UML/RGB.png}}}
     \end{figure}\\
 
+    This basic structure is located in the backend library of my final solution. Whilst it does not contain much information this is used in place of the inbuilt Color class due to the limitation that the inbuilt Color class has. It contains just 3 doubles, one for each colour channel. There are overloads involving this class however they are covered by the extensions class so see there for those functions.\\
     \bk
 
     \pagebreak
@@ -659,6 +679,8 @@
         \centering
         \subfloat[\centering Road Result Class Diagram]{{\includegraphics[width=10cm]{images/UML/RoadResult.png}}}
     \end{figure}\\
+
+    This structure is located in the backend portion of the solution, as the name might suggest it is responsible for the result of the road detection. By the stage that this is used the picking out of the roads has occurred and been calculated. The next stage is pathfinding. The filled bitmap is returned so that the user can see how the image was filled and the different section that where picked out. The path bitmap is returned to be stored in the save file if the user requests it. Finally the 2D double array is ued in the pathfinding to tell whether the selected nodes are on the path. It is also used when creating the graph to be routed.\\
 
     \bk
 
@@ -773,6 +795,8 @@
         \subfloat[\centering Threshold Pixel Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/ThresholdPixel.png}}}
     \end{figure}\\
 
+    This is a structure and located in the backend library of the project. It is only used in the edge detection section however it is vital in the final hysteresis stage. It allows the program to tell if a pixel needs to be made strong or not. This structure therefore contains the greyscale value of the pixel it represents as a double and whether it is considered strong or not. This is represented by a boolean. The general way that this is implemented is in a 2D array removing the need to have coordinates stored in the structure itself.
+
     \bk
 
     \pagebreak
@@ -783,6 +807,113 @@
         \subfloat[\centering Traversal Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/Traversal.png}}}
     \end{figure}\\
 
+    This is the class which is responsible for the functionality relating to the pathfinding of the map. This is located in the backend library of the project. It contains 4 different traversal and searching algorithms each of which will be explained below. \\ \bk
+
+    \textbf{BFS / DFS} \\
+    I have chosen to combine these two together due to the fact that they are essentially identical bar from the fact that one of them uses a stack and the other a queue. The pseudocode for each is below:\\
+    \begin{pseudocode}
+// DFS
+procedure DFS_iterative(G, v) is
+let S be a stack
+S.push(v)
+while S is not empty do
+    v = S.pop()
+    if v is not labelled as discovered then
+        label v as discovered
+        for all edges from v to w in G.adjacentEdges(v) do 
+            S.push(w)
+
+// BFS
+procedure BFS_iterative(G, v) is
+let S be a queue
+S.push(v)
+while S is not empty do
+    v = S.pop()
+    if v is not labelled as discovered then
+        label v as discovered
+        for all edges from v to w in G.adjacentEdges(v) do 
+            S.push(w)
+    \end{pseudocode} \\ \BK
+
+    \textbf{Dijkstra's} \\
+    \begin{pseudocode}
+function Dijkstra(Graph, source):
+    dist[source] ← 0                           // Initialization
+    create vertex priority queue Q
+    for each vertex v in Graph.Vertices:
+        if v ≠ source
+            dist[v] ← INFINITY                 // Unknown distance from source to v
+            prev[v] ← UNDEFINED                // Predecessor of v
+
+        Q.add_with_priority(v, dist[v])
+
+
+    while Q is not empty:                      // The main loop
+        u ← Q.extract_min()                    // Remove and return best vertex
+        for each neighbor v of u:              // Go through all v neighbors of u
+            alt ← dist[u] + Graph.Edges(u, v)
+            if alt < dist[v]:
+                dist[v] ← alt
+                prev[v] ← u
+                Q.decrease_priority(v, alt)
+
+    return dist, prev
+    \end{pseudocode} \\ \BK
+
+    \textbf{A* Search} \\
+    \begin{pseudocode}
+function reconstruct_path(cameFrom, current)
+    total_path := {current}
+    while current in cameFrom.Keys:
+        current := cameFrom[current]
+        total_path.prepend(current)
+    return total_path
+
+// A* finds a path from start to goal.
+// h is the heuristic function. h(n) estimates the cost to reach goal from node n.
+function A_Star(start, goal, h)
+    // The set of discovered nodes that may need to be (re-)expanded.
+    // Initially, only the start node is known.
+    // This is usually implemented as a min-heap or priority queue rather than a hash-set.
+    openSet := {start}
+
+    // For node n, cameFrom[n] is the node immediately preceding it on the cheapest path from start
+    // to n currently known.
+    cameFrom := an empty map
+
+    // For node n, gScore[n] is the cost of the cheapest path from start to n currently known.
+    gScore := map with default value of Infinity
+    gScore[start] := 0
+
+    // For node n, fScore[n] := gScore[n] + h(n). fScore[n] represents our current best guess as to
+    // how cheap a path could be from start to finish if it goes through n.
+    fScore := map with default value of Infinity
+    fScore[start] := h(start)
+
+    while openSet is not empty
+        // This operation can occur in O(Log(N)) time if openSet is a min-heap or a priority queue
+        current := the node in openSet having the lowest fScore[] value
+        if current = goal
+            return reconstruct_path(cameFrom, current)
+
+        openSet.Remove(current)
+        for each neighbor of current
+            // d(current,neighbor) is the weight of the edge from current to neighbor
+            // tentative_gScore is the distance from start to the neighbor through current
+            tentative_gScore := gScore[current] + d(current, neighbor)
+            if tentative_gScore < gScore[neighbor]
+                // This path to neighbor is better than any previous one. Record it!
+                cameFrom[neighbor] := current
+                gScore[neighbor] := tentative_gScore
+                fScore[neighbor] := tentative_gScore + h(neighbor)
+                if neighbor not in openSet
+                    openSet.add(neighbor)
+
+    // Open set is empty but goal was never reached
+    return failure
+    \end{pseudocode} \\ \BK
+
+    This is all that is contained within the traversal algorithm, the only properties on this class is te graph which is having the algorithms applied to it. I chose to instantiate the class with the graph instead of passing it in as a reference to keep the classes couples and to avoid data from getting altered unexpectedly.
     \bk
 
     \pagebreak
@@ -874,7 +1005,7 @@ C:\\Users\\ruben\\.nuget\\packages\\ilmerge\\3.0.41\\tools\\net452\\ILMerge.exe
 
     I have been unable to find a suitable existing algorithm to complete this for me. There are several different types of filling algorithm which will be explained soon. What I did come across in my research is that there are many different types of image kernel and how they can be used to alter image properties. One useful one which I came across was was the embossing kernel. This goes over the images and essentially "bolds" all of the lines in the image. \\ \bk
 
-    With these "bolded lines" it can cause gaps which previously existed to be filled. However there is one final issue which is where the lines have been connected there are intermittent black pixels which haven't been fixed by the embossing kernel. In order to remedy this I will employ a similar method as the hysteresis algorithm in canny edge detection. \\ \bk
+    With these "bolded lines" it can cause gaps which previously existed to be filled. However there is one final issue which is where the lines have been connected there are intermittent black pixels which haven't been fixed by the embossing kernel. In order to remedy this I will employ a similar method as the hysteresis algorithm in Canny edge detection. \\ \bk
     
     The solution I have come up with is to run over every pixel in the edge map. If there are more than a set number of white "strong" pixels around a black pixel then the black will be replaced with white. What this accomplishes is a "filling" the black pot holes. Overall this does not accomplish much however it means that if an image needs more than one pass of this "fortification" algorithm then this makes the result more reliable in the long run. \\ \bk
 
