@@ -241,7 +241,7 @@
     This is contained within the static class of structures in the backend library. There is no methods or functions contained within this class since it is in fact a structure. Its main function is to contain any relevant data from Canny Edge Detection.
 
     \bk
-    \pagebreak
+
     \paragraph{Coord \textit{(Structure)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -324,7 +324,7 @@
     Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
 
     \bk
-    \pagebreak
+  
     \paragraph{IHandler \textit{(Interface)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -429,7 +429,9 @@
     \end{figure}\\
     Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
     \bk
-    \pagebreak
+
+\pagebreak
+
     \paragraph{Map File \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -501,7 +503,7 @@
     \bk
 
 
-    \pagebreak
+
 \paragraph{Max Priority Queue \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -576,8 +578,7 @@
     Checks if the a node is contained within the queue, keeping it compatible with the normal queue.
 
     \bk
-
-    \pagebreak
+\pagebreak
 \paragraph{New Image \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -590,7 +591,6 @@
     As well as prompting the user to enter a file this is also where it asks the user if they wish to save the process. If they select yes then this class attaches a new MapFile to the result structure. \\
     \bk
 
-    \pagebreak
 \paragraph{Pathfinder \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -676,7 +676,6 @@
     Located in the backend of the project this is a specific exception used to differentiate errors in the front end. This inherits the methods of the base exception class. This is the same as all other custom exception classes. They exist to allow me in the front end to show special error messages.
     \bk
 
-    \pagebreak
 \paragraph{Program \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -739,7 +738,6 @@
 
     \bk
 
-    \pagebreak
 \paragraph{RGB \textit{(Structure)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -758,7 +756,7 @@
         \subfloat[\centering Road Detection Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/RoadDetection.png}}}
     \end{figure}\\
 
-    This is located in the backend section of my program. Again as with most of my classes in this program it follows the same design of having a Start function which beings the process and a Result function which is called after it has completed and the data returned. The main two processes completed in here are the random colour filling of the canny edge detected image. This functions by generating 3 random integers between 0 and 255, it then uses these to create a Color object. If this has been used before then it regenerates it. this give a possible amount of colours of 255^3 which is 16581375 possibilities. It then performs flood fill with the random colour for each section. This the means every section is unique. After the image has been filled its time to remove the colours which violate the area rules. This is explained in more detail in the area rectification section of the algorithms. \\ \bk
+    This is located in the backend section of my program. Again as with most of my classes in this program it follows the same design of having a Start function which beings the process and a Result function which is called after it has completed and the data returned. The main two processes completed in here are the random colour filling of the canny edge detected image. This functions by generating 3 random integers between 0 and 255, it then uses these to create a Color object. If this has been used before then it regenerates it. this give a possible amount of colours of 255\^3 which is 16581375 possibilities. It then performs flood fill with the random colour for each section. This the means every section is unique. After the image has been filled its time to remove the colours which violate the area rules. This is explained in more detail in the area rectification section of the algorithms. \\ \bk
 
     Once the area rectification has been applied to each section, those which violate the area rules are removed. Once this has been done we now have a final image with the roads on it. Then as one final step all the filled sections are converted to white and the white boarders are removed. Therefore, overall we are just left with a "road no road" map.\\
 
@@ -776,7 +774,6 @@
 
     \bk
 
-    \pagebreak
 \paragraph{Road Sequence \textit{(Class)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -851,7 +848,6 @@ zipOnComplete=false
     This is in essence a abstraction layer on top of the original Settings class. \\
     \bk
 
-    \pagebreak
 \paragraph{Settings Exception \textit{(Exception)}} \mbox{} \\
 
     \begin{figure}[H]
@@ -914,7 +910,10 @@ zipOnComplete=false
 
     The difference between this and the async version is that the async version runs all at once and there is no chance to redo steps. Whereas here the outputs are shown the user in the View Image Form after ever step. The result of the SyncEdgeDetection class is fetched the same way as the async version. This is the point of the IHandler interface. \\ \bk
 
-    Not all of the stages of the single threaded version are available to be tweaked and these do run similarly to the async version with threading. \\
+    Not all of the stages of the single threaded version are available to be tweaked and these do run similarly to the async version with threading. \\ \bk
+
+    There are several private methods in this class, these are the different stages of the canny edge detection, they will be called one after another as explained above. The only way to progress to the next stage in this version is to accept the results since there is no way to stop which in hindsight could be improved upon.\\
+
     \bk
 
 
@@ -930,7 +929,6 @@ zipOnComplete=false
 
     \bk
 
-    \pagebreak
 \paragraph{Threshold Pixel \textit{(Structure)}} \mbox{} \\
 
     \begin{figure}[H]

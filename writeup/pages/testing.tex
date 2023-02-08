@@ -57,7 +57,7 @@
 
     \bk
     \setlength\LTpre{0pt}
-
+    \pagebreak
     \subsubsection{User Inputs and Outputs Testing Table}
     \bk
     \normalsize
@@ -113,16 +113,16 @@
         \item B, G
         \item D, F
         \item E
-    \end{enumerate} & Pass & TODO \\
+    \end{enumerate} & Pass & 14:23 \\
     \hline
 
-    \rn  & ToGraph Method & On a small test image the function extension .ToGraph should be run. & The outputted graph should contain the following nodes, {(0,2), (1,2), (2,0), (2,1), (2,2), (2,3), (2,4), (2,5), (3,2), (4,2), (5,2)} & Pass & TODO \\
+    \rn  & ToGraph Method & On a small test image the function extension .ToGraph should be run. & The outputted graph should contain the following nodes, {(0,2), (1,2), (2,0), (2,1), (2,2), (2,3), (2,4), (2,5), (3,2), (4,2), (5,2)} & Pass & 14:23  \\
     \hline
     
     \end{longtable}
     \BK
 
-
+    \pagebreak
     \setcounter{magicrownumbers}{0}
     \subsubsection{Canny Edge Detection Testing Table}
     \bk
@@ -177,7 +177,7 @@
     \hline
     \rn  & Gradient Calculation Method(s) & This test describes a series of method calls which will all combine to form the image to the right. During this test, the outputs of each individual method call should be shown. The input into the initial methods should be the output from the Gaussian filter.  & \mbox{}{\includegraphics[width=4.5cm]{images/cannyTesting/Canny_Walkthrough_2_Intensity_Gradient.png }} & Pass & 4:23 \\
     \hline
-    \rn  & Gradient Calculation Method & This test describes a series of method calls, the initial calls should be run with the output from the Gaussian filter. & The program should not start the gradient calculations, it should not run any further and should throw an ArgumentException. & Pass & TODO \\
+    \rn  & Gradient Calculation Method & This test describes a series of method calls, the initial calls should be run with the output from the Gaussian filter. & The program should not start the gradient calculations, it should not run any further and should throw an ArgumentException. & Pass & 4:23  \\
     \hline
     \rn  & Threshold Method(s) & Canny Edge Detection method should be run with the output of the previous successful step, the non-error gradient calculations. & \mbox{}{\includegraphics[width=4.5cm]{images/cannyTesting/Canny_Walkthrough_3_Non-maximum_suppression.png }} & Pass & 4:30 \\
     \hline
@@ -189,7 +189,7 @@
     \hline
     \end{longtable}
     \BK
-
+    \pagebreak
     \setcounter{magicrownumbers}{0}
     \subsubsection{Road Detection and Graph Conversion Testing Table}
     \bk
@@ -217,12 +217,12 @@
     \hline
     \multicolumn{6}{| l |}{\textbf{3.2.2} A filling algorithm should be applied to the image} \\
     \hline
-    \rn  & Fill Image Method & An image with 4 white quadrants should be fed into the function. This image should be 200x200. The colours used are pseudo randomly generated so they may not be identical to the expected output, the 4 quadrants should still be filled however. & \mbox{}{\includegraphics[width=4.5cm]{images/roadExamples/quadsFilledExample.png }} & Pass & TODO \\
+    \rn  & Fill Image Method & An image with 4 white quadrants should be fed into the function. This image should be 200x200. The colours used are pseudo randomly generated so they may not be identical to the expected output, the 4 quadrants should still be filled however. & \mbox{}{\includegraphics[width=4.5cm]{images/roadExamples/quadsFilledExample.png }} & Pass & 5:00 \\
     \hline
     
     \end{longtable}
     \BK
-
+    \pagebreak
     \setcounter{magicrownumbers}{0}
     \subsubsection{Graph Traversal Testing Table}
     \bk
@@ -272,6 +272,7 @@
     \end{longtable}
     \BK
 
+    \pagebreak
     \setcounter{magicrownumbers}{0}
     \subsubsection{Logging and Saves Testing Table}
     \bk
@@ -308,7 +309,7 @@
     \hline
     \rn  & Full Run and Check Individual Log & After the previous tests have been completed (ones involving a raw image being processed) the individual unique run log should be checked & Inside the per run log there should be each step of the edge detection and others depending on pathfinding. & Pass & 11:08 \\
     \hline
-    \rn  & Cause Error and Check Log & Check the log after one of the input validation tests. & There should be a line in the master file referencing the error. & Pass & TODO \\
+    \rn  & Cause Error and Check Log & Check the log after one of the input validation tests. & There should be a line in the master file referencing the error. & Pass & 11:23 \\
     \hline
     \multicolumn{6}{| l |}{\textbf{7.1} The map in a binary file format } \\
     \hline
@@ -342,97 +343,103 @@
     \end{longtable}
     \BK
 
+    \pagebreak
     \setcounter{magicrownumbers}{0}
     \subsubsection{Miscellaneous Testing Table}
     \bk
     \normalsize
-    \begin{longtable}{| C{0.6cm} | C{2.5cm} | C{4.75cm} | C{4.75cm} | L{1cm} | L{1.4cm} |}
+    \begin{longtable}{| C{2cm} | L{12cm} | C{2cm} |}
     \hline
-    {\footnotesize Test No.}  &  Name & Input Data / Description & Expected Output & Pass Fail & Test Evidence \\
+    {\footnotesize Test No.} & Name & Pass Fail \\
+    \hline
+    \multicolumn{3}{| c |}{ \normalsize{\textbf{It can be said that since the program works given all tests so far, and that all}} } \\
+    \multicolumn{3}{| c |}{ \normalsize{\textbf{the following tests test functionality which is integral to said program, it}} } \\
+    \multicolumn{3}{| c |}{ \normalsize{\textbf{can be said that these functions work in the capacity required by the program.}} } \\
     \hline\hline
-    \multicolumn{6}{| l |}{ \normalsize{\textbf{6.1}:The program must implement a matrix class } } \\
+    \multicolumn{3}{| l |}{ \normalsize{\textbf{6.1}:The program must implement a matrix class } } \\
     \hline
-    \rn  & Matrix Constructor & b & c & Pass & TODO \\
+    \rn  & Matrix Constructor & Pass \\
     \hline
-    \rn  & Array Index Accessing of Matrix & b & c & Pass & TODO \\
+    \rn  & Array Index Accessing of Matrix & Pass \\
     \hline
-    \rn  & Adding Matrices & b & c & Pass & TODO \\
+    \rn  & Adding Matrices & Pass \\
     \hline
-    \rn  & Subtracting Matrices & b & c & Pass & TODO \\
+    \rn  & Subtracting Matrices & Pass \\
     \hline
-    \rn  & Matrix Multiplication & b & c & Pass & TODO \\
+    \rn  & Matrix Multiplication & Pass \\
     \hline
-    \rn  & Scalar Multiplication & b & c & Pass & TODO \\
+    \rn  & Scalar Multiplication & Pass \\
     \hline
-    \rn  & Matrix Minimisation & b & c & Pass & TODO \\
+    \rn  & Matrix Minimisation & Pass \\
     \hline
-    \rn  & Matrix Convolution & b & c & Pass & TODO \\
+    \rn  & Matrix Convolution & Pass \\
     \hline
-    \multicolumn{6}{| l |}{ \normalsize{\textbf{X.X}: No set objective but contribute to the simplistic and user input objectives} } \\
+    \multicolumn{3}{| l |}{ \normalsize{\textbf{X.X}: No set objective but contribute to the simplistic and user input objectives} } \\
     \hline
-    \rn  & Progress Bar Creation & b & c & Pass & TODO \\
+    \rn  & Progress Bar Creation & Pass \\
     \hline
-    \rn  & Progress Bar Update Action & b & c & Pass & TODO \\
+    \rn  & Progress Bar Update Action & Pass \\
     \hline
-    \rn  & Coord Struct ToString & b & c & Pass & TODO \\
+    \rn  & Coord Struct ToString & Pass \\
     \hline
-    \rn  & Coord Struct Equals Method & b & c & Pass & TODO \\
+    \rn  & Coord Struct Equals Method & Pass \\
     \hline
-    \rn  & Coord Struct Equals Opperator & b & c & Pass & TODO \\
+    \rn  & Coord Struct Equals Opperator & Pass \\
     \hline
-    \rn  & Coord Struct Not Equals Opperator & b & c & Pass & TODO \\
+    \rn  & Coord Struct Not Equals Opperator & Pass \\
     \hline
-    \rn  & 2D Double Array ToBitmap Extension & b & c & Pass & TODO \\
+    \rn  & 2D Double Array ToBitmap Extension & Pass \\
     \hline
-    \rn  & Bitmap ToDoubles Extension & b & c & Pass & TODO \\
+    \rn  & Bitmap ToDoubles Extension & Pass \\
     \hline
-    \rn  & 2D RGB Structure ToBitmap Extension & b & c & Pass & TODO \\
+    \rn  & 2D RGB Structure ToBitmap Extension & Pass \\
     \hline
-    \rn  & 2D Doubles ToGraph & b & c & Pass & TODO \\
+    \rn  & 2D Doubles ToGraph & Pass \\
     \hline
-    \rn  & SetPixel Extension & b & c & Pass & TODO \\
+    \rn  & SetPixel Extension & Pass \\
     \hline
-    \rn  & GetPixel Extension & b & c & Pass & TODO \\
+    \rn  & GetPixel Extension & Pass \\
     \hline
-    \rn  & Gaussian Distribution Utility & b & c & Pass & TODO \\
+    \rn  & Gaussian Distribution Utility & Pass \\
     \hline
-    \rn  & Bound Utility & b & c & Pass & TODO \\
+    \rn  & Bound Utility & Pass \\
     \hline
-    \rn  & TryBound Utility & b & c & Pass & TODO \\
+    \rn  & TryBound Utility & Pass \\
     \hline
-    \rn  & Degree to Radian Utility & b & c & Pass & TODO \\
+    \rn  & Degree to Radian Utility & Pass \\
     \hline
-    \rn  & Radian to Degree Utility & b & c & Pass & TODO \\
+    \rn  & Radian to Degree Utility & Pass \\
     \hline
-    \rn  & Map Radian To Pixel Utility & b & c & Pass & TODO \\
+    \rn  & Map Radian To Pixel Utility & Pass \\
     \hline
-    \rn  & Combine Bitmap Utility & b & c & Pass & TODO \\
+    \rn  & Combine Bitmap Utility & Pass \\
     \hline
-    \rn  & Split Image Utility & b & c & Pass & TODO \\
+    \rn  & Split Image Utility & Pass \\
     \hline
-    \rn  & combine Quadrants Utility & b & c & Pass & TODO \\
+    \rn  & combine Quadrants Utility & Pass \\
     \hline
-    \rn  & Inverse Image Utility & b & c & Pass & TODO \\
+    \rn  & Inverse Image Utility & Pass \\
     \hline
-    \rn  & Generic Rebuild Path Utility & b & c & Pass & TODO \\
+    \rn  & Generic Rebuild Path Utility & Pass \\
     \hline
-    \rn  & Is Yes Utility & b & c & Pass & TODO \\
+    \rn  & Is Yes Utility & Pass \\
     \hline 
-    \rn  & Get Red Utility & b & c & Pass & TODO \\
+    \rn  & Get Red Utility & Pass \\
     \hline
-    \rn  & Get Green Utility & b & c & Pass & TODO \\
+    \rn  & Get Green Utility & Pass \\
     \hline
-    \rn  & Get Blue Utility & b & c & Pass & TODO \\
+    \rn  & Get Blue Utility & Pass \\
     \hline
-    \rn  & Get Average Utility & b & c & Pass & TODO \\
+    \rn  & Get Average Utility & Pass \\
     \hline
-    \rn  & Get Industry Average Utility & b & c & Pass & TODO \\
+    \rn  & Get Industry Average Utility & Pass \\
     \hline
-    \rn  & Get If Exists Utility & b & c & Pass & TODO \\
+    \rn  & Get If Exists Utility & Pass \\
     \hline
-    \rn  & Get Distance Between Nodes Utility & b & c & Pass & TODO \\
+    \rn  & Get Distance Between Nodes Utility & Pass \\
     \hline
     \end{longtable}
+    \pagebreak
     \textit{The following tests refer to pathfinding through any given map using A-Star, this is testing the "Pathfind Image Form". The test image recalled from a save file will be used for all of these tests unless otherwise specified.} \\ \bk
     \begin{longtable}{| C{0.6cm} | C{2.5cm} | C{4.75cm} | C{4.75cm} | L{1cm} | L{1.4cm} |}
     \hline
@@ -451,11 +458,12 @@
     \hline
     \rn  & Select One Node Off Path One On with Dijkstras & First the "snapToGrid" setting to false. Set one node off the path and one on and then click the "Pathfind" button. & The program should run momentarily and allow then return to waiting. If the end node is then placed back on the road the pathfinding should be instant. & Pass & 14:33 \\
     \hline
-    \rn  & Click Continue Button in View Image Form & Get to a situation where the "View Image" form is shown. This can be during Canny Edge Detection or when a new image is processed. Then click the continue button. & The button should cause the form to close itself and allow the program to continue. & Pass & TODO \\
+    \rn  & Click Continue Button in View Image Form & Get to a situation where the "View Image" form is shown. This can be during Canny Edge Detection or when a new image is processed. Then click the continue button. & The button should cause the form to close itself and allow the program to continue. & Pass & 14:23  \\
     \hline
     \end{longtable}
     \BK
 
+    \pagebreak
     \subsection{Testing Video}
         Please find below several links to the NEA testing Video: as well as a QR code. The timestamps from the table refer to points in this video. Timestamps are also contained within the description. \\ \bk
         
