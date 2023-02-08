@@ -846,7 +846,9 @@ zipOnComplete=false
         \centering
         \subfloat[\centering Settings Control Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/SettingsControl.png}}}
     \end{figure}\\
-    This is located in the frontend application of the project, this class is used to allow the user to interact with the settings in a programmatic manner. When this class is created and the Start method is called, this 
+    This is located in the frontend application of the project, this class is used to allow the user to interact with the settings in a programmatic manner. When this class is created and the Start method is called, this clears the main user section and then displays 3 options to the user. General settings, Pathfinding settings and Save settings. Depending on which of these the user selects the matching General, Pathfinding and Save functions. These allow the user to change these settings and then once exited the settings are updated accordingly. \\ \bk
+
+    This is in essence a abstraction layer on top of the original Settings class. \\
     \bk
 
     \pagebreak
@@ -878,7 +880,7 @@ zipOnComplete=false
         \item Contains: Returns a boolean indicating whether the stack contains an element or not.
     \end{itemize}
 
-    There is a similar modification allowing for any I enumerable to be passed to instantiate the Stack. With the Queue as well it can be seen from the class diagram that all of the methods are generic meaning that this will work with any data type allowing the graph and subsiquent traversal to work in all cases.\\
+    There is a similar modification allowing for any I enumerable to be passed to instantiate the Stack. With the Queue as well it can be seen from the class diagram that all of the methods are generic meaning that this will work with any data type allowing the graph and subsequent traversal to work in all cases.\\
 
     \bk
 
@@ -908,6 +910,11 @@ zipOnComplete=false
         \subfloat[\centering Sync Edge Detection Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/SyncEdgeDetection.png}}}
     \end{figure}\\
 
+    This is located in the local application section of the solution. In essence all that this class does is to provide a layer of abstraction on top of the edge detection. The first thing that occurs in this class once it is instantiated is that it asks the user to enter the initial paraders for whatever stage is first, this happens to be conversion to greyscale. It will then confirm the parameters with the user, if the user says yes then the program performs the precess. After it has performed the process it asks the user if this was the output they where expecting. If it is not then they can change the parameters and go again. This happens with all the stages of canny edge detection. \\ \bk
+
+    The difference between this and the async version is that the async version runs all at once and there is no chance to redo steps. Whereas here the outputs are shown the user in the View Image Form after ever step. The result of the SyncEdgeDetection class is fetched the same way as the async version. This is the point of the IHandler interface. \\ \bk
+
+    Not all of the stages of the single threaded version are available to be tweaked and these do run similarly to the async version with threading. \\
     \bk
 
 
@@ -1293,12 +1300,4 @@ C:\\Users\\ruben\\.nuget\\packages\\ilmerge\\3.0.41\\tools\\net452\\ILMerge.exe
     Binary heaps are used in many algorithms, such as Dijkstra's shortest path algorithm and the A* algorithm which happen to be the exact algorithms I am using, because they have the property of being able to efficiently maintain a priority queue in a sorted order. They have a time complexity of O(log n) for inserting and extracting elements, which makes them a fast and efficient data structure for implementing priority queues, keeping the delay of processing low.\\ \bk
 
     \bk
-
-
-
-
-
-
-
-
 \end{FlushLeft}
