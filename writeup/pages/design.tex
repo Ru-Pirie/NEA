@@ -522,7 +522,19 @@
         \subfloat[\centering Menu Class Diagram]{{\includegraphics[width=13cm]{images/UML/Menu.png}}}
     \end{figure}\\
 
-    This is located in the front end portion of my project and is responsible for most
+    This is located in the front end portion of my project and is responsible for most if not all of the CLI. There are multiple properties on this class which are used to set permanent display info. The first of these are \_permLineA and \_permLineB. These are used to show titles on screen to the user. In this case they are being used to display the title of the program and my name. The VerticalChar and HorizontalChar are used when drawing outlines onto the console screen. In this case they are a solid | and -. \\ \bk
+
+    Also contained within the properties is a Lock object, this is used and is vital in order to prevent the screen from getting flooded by different colours and wrong sections of text. Due to the nature of threading, different threads can be used at any one time. This object is accessible anywhere in the front end section of the project. The CurrentLine integer is also vital since it lets the program keep track of where the next line needs to be drawn on the screen in the event a message needs to be sent to the user.\\ \bk
+
+    The IsWindowMax function is used to make sure that the program will not start until the screen is as large as it can be, I decided to do this in order to make the most of the screen and keep the UI as simple for th user as possible, it employs use of the inbuilt windows API to allow me to check the dimensions of the screen. \\ \bk
+
+    Since part of my program heavily interacts with the user I though that it was important to make sure that the UI was as inviting as possible. In order to do this I wanted to bring some colour into it, this is not possible in the base console since there is only 4 bit colour giving 16 possibilities. There is a way to enable 8 bit colour in the console through the use of console modes. This is the function of SetConsoleMode, GetConsoleMode, GetStdHandel and Setup. Each of those changes unique windows setting to allow for the use of ansi escape codes which are stored in the Log class. \\ \bk
+
+    There are a verity of plain setup functions in this class who just create the boundaries for the various information boxes. These include, ClearLogSection, ClearUserSection, DisplayInfoBox and DisplayInfoBox, as the names suggest each of these creates a separate area in the console which can be seen above as an final image. The clear functions are called whoever the program requests it or there is too much information being displayed on the screen at any given time. An example of when there may be too much information is after there has been a long run performed where the user has selected advanced logging, the side bar will clear when the messages get to the bottom and return to the top. \\ \bk
+
+    The BeginInfoLoop function is responsible for the timer which runs in the "Info" box telling the user if the program is running and if it has encountered a hang where, in which, the timer would stop as an indication that the program has encountered an error. There is also the SetPage function which sets the title and information page title allowing the user to know where they are at every stage.\\ \bk
+
+    Finally there are the actual functions which display information to the user, WriteLine is a function which similar to the inbuilt Console.WriteLine displays a message to the user. If the line goes over the user section the program automatically crops it onto another line. There is also a version of this method which takes no arguments which is used for adding a break in between lines. This is needed due to a limitation with '\n'.
 
     \bk
     
@@ -534,6 +546,35 @@
         \subfloat[\centering Min Priority Queue Class Diagram]{{\includegraphics[width=10cm]{images/UML/MinPriorityQueue.png}}}
     \end{figure}\\
 
+    This is perhaps one of the most important classes in the back end library. It is responsible for the speed and performance of the graph traversal. It is based upon a binary heap, this was chosen as it has a good ballance between complexity and performance. I will go over each method in turn describe the mathematics behind how it is stored. \\ \bk
+
+    \textbf{Parent} \\ \bk
+    The parent of a node can be found by doing $$ \frac{i - 1}{2}$$ this can be useful when shifting nodes around. \\ \bk
+
+    \textbf{Left} \\ \bk
+    The left node can be found by doing $$ (i * 2) + 1$$ this can be useful when finding where a node belongs in the queue.\\ \bk
+
+    \textbf{Right} \\ \bk
+    The right node can be found by doing $$ (2 * i) + 2$$ the same reasons as above. \\ \bk
+
+    \textbf{ChangePriority} \\ \bk
+    The change priority function in this class is very important since it can allow the program to change the priority on the fly when performing A* search. the way which A* functions is via using a hubristic function, this function changes with the position of the nodes on the graph therefore it may be that the value of the pixel in the queue needs to be changed this is where this method is used.  \\ \bk
+
+    \textbf{Enqueue} \\ \bk
+    Adds a node to the queue with a priority and a name. This is added into the correct position depending on its propriety.\\ \bk
+
+    \textbf{Dequeue} \\ \bk
+    This removes the front node from the queue, in this case this node will be the one with least value as its priority. This is how the A* search gets the next lowest node quickly.\\ \bk
+
+    \textbf{MinifyHeap} \\ \bk
+    This is used to rearrange the queue in the eventuality that nodes are added or a node has its value changed. If this function is not used the the queue would get out of order causing it be useless for my application.
+
+    \textbf{Swap} \\ \bk
+    As the name suggests all this is used for is swapping two nodes with each other, this includes their value and priority.
+
+    \textbf{Contains} \\ \bk
+    Checks if the a node is contained within the queue, keeping it compatible with the normal queue.
+
     \bk
 
     \pagebreak
@@ -544,6 +585,9 @@
         \subfloat[\centering New Image Class Diagram]{{\includegraphics[width=13cm]{images/UML/NewImage.png}}}
     \end{figure}\\
 
+    This is located in the local application and is only responsible for handling the error detection and getting a user input for the path of the image. Once the class is instantiated and the Read function is called it will prompt the user to enter a file path which then goes onto the pre processing class. Also contained within this class is the specific error handling. It looks out for a Preprocessing Exception as well as all other exceptions, this is to allow for more detailed error messages for the user if something goes wrong.\\\bk
+
+    As well as prompting the user to enter a file this is also where it asks the user if they wish to save the process. If they select yes then this class attaches a new MapFile to the result structure. \\
     \bk
 
     \pagebreak
@@ -554,6 +598,8 @@
         \subfloat[\centering Pathfinder Class Diagram]{{\includegraphics[width=10cm]{images/UML/Pathfinder.png}}}
     \end{figure}\\
 
+    This is located in the front end of the project and is mainly used to keep class coupling to a minimum. Before I implemented operator extensions the conversion to graph was completed here, for now the .ToGraph extension is used to convert the road detected image into a graph. This is done in the InstanceClasses function. Once the classes have been created, a new Windows form instance is created. This is the final stage of the entire program. \\
+
     \bk
 
     \pagebreak
@@ -561,8 +607,32 @@
 
     \begin{figure}[H]
         \centering
-        \subfloat[\centering Pathfind Image Form UML Diagram]{{\includegraphics[width=14.5cm]{images/UML/PathfindImageForm.png}}}
+        \subfloat[\centering Pathfind Image Form UML Diagram]{{\includegraphics[width=15.5cm]{images/UML/PathfindImageForm.png}}}
     \end{figure}\\
+
+    This is located in the front end of the project. This is the endpoint of the program, all of the processing leads to this point. The form consists of two buttons and a image. Once of the buttons allows the user to exit the program, the other starts the pathfind process. The exit button kills the forms instance and returns to the main menu of the program for the whole process to begin again. \\ \bk
+
+    There are many properties on this class the ones which where created by me and their purposes are as follows:\\
+
+    \begin{itemize}
+        \item \_image - This is the image which is shown to the user in the form.
+        \item \_originalImage - This is the original image to get round the fact that the old path would be duplicated overlaying multiple paths on-top of each other.
+        \item \_width - The width of the image used for bound checking
+        \item \_height - The height of the image used for bound checking
+        \item \_graph - The graph which is used to traverse the image and therefore draw a path.
+        \item \_traversalObject - This is the instantiated class which contains the traversal functions.
+        \item \_invalidCoord - A coordinate with values -1 and -1 which is impossible allowing me to detect when not all nodes have been selected.
+        \item prevStartNode - The previous start node, used in dijkstra's for working out if the whole algorithm needs to be re-run.
+        \item startNode - The start node for any traversal algorithm
+        \item endNode - The desired end node for any traversal algorithm
+    \end{itemize}\\ \bk
+
+    The way the form gets the user inputs is through a combination of event handlers. When the user left click on the image it sets a new start node and when they right click it sets a new end node. To denote this on the image a red or green cross is placed. If the user has selected for the nodes to bind to the path an algorithm runs over every node and gets the closest one and then draws the node there. \\ \bk
+
+    When it comes down to the pathfinding, the form recalls the settings and runs the selected algorithm. There are some special conditions, if the start node and the end node are the same then the algorithm will not run. If Dijkstra's is selected and a run has been done before and the start node is the same then the algorithm will just re-run the back propagation algorithm and then redraw the path. This is nearly instant, if one of these cases apply then the algorithm is run and the rebuilding of the path is used to find the path the algorithm found. \\ \bk
+
+    The form will have the information of the chosen algorithm on the side above the buttons, this is there to tell the user what is going on at any given point. If dijkstra's is selected then the amount of nodes so far proceeded giving a rough time to completion. \\ 
+
 
     \bk
 
@@ -574,6 +644,11 @@
         \subfloat[\centering Post Class Diagram]{{\includegraphics[width=10cm]{images/UML/Post.png}}}
     \end{figure}\\
 
+    This is located in the backend of the project and is responsible for taking the output of the canny edge detection and correcting any errors in it and making it better and fillable for the next stage.
+    
+    The first method of the of the road result iis only one of to which are available outside of the class, this is of course the Start function. This is used along with a integer to loop over the entire image an apply an embossing kernel then a filling algorithm this filling algorithm is explained in the algorithms section. The integer which is passed in tells the function how many times to perform the operations. If 0 is passed it will just fill the gaps. The way in which it functions when looping is it will call the EmbossImage function and then the FillPixelGaps.\\ \bk
+
+    The result method, in a similar manner to many other classes in this project returns the result of the post processing on the image.\\
     \bk
 
     \pagebreak
@@ -584,6 +659,11 @@
         \subfloat[\centering Pre Class Diagram]{{\includegraphics[width=14.5cm]{images/UML/Pre.png}}}
     \end{figure}\\
 
+    This is located in the backend portion of my project, this is responsible for taking in the path a user enters and checking if it is an image, if it is then it reads it in and parses it to a machine understandable state. The most important property on this class is the FileExtensionRegex, this is used to check if the path of the image is correct. As can be seen the program only accepts jpg, bmp, exif, png and tiff image formats. \\ \bk
+    
+    If the ValidatePath function returns true then the pre processing moves onto the next stage. Once the image has been read into the program using the inbuilt System.Drawing.Bitmap class the data is stripped out from the bitmap and stored in the _imageRGB property. This is to ensure that the program runs efficiently. It turns out that fetching per pixel from a bitmap image is very inefficient and can cause the program to slow down, as well as this Bitmaps are unsafe meaning that they can cause memory issues if mishandled. \\ \bk
+
+    After being read in the image is checked to see if its the right size, if it is not then it is resized to an even amount. The reason that the dimensions of the image have to be even is so that it can be split up into 4 sections with little issues. Once all of this has been completed it is bundled into a structure and awaited to be fetched by the Result function which is called in the main program thread.\\
     \bk
 
     \pagebreak
@@ -604,6 +684,9 @@
         \subfloat[\centering Program Class Diagram]{{\includegraphics[width=14.5cm]{images/UML/Program.png}}}
     \end{figure}\\
 
+    This is the entry point for the entire application. The Main function is where the program enters and is where the initial setup happens. There is also a testing function shown in this diagram which is not part of the program but was instead used to test various parts of functionality in the testing table. \\ \bk
+
+    The final 3 functions are selected when the user chooses where they wish to go in the program. Run is the function where the program ends into waiting for user input, it will show the user a set of options for them to pick. These include, Run New Image, Run Save File and Settings. If they select settings it will start a settings control instance and allow them to edit said settings. If they select to run a new image the RunNewImage method is invoked and will handel the detection, processing and saving of the new image into a map as explained through out this OOP breakdown. Finally if the user selects the save option RunSaveFile is used, this will prompts the user for a save file, read it in and give the user options for what to do next. This can be seen in the DFD diagrams above.
     \bk
 
     \pagebreak
@@ -614,6 +697,11 @@
         \subfloat[\centering Progress Bar Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/ProgressBar.png}}}
     \end{figure}\\
 
+    The progress bar is very simple and located in the front end of the project. This for me was one of the most important aspects of the program, since from talking to my end user and other possible users of this program, the one thing which they really did not want was the program to just hang and do nothing while they didn't know what was going on. The way which I came to remedy this was through the use of a progress bar. \\ \bk
+
+    The bar fills the user info potion of the screen, the constructor is called with the title, total amount of segments required and a menu instance. The total segments allow the program to calculate how many portions to divide the bar into. Once the program has created a new instance of the progress bar it needs to be displayed on the screen, this is what the DisplayProgress function is for. It draws the outline of the bar only. \\ \bk
+
+    Due to the nature of the progress bar it may be called from separate threads and in the backend where I do not want the front end interacting. In order to get around this Actions are used. When the action is called it adds another segment onto the progress bar in such a way that it does not override the old segments keeping it as fast as possible. The updating of the segments is done here. Once the bar has been completed all that is needed is that the screen be cleared and the instance of the progress bar discarded. \\ 
     \bk
 
     \pagebreak
@@ -670,6 +758,10 @@
         \subfloat[\centering Road Detection Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/RoadDetection.png}}}
     \end{figure}\\
 
+    This is located in the backend section of my program. Again as with most of my classes in this program it follows the same design of having a Start function which beings the process and a Result function which is called after it has completed and the data returned. The main two processes completed in here are the random colour filling of the canny edge detected image. This functions by generating 3 random integers between 0 and 255, it then uses these to create a Color object. If this has been used before then it regenerates it. this give a possible amount of colours of 255^3 which is 16581375 possibilities. It then performs flood fill with the random colour for each section. This the means every section is unique. After the image has been filled its time to remove the colours which violate the area rules. This is explained in more detail in the area rectification section of the algorithms. \\ \bk
+
+    Once the area rectification has been applied to each section, those which violate the area rules are removed. Once this has been done we now have a final image with the roads on it. Then as one final step all the filled sections are converted to white and the white boarders are removed. Therefore, overall we are just left with a "road no road" map.\\
+
     \bk
 
     \pagebreak
@@ -692,6 +784,9 @@
         \subfloat[\centering Road Sequence Class Diagram]{{\includegraphics[width=15cm]{images/UML/RoadSequence.png}}}
     \end{figure}\\
 
+    This is located in the front end library of the project. The main two functions here are the InverseImage function and RoadDetection function. Its function is to wrap the backend library calls to ensure that class coupling and code cleanliness is maintained. The inverse image function prompts the use if there are clear roads outlined then the user is asked not to invert the image. Otherwise it is. In this case the save file also needs to be updated to show that the image was inverted. \\ \bk
+
+    Next the RoadDetection function proceeds to create a new instance of the RoadDetection class and start it with a user inputted amount of iterations. The RoadDetection class performs several algorithms as described above an amount of times in accordance with the user inputted value. Once it has completed it will have the Result method called upon it. Once all of this has completed the program moves onto the pathfinding section.\\
     \bk
 
     
@@ -703,6 +798,8 @@
         \subfloat[\centering Save File Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/SaveFile.png}}}
     \end{figure}\\
 
+    This is again a very basic wrapper class located in the front end section of the project. This prompts the user to enter the location of a save file and if it exists it fetches it using a MapFile instance. It contains all of the error handling to provide detailed feedback based on the exceptions thrown. It gets the location using the Input GetInput function.\\
+
     \bk
 
     
@@ -713,6 +810,32 @@
         \centering
         \subfloat[\centering Settings Class Diagram]{{\includegraphics[width=15cm]{images/UML/Settings.png}}}
     \end{figure}\\
+    This is located in the frontend portion of the project. This is responsible for handling the settings configuration file itself and the data that comes with it. The main portions of this are to do with parsing the file. Due to the fact that this is not a custom binary file and can be edited by the user in a text document the parsing needs to be bullet proof. \\ \bk
+
+    On creation of the program the settings is not immediately loaded, this is due to the fact that it could be corrupt and we want the program to run at least once. When it is loaded it still will not crash it will throw an error only when the setting was changed and was attempted to be changed. \\ \bk
+
+    The CheckIfExistsOrCreate function is called right at the beginning, this function checks to see if the settings file exists and if it does it reads it into memory and if it does not then it creates the file and reads it into memory. The reading the setting and parsing is done in the ParseSettingsFile function. The way in which the settings are formatting is as follows:\\ \bk
+
+    \begin{pseudocode}
+# Manually Edit At Own Risk
+# General Settings
+detailedLogging=false
+forceFormsFront=true
+
+# Pathfinding Settings
+convertToMST=false
+pathfindingAlgorithm=AStar
+snapToGrid=true
+endOnFind=false
+
+# Save Settings
+shortNames=false
+zipOnComplete=false
+    \end{pseudocode}\\\bk
+
+    The 4 change functions are used to alter the values of settings and if it is successful the it returns true. When all changing of settings is done the Write method can be invoked. This updates the settings.conf file as well as updating the stored settings in memory. There are various functions that assist with this parsing back into a human form such as ConvertSettingsToPairs.\\\bk
+
+    Update is used to change the old settings to new settings, inside here a sanity check is done to make sure that no extra settings have somehow been included. \\ \bk
 
     \bk
 
@@ -723,7 +846,7 @@
         \centering
         \subfloat[\centering Settings Control Class Diagram]{{\includegraphics[width=12.5cm]{images/UML/SettingsControl.png}}}
     \end{figure}\\
-
+    This is located in the frontend application of the project, this class is used to allow the user to interact with the settings in a programmatic manner. When this class is created and the Start method is called, this 
     \bk
 
     \pagebreak
@@ -743,6 +866,19 @@
         \centering
         \subfloat[\centering Stack Class Diagram]{{\includegraphics[width=8cm]{images/UML/Stack.png}}}
     \end{figure}\\
+
+    This is an ADT located in the backend of my project. In a similar vain to the Queue class I needed to be able to durectly acess parts which where not available in the default stack class. It contains the following:
+
+    \begin{itemize}
+        \item Push: Adds an element to the end of the stack.
+        \item Pop: Removes the element from the end of the stack and returns it.
+        \item Peek: Returns the element at the end of the stack without removing it.
+        \item Is Empty: Returns a boolean indicating whether the stack is empty or not.
+        \item Size: Returns the number of elements in the stack.
+        \item Contains: Returns a boolean indicating whether the stack contains an element or not.
+    \end{itemize}
+
+    There is a similar modification allowing for any I enumerable to be passed to instantiate the Stack. With the Queue as well it can be seen from the class diagram that all of the methods are generic meaning that this will work with any data type allowing the graph and subsiquent traversal to work in all cases.\\
 
     \bk
 
@@ -923,6 +1059,57 @@ function A_Star(start, goal, h)
         \centering
         \subfloat[\centering Utility Class Diagram]{{\includegraphics[width=14cm]{images/UML/Utility.png}}}
     \end{figure}\\
+
+    This is located in the backend library of this solution. The main function of this class is to supplement the various other classes and algorithms, therefore the easiest way to describe the functions is going through each function in tern. \\ \bk
+
+    \textbf{GaussianDistribution} \\ \bk
+    This function is responsible for generating the gaussian values for the gaussian kernel. It returns the result of a 2D gaussian distribution calculation.\\\bk
+
+
+    \textbf{Bound} \\ \bk
+    This take 3 values, the upper bound, the lower bound and the value to be bounded. If the value is outside the bounds then it is set to the closest bound. For example if the lower bound is 0 and upper bound is 100 and 150 is passed in. The bounded value is 100.\\\bk
+
+    \textbf{TryBound} \\ \bk
+    This performs the exact same as above except it returns true if the value provided was within the bounds.\\\bk
+
+    \textbf{RadianToDegree} \\ \bk
+    Converts Radians to Degrees through \frac{180}{2\pi}\\\bk
+    \textbf{DegreeToRadian} \\ \bk
+    Converts Degrees to Radians through \frac{2\pi}{180}\\\bk
+
+    \textbf{MapRadiansToPixel} \\ \bk
+    This takes in a double value which is a radian measurement, converts it to degrees then bounds it to between 0 and 255.\\\bk
+    \textbf{CombineBitmap} \\ \bk
+    This takes two images in the form of bitmaps and combines B on top of A. Returns a reference to a new bitmap (not A or B).\\\bk
+
+    \textbf{SplitImage} \\ \bk
+    This takes an input of a 2D array of RGB structures. It then calculates the size of 4 quadrants, and returns the 4 quadrants of each image, this then goes on to be used to speed up the edge detection.\\\bk
+    
+    \textbf{CombineQuadrants} \\ \bk
+    This combines 4 quadrants into one large sector.\\\bk
+    \textbf{InverseImage} \\ \bk
+    This takes in a 2D double array of values of either 0 or 255 and then flips them. If it was 0 it is now 255 and vice versa, in essence it inverts all the pixels / doubles in the image.\\\bk
+
+    \textbf{RebuildPath} \\ \bk
+    This takes the output from any one of the graph traversal algorithms and uses the dictionary it generated to form a path given a generic end node. If the node does not exist it returns an empty array.\\\bk
+    
+    \textbf{IsYes} \\ \bk
+    Takes a text input and returns true if it deems the text was a confirmation and false otherwise.\\\bk
+
+    \textbf{GetRed} \\ \bk
+    Gets the red value of a Color object.\\\bk
+    \textbf{GetGreen} \\ \bk
+    Gets the green value of a Color object.\\\bk
+    \textbf{GetBlue}
+    Gets the blue value of a Color object.\\\bk
+    \textbf{GetAverage} \\ \bk
+    Gets the average of all colour channels, it does this by adding them all together then dividing by 3.\\\bk
+    \textbf{GetIndustryAverage} \\ \bk
+    This applies the industry average ratios to the pixel to get an average approximation of a greyscale pixel.\\\bk
+    \textbf{GetIfExists} \\ \bk
+    If the Colour object has any colour whatsoever it will return 255.\\\bk
+    \textbf{GetDistanceBetweenNodes} \\ \bk
+    Gets the pythagorean distance between two coordinates.\\
 
     \bk
 
