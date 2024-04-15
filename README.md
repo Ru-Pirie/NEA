@@ -7,12 +7,17 @@ If you have any questions please don't hesitate to shoot me an email: contact@ru
 # Overview
 The title of this project is "Alogrithmic Map Recognition and Edge Detection with Point to Point Pathfinding", what this boiled down to a canny edge detector coupled with some interesting logic which allowed it to pick out what where roads and what where buildings using a flood fill algorithm. Then after it had done this it converts the filled map to a graph which can then be clicked on to find the shortest path between two points. All of this was tied together with a nice looking custom GUI using WinForms if I recal.
 
-Here is a nice gif of it doing the pathfinding:
-
+Here is a nice gif of it doing the pathfinding (not all from the same source):
+![Nea Pathfinding Gif](https://ru-pirie.com/public/images/fp/nea.gif)
+![Filled Mask](https://github.com/Ru-Pirie/NEA/blob/main/writeup/images/roadExamples/path.png)
+![Edge Detected](https://github.com/Ru-Pirie/NEA/blob/main/writeup/images/edgeDetectionPrototype/j.jpg)
+![Theta Image](https://github.com/Ru-Pirie/NEA/blob/main/writeup/images/edgeDetectionPrototype/f.jpg)
 
 At some point there will be a nice writeup here: [https://ru-pirie.com/projects/personal/nea-extension](https://ru-pirie.com/projects/personal/nea-extension)
 
+<hr>
 
+<br><br><br><br><br><br>
 
 ## OLD README.md I used for deadlines.
 This is my the home repo for my Computer Science Non-Exam Assesment. Contained within is everthing that pertains to the NEA. 
