@@ -1,28 +1,29 @@
-# NEA
+# AQA A Level NEA
 
-This project was completed in the accademic year 2022/23 while I was in my final year of college at Barton Peveril Sixth Form.
+This project was completed in the accademic year **2022/23** while I was in my final year of college at Barton Peveril Sixth Form College.
 
 If you have any questions please don't hesitate to shoot me an email: contact@ru-pirie.com
 
 # Overview
-The title of this project is "Alogrithmic Map Recognition and Edge Detection with Point to Point Pathfinding", what this boiled down to a canny edge detector coupled with some interesting logic which allowed it to pick out what where roads and what where buildings using a flood fill algorithm. Then after it had done this it converts the filled map to a graph which can then be clicked on to find the shortest path between two points. All of this was tied together with a nice looking custom GUI using WinForms if I recal.
+The title of this project is "Alogrithmic Map Recognition and Edge Detection with Point to Point Pathfinding", what this boiled down to a canny edge detector coupled with some interesting logic which allowed it to pick out what where roads and what where buildings using a flood fill algorithm. Then after it had done this it converts the filled map to a graph which can then be clicked on to find the shortest path between two points. All of this was tied together with a nice looking custom GUI using WinForms.
+
+Overall it was a very fun project and I certainly learnt allot from it, if you are a perspective Y12/Y13 student and have any questions I am more than happy to answer them just [email me](mailto:contact@ru-pirie.com).
 
 Here is a nice gif of it doing the pathfinding (not all from the same source):
+
 <div>
-  <img src="https://ru-pirie.com/public/images/fp/nea.gif" width="200">
+  <img src="https://github.com/Ru-Pirie/NEA/blob/main/writeup/images/nea.gif" width="200">
   <img src="https://github.com/Ru-Pirie/NEA/blob/main/writeup/images/roadExamples/path.png" width="200">
   <img src="https://github.com/Ru-Pirie/NEA/blob/main/writeup/images/edgeDetectionPrototype/l.jpg" width="200"> 
   <img src="https://github.com/Ru-Pirie/NEA/blob/main/writeup/images/edgeDetectionPrototype/j.jpg" width="200">
   <img src="https://github.com/Ru-Pirie/NEA/blob/main/writeup/images/edgeDetectionPrototype/f.jpg"  width="200">
 </div>
 
-At some point there will be a nice writeup here: [https://ru-pirie.com/projects/personal/nea-extension](https://ru-pirie.com/projects/personal/nea-extension)
-
 <hr>
 
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
-## OLD README.md I used for deadlines.
+## Previous README
 This is my the home repo for my Computer Science Non-Exam Assesment. Contained within is everthing that pertains to the NEA. 
 
 Directory overview
@@ -40,4 +41,4 @@ Deadlines
 - ~~All write up of NEA - electronic 9th January 2023~~
 - ~~FINAL hand in with corrections (dont miss this one dumbo) – printed and PDF 9th February 2023 @ 4pm~~
 
-# COMPLETED 72/75 :D
+# COMPLETED 73/75 :D
