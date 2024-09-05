@@ -12,7 +12,8 @@ Overall it was a very fun project and I certainly learnt allot from it, if you a
 Here is a nice gif of it doing the pathfinding (not all from the same source):
 
 <div>
-  <img src="https://github.com/Ru-Pirie/NEA/blob/main/writeup/images/nea.gif" width="200">
+  <img src="https://github.com/Ru-Pirie/NEA/blob/main/writeup/images/nea.gif">
+  <br>
   <img src="https://github.com/Ru-Pirie/NEA/blob/main/writeup/images/roadExamples/path.png" width="200">
   <img src="https://github.com/Ru-Pirie/NEA/blob/main/writeup/images/edgeDetectionPrototype/l.jpg" width="200"> 
   <img src="https://github.com/Ru-Pirie/NEA/blob/main/writeup/images/edgeDetectionPrototype/j.jpg" width="200">
